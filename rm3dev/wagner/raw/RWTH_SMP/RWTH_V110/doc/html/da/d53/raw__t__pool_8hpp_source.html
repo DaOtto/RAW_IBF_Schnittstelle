@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: raw_t_pool.hpp Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul fÃ¼r Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>ZusÃ¤tzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('da/d53/raw__t__pool_8hpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>AufzÃ¤hlungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>AufzÃ¤hlungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">raw_t_pool.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/d53/raw__t__pool_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*--FILE HEADER---------------------------------------------------------------</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">;   filename        : raw_t_pool.hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">;   version         : V2.0</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">;   contents        : DATA POOL to exchange data between global tasks</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">;   author          : K. Brauckmann, SMS Eumuco GmbH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">;   date            : May, 2006</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">;---FUNCTION AND ENVIRONMENT---------------------------------------------------</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">;   function:   stellt Strukturen und Speicher zum globelen Datenaustausch zur</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">;               Verfügung.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">;               Diese Datei muss in alle Projekte von SMS und IBF eingebunden</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">;               werden.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">;       RMOS3  Version 3.30</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">;       CAD-UL Version V120C</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">;---END OF  FILE HEADER------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*--MODIFICATION HEADER--------------------------------------------------------</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">;   May , 11. 2006  0001  K.B.  original issue V2.0</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">;   </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">;---END OF MODIFICATION HEADER-----------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef RAW_T_Pool_h</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define RAW_T_Pool_h</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="../../d4/dfc/puff__cnc__s_8hpp.html">puff_cnc_s.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">    #include &quot;<a class="code" href="../../db/dbc/onli__cnc__s_8hpp.html">onli_cnc_s.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a5db31259d0093b5abd1d1d0d1c24989c">   29</a></span>&#160;<span class="preprocessor">    #define TRT_Init_done   0</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a3abd891158f5beb115fa945890db3e17">   30</a></span>&#160;<span class="preprocessor">    #define TRT_Init        1</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a8df9cbd92d907e9f9b4b84282ad5fa80">   31</a></span>&#160;<span class="preprocessor">    #define TRT_Stop        2</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#aa91aba0b78aaf5ecddc885e88cf3fb38">   32</a></span>&#160;<span class="preprocessor">    #define TRT_Finished    4</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a1bf67a0474eee0cfcb74e53747b285df">   34</a></span>&#160;<span class="preprocessor">    #define TRT_gestartet   1</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a8accf4a1e66850cff2b28a1e44a20147">   35</a></span>&#160;<span class="preprocessor">    #define TRT_laeuft      2</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a6cea67246caacd88da720e1680cc7484">   36</a></span>&#160;<span class="preprocessor">    #define TRT_neustart    3</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#abab19772ef0fa4ab054f53218e7322ec">   37</a></span>&#160;<span class="preprocessor">    #define TRT_gestoppt    4</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#af50b12efdb66a297914cb7f5d2d71b3a">   38</a></span>&#160;<span class="preprocessor">    #define TRT_fertig      0</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a35797dc940aa5245438bf1b897e00709">   39</a></span>&#160;<span class="preprocessor">    #define TRT_Fehler     -1</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a29e8db9d030609c53c8e4d9461b73e0b">   40</a></span>&#160;<span class="preprocessor">    #define TRT_Blinker     16</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#aaa51b7fb8eb31df3396c891f0e5fb851">   42</a></span>&#160;<span class="preprocessor">    #define MAX_LOG_KANAELE_RWTH    300</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html">   44</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html">LOG_CHANNEL_DEF</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a7b44b7d952c614debdfeecc7aec9963c">   46</a></span>&#160;        <span class="keywordtype">int</span>    <a class="code" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a7b44b7d952c614debdfeecc7aec9963c">type</a>;                        <span class="comment">//0:  Kanal nicht definiert</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                            <span class="comment">//1:  short  (16 bits)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                            <span class="comment">//2:  long   (32 bits)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                                            <span class="comment">//3:  float  (32 bits)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                            <span class="comment">//4:  double (64 bits)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                                            <span class="comment">//11: binär  (16 bits)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a71ac6cbf486bccbe8a1cb4a154d1266e">   53</a></span>&#160;        <span class="keywordtype">double</span> <a class="code" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a71ac6cbf486bccbe8a1cb4a154d1266e">faktor</a>;                      <span class="comment">//wird bei Typ 3 und 4 verwendet</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                                            <span class="comment">//damit werden die Variablen</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                                            <span class="comment">//multipliziert und auf long</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                            <span class="comment">//gecastet. Der Logger</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                            <span class="comment">//überträgt ausschließlich long!</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a3f50569cd0bb79d72bb88e9b7fcc6994">   59</a></span>&#160;        <span class="keywordtype">void</span> * <a class="code" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a3f50569cd0bb79d72bb88e9b7fcc6994">pAdresse</a>;                    <span class="comment">//Adresse der Variablen in der </span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                            <span class="comment">//Form: (void *)&amp;Variablenname</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d6/d9b/struct_te_dat4__type.html">   64</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d6/d9b/struct_te_dat4__type.html">TeDat4_type</a></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">   66</a></span>&#160;       <span class="keywordtype">char</span>     <a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">Teststring</a>[4][80];          <span class="comment">// Textstring CNC -&gt; PC </span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">   67</a></span>&#160;       <span class="keywordtype">long</span>     <a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDa</a>[4][10];                <span class="comment">// Testwerte CNC -&gt; PC              </span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html">   71</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html">RwwtPool_tag</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a040634539d537d6d7814e05930d52e0b">   73</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a040634539d537d6d7814e05930d52e0b">Status_TRT</a>;                     <span class="comment">//Status der TRT Bearbeitung</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a0f177257f761b76cf2888314d20dad0b">   74</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a0f177257f761b76cf2888314d20dad0b">Steuer_TRT</a>;                     <span class="comment">//Starten, Beenden</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a144acc30c6e8d40efa4f2dff964f3703">   75</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a144acc30c6e8d40efa4f2dff964f3703">Status_RWTH</a>;                    <span class="comment">//Status der IBF Bearbeitung</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a7ff8645074573389a388fc30a6d8865a">   76</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a7ff8645074573389a388fc30a6d8865a">Steuer_RWTH</a>;                    <span class="comment">//Starten, Beenden</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#acf79c949b77320648d4924e1097e394c">   78</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#acf79c949b77320648d4924e1097e394c">Data_available</a>;                 <span class="comment">//Daten TRT mindestens einmal berechnet</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a0c6178a488baf271e6a1f1367899d43a">   79</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a0c6178a488baf271e6a1f1367899d43a">Data_availableRWTH</a>;             <span class="comment">//Daten IBF mindestens einmal berechnet</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#af57fb961a6981426867b09bf14a11ee2">   81</a></span>&#160;       <span class="keywordtype">int</span>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#af57fb961a6981426867b09bf14a11ee2">Data_initialed</a>;                 <span class="comment">//Daten von CARWIN übertragen</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#aa7214e7fdcf0a5a263763a35dbd6a82a">   83</a></span>&#160;       <a class="code" href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html">LOG_CHANNEL_DEF</a>        *<a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#aa7214e7fdcf0a5a263763a35dbd6a82a">pLTableRWTH</a>; <span class="comment">//Zeiger auf Tabelle mit Loggerkanälen</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a0358b609517e1b0ca016ddf0bef403e3">   85</a></span>&#160;       <a class="code" href="../../d6/d9b/struct_te_dat4__type.html">TeDat4_type</a>            *<a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a0358b609517e1b0ca016ddf0bef403e3">pTeDat</a>;      <span class="comment">//Zeiger auf Testwerte</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#ae637b84881c1ceaf33692e3a62e287af">   87</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../df/dd8/struct_def___ein___puff.html">Def_Ein_Puff</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#ae637b84881c1ceaf33692e3a62e287af">ein_puff</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a6fbf658c8e03fe96159df606505e2970">   88</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../df/dd8/struct_def___ein___puff.html">Def_Ein_Puff</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a6fbf658c8e03fe96159df606505e2970">ein_puff_back</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a14a0395734cd36bcdd3ea3e9a6844ca5">   89</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../df/dd8/struct_def___ein___puff.html">Def_Ein_Puff</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a14a0395734cd36bcdd3ea3e9a6844ca5">ein_puff_RWTH</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a02028fc5fba9ef39c06debeadf2388f0">   90</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../d5/d16/struct_def___aus___puff.html">Def_Aus_Puff</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a02028fc5fba9ef39c06debeadf2388f0">aus_puff</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a8600b16576d08d6f1f6087aafc00f8e5">   91</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../d5/d16/struct_def___aus___puff.html">Def_Aus_Puff</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a8600b16576d08d6f1f6087aafc00f8e5">aus_puff_RWTH</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a3f4479508d88415ca78ace6aeb58794f">   92</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../da/deb/struct_def___ein___onli.html">Def_Ein_Onli</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a3f4479508d88415ca78ace6aeb58794f">ein_onli</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a970dc9117d77184a898db8ab80d4fe56">   93</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../da/deb/struct_def___ein___onli.html">Def_Ein_Onli</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a970dc9117d77184a898db8ab80d4fe56">ein_onli_back</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a59acbc7d6a9c1cc9b31b58331f0d6e27">   94</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../da/deb/struct_def___ein___onli.html">Def_Ein_Onli</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a59acbc7d6a9c1cc9b31b58331f0d6e27">ein_onli_RWTH</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a14d55f27dc238c6a2064ee0128b72619">   95</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../df/d17/struct_def___aus___onli.html">Def_Aus_Onli</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a14d55f27dc238c6a2064ee0128b72619">aus_onli</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#aa35497bba0072220fc0546633d69cb7d">   96</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../df/d17/struct_def___aus___onli.html">Def_Aus_Onli</a>    <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#aa35497bba0072220fc0546633d69cb7d">aus_onli_RWTH</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d6/da2/struct_rwwt_pool__tag.html#a8fb64ce319883179aaee6eca5cda7935">   97</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../d6/dc3/struct_def___lokal___puff.html">Def_Lokal_Puff</a>  <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html#a8fb64ce319883179aaee6eca5cda7935">lokal_puff</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    };</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">    #ifdef Powercon_Modul</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html">RwwtPool_tag</a>    *<a class="code" href="../../da/d53/raw__t__pool_8hpp.html#a1c48cf80159eef3d62b44aa5f6f130b8">RwwtPool</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">extern</span> <a class="code" href="../../d6/da2/struct_rwwt_pool__tag.html">RwwtPool_tag</a> *<a class="code" href="../../da/d53/raw__t__pool_8hpp.html#a1c48cf80159eef3d62b44aa5f6f130b8">RwwtPool</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#ab630498cae4abbbe734d7fab291a3488">  106</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> far <a class="code" href="../../da/d53/raw__t__pool_8hpp.html#ab630498cae4abbbe734d7fab291a3488">Powercon_SendSema</a>[] = <span class="stringliteral">&quot;Power_SendSema&quot;</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a940b4d069b23b3f07ec74f7fdff30bf0">  107</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> far <a class="code" href="../../da/d53/raw__t__pool_8hpp.html#a940b4d069b23b3f07ec74f7fdff30bf0">Powercon_RecSema</a>[] = <span class="stringliteral">&quot;Power_RecSema&quot;</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../da/d53/raw__t__pool_8hpp.html#a4885849042a6793708d7b4aaf072814a">  108</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> far <a class="code" href="../../da/d53/raw__t__pool_8hpp.html#a4885849042a6793708d7b4aaf072814a">Mailboxl</a>[] = <span class="stringliteral">&quot;TRT_MAILBOX&quot;</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="ttc" id="struct_def___lokal___puff_html"><div class="ttname"><a href="../../d6/dc3/struct_def___lokal___puff.html">Def_Lokal_Puff</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfc/puff__cnc__s_8hpp_source.html#l00436">puff_cnc_s.hpp:436</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a970dc9117d77184a898db8ab80d4fe56"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a970dc9117d77184a898db8ab80d4fe56">RwwtPool_tag::ein_onli_back</a></div><div class="ttdeci">struct Def_Ein_Onli ein_onli_back</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00093">raw_t_pool.hpp:93</a></div></div>
+<div class="ttc" id="struct_te_dat4__type_html_a362e230ea2d959589a54405f401af923"><div class="ttname"><a href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDat4_type::TeDa</a></div><div class="ttdeci">long TeDa[4][10]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00067">raw_t_pool.hpp:67</a></div></div>
+<div class="ttc" id="raw__t__pool_8hpp_html_a4885849042a6793708d7b4aaf072814a"><div class="ttname"><a href="../../da/d53/raw__t__pool_8hpp.html#a4885849042a6793708d7b4aaf072814a">Mailboxl</a></div><div class="ttdeci">const char far Mailboxl[]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00108">raw_t_pool.hpp:108</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a59acbc7d6a9c1cc9b31b58331f0d6e27"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a59acbc7d6a9c1cc9b31b58331f0d6e27">RwwtPool_tag::ein_onli_RWTH</a></div><div class="ttdeci">struct Def_Ein_Onli ein_onli_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00094">raw_t_pool.hpp:94</a></div></div>
+<div class="ttc" id="raw__t__pool_8hpp_html_ab630498cae4abbbe734d7fab291a3488"><div class="ttname"><a href="../../da/d53/raw__t__pool_8hpp.html#ab630498cae4abbbe734d7fab291a3488">Powercon_SendSema</a></div><div class="ttdeci">const char far Powercon_SendSema[]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00106">raw_t_pool.hpp:106</a></div></div>
+<div class="ttc" id="struct_l_o_g___c_h_a_n_n_e_l___d_e_f_html_a7b44b7d952c614debdfeecc7aec9963c"><div class="ttname"><a href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a7b44b7d952c614debdfeecc7aec9963c">LOG_CHANNEL_DEF::type</a></div><div class="ttdeci">int type</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00046">raw_t_pool.hpp:46</a></div></div>
+<div class="ttc" id="struct_def___ein___onli_html"><div class="ttname"><a href="../../da/deb/struct_def___ein___onli.html">Def_Ein_Onli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbc/onli__cnc__s_8hpp_source.html#l00024">onli_cnc_s.hpp:24</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a3f4479508d88415ca78ace6aeb58794f"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a3f4479508d88415ca78ace6aeb58794f">RwwtPool_tag::ein_onli</a></div><div class="ttdeci">struct Def_Ein_Onli ein_onli</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00092">raw_t_pool.hpp:92</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a0358b609517e1b0ca016ddf0bef403e3"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a0358b609517e1b0ca016ddf0bef403e3">RwwtPool_tag::pTeDat</a></div><div class="ttdeci">TeDat4_type * pTeDat</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00085">raw_t_pool.hpp:85</a></div></div>
+<div class="ttc" id="struct_l_o_g___c_h_a_n_n_e_l___d_e_f_html_a3f50569cd0bb79d72bb88e9b7fcc6994"><div class="ttname"><a href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a3f50569cd0bb79d72bb88e9b7fcc6994">LOG_CHANNEL_DEF::pAdresse</a></div><div class="ttdeci">void * pAdresse</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00059">raw_t_pool.hpp:59</a></div></div>
+<div class="ttc" id="struct_def___aus___onli_html"><div class="ttname"><a href="../../df/d17/struct_def___aus___onli.html">Def_Aus_Onli</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/dbc/onli__cnc__s_8hpp_source.html#l00215">onli_cnc_s.hpp:215</a></div></div>
+<div class="ttc" id="struct_l_o_g___c_h_a_n_n_e_l___d_e_f_html"><div class="ttname"><a href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html">LOG_CHANNEL_DEF</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00044">raw_t_pool.hpp:44</a></div></div>
+<div class="ttc" id="raw__t__pool_8hpp_html_a940b4d069b23b3f07ec74f7fdff30bf0"><div class="ttname"><a href="../../da/d53/raw__t__pool_8hpp.html#a940b4d069b23b3f07ec74f7fdff30bf0">Powercon_RecSema</a></div><div class="ttdeci">const char far Powercon_RecSema[]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00107">raw_t_pool.hpp:107</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a0f177257f761b76cf2888314d20dad0b"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a0f177257f761b76cf2888314d20dad0b">RwwtPool_tag::Steuer_TRT</a></div><div class="ttdeci">int Steuer_TRT</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00074">raw_t_pool.hpp:74</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a040634539d537d6d7814e05930d52e0b"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a040634539d537d6d7814e05930d52e0b">RwwtPool_tag::Status_TRT</a></div><div class="ttdeci">int Status_TRT</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00073">raw_t_pool.hpp:73</a></div></div>
+<div class="ttc" id="struct_te_dat4__type_html"><div class="ttname"><a href="../../d6/d9b/struct_te_dat4__type.html">TeDat4_type</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00064">raw_t_pool.hpp:64</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a144acc30c6e8d40efa4f2dff964f3703"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a144acc30c6e8d40efa4f2dff964f3703">RwwtPool_tag::Status_RWTH</a></div><div class="ttdeci">int Status_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00075">raw_t_pool.hpp:75</a></div></div>
+<div class="ttc" id="struct_def___aus___puff_html"><div class="ttname"><a href="../../d5/d16/struct_def___aus___puff.html">Def_Aus_Puff</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfc/puff__cnc__s_8hpp_source.html#l00255">puff_cnc_s.hpp:255</a></div></div>
+<div class="ttc" id="struct_def___ein___puff_html"><div class="ttname"><a href="../../df/dd8/struct_def___ein___puff.html">Def_Ein_Puff</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dfc/puff__cnc__s_8hpp_source.html#l00050">puff_cnc_s.hpp:50</a></div></div>
+<div class="ttc" id="struct_te_dat4__type_html_a12bb393918cb56516456af9ab29c21dc"><div class="ttname"><a href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">TeDat4_type::Teststring</a></div><div class="ttdeci">char Teststring[4][80]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00066">raw_t_pool.hpp:66</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a6fbf658c8e03fe96159df606505e2970"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a6fbf658c8e03fe96159df606505e2970">RwwtPool_tag::ein_puff_back</a></div><div class="ttdeci">struct Def_Ein_Puff ein_puff_back</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00088">raw_t_pool.hpp:88</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a14a0395734cd36bcdd3ea3e9a6844ca5"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a14a0395734cd36bcdd3ea3e9a6844ca5">RwwtPool_tag::ein_puff_RWTH</a></div><div class="ttdeci">struct Def_Ein_Puff ein_puff_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00089">raw_t_pool.hpp:89</a></div></div>
+<div class="ttc" id="raw__t__pool_8hpp_html_a1c48cf80159eef3d62b44aa5f6f130b8"><div class="ttname"><a href="../../da/d53/raw__t__pool_8hpp.html#a1c48cf80159eef3d62b44aa5f6f130b8">RwwtPool</a></div><div class="ttdeci">RwwtPool_tag * RwwtPool</div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a02028fc5fba9ef39c06debeadf2388f0"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a02028fc5fba9ef39c06debeadf2388f0">RwwtPool_tag::aus_puff</a></div><div class="ttdeci">struct Def_Aus_Puff aus_puff</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00090">raw_t_pool.hpp:90</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a14d55f27dc238c6a2064ee0128b72619"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a14d55f27dc238c6a2064ee0128b72619">RwwtPool_tag::aus_onli</a></div><div class="ttdeci">struct Def_Aus_Onli aus_onli</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00095">raw_t_pool.hpp:95</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a0c6178a488baf271e6a1f1367899d43a"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a0c6178a488baf271e6a1f1367899d43a">RwwtPool_tag::Data_availableRWTH</a></div><div class="ttdeci">int Data_availableRWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00079">raw_t_pool.hpp:79</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a8fb64ce319883179aaee6eca5cda7935"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a8fb64ce319883179aaee6eca5cda7935">RwwtPool_tag::lokal_puff</a></div><div class="ttdeci">struct Def_Lokal_Puff lokal_puff</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00097">raw_t_pool.hpp:97</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_aa7214e7fdcf0a5a263763a35dbd6a82a"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#aa7214e7fdcf0a5a263763a35dbd6a82a">RwwtPool_tag::pLTableRWTH</a></div><div class="ttdeci">LOG_CHANNEL_DEF * pLTableRWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00083">raw_t_pool.hpp:83</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a8600b16576d08d6f1f6087aafc00f8e5"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a8600b16576d08d6f1f6087aafc00f8e5">RwwtPool_tag::aus_puff_RWTH</a></div><div class="ttdeci">struct Def_Aus_Puff aus_puff_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00091">raw_t_pool.hpp:91</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_a7ff8645074573389a388fc30a6d8865a"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#a7ff8645074573389a388fc30a6d8865a">RwwtPool_tag::Steuer_RWTH</a></div><div class="ttdeci">int Steuer_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00076">raw_t_pool.hpp:76</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_ae637b84881c1ceaf33692e3a62e287af"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#ae637b84881c1ceaf33692e3a62e287af">RwwtPool_tag::ein_puff</a></div><div class="ttdeci">struct Def_Ein_Puff ein_puff</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00087">raw_t_pool.hpp:87</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html">RwwtPool_tag</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00071">raw_t_pool.hpp:71</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_aa35497bba0072220fc0546633d69cb7d"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#aa35497bba0072220fc0546633d69cb7d">RwwtPool_tag::aus_onli_RWTH</a></div><div class="ttdeci">struct Def_Aus_Onli aus_onli_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00096">raw_t_pool.hpp:96</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_acf79c949b77320648d4924e1097e394c"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#acf79c949b77320648d4924e1097e394c">RwwtPool_tag::Data_available</a></div><div class="ttdeci">int Data_available</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00078">raw_t_pool.hpp:78</a></div></div>
+<div class="ttc" id="struct_rwwt_pool__tag_html_af57fb961a6981426867b09bf14a11ee2"><div class="ttname"><a href="../../d6/da2/struct_rwwt_pool__tag.html#af57fb961a6981426867b09bf14a11ee2">RwwtPool_tag::Data_initialed</a></div><div class="ttdeci">int Data_initialed</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00081">raw_t_pool.hpp:81</a></div></div>
+<div class="ttc" id="struct_l_o_g___c_h_a_n_n_e_l___d_e_f_html_a71ac6cbf486bccbe8a1cb4a154d1266e"><div class="ttname"><a href="../../d0/d1e/struct_l_o_g___c_h_a_n_n_e_l___d_e_f.html#a71ac6cbf486bccbe8a1cb4a154d1266e">LOG_CHANNEL_DEF::faktor</a></div><div class="ttdeci">double faktor</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00053">raw_t_pool.hpp:53</a></div></div>
+<div class="ttc" id="onli__cnc__s_8hpp_html"><div class="ttname"><a href="../../db/dbc/onli__cnc__s_8hpp.html">onli_cnc_s.hpp</a></div></div>
+<div class="ttc" id="puff__cnc__s_8hpp_html"><div class="ttname"><a href="../../d4/dfc/puff__cnc__s_8hpp.html">puff_cnc_s.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_a2abdbaa7473ee34f6db7f792595f5c8.html">inc</a></li><li class="navelem"><a class="el" href="../../da/d53/raw__t__pool_8hpp.html">raw_t_pool.hpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:13 fÃ¼r RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

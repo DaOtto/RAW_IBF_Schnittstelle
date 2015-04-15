@@ -1,0 +1,28 @@
+/*--FILE HEADER-(set tabulator to 4)-------------------------------------------
+;
+;   filename    : HOOKS.SUB  
+;   version     : 0003
+;   contents    : Definition of subsystem for HOOKS.C
+;   author      : W.S.
+;   date        : Jan 21, 1997
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Definition of subsystem for HOOKS.C
+;
+;   RMOS2 & RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Oct 14, 1991  R.S.  0001  Original issue
+;   Dec  4, 1992  W.S.  0002  New Header added
+;   Jan 21, 1997  K.P.H.0003  Added xh_istate and xh_sstate
+;
+;---END OF MODIFICATION HEADER-----------------------------------------------*/
+
+$COMPACT (HOOKS -CONST IN CODE- HAS hooks;
+$         EXPORTS
+$           xh_init, xh_create, xh_deltsk, xh_tskswt_out, xh_tskswt_in, xh_svc,
+$           xh_rio_start, xh_rio_end, xh_schdlr, xh_istate, xh_sstate)

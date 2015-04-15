@@ -1,0 +1,12 @@
+/*--FILE HEADER----------------------------------------------------------------
+**
+**  filename    : FILTER.SUB
+**  version     : 0001
+**  contents    : Subsystem definition for FILTER.C
+**  author      : K.H.
+**  date        : 01-MAR-1991
+**
+**--END OF FILE HEADER---------------------------------------------------------
+*/
+$ COMPACT ( DEB -CONST IN CODE- 
+$ HAS	DEB_FILTER)

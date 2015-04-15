@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: IBF_dw_regelung.hpp-Dateireferenz</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('dc/d27/_i_b_f__dw__regelung_8hpp.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#define-members">Makrodefinitionen</a> &#124;
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle">
+<div class="title">IBF_dw_regelung.hpp-Dateireferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><a href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d65/struct_def___d_w___regelung___d_a___jenkouk.html">Def_DW_Regelung_DA_Jenkouk</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regelung der Dornwalze.  <a href="../../d0/d65/struct_def___d_w___regelung___d_a___jenkouk.html#details">Mehr ...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d0d/struct_axialgeruest___regelung.html">Axialgeruest_Regelung</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enthält Informationen über die aktuelle Werte und Soll-Werte des Rings im Bezug auf die Achse.  <a href="../../d9/d0d/struct_axialgeruest___regelung.html#details">Mehr ...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Makrodefinitionen</h2></td></tr>
+<tr class="memitem:a07bb515d085b25326952cca4a499b8f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a07bb515d085b25326952cca4a499b8f0">cos_zeta</a>&#160;&#160;&#160;0.64F</td></tr>
+<tr class="memdesc:a07bb515d085b25326952cca4a499b8f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Winkel am Messystem nach Zeichnung cos(Winkel °)  <a href="#a07bb515d085b25326952cca4a499b8f0">Mehr ...</a><br /></td></tr>
+<tr class="separator:a07bb515d085b25326952cca4a499b8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42e7d94aae6dc170eaf5bf0667966fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#ad42e7d94aae6dc170eaf5bf0667966fc">sin_zeta</a>&#160;&#160;&#160;0.768F</td></tr>
+<tr class="memdesc:ad42e7d94aae6dc170eaf5bf0667966fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Winkel Messsystem.  <a href="#ad42e7d94aae6dc170eaf5bf0667966fc">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad42e7d94aae6dc170eaf5bf0667966fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4e7988640347494652676301e4c8a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a2a4e7988640347494652676301e4c8a4">regel_zyklus_fak</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:a2a4e7988640347494652676301e4c8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regelzykluszeit = regel_zyklus_fak * Abtatszeit(0.1 sec)  <a href="#a2a4e7988640347494652676301e4c8a4">Mehr ...</a><br /></td></tr>
+<tr class="separator:a2a4e7988640347494652676301e4c8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c91ce981231572b529529d0da466dd8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a3c91ce981231572b529529d0da466dd8">Arraygroesse</a>&#160;&#160;&#160;20</td></tr>
+<tr class="memdesc:a3c91ce981231572b529529d0da466dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition der Größe eines Arrays.  <a href="#a3c91ce981231572b529529d0da466dd8">Mehr ...</a><br /></td></tr>
+<tr class="separator:a3c91ce981231572b529529d0da466dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:ad43b4d8edfb89146e25129236bf1f666"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#ad43b4d8edfb89146e25129236bf1f666">Beta</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:ad43b4d8edfb89146e25129236bf1f666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet den Winkel Beta nach der Zeichnung in der DA von Jenkouk Abbildung 4-9 (Winkel).  <a href="#ad43b4d8edfb89146e25129236bf1f666">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad43b4d8edfb89146e25129236bf1f666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42ab8473eab6cb52cc667fcb2027e876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a42ab8473eab6cb52cc667fcb2027e876">Alpha</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a42ab8473eab6cb52cc667fcb2027e876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abbildung 4-9 (Winkel) DA Jenkouk Winkel zwischen Walzwerksachse und Verbindungslinie Mittelpunktmessrolle-Mittelpunktring.  <a href="#a42ab8473eab6cb52cc667fcb2027e876">Mehr ...</a><br /></td></tr>
+<tr class="separator:a42ab8473eab6cb52cc667fcb2027e876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e70e548c1f7ab1463017452a57ee76a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a9e70e548c1f7ab1463017452a57ee76a">Gamma</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a9e70e548c1f7ab1463017452a57ee76a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Winkel zwischen der Walzwerkachse und der Verbindungslinie Ringmittelpunkt und Beruehrungspunkt zwischen Innenring und Dornwalze (Eingang Radialwalzspalt)  <a href="#a9e70e548c1f7ab1463017452a57ee76a">Mehr ...</a><br /></td></tr>
+<tr class="separator:a9e70e548c1f7ab1463017452a57ee76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9b3700e4a2d97e036906117f02b47e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#abc9b3700e4a2d97e036906117f02b47e">T_Einlauf</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:abc9b3700e4a2d97e036906117f02b47e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Zeit, bis der Punkt, welcher gerade vom Messsystem erfasst wurde in den Radialwalzspalt gelangt.  <a href="#abc9b3700e4a2d97e036906117f02b47e">Mehr ...</a><br /></td></tr>
+<tr class="separator:abc9b3700e4a2d97e036906117f02b47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45f6deffae4a1db66bb5e9da7b9586f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#aa45f6deffae4a1db66bb5e9da7b9586f">Axial_Wanddicke_bestimmen</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:aa45f6deffae4a1db66bb5e9da7b9586f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Wanddicke wie in der Doktorarbeit von W.  <a href="#aa45f6deffae4a1db66bb5e9da7b9586f">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa45f6deffae4a1db66bb5e9da7b9586f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38cae561326f3247fbee3b03fbc6bed8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a38cae561326f3247fbee3b03fbc6bed8">T_V</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a38cae561326f3247fbee3b03fbc6bed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diese Funktion hat keinen Inhalt.  <a href="#a38cae561326f3247fbee3b03fbc6bed8">Mehr ...</a><br /></td></tr>
+<tr class="separator:a38cae561326f3247fbee3b03fbc6bed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5185b3790a39da2971f856e530bfdc8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a5185b3790a39da2971f856e530bfdc8f">DW_Regelalgo</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a5185b3790a39da2971f856e530bfdc8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Steuert das Zusammenspiel von Messsystem und Dornwalze.  <a href="#a5185b3790a39da2971f856e530bfdc8f">Mehr ...</a><br /></td></tr>
+<tr class="separator:a5185b3790a39da2971f856e530bfdc8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0046d4b9c85d910c16e90aac9c3bc37b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a0046d4b9c85d910c16e90aac9c3bc37b">DA_Jenkouk_Regler</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a0046d4b9c85d910c16e90aac9c3bc37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regelt das Verhalten der Dornwalze.  <a href="#a0046d4b9c85d910c16e90aac9c3bc37b">Mehr ...</a><br /></td></tr>
+<tr class="separator:a0046d4b9c85d910c16e90aac9c3bc37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8043640daa1c669c91e582592f91c47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#ac8043640daa1c669c91e582592f91c47">RS_nach_Messwert_Fahren</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="separator:ac8043640daa1c669c91e582592f91c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3476cdb4814b004ae214161d1a32b620"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a3476cdb4814b004ae214161d1a32b620">AG_Regelalgo</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="separator:a3476cdb4814b004ae214161d1a32b620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a255c94733ed6f1e3e210ed66ee5acc9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a255c94733ed6f1e3e210ed66ee5acc9f">DA_Jenkouk_Regler_AG</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="separator:a255c94733ed6f1e3e210ed66ee5acc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Makro-Dokumentation</h2>
+<a class="anchor" id="a3c91ce981231572b529529d0da466dd8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Arraygroesse&#160;&#160;&#160;20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition der Größe eines Arrays. </p>
+
+<p>Definiert in Zeile <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00058">58</a> der Datei <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html">IBF_dw_regelung.hpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00033">AG_Regelalgo()</a> und <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00203">DW_Regelalgo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07bb515d085b25326952cca4a499b8f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define cos_zeta&#160;&#160;&#160;0.64F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Winkel am Messystem nach Zeichnung cos(Winkel °) </p>
+
+<p>Definiert in Zeile <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00034">34</a> der Datei <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html">IBF_dw_regelung.hpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00105">Alpha()</a> und <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00067">Axial_Wanddicke_bestimmen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a4e7988640347494652676301e4c8a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define regel_zyklus_fak&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Regelzykluszeit = regel_zyklus_fak * Abtatszeit(0.1 sec) </p>
+
+<p>Definiert in Zeile <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00050">50</a> der Datei <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html">IBF_dw_regelung.hpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00033">AG_Regelalgo()</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">DA_Jenkouk_Regler()</a>, <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00090">DA_Jenkouk_Regler_AG()</a> und <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00203">DW_Regelalgo()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad42e7d94aae6dc170eaf5bf0667966fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define sin_zeta&#160;&#160;&#160;0.768F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Winkel Messsystem. </p>
+
+<p>Definiert in Zeile <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00042">42</a> der Datei <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html">IBF_dw_regelung.hpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00105">Alpha()</a> und <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00067">Axial_Wanddicke_bestimmen()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a class="anchor" id="a3476cdb4814b004ae214161d1a32b620"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AG_Regelalgo </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00033">33</a> der Datei <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html">ibf_flexibel_axial_AG_Pos.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00212">Def_IBF_Allgemein_IST::AG_Pos</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00386">Def_IBF_Allgemein_SOLL::AG_Pos</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00487">Def_IBF_Allgemein_SOLL::AG_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00058">Arraygroesse</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00286">Def_IBF_Allgemein_IST::Axial</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00062">Def_Kragen_Geo::Del_Kr_AGR</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00050">Def_Kragen_Geo::Kr_Br</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00156">Axial_Flex_Prof::Kr_geo</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00072">Def_Kragen_Geo::l_fehlende_spitze_ukw</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00050">regel_zyklus_fak</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00153">Def_Zeit::Ringumdrehung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00211">Def_IBF_Allgemein_IST::RS_Pos</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00214">Def_IBF_Allgemein_IST::TR_Pos</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00162">Axialgeruest_Regelung::Wanddicke_axial_Aussensegment</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00159">Axialgeruest_Regelung::Wanddicke_axial_soll</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00169">Axialgeruest_Regelung::wanddicke_hilf</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00274">Def_IBF_Allgemein_IST::Zeit</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00090">DA_Jenkouk_Regler_AG()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42ab8473eab6cb52cc667fcb2027e876"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Alpha </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Abbildung 4-9 (Winkel) DA Jenkouk Winkel zwischen Walzwerksachse und Verbindungslinie Mittelpunktmessrolle-Mittelpunktring. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00105">105</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00102">Def_DW_Regelung_DA_Jenkouk::Abstand_C</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00212">Def_IBF_Allgemein_IST::AG_Pos</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00132">Def_DW_Regelung_DA_Jenkouk::Alpha</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00034">cos_zeta</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00245">Def_IBF_Allgemein_IST::da</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00308">Def_IBF_Allgemein_IST::DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00092">Def_DW_Regelung_DA_Jenkouk::Messwert_A_mf</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00107">Def_DW_Regelung_DA_Jenkouk::Offset</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00057">PI</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00042">sin_zeta</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00106">Def_DW_Regelung_DA_Jenkouk::Tastrollen_Radius</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00151">Beta()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa45f6deffae4a1db66bb5e9da7b9586f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Axial_Wanddicke_bestimmen </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Wanddicke wie in der Doktorarbeit von W. </p>
+<p>Jenkouk beschrieben (Kapitel 4.2.2). </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00067">67</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00102">Def_DW_Regelung_DA_Jenkouk::Abstand_C</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00212">Def_IBF_Allgemein_IST::AG_Pos</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00034">cos_zeta</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00245">Def_IBF_Allgemein_IST::da</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00246">Def_IBF_Allgemein_IST::di</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00308">Def_IBF_Allgemein_IST::DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00092">Def_DW_Regelung_DA_Jenkouk::Messwert_A_mf</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00096">Def_DW_Regelung_DA_Jenkouk::Messwert_A_unten_mf</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00107">Def_DW_Regelung_DA_Jenkouk::Offset</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00135">Def_DW_Regelung_DA_Jenkouk::ri</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00141">Def_DW_Regelung_DA_Jenkouk::ri_block1</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00142">Def_DW_Regelung_DA_Jenkouk::ri_block2</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00042">sin_zeta</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00106">Def_DW_Regelung_DA_Jenkouk::Tastrollen_Radius</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00144">Def_DW_Regelung_DA_Jenkouk::TestOffset</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00116">Def_DW_Regelung_DA_Jenkouk::Wanddicke_berechnet</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00145">Def_DW_Regelung_DA_Jenkouk::Wanddicke_MS</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">DA_Jenkouk_Regler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad43b4d8edfb89146e25129236bf1f666"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Beta </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet den Winkel Beta nach der Zeichnung in der DA von Jenkouk Abbildung 4-9 (Winkel). </p>
+<p>Beta ist also 180° - aplha - gamma </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00151">151</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00105">Alpha()</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00132">Def_DW_Regelung_DA_Jenkouk::Alpha</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00131">Def_DW_Regelung_DA_Jenkouk::Beta</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00128">Gamma()</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00133">Def_DW_Regelung_DA_Jenkouk::Gamma</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00169">T_Einlauf()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0046d4b9c85d910c16e90aac9c3bc37b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DA_Jenkouk_Regler </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Regelt das Verhalten der Dornwalze. </p>
+<p>In regelmäßigen Abständen werden <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp.html#a68c831b8d6dc174be24b8272f81249f2">MS_Daempfer</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#aa45f6deffae4a1db66bb5e9da7b9586f">Axial_Wanddicke_bestimmen</a> aufgerufen. Ab dem fünften Methodenaufruf, werden zusätzlich die Methoden <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#abc9b3700e4a2d97e036906117f02b47e">T_Einlauf</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html#a38cae561326f3247fbee3b03fbc6bed8">T_V</a> aufgerufen. Somit wird einer Berechnung der Zeit, die ein Punkt benütigt, um vom Messsystem zum Raidalwalzspalt zu gelangen, berechnet. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">253</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00138">Def_DW_Regelung_DA_Jenkouk::Aufrufzeit_Regelzykl</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00067">Axial_Wanddicke_bestimmen()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00138">IBF_Flag::DA_Jenkouk_DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00143">IBF_Flag::DA_Jenkouk_Messen_ohne_Fahren</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00088">Def_DW_Regelung_DA_Jenkouk::Funktios_Iter</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00025">MS_Daempfer()</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00050">regel_zyklus_fak</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00048">RS_nach_Messwert_Fahren()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00211">Def_IBF_Allgemein_IST::RS_Pos</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00384">Def_IBF_Allgemein_SOLL::RS_Pos</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00169">T_Einlauf()</a> und <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00192">T_V()</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a255c94733ed6f1e3e210ed66ee5acc9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DA_Jenkouk_Regler_AG </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00090">90</a> der Datei <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html">ibf_flexibel_axial_AG_Pos.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dd/da5/ibf__flexibel__axial___a_g___pos_8cpp_source.html#l00033">AG_Regelalgo()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00487">Def_IBF_Allgemein_SOLL::AG_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00164">Axialgeruest_Regelung::Aufrufzeit_Regelzykl</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00050">regel_zyklus_fak</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5185b3790a39da2971f856e530bfdc8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DW_Regelalgo </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Steuert das Zusammenspiel von Messsystem und Dornwalze. </p>
+<p>Diese Methode wird derzeit nicht genutzt</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vorm Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00203">203</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00128">Def_DW_Regelung_DA_Jenkouk::Anzahl_Zeitschritte</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00058">Arraygroesse</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00136">Def_DW_Regelung_DA_Jenkouk::DW_soll_Pos</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00050">regel_zyklus_fak</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00211">Def_IBF_Allgemein_IST::RS_Pos</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00384">Def_IBF_Allgemein_SOLL::RS_Pos</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00118">Def_DW_Regelung_DA_Jenkouk::T_Einlauf</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00124">Def_DW_Regelung_DA_Jenkouk::T_Verzoegerung</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e70e548c1f7ab1463017452a57ee76a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Gamma </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Winkel zwischen der Walzwerkachse und der Verbindungslinie Ringmittelpunkt und Beruehrungspunkt zwischen Innenring und Dornwalze (Eingang Radialwalzspalt) </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeier auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00128">128</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00245">Def_IBF_Allgemein_IST::da</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00112">Def_DW_Regelung_DA_Jenkouk::DW_Durchmesser</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00308">Def_IBF_Allgemein_IST::DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00133">Def_DW_Regelung_DA_Jenkouk::Gamma</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00057">PI</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00135">Def_DW_Regelung_DA_Jenkouk::ri</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00242">Def_IBF_Allgemein_IST::Wanddicke_Ist</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00151">Beta()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8043640daa1c669c91e582592f91c47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RS_nach_Messwert_Fahren </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00048">48</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00092">Def_DW_Regelung_DA_Jenkouk::Messwert_A_mf</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00148">Def_DW_Regelung_DA_Jenkouk::Messwertdifferenz</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00244">Def_IBF_Allgemein_IST::Rohling_s_angefahren</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00384">Def_IBF_Allgemein_SOLL::RS_Pos</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00147">Def_DW_Regelung_DA_Jenkouk::Startmesswert</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">DA_Jenkouk_Regler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc9b3700e4a2d97e036906117f02b47e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void T_Einlauf </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Zeit, bis der Punkt, welcher gerade vom Messsystem erfasst wurde in den Radialwalzspalt gelangt. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00169">169</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00131">Def_DW_Regelung_DA_Jenkouk::Beta</a>, <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00151">Beta()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00245">Def_IBF_Allgemein_IST::da</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00308">Def_IBF_Allgemein_IST::DW_Regelung</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00483">Def_IBF_Allgemein_SOLL::DW_Regelung</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00057">PI</a>, <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00118">Def_DW_Regelung_DA_Jenkouk::T_Einlauf</a> und <a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp_source.html#l00111">Def_DW_Regelung_DA_Jenkouk::U_v_HW</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">DA_Jenkouk_Regler()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38cae561326f3247fbee3b03fbc6bed8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void T_V </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Diese Funktion hat keinen Inhalt. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00192">192</a> der Datei <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html">ibf_dw_regelung.cpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/dae/ibf__dw__regelung_8cpp_source.html#l00253">DA_Jenkouk_Regler()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_a2abdbaa7473ee34f6db7f792595f5c8.html">inc</a></li><li class="navelem"><a class="el" href="../../dc/d27/_i_b_f__dw__regelung_8hpp.html">IBF_dw_regelung.hpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:14 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

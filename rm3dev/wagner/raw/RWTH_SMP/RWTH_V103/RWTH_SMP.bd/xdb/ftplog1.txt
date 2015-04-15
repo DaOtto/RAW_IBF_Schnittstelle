@@ -1,0 +1,4 @@
+open 192.200.1.73
+sms
+cd c:\sms
+binary

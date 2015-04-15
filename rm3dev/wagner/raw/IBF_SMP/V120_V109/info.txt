@@ -1,0 +1,68 @@
+Neue Struktur zur Übertragung der IBF Sollwerte.
+
+
+Alle Maße sind korrigierte Maße bezogen auf die Aussenabmessungen der Werkzeuge!
+
+Radialschlitten = Maß zwischen Hauptwalze und Dornwalze
+Axialschlitten = Maß zwischen den beiden Axialwalzen
+Axialgerüst = Maß zwischen tatsächlicher Kegelwalzenspitze und Hauptwalze
+Zentrierung = Maß zwischen Lagerung Zylinder und Auge Kolbenstange
+
+
+Alle Sollwertvorgaben vom IBF beziehen sich auf die Walzphase!
+
+Damit ergibt sich die folgende neue Struktur im aus_onli Bereich:
+
+   struct Def_Ibf_nominal
+   {
+      // Radialschlitten
+      int   RS_act;		//Flag Sollwerte radial von Ibf auswertbar
+      int   RS_mode;		//Betriebsart Vorschub (0) oder Kraftregelung (1)
+
+      float Soll_RS_Pos;	//Sollposition Radialschlitten [mm]
+      //float Soll_RS_V;	// = aus_onli.ds_dh_sp_hp.s_punkt
+      float Soll_FR;		//Soll- bzw. Grenzkraft radial [N]
+     
+      // Axialschlitten
+      int   AS_act;		//Flag Sollwerte axial von Ibf auswertbar
+      int   AS_mode;		//Betriebsart Vorschub (0) oder Kraftregelung (1)
+
+      float Soll_AS_Pos;	//Sollposition Axialschlitten [mm]
+      //float Soll_AS_V;	// = aus_onli.ds_dh_sp_hp.h_punkt
+      float Soll_FA;		//Soll- bzw. Grenzkraft axial [N]
+
+      // Zentrierung
+      int   Zen_act;		//Flag Sollwerte Zentrierung von Ibf auswertbar
+      int   Zen_mode;		//Betriebsart Positionsreg. (0) oder Verdränger (1)
+
+      float Soll_ZA_Pos;	//Sollposition Zentrierung Auslauf radial [mm]
+      float Soll_ZE_Pos;	//Sollposition Zentrierung Einlauf radial [mm]
+      float Soll_ZA_V;		//Sollgeschw. Zentrierung Auslauf radial [mm/s]
+      float Soll_ZE_V;		//Sollgeschw. Zentrierung Einlauf radial [mm/s]
+      float Soll_FZ;		//Soll- bzw. Grenzkraft Zentrierung [N]
+
+      float Verlag_ZA;		//Verlagerungsanteil zur radialen Auslaufseite [mm]
+      float Verlag_ZE;		//Verlagerungsanteil zur radialen Einlaufseite [mm]
+      float Verlag_angle;	//Verlagerungswinkel [Grad]
+
+      // Axialgerüst
+      int   AG_act;		//Flag Sollwerte Axialgerüst von Ibf auswertbar
+      int   AG_mode;		//Betriebsart Vorschub (0)( oder Kraftregelung (1))
+
+      float Soll_AG_Pos;	//Sollposition Axialgerüst [mm]
+      float Soll_AG_V;		//Sollgeschwindigkeit Axialgerüst [mm/s]
+      float Soll_FAG;		//Soll- bzw. Grenzkraft Axialgerüst [N]
+   };
+
+Die Positionsvorgabe vom IBF werden nur ausgewertet, wenn die entsprechenden Flags "RS_act", "AS_act" usw. auf 1 gesetzt werden.
+In der KONFIG.INI (s. Anlage) muss die Option "RWTH_Ibf_Task=1" gesetzt werden.
+
+Das Betriebsartflag wählt die Betriebsart der Achse. Bevorzugt wird Vorschubregelung (Sollposition, Vorschub, Grenzkraft)!
+
+Die beiden beigefügten H-Files "onli_cnc_s.hpp" und "raw_t_cnc_s.hpp" enthalten die neue Strukturdefinition. Die beiden Files müssen in die IBF-Task eingbunden werden und ersetzen die gleichnamigen alten Files.
+
+Zur Zeit sind die Positions-, Kraft- und Vorschubvorgaben der beiden Achsen Radialschlitten und Axialschlitten realisiert. Axialgerüst und Zentrierung sind in Arbeit.
+
+
+Klaus Brauckmann
+TRE/10.07.2006 

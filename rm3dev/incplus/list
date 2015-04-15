@@ -1,0 +1,614 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: list,v $
+ * Revision 1.2  2000/02/08 06:20:45  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:02  aki
+ * Initial revision
+ *
+ */ 
+
+// list standard header
+#ifndef _LIST_
+#define _LIST_
+
+
+#include <functional>
+#include <iterator>
+#include <memory>
+#include <stdexcept>
+_STD_BEGIN
+
+		// TEMPLATE CLASS _List_nod
+template<class _Ty, class _A>
+	class _List_nod {
+protected:
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<void>::other::pointer _Genptr;
+	struct _Node;
+	friend struct _Node;
+	struct _Node {
+		_Genptr _Next, _Prev;
+		_Ty _Value;
+		};
+	_List_nod(_A _Al)
+		: _Alnod(_Al) {}
+	_A::_TEMPLATE_MEMBER rebind<_Node>::other _Alnod;
+	};
+		// TEMPLATE CLASS _List_ptr
+template<class _Ty, class _A>
+	class _List_ptr : public _List_nod<_Ty, _A> {
+protected:
+	typedef typename _List_nod<_Ty, _A>::_Node _Node;
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<_Node>::other::pointer _Nodeptr;
+	_List_ptr(_A _Al)
+		: _List_nod<_Ty, _A>(_Al), _Alptr(_Al) {}
+	_A::_TEMPLATE_MEMBER rebind<_Nodeptr>::other _Alptr;
+	};
+		// TEMPLATE CLASS _List_val
+template<class _Ty, class _A>
+	class _List_val : public _List_ptr<_Ty, _A> {
+protected:
+	_List_val(_A _Al = _A())
+		: _List_ptr<_Ty, _A>(_Al), _Alval(_Al) {}
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<_Ty>::other _Alty;
+	_Alty _Alval;
+	};
+
+		// TEMPLATE CLASS list
+template<class _Ty, class _Ax = allocator<_Ty> >
+	class list : public _List_val<_Ty, _Ax> {
+public:
+        typedef _STD list<_Ty, _Ax> _Myt;
+	typedef _List_val<_Ty, _Ax> _Mybase;
+	typedef typename _Mybase::_Alty _A;
+protected:
+	typedef typename _List_nod<_Ty, _A>::_Genptr _Genptr;
+	typedef typename _List_nod<_Ty, _A>::_Node _Node;
+	typedef _POINTER_X(_Node, _A) _Nodeptr;
+	struct _Acc;
+	friend struct _Acc;
+	struct _Acc {
+		typedef _REFERENCE_X(_Nodeptr, _A) _Nodepref;
+		typedef typename _A::reference _Vref;
+		static _Nodepref _Next(_Nodeptr __P)
+			{return ((_Nodepref)(*__P)._Next); }
+		static _Nodepref _Prev(_Nodeptr __P)
+			{return ((_Nodepref)(*__P)._Prev); }
+		static _Vref _Value(_Nodeptr __P)
+			{return ((_Vref)(*__P)._Value); }
+		};
+public:
+	typedef _A allocator_type;
+	typedef typename _A::size_type size_type;
+	typedef typename _A::difference_type _Dift;
+	typedef _Dift difference_type;
+	typedef typename _A::pointer _Tptr;
+	typedef typename _A::const_pointer _Ctptr;
+	typedef _Tptr pointer;
+	typedef _Ctptr const_pointer;
+	typedef typename _A::reference _Reft;
+	typedef _Reft reference;
+	typedef typename _A::const_reference const_reference;
+	typedef typename _A::value_type value_type;
+		// CLASS iterator
+	class iterator;
+	friend class iterator;
+	class iterator : public _Bidit<_Ty, _Dift, _Tptr, _Reft> {
+	public:
+		typedef _Bidit<_Ty, _Dift, _Tptr, _Reft> _Mybase;
+		typedef typename _Mybase::iterator_category
+			iterator_category;
+		typedef typename _Mybase::value_type value_type;
+		typedef typename _Mybase::difference_type
+			difference_type;
+		typedef typename _Mybase::pointer pointer;
+		typedef typename _Mybase::reference reference;
+		iterator()
+			: _Ptr(0) {}
+		iterator(_Nodeptr __P)
+			: _Ptr(__P) {}
+		reference operator*() const
+			{return (_Acc::_Value(_Ptr)); }
+		iterator& operator++()
+			{_Ptr = _Acc::_Next(_Ptr);
+			return (*this); }
+		iterator operator++(int)
+			{iterator _Tmp = *this;
+			++*this;
+			return (_Tmp); }
+		iterator& operator--()
+			{_Ptr = _Acc::_Prev(_Ptr);
+			return (*this); }
+		iterator operator--(int)
+			{iterator _Tmp = *this;
+			--*this;
+			return (_Tmp); }
+		bool operator==(const iterator& __X) const
+			{return (_Ptr == __X._Ptr); }
+		bool operator!=(const iterator& __X) const
+			{return (!(*this == __X)); }
+		_Nodeptr _Mynode() const
+			{return (_Ptr); }
+	protected:
+		_Nodeptr _Ptr;
+		};
+		// CLASS const_iterator
+	class const_iterator;
+	friend class const_iterator;
+	class const_iterator
+		: public _Bidit<_Ty, _Dift, _Ctptr, const_reference> {
+	public:
+		typedef _Bidit<_Ty, _Dift, _Ctptr, const_reference>
+			_Mybase;
+		typedef typename _Mybase::iterator_category
+			iterator_category;
+		typedef typename _Mybase::value_type value_type;
+		typedef typename _Mybase::difference_type
+			difference_type;
+		typedef typename _Mybase::pointer pointer;
+		typedef typename _Mybase::reference reference;
+		const_iterator()
+			: _Ptr(0) {}
+		const_iterator(_Nodeptr __P)
+			: _Ptr(__P) {}
+		const_iterator(const iterator& __X)
+			: _Ptr(__X._Mynode()) {}
+		const_reference operator*() const
+			{return (_Acc::_Value(_Ptr)); }
+		const_iterator& operator++()
+			{_Ptr = _Acc::_Next(_Ptr);
+			return (*this); }
+		const_iterator operator++(int)
+			{const_iterator _Tmp = *this;
+			++*this;
+			return (_Tmp); }
+		const_iterator& operator--()
+			{_Ptr = _Acc::_Prev(_Ptr);
+			return (*this); }
+		const_iterator operator--(int)
+			{const_iterator _Tmp = *this;
+			--*this;
+			return (_Tmp); }
+		bool operator==(const const_iterator& __X) const
+			{return (_Ptr == __X._Ptr); }
+		bool operator!=(const const_iterator& __X) const
+			{return (!(*this == __X)); }
+		_Nodeptr _Mynode() const
+			{return (_Ptr); }
+	protected:
+		_Nodeptr _Ptr;
+		};
+	typedef _STD reverse_iterator<iterator>
+		reverse_iterator;
+	typedef _STD reverse_iterator<const_iterator>
+		const_reverse_iterator;
+	list()
+		: _Mybase(), _Head(_Buynode()), _Size(0)
+		{}
+	explicit list(const _A& _Al)
+		: _Mybase(_Al), _Head(_Buynode()), _Size(0)
+		{}
+	explicit list(size_type __N)
+		: _Mybase(), _Head(_Buynode()), _Size(0)
+		{insert(begin(), __N, _Ty()); }
+	list(size_type __N, const _Ty& _V)
+		: _Mybase(), _Head(_Buynode()), _Size(0)
+		{insert(begin(), __N, _V); }
+	list(size_type __N, const _Ty& _V, const _A& _Al)
+		: _Mybase(_Al), _Head(_Buynode()), _Size(0)
+		{insert(begin(), __N, _V); }
+	list(const _Myt& __X)
+		: _Mybase(__X._Alval),
+			_Head(_Buynode()), _Size(0)
+		{insert(begin(), __X.begin(), __X.end()); }
+	template<class _It>
+		list(_It _F, _It __L)
+		: _Mybase(), _Head(_Buynode()), _Size(0)
+		{_Construct(_F, __L, _Iter_cat(_F)); }
+	template<class _It>
+		list(_It _F, _It __L, const _A& _Al)
+		: _Mybase(_Al), _Head(_Buynode()), _Size(0)
+		{_Construct(_F, __L, _Iter_cat(_F)); }
+	template<class _It>
+		void _Construct(_It _F, _It __L, _Int_iterator_tag)
+		{insert(begin(), (size_type)_F, (_Ty)__L); }
+	template<class _It>
+		void _Construct(_It _F, _It __L, input_iterator_tag)
+		{insert(begin(), _F, __L); }
+	~list()
+		{erase(begin(), end());
+		_Freenode(_Head);
+		_Head = 0, _Size = 0; }
+	_Myt& operator=(const _Myt& __X)
+		{if (this != &__X)
+			{iterator _F1 = begin();
+			iterator _L1 = end();
+			const_iterator _F2 = __X.begin();
+			const_iterator _L2 = __X.end();
+			for (; _F1 != _L1 && _F2 != _L2; ++_F1, ++_F2)
+				*_F1 = *_F2;
+			erase(_F1, _L1);
+			insert(_L1, _F2, _L2); }
+		return (*this); }
+	iterator begin()
+		{return (iterator(_Head == 0 ? 0
+			: _Acc::_Next(_Head))); }
+	const_iterator begin() const
+		{return (const_iterator(_Head == 0 ? 0
+			: _Acc::_Next(_Head))); }
+	iterator end()
+		{return (iterator(_Head)); }
+	const_iterator end() const
+		{return (const_iterator(_Head)); }
+	reverse_iterator rbegin()
+		{return (reverse_iterator(end())); }
+	const_reverse_iterator rbegin() const
+		{return (const_reverse_iterator(end())); }
+	reverse_iterator rend()
+		{return (reverse_iterator(begin())); }
+	const_reverse_iterator rend() const
+		{return (const_reverse_iterator(begin())); }
+	void resize(size_type __N)
+		{resize(__N, _Ty()); }
+	void resize(size_type __N, _Ty __X)
+		{if (size() < __N)
+			insert(end(), __N - size(), __X);
+		else
+			while (__N < size())
+				pop_back(); }
+	size_type size() const
+		{return (_Size); }
+	size_type max_size() const
+		{return (_Alval.max_size()); }
+	bool empty() const
+		{return (size() == 0); }
+	allocator_type get_allocator() const
+		{return (_Alval); }
+	reference front()
+		{return (*begin()); }
+	const_reference front() const
+		{return (*begin()); }
+	reference back()
+		{return (*(--end())); }
+	const_reference back() const
+		{return (*(--end())); }
+	void push_front(const _Ty& __X)
+		{_Insert(begin(), __X); }
+	void pop_front()
+		{erase(begin()); }
+	void push_back(const _Ty& __X)
+		{_Insert(end(), __X); }
+	void pop_back()
+		{erase(--end()); }
+	template<class _It>
+		void assign(_It _F, _It __L)
+		{_Assign(_F, __L, _Iter_cat(_F)); }
+	template<class _It>
+		void _Assign(_It _F, _It __L, _Int_iterator_tag)
+		{assign((size_type)_F, (_Ty)__L); }
+	template<class _It>
+		void _Assign(_It _F, _It __L, input_iterator_tag)
+		{erase(begin(), end());
+		insert(begin(), _F, __L); }
+	void assign(size_type __N, const _Ty& __X)
+		{_Ty _Tx = __X;
+		erase(begin(), end());
+		insert(begin(), __N, _Tx); }
+	iterator insert(iterator __P, const _Ty& __X)
+		{_Insert(__P, __X);
+		return (--__P); }
+	void _Insert(iterator __P, const _Ty& __X)
+		{_Nodeptr __S = __P._Mynode();
+		_Nodeptr _Snew = _Buynode(__S, _Acc::_Prev(__S));
+		_Incsize(1);
+		_TRY_BEGIN
+		_Alval.construct(&_Acc::_Value(_Snew), __X);
+		_CATCH_ALL
+		--_Size;
+		_Freenode(_Snew);
+		_RERAISE;
+		_CATCH_END
+		_Acc::_Prev(__S) = _Snew;
+		_Acc::_Next(_Acc::_Prev(_Snew)) = _Snew; }
+	void insert(iterator __P, size_type _M, const _Ty& __X)
+		{size_type __N = _M;
+		_TRY_BEGIN
+		for (; 0 < _M; --_M)
+			_Insert(__P, __X);
+		_CATCH_ALL
+		for (; _M < __N; ++_M)
+			{iterator _Pm = __P;
+			erase(--_Pm); }
+		_RERAISE;
+		_CATCH_END }
+	template<class _It>
+		void insert(iterator __P, _It _F, _It __L)
+		{_Insert(__P, _F, __L, _Iter_cat(_F)); }
+	template<class _It>
+		void _Insert(iterator __P, _It _F, _It __L,
+			_Int_iterator_tag)
+		{insert(__P, (size_type)_F, (_Ty)__L); }
+	template<class _It>
+		void _Insert(iterator __P, _It _F, _It __L,
+			input_iterator_tag)
+		{size_type __N = 0;
+		_TRY_BEGIN
+		for (; _F != __L; ++_F, ++__N)
+			_Insert(__P, *_F);
+		_CATCH_ALL
+		for (; 0 < __N; --__N)
+			{iterator _Pm = __P;
+			erase(--_Pm); }
+		_RERAISE;
+		_CATCH_END }
+	template<class _It>
+		void _Insert(iterator __P, _It _F, _It __L,
+			forward_iterator_tag)
+		{_It _Fs = _F;
+		_TRY_BEGIN
+		for (; _F != __L; ++_F)
+			_Insert(__P, *_F);
+		_CATCH_ALL
+		for (; _Fs != _F; ++_Fs)
+			{iterator _Pm = __P;
+			erase(--_Pm); }
+		_RERAISE;
+		_CATCH_END }
+	iterator erase(iterator __P)
+		{_Nodeptr __S = (__P++)._Mynode();
+		_Acc::_Next(_Acc::_Prev(__S)) = _Acc::_Next(__S);
+		_Acc::_Prev(_Acc::_Next(__S)) = _Acc::_Prev(__S);
+		_Alval.destroy(&_Acc::_Value(__S));
+		_Freenode(__S);
+		--_Size;
+		return (__P); }
+	iterator erase(iterator _F, iterator __L)
+		{while (_F != __L)
+			erase(_F++);
+		return (_F); }
+	void clear()
+		{erase(begin(), end()); }
+	void swap(_Myt& __X)
+		{if (_Alval == __X._Alval)
+			{_STD swap(_Head, __X._Head);
+			_STD swap(_Size, __X._Size); }
+		else
+			{iterator __P = begin();
+			splice(__P, __X);
+			__X.splice(__X.begin(), *this, __P, end()); }}
+	void splice(iterator __P, _Myt& __X)
+		{if (!__X.empty())
+			{_Incsize(__X._Size);
+			_Splice(__P, __X, __X.begin(), __X.end());
+			__X._Size = 0; }}
+	void splice(iterator __P, _Myt& __X, iterator _F)
+		{iterator __L = _F;
+		if (0 < __X.size() && __P != _F && __P != ++__L)
+			{_Incsize(1);
+			_Splice(__P, __X, _F, __L);
+			--__X._Size; }}
+	void splice(iterator __P, _Myt& __X, iterator _F, iterator __L)
+		{if (_F != __L)
+			{if (&__X != this)
+				{difference_type __N = 0;
+				_Distance(_F, __L, __N);
+				_Incsize(__N);
+				__X._Size -= __N; }
+			_Splice(__P, __X, _F, __L); }}
+	void remove(const _Ty& _V)
+		{iterator __L = end();
+		for (iterator _F = begin(); _F != __L; )
+			if (*_F == _V)
+				erase(_F++);
+			else
+				++_F; }
+	template<class _Pr1>
+	void remove_if(_Pr1 _Pr)
+		{iterator __L = end();
+		for (iterator _F = begin(); _F != __L; )
+			if (_Pr(*_F))
+				erase(_F++);
+			else
+				++_F; }
+	void unique()
+		{iterator _F = begin(), __L = end();
+		if (_F != __L)
+			for (iterator _M = _F; ++_M != __L; _M = _F)
+				if (*_F == *_M)
+					erase(_M);
+				else
+					_F = _M; }
+	template<class _Pr2>
+	void unique(_Pr2 _Pr)
+		{iterator _F = begin(), __L = end();
+		if (_F != __L)
+			for (iterator _M = _F; ++_M != __L; _M = _F)
+				if (_Pr(*_F, *_M))
+					erase(_M);
+				else
+					_F = _M; }
+	void merge(_Myt& __X)
+		{if (&__X != this)
+			{iterator _F1 = begin(), _L1 = end();
+			iterator _F2 = __X.begin(), _L2 = __X.end();
+			while (_F1 != _L1 && _F2 != _L2)
+				if (*_F2 < *_F1)
+					{iterator _Mid2 = _F2;
+					_Splice(_F1, __X, _F2, ++_Mid2);
+					_F2 = _Mid2; }
+				else
+					++_F1;
+			if (_F2 != _L2)
+				_Splice(_L1, __X, _F2, _L2);
+			_Incsize(__X._Size);
+			__X._Size = 0; }}
+	template<class _Pr3>
+	void merge(_Myt& __X, _Pr3 _Pr)
+		{if (&__X != this)
+			{iterator _F1 = begin(), _L1 = end();
+			iterator _F2 = __X.begin(), _L2 = __X.end();
+			while (_F1 != _L1 && _F2 != _L2)
+				if (_Pr(*_F2, *_F1))
+					{iterator _Mid2 = _F2;
+					_Splice(_F1, __X, _F2, ++_Mid2);
+					_F2 = _Mid2; }
+				else
+					++_F1;
+			if (_F2 != _L2)
+				_Splice(_L1, __X, _F2, _L2);
+			_Incsize(__X._Size);
+			__X._Size = 0; }}
+	void sort()
+		{if (2 <= size())
+			{const size_t _MAXN = 15;
+			_Myt __X(_Alval), _Arr[_MAXN + 1];
+			size_t __N = 0;
+			while (!empty())
+				{__X.splice(__X.begin(), *this, begin());
+				size_t _I;
+				for (_I = 0; _I < __N && !_Arr[_I].empty(); ++_I)
+					{_Arr[_I].merge(__X);
+					_Arr[_I].swap(__X); }
+				if (_I == _MAXN)
+					_Arr[_I].merge(__X);
+				else
+					{_Arr[_I].swap(__X);
+					if (_I == __N)
+						++__N; }}
+			while (0 < __N)
+				merge(_Arr[--__N]); }}
+	template<class _Pr3>
+	void sort(_Pr3 _Pr)
+		{if (2 <= size())
+			{const size_t _MAXN = 15;
+			_Myt __X(_Alval), _Arr[_MAXN + 1];
+			size_t __N = 0;
+			while (!empty())
+				{__X.splice(__X.begin(), *this, begin());
+				size_t _I;
+				for (_I = 0; _I < __N && !_Arr[_I].empty(); ++_I)
+					{_Arr[_I].merge(__X, _Pr);
+					_Arr[_I].swap(__X); }
+				if (_I == _MAXN)
+					_Arr[_I].merge(__X, _Pr);
+				else
+					{_Arr[_I].swap(__X);
+					if (_I == __N)
+						++__N; }}
+			while (0 < __N)
+				merge(_Arr[--__N], _Pr); }}
+	void reverse()
+		{if (2 <= size())
+			{iterator __L = end();
+			for (iterator _F = ++begin(); _F != __L; )
+				{iterator _M = _F;
+				_Splice(begin(), *this, _M, ++_F); }}}
+protected:
+	_Nodeptr _Buynode(_Nodeptr _Narg = 0, _Nodeptr _Parg = 0)
+		{_Nodeptr __S = _Alnod.allocate(1, (void *)0);
+		_Alptr.construct(&_Acc::_Next(__S),
+			_Narg != 0 ? _Narg : __S);
+		_Alptr.construct(&_Acc::_Prev(__S),
+			_Parg != 0 ? _Parg : __S);
+		return (__S); }
+	void _Freenode(_Nodeptr __S)
+		{_Alptr.destroy(&_Acc::_Next(__S));
+		_Alptr.destroy(&_Acc::_Prev(__S));
+		_Alnod.deallocate(__S, 1); }
+	void _Splice(iterator __P, _Myt& __X, iterator _F, iterator __L)
+		{if (_Alval == __X._Alval)
+			{_Acc::_Next(_Acc::_Prev(__L._Mynode())) =
+				__P._Mynode();
+			_Acc::_Next(_Acc::_Prev(_F._Mynode())) =
+				__L._Mynode();
+			_Acc::_Next(_Acc::_Prev(__P._Mynode())) =
+				_F._Mynode();
+			_Nodeptr __S = _Acc::_Prev(__P._Mynode());
+			_Acc::_Prev(__P._Mynode()) =
+				_Acc::_Prev(__L._Mynode());
+			_Acc::_Prev(__L._Mynode()) =
+				_Acc::_Prev(_F._Mynode());
+			_Acc::_Prev(_F._Mynode()) = __S; }
+		else
+			{insert(__P, _F, __L);
+			__X.erase(_F, __L); }}
+	void _Incsize(size_type __N)
+		{if (max_size() - size() < __N)
+			_THROW(length_error, "list<T> too long");
+		_Size += __N; }
+	void _Xran() const
+		{_THROW(out_of_range, "invalid list<T> subscript"); }
+	_Nodeptr _Head;
+	size_type _Size;
+	};
+		// list TEMPLATE OPERATORS
+template<class _Ty, class _A> inline
+	void swap(list<_Ty, _A>& __X, list<_Ty, _A>& _Y)
+	{__X.swap(_Y); }
+template<class _Ty, class _A> inline
+	bool operator==(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (__X.size() == _Y.size()
+		&& equal(__X.begin(), __X.end(), _Y.begin())); }
+template<class _Ty, class _A> inline
+	bool operator!=(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (!(__X == _Y)); }
+template<class _Ty, class _A> inline
+	bool operator<(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (lexicographical_compare(__X.begin(), __X.end(),
+		_Y.begin(), _Y.end())); }
+template<class _Ty, class _A> inline
+	bool operator>(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (_Y < __X); }
+template<class _Ty, class _A> inline
+	bool operator<=(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (!(_Y < __X)); }
+template<class _Ty, class _A> inline
+	bool operator>=(const list<_Ty, _A>& __X,
+		const list<_Ty, _A>& _Y)
+	{return (!(__X < _Y)); }
+_STD_END
+
+
+#endif /* _LIST_ */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+ */
+
+/*
+ * This file is derived from software bearing the following
+ * restrictions:
+ *
+ * Copyright (c) 1994
+ * Hewlett-Packard Company
+ *
+ * Permission to use, copy, modify, distribute and sell this
+ * software and its documentation for any purpose is hereby
+ * granted without fee, provided that the above copyright notice
+ * appear in all copies and that both that copyright notice and
+ * this permission notice appear in supporting documentation.
+ * Hewlett-Packard Company makes no representations about the
+ * suitability of this software for any purpose. It is provided
+ * "as is" without express or implied warranty.
+V2.2:0414 */

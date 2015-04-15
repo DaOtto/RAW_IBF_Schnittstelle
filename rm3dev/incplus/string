@@ -1,0 +1,189 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: string,v $
+ * Revision 1.2  2000/02/08 06:21:06  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:05  aki
+ * Initial revision
+ *
+ */ 
+
+// string standard header
+#ifndef _STRING_
+#define _STRING_
+
+#pragma noarguments_in_registers(push)
+
+#include <istream>
+_STD_BEGIN
+		// string OPERATORS
+inline string operator+(const string& __L, const string& _R)
+	{return (string(__L) += _R); }
+inline string operator+(const char *__L, const string& _R)
+	{return (string(__L) += _R); }
+inline string operator+(const char __L, const string& _R)
+	{return (string(1, __L) += _R); }
+inline string operator+(const string& __L, const char *_R)
+	{return (string(__L) += _R); }
+inline string operator+(const string& __L, const char _R)
+	{return (string(__L) += _R); }
+inline bool operator==(const string& __L, const string& _R)
+	{return (__L.compare(_R) == 0); }
+inline bool operator==(const char * __L, const string& _R)
+	{return (_R.compare(__L) == 0); }
+inline bool operator==(const string& __L, const char *_R)
+	{return (__L.compare(_R) == 0); }
+inline bool operator!=(const string& __L, const string& _R)
+	{return (!(__L == _R)); }
+inline bool operator!=(const char *__L, const string& _R)
+	{return (!(__L == _R)); }
+inline bool operator!=(const string& __L, const char *_R)
+	{return (!(__L == _R)); }
+inline bool operator<(const string& __L, const string& _R)
+	{return (__L.compare(_R) < 0); }
+inline bool operator<(const char * __L, const string& _R)
+	{return (_R.compare(__L) > 0); }
+inline bool operator<(const string& __L, const char *_R)
+	{return (__L.compare(_R) < 0); }
+inline bool operator>(const string& __L, const string& _R)
+	{return (_R < __L); }
+inline bool operator>(const char * __L, const string& _R)
+	{return (_R < __L); }
+inline bool operator>(const string& __L, const char *_R)
+	{return (_R < __L); }
+inline bool operator<=(const string& __L, const string& _R)
+	{return (!(_R < __L)); }
+inline bool operator<=(const char * __L, const string& _R)
+	{return (!(_R < __L)); }
+inline bool operator<=(const string& __L, const char *_R)
+	{return (!(_R < __L)); }
+inline bool operator>=(const string& __L, const string& _R)
+	{return (!(__L < _R)); }
+inline bool operator>=(const char * __L, const string& _R)
+	{return (!(__L < _R)); }
+inline bool operator>=(const string& __L, const char *_R)
+	{return (!(__L < _R)); }
+		// string INSERTERS AND EXTRACTORS
+inline istream& operator>>(istream& _I, string& __X)
+	{typedef char_traits _Tr;
+	typedef char_allocator _A;
+	typedef ctype _Ctype;
+	typedef istream _Myis;
+	typedef string _Mystr;
+	ios_base::iostate _St = ios_base::goodbit;
+	bool _Chg = false;
+	__X.erase();
+	const _Myis::sentry _Ok(_I);
+	if (_Ok)
+		{const _Ctype& _Fac = _USE(_I.getloc(), _Ctype);
+		_TRY_IO_BEGIN
+		_Mystr::size_type __N = 0 < _I.width()
+			&& _I.width() < __X.max_size()
+				? _I.width() : __X.max_size();
+		_Tr::int_type __C = _I.rdbuf()->sgetc();
+		for (; 0 < --__N; __C = _I.rdbuf()->snextc())
+			if(_Tr::eq_int_type(_Tr::eof(), __C))
+				{_St |= ios_base::eofbit;
+				break; }
+			else if (_Fac.is(_Ctype::space,
+				_Tr::to_char_type(__C)))
+				break;
+			else
+				{__X.append(1, _Tr::to_char_type(__C));
+				_Chg = true; }
+		_CATCH_IO_(_I); }
+	_I.width(0);
+	if (!_Chg)
+		_St |= ios_base::failbit;
+	_I.setstate(_St);
+	return (_I); }
+inline istream& getline(istream& _I, string& __X,
+	const char _D = '\n')
+	{typedef char_traits _Tr;
+	typedef istream _Myis;
+	ios_base::iostate _St = ios_base::goodbit;
+	bool _Chg = false;
+	__X.erase();
+	const _Myis::sentry _Ok(_I, true);
+	if (_Ok)
+		{_TRY_IO_BEGIN
+		_Tr::int_type __C = _I.rdbuf()->sgetc();
+		for (; ; __C = _I.rdbuf()->snextc())
+			if (_Tr::eq_int_type(_Tr::eof(), __C))
+				{_St |= ios_base::eofbit;
+				break; }
+			else if (_Tr::eq(__C, _D))
+				{_Chg = true;
+				_I.rdbuf()->snextc();
+				break; }
+			else if (__X.max_size() <= __X.size())
+				{_St |= ios_base::failbit;
+				break; }
+			else
+				__X += _Tr::to_char_type(__C), _Chg = true;
+		_CATCH_IO_(_I); }
+	if (!_Chg)
+		_St |= ios_base::failbit;
+	_I.setstate(_St);
+	return (_I); }
+inline ostream& operator<<(ostream& _O, const string& __X)
+	{typedef char_traits _Tr;
+	typedef char_allocator _A;
+	typedef ostream _Myos;
+	typedef string _Mystr;
+	ios_base::iostate _St = ios_base::goodbit;
+	_Mystr::size_type __N = __X.size();
+	_Mystr::size_type _M =
+		_O.width() <= 0 || _O.width() <= __N
+			? 0 : _O.width() - __N;
+	const _Myos::sentry _Ok(_O);
+	if (!_Ok)
+		_St |= ios_base::badbit;
+	else
+		{_TRY_IO_BEGIN
+		if ((_O.flags() & ios_base::adjustfield)
+			!= ios_base::left)
+			for (; 0 < _M; --_M)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(_O.fill())))
+					{_St |= ios_base::badbit;
+					break; }
+		if (_St == ios_base::goodbit)
+			for (_Mystr::size_type _I = 0;
+				_I < __N; ++_I)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(__X[_I])))
+					{_St |= ios_base::badbit;
+					break; }
+		if (_St == ios_base::goodbit)
+			for (; 0 < _M; --_M)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(_O.fill())))
+					{_St |= ios_base::badbit;
+					break; }
+		_O.width(0);
+		_CATCH_IO_(_O) }
+	_O.setstate(_St);
+	return (_O); }
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _STRING */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

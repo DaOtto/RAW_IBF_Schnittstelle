@@ -1,0 +1,222 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: streambuf,v $
+ * Revision 1.2  2000/02/08 06:21:06  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:05  aki
+ * Initial revision
+ *
+ */ 
+
+// streambuf standard header
+#ifndef _STREAMBUF_
+#define _STREAMBUF_
+
+#pragma noarguments_in_registers(push)
+
+#include <xiosbase>
+_STD_BEGIN
+#define _NARROW(T, V)	((T)(V))
+#define _WIDEN(T, V)	((T)(V))
+		// CLASS streambuf
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (streambuf=2)
+#else
+#pragma       align   (streambuf=4)           // 3055DE1
+#endif /* << 4719DE1 << */
+class streambuf {
+	streambuf(const streambuf&);	// undef
+	streambuf& operator=(const streambuf&);
+protected:
+	streambuf()
+		: _Loc() {_Init(); }
+	streambuf(_Uninitialized)
+		: _Loc(_Noinit) {}
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef streambuf _Myt;
+	typedef _E char_type;
+	typedef _Tr traits_type;
+	virtual ~streambuf()
+		{}
+	typedef _Tr::int_type int_type;
+	typedef _Tr::pos_type pos_type;
+	typedef _Tr::off_type off_type;
+	pos_type pubseekoff(off_type _O, ios_base::seekdir _W,
+		ios_base::openmode _M = ios_base::in | ios_base::out)
+		{return (seekoff(_O, _W, _M)); }
+	pos_type pubseekoff(off_type _O, ios_base::seek_dir _W,
+		ios_base::open_mode _M)
+		{return (pubseekoff(_O, (ios_base::seekdir)_W,
+			(ios_base::openmode)_M)); }
+	pos_type pubseekpos(pos_type __P,
+		ios_base::openmode _M = ios_base::in | ios_base::out)
+		{return (seekpos(__P, _M)); }
+	pos_type pubseekpos(pos_type __P, ios_base::open_mode _M)
+		{return (seekpos(__P, (ios_base::openmode)_M)); }
+	_Myt *pubsetbuf(_E *__S, streamsize __N)
+		{return (setbuf(__S, __N)); }
+	locale pubimbue(const locale &_Ln)
+		{locale _Lo = _Loc;
+		imbue(_Ln);
+		_Loc = _Ln;
+		return (_Lo); }
+	locale getloc()
+		{return (_Loc); }
+	streamsize in_avail()
+		{return (gptr() != 0 && gptr() < egptr()
+			? egptr() - gptr() : showmanyc()); }
+	int pubsync()
+		{return (sync()); }
+	int_type sbumpc()
+		{return (gptr() != 0 && gptr() < egptr()
+			? _Tr::to_int_type(*_Gninc()) : uflow()); }
+	int_type sgetc()
+		{return (gptr() != 0 && gptr() < egptr()
+			? _Tr::to_int_type(*gptr()) : underflow()); }
+	streamsize sgetn(_E *__S, streamsize __N)
+		{return (xsgetn(__S, __N)); }
+	int_type snextc()
+		{return (_Tr::eq_int_type(_Tr::eof(), sbumpc())
+			? _Tr::eof() : sgetc()); }
+	int_type sputbackc(_E __C)
+		{return (gptr() != 0 && eback() < gptr()
+			&& _Tr::eq(__C, gptr()[-1])
+			? _Tr::to_int_type(*_Gndec())
+			: pbackfail(_Tr::to_int_type(__C))); }
+	void stossc()
+		{if (gptr() != 0 && gptr() < egptr())
+			_Gninc();
+		else
+			uflow(); }
+	int_type sungetc()
+		{return (gptr() != 0 && eback() < gptr()
+			? _Tr::to_int_type(*_Gndec()) : pbackfail()); }
+	int_type sputc(_E __C)
+		{return (pptr() != 0 && pptr() < epptr()
+			? _Tr::to_int_type(*_Pninc() = __C)
+			: overflow(_Tr::to_int_type(__C))); }
+	streamsize sputn(const _E *__S, streamsize __N)
+		{return (xsputn(__S, __N)); }
+protected:
+	_E *eback() const
+		{return (*_IGbeg); }
+	_E *gptr() const
+		{return (*_IGnext); }
+	_E *pbase() const
+		{return (*_IPbeg); }
+	_E *pptr() const
+		{return (*_IPnext); }
+	_E *egptr() const
+		{return (*_IGend); }
+	void gbump(int __N)
+		{*_IGnext += __N; }
+	void setg(_E *__B, _E *__N, _E *__L)
+		{*_IGbeg = __B, *_IGnext = __N, *_IGend = __L; }
+	_E *epptr() const
+		{return (*_IPend); }
+	_E *_Gndec()
+		{return (--*_IGnext); }
+	_E *_Gninc()
+		{return ((*_IGnext)++); }
+	void pbump(int __N)
+		{*_IPnext += __N; }
+	void setp(_E *__B, _E *__L)
+		{*_IPbeg = __B, *_IPnext = __B, *_IPend = __L; }
+	void setp(_E *__B, _E *__N, _E *__L)
+		{*_IPbeg = __B, *_IPnext = __N, *_IPend = __L; }
+	_E *_Pninc()
+		{return ((*_IPnext)++); }
+	void _Init()
+		{_IGbeg = &_Gbeg, _IPbeg = &_Pbeg;
+		_IGnext = &_Gnext, _IPnext = &_Pnext;
+		_IGend = &_Gend, _IPend = &_Pend;
+		setp(0, 0), setg(0, 0, 0); }
+	void _Init(_E **_Gb, _E **_Gn, _E **_Ge,
+		_E **_Pb, _E **_Pn, _E **_Pe)
+		{_IGbeg = _Gb, _IPbeg = _Pb;
+		_IGnext = _Gn, _IPnext = _Pn;
+		_IGend = _Ge, _IPend = _Pe; }
+	virtual int_type overflow(int_type = _Tr::eof())
+		{return (_Tr::eof()); }
+	virtual int_type pbackfail(int_type = _Tr::eof())
+		{return (_Tr::eof()); }
+	virtual streamsize showmanyc()
+		{return (0); }
+	virtual int_type underflow()
+		{return (_Tr::eof()); }
+	virtual int_type uflow()
+		{return (_Tr::eq_int_type(_Tr::eof(), underflow())
+			? _Tr::eof() : _Tr::to_int_type(*_Gninc())); }
+	virtual streamsize xsgetn(_E * __S, streamsize __N)
+		{int_type __C;
+		streamsize _M, _Ns;
+		for (_Ns = 0; 0 < __N; )
+			if (gptr() != 0 && 0 < (_M = egptr() - gptr()))
+				{if (__N < _M)
+					_M = __N;
+				_Tr::copy(__S, gptr(), _M);
+				__S += _M, _Ns += _M, __N -= _M, gbump(_M); }
+			else if (_Tr::eq_int_type(_Tr::eof(), __C = uflow()))
+				break;
+			else
+				*__S++ = _Tr::to_char_type(__C), ++_Ns, --__N;
+		return (_Ns); }
+	virtual streamsize xsputn(const _E *__S, streamsize __N)
+		{streamsize _M, _Ns;
+		for (_Ns = 0; 0 < __N; )
+			if (pptr() != 0 && 0 < (_M = epptr() - pptr()))
+				{if (__N < _M)
+					_M = __N;
+				_Tr::copy(pptr(), __S, _M);
+				__S += _M, _Ns += _M, __N -= _M, pbump(_M); }
+			else if (_Tr::eq_int_type(_Tr::eof(),
+				overflow(_Tr::to_int_type(*__S))))
+				break;
+			else
+				++__S, ++_Ns, --__N;
+		return (_Ns); }
+	virtual pos_type seekoff(off_type, ios_base::seekdir,
+		ios_base::openmode = ios_base::in | ios_base::out)
+		{return (streampos(_BADOFF)); }
+	virtual pos_type seekpos(pos_type,
+		ios_base::openmode = ios_base::in | ios_base::out)
+		{return (streampos(_BADOFF)); }
+	virtual _Myt *setbuf(_E *, streamsize)
+		{return (this); }
+	virtual int sync()
+		{return (0); }
+	virtual void imbue(const locale& _Loc)
+		{}
+private:
+	_E *_Gbeg, *_Pbeg;
+	_E **_IGbeg, **_IPbeg;
+	_E *_Gnext, *_Pnext;
+	_E **_IGnext, **_IPnext;
+	_E *_Gend, *_Pend;
+	_E **_IGend, **_IPend;
+	locale _Loc;
+	};
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _STREAMBUF_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

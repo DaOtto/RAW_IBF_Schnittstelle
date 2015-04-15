@@ -1,0 +1,26 @@
+;---FILE HEADER---(set tabulator to 8)-----------------------------------------
+;
+;   filename    : RM3SVC.EQU
+;   version     : 0001
+;   contents    : Definition of SVC interrupt
+;   author      : P.F.
+;   date        : Mar 22, 1994
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Definition of SVC interrupt
+;
+;   RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Mar 22, 1994  P.F.  0001  Original issue
+;
+;---END OF MODIFICATION HEADER-------------------------------------------------
+
+
+X_SVC_VECTOR	EQU	240
+
+

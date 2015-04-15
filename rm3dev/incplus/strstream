@@ -1,0 +1,145 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: strstream,v $
+ * Revision 1.2  2000/02/08 06:21:06  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:05  aki
+ * Initial revision
+ *
+ */ 
+
+// strstream standard header
+#ifndef _STRSTREAM_
+#define _STRSTREAM_
+
+#pragma noarguments_in_registers(push)
+
+#include <istream>
+_STD_BEGIN
+		// CLASS strstreambuf
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (strstreambuf=2)
+#else
+#pragma       align   (strstreambuf=4)                // 3055DE1
+#endif /* << 4719DE1 << */
+class strstreambuf : public streambuf {
+public:
+	enum __Strstate {_Allocated = 1, _Constant = 2,
+		_Dynamic = 4, _Frozen = 8};
+	_BITMASK(__Strstate, _Strstate);
+	explicit strstreambuf(streamsize __N = 0)
+		{_Init(__N); }
+	strstreambuf(void *(*_A)(size_t),
+		void (*_F)(void *))
+		{_Init(), _Palloc = _A, _Pfree = _F; }
+	strstreambuf(char *_G, streamsize __N, char *__P = 0)
+		{_Init(__N, _G, __P); }
+	strstreambuf(unsigned char *_G, streamsize __N,
+		unsigned char *__P = 0)
+		{_Init(__N, (char *)_G, (char *)__P); }
+	strstreambuf(const char *_G, streamsize __N)
+		{_Init(__N, (char *)_G, 0, _Constant); }
+	strstreambuf(const unsigned char *_G, streamsize __N)
+		{_Init(__N, (char *)_G, 0, _Constant); }
+	virtual ~strstreambuf();
+	void freeze(bool = true);
+	char *str()
+		{freeze();
+		return (gptr()); }
+	streamsize pcount() const
+		{return (pptr() == 0 ? 0 : pptr() - pbase()); }
+	strstreambuf(signed char *_G, streamsize __N,
+		signed char *__P = 0)
+		{_Init(__N, (char *)_G, (char *)__P); }
+	strstreambuf(const signed char *_G, streamsize __N)
+		{_Init(__N, (char *)_G, 0, _Constant); }
+protected:
+	virtual int overflow(int = EOF);
+	virtual int pbackfail(int = EOF);
+	virtual int underflow();
+	virtual streampos seekoff(streamoff, ios::seekdir,
+		ios::openmode = ios::in | ios::out);
+	virtual streampos seekpos(streampos,
+		ios::openmode = ios::in | ios::out);
+	void _Init(int = 0, char * = 0, char * = 0,
+		_Strstate = (_Strstate)0);
+	void _Tidy();
+private:
+	enum {_ALSIZE = 512, _MINSIZE = 32};
+	char *_Pendsave, *_Seekhigh;
+	int _Alsize;
+	_Strstate _Strmode;
+	void *(*_Palloc)(size_t);
+	void (*_Pfree)(void *);
+	};
+_BITMASK_OPS(strstreambuf::__Strstate)
+		// CLASS istrstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (istrstream=2)
+#else
+#pragma       align   (istrstream=4)          // 3055DE1
+#endif /* << 4719DE1 << */
+class istrstream : public istream {
+public:
+	explicit istrstream(const char *__S)
+		: istream(&_Sb), _Sb(__S, 0) {}
+	istrstream(const char *__S, streamsize __N)
+		: istream(&_Sb), _Sb(__S, __N) {}
+	explicit istrstream(char *__S)
+		: istream(&_Sb), _Sb((const char *)__S, 0) {}
+	istrstream(char *__S, int __N)
+		: istream(&_Sb), _Sb((const char *)__S, __N) {}
+	virtual ~istrstream();
+	strstreambuf *rdbuf() const
+		{return ((strstreambuf *)&_Sb); }
+	char *str()
+		{return (_Sb.str()); }
+private:
+	strstreambuf _Sb;
+	};
+		// CLASS ostrstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ostrstream=2)
+#else
+#pragma       align   (ostrstream=4)          // 3055DE1
+#endif /* << 4719DE1 << */
+class ostrstream : public ostream {
+public:
+	ostrstream()
+		: ostream(&_Sb), _Sb() {}
+	ostrstream(char *, streamsize,
+		ios::openmode = ios::out);
+	virtual ~ostrstream();
+	strstreambuf *rdbuf() const
+		{return ((strstreambuf *)&_Sb); }
+	void freeze(bool _F = true)
+		{_Sb.freeze(_F); }
+	char *str()
+		{return (_Sb.str()); }
+	streamsize pcount() const
+		{return (_Sb.pcount()); }
+private:
+	strstreambuf _Sb;
+	};
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _STRSTREAM_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

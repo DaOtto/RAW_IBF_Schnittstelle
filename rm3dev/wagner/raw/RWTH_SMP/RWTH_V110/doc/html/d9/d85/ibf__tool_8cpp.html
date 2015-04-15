@@ -1,0 +1,886 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: ibf_tool.cpp-Dateireferenz</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d9/d85/ibf__tool_8cpp.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle">
+<div class="title">ibf_tool.cpp-Dateireferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="../../dd/d3b/rpw_8hpp_source.html">rpw.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+</div>
+<p><a href="../../d9/d85/ibf__tool_8cpp_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:a6b19458728f386dca23bf0afd68ff103"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a6b19458728f386dca23bf0afd68ff103">KW_Drehzahl_axial</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>)</td></tr>
+<tr class="memdesc:a6b19458728f386dca23bf0afd68ff103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, mit der ,fuer das Axialprofilieren, die Motordrehzahl bestimmt wird.  <a href="#a6b19458728f386dca23bf0afd68ff103">Mehr ...</a><br /></td></tr>
+<tr class="separator:a6b19458728f386dca23bf0afd68ff103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3cbc8c0292c0d345da63f2e82d9bdff"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#ab3cbc8c0292c0d345da63f2e82d9bdff">KW_Drehzahl_unten</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>)</td></tr>
+<tr class="memdesc:ab3cbc8c0292c0d345da63f2e82d9bdff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, mit der fuer das Axialprofilieren die Drehzahl der Kegelwalzen unten bestimmt wird.  <a href="#ab3cbc8c0292c0d345da63f2e82d9bdff">Mehr ...</a><br /></td></tr>
+<tr class="separator:ab3cbc8c0292c0d345da63f2e82d9bdff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d9e1c31beb261c2caa40417381b55f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a4d9e1c31beb261c2caa40417381b55f8">rs_aso_mode</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>, int Funktionswahl)</td></tr>
+<tr class="memdesc:a4d9e1c31beb261c2caa40417381b55f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funktion, mit der die Betriebsarten von Radialschlitten und Axialschlitten festgelegt werden.  <a href="#a4d9e1c31beb261c2caa40417381b55f8">Mehr ...</a><br /></td></tr>
+<tr class="separator:a4d9e1c31beb261c2caa40417381b55f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592b1ec6bb39f3de3c5134917d8b2771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a592b1ec6bb39f3de3c5134917d8b2771">Axialkraft</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a592b1ec6bb39f3de3c5134917d8b2771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legt die Kraft des Axialschlittens fest.  <a href="#a592b1ec6bb39f3de3c5134917d8b2771">Mehr ...</a><br /></td></tr>
+<tr class="separator:a592b1ec6bb39f3de3c5134917d8b2771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef14ec754af5a4d5d9f960bcfd84deca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#aef14ec754af5a4d5d9f960bcfd84deca">Kraftsteuerung</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:aef14ec754af5a4d5d9f960bcfd84deca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legt zunaechst den Modus der Radial- und Axialschlitten oben fest wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a4d9e1c31beb261c2caa40417381b55f8">rs_aso_mode</a> beschrieben und mit Funktionswahl = 0.  <a href="#aef14ec754af5a4d5d9f960bcfd84deca">Mehr ...</a><br /></td></tr>
+<tr class="separator:aef14ec754af5a4d5d9f960bcfd84deca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0019a53d28da7f071e72aff26ae3c62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#aa0019a53d28da7f071e72aff26ae3c62">Anwalzen_Radial</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:aa0019a53d28da7f071e72aff26ae3c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legt die Kraft des Radialschlittens fest.  <a href="#aa0019a53d28da7f071e72aff26ae3c62">Mehr ...</a><br /></td></tr>
+<tr class="separator:aa0019a53d28da7f071e72aff26ae3c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d5d3a768d973155e7349912998f977d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a1d5d3a768d973155e7349912998f977d">Anwalzen_Axial</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a1d5d3a768d973155e7349912998f977d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legt die Kraft des Axialschittens fest.  <a href="#a1d5d3a768d973155e7349912998f977d">Mehr ...</a><br /></td></tr>
+<tr class="separator:a1d5d3a768d973155e7349912998f977d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52de60ad078043a89b5549afc6dcdb20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a52de60ad078043a89b5549afc6dcdb20">IBF_Abschaltung</a> (struct <a class="el" href="../../da/d36/struct_def___soll___inter.html">Def_Soll_Inter</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a54cbbbf6d6375b06ca9689afe7f05db3">Soll_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>)</td></tr>
+<tr class="separator:a52de60ad078043a89b5549afc6dcdb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9b1e4dbb296c02aef52268f974cf85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a8c9b1e4dbb296c02aef52268f974cf85">Breitungsexp</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a8c9b1e4dbb296c02aef52268f974cf85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Verhältnisse Wanddicke zu Werkzeughoehe und Wanddicke zu Rohlingshoehe, sowie Breitungsexponenten und dessen natuerlichen Logarithmus für <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> und setzt genannte Werte.  <a href="#a8c9b1e4dbb296c02aef52268f974cf85">Mehr ...</a><br /></td></tr>
+<tr class="separator:a8c9b1e4dbb296c02aef52268f974cf85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aba578e3ceba76a894fa6e82c27943d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a0aba578e3ceba76a894fa6e82c27943d">Durchme_t2</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a0aba578e3ceba76a894fa6e82c27943d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet und setzt den Aussendurchmesser, Innendurchmesser und und dessen Quadrat fuer die naechste Iteration.  <a href="#a0aba578e3ceba76a894fa6e82c27943d">Mehr ...</a><br /></td></tr>
+<tr class="separator:a0aba578e3ceba76a894fa6e82c27943d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69566f05aecb14e47d0872b209b825b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#ac69566f05aecb14e47d0872b209b825b">Volumenbestimmung</a> (struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:ac69566f05aecb14e47d0872b209b825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet und setzt das aktuelle und Volumen der folge Iteration sowie dessen Differenz.  <a href="#ac69566f05aecb14e47d0872b209b825b">Mehr ...</a><br /></td></tr>
+<tr class="separator:ac69566f05aecb14e47d0872b209b825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac7c3b4cd047518fa1ea2eb526bfbcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#aaac7c3b4cd047518fa1ea2eb526bfbcb">Hoehenzunahme</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:aaac7c3b4cd047518fa1ea2eb526bfbcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Hoehenzuname der naechsten Iteration.  <a href="#aaac7c3b4cd047518fa1ea2eb526bfbcb">Mehr ...</a><br /></td></tr>
+<tr class="separator:aaac7c3b4cd047518fa1ea2eb526bfbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad583805f302e779a0aed1c7ace9307b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#ad583805f302e779a0aed1c7ace9307b7">AGR_Pr_Wanddicken_Verhaeltnis_proz</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:ad583805f302e779a0aed1c7ace9307b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestimmt das Verhaeltnis Wanddicke zu Profilierposition zum Walzbeginm und waehrend der Walzung.  <a href="#ad583805f302e779a0aed1c7ace9307b7">Mehr ...</a><br /></td></tr>
+<tr class="separator:ad583805f302e779a0aed1c7ace9307b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbfa5f357538ec4d7d948f2aa037a59d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#afbfa5f357538ec4d7d948f2aa037a59d">AGR_Nachfuehr_Entscheider</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:afbfa5f357538ec4d7d948f2aa037a59d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Es wird zunaechst das Wandverhaeltnis wie in <a class="el" href="../../d9/d85/ibf__tool_8cpp.html#ad583805f302e779a0aed1c7ace9307b7">AGR_Pr_Wanddicken_Verhaeltnis_proz()</a> .  <a href="#afbfa5f357538ec4d7d948f2aa037a59d">Mehr ...</a><br /></td></tr>
+<tr class="separator:afbfa5f357538ec4d7d948f2aa037a59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ba5b91c3a10d8602704b9b5abe70196"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a0ba5b91c3a10d8602704b9b5abe70196">AGR_Soll_Pos</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:a0ba5b91c3a10d8602704b9b5abe70196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Axialgeruestposition anhand des Aussendurhmessers oder des innendruchmessers.  <a href="#a0ba5b91c3a10d8602704b9b5abe70196">Mehr ...</a><br /></td></tr>
+<tr class="separator:a0ba5b91c3a10d8602704b9b5abe70196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afced8cf07a6b1d626eb5e706e737b948"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html#afced8cf07a6b1d626eb5e706e737b948">AGR_Soll_Pos_delta_Tr</a> (struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>, struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *<a class="el" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>)</td></tr>
+<tr class="memdesc:afced8cf07a6b1d626eb5e706e737b948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berechnet die Sollposition der Tastrolle, sowie die Differenz zwischen Soll- und Istposition der Tastrolle.  <a href="#afced8cf07a6b1d626eb5e706e737b948">Mehr ...</a><br /></td></tr>
+<tr class="separator:afced8cf07a6b1d626eb5e706e737b948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a class="anchor" id="afbfa5f357538ec4d7d948f2aa037a59d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char AGR_Nachfuehr_Entscheider </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Es wird zunaechst das Wandverhaeltnis wie in <a class="el" href="../../d9/d85/ibf__tool_8cpp.html#ad583805f302e779a0aed1c7ace9307b7">AGR_Pr_Wanddicken_Verhaeltnis_proz()</a> . </p>
+<p>Gibt entweder 'A' oder 'I' als Char zurueck. 'A'bedeutet, dass sich die Profilposition auf maximal 60% der Wanddicke vom Aeusseren Randbereich befindet. 'I' bedeutet, dass sich die Profilposition auf ueber 60% der Wanddicke befindet.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Strkutur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>[out] Wert 'A': Profielposition befindet sich vom Aeusseren Ranndbereich auf mindestens 60% der Wanddicke, 'I' Profilposition befindet sich vom Aeusseren Randbereich ueber 60% der Wanddicke </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00433">433</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00406">AGR_Pr_Wanddicken_Verhaeltnis_proz()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00441">Def_IBF_Allgemein_SOLL::Axial</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00189">Axial_Flex_Prof::Verh_pr_sf_proz</a> und <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00193">Axial_Flex_Prof::Wert</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00471">AGR_Soll_Pos()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad583805f302e779a0aed1c7ace9307b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AGR_Pr_Wanddicken_Verhaeltnis_proz </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bestimmt das Verhaeltnis Wanddicke zu Profilierposition zum Walzbeginm und waehrend der Walzung. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf die Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>[out] <a class="el" href="../../d7/dbf/teso_8hpp.html#aa8cecfc5c5c054d2875c03e77b7be15d">TRUE</a>, wenn alle Berechnungen durchgefuehrt wurden </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00406">406</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00175">Axial_Flex_Prof::AGR_Pr</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00286">Def_IBF_Allgemein_IST::Axial</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00441">Def_IBF_Allgemein_SOLL::Axial</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00170">Axial_Flex_Prof::Pr_Num</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00200">Def_Ist_Inter::s0a</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00018">TRUE</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00189">Axial_Flex_Prof::Verh_pr_sf_proz</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00186">Axial_Flex_Prof::Verh_pr_sf_proz_start</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00270">Def_IBF_Allgemein_IST::Vorring</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00072">Geometrie::Wandstaerke_Null</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00433">AGR_Nachfuehr_Entscheider()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ba5b91c3a10d8602704b9b5abe70196"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AGR_Soll_Pos </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Axialgeruestposition anhand des Aussendurhmessers oder des innendruchmessers. </p>
+<p>Die Entscheidung wird nach <a class="el" href="../../d9/d85/ibf__tool_8cpp.html#afbfa5f357538ec4d7d948f2aa037a59d">AGR_Nachfuehr_Entscheider()</a> getroffen.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eien Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Type <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>[out] AG_Position in dieser Methode berechnete Position des Axialgeruests </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00471">471</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00433">AGR_Nachfuehr_Entscheider()</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00175">Axial_Flex_Prof::AGR_Pr</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00286">Def_IBF_Allgemein_IST::Axial</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00187">Def_Ist_Inter::da</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00062">Def_Kragen_Geo::Del_Kr_AGR</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00050">Def_Kragen_Geo::Kr_Br</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00156">Axial_Flex_Prof::Kr_geo</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00072">Def_Kragen_Geo::l_fehlende_spitze_ukw</a> und <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00170">Axial_Flex_Prof::Pr_Num</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/d6f/ibf__flex__axial_8cpp_source.html#l00027">RPW::flexibel_Axial()</a> und <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afced8cf07a6b1d626eb5e706e737b948"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AGR_Soll_Pos_delta_Tr </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Sollposition der Tastrolle, sowie die Differenz zwischen Soll- und Istposition der Tastrolle. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00518">518</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00175">Axial_Flex_Prof::AGR_Pr</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00286">Def_IBF_Allgemein_IST::Axial</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00062">Def_Kragen_Geo::Del_Kr_AGR</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00397">Def_IBF_Allgemein_SOLL::delta_tr</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00050">Def_Kragen_Geo::Kr_Br</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00156">Axial_Flex_Prof::Kr_geo</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00170">Axial_Flex_Prof::Pr_Num</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00116">Def_Ist_Inter::tr_pos</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00396">Def_IBF_Allgemein_SOLL::tr_pos</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d5d3a768d973155e7349912998f977d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Anwalzen_Axial </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Legt die Kraft des Axialschittens fest. </p>
+<p>Zunaechst werden hierfuer die Modi des Radial- und Axialschlittens oben wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a4d9e1c31beb261c2caa40417381b55f8">rs_aso_mode</a> festgelegt. Dannach werden die Kraefte des Radialschlittens, Axialgeruests, Zentrierarm links und rechts gesetzt. Sollte im Ist_IBF kein Wert fuer diese Kraefte hinterlegt werden, so werden 100002 [N] (fuer Radialschlitten), 10002 [N] (fuer Axialgeruest) und 10002 [N] (fuer den linken und rechten Zentrierarm). Zum Schluss wird die Kraft des Axialschlittens aus Ist_IBF gesetzt, sollte dort kein Wert hinterlegt worden sein, wird ein Standardwert von 2000 [N] gesetzt. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>der Zeiger auf die Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> in der die Soll-Daten des Ringwalzwerkes geschrieben werden </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="bug"><dt><b><a class="el" href="../../de/da5/bug.html#_bug000002">Fehler:</a></b></dt><dd>Zentrierarm links und Zentrierarm rechts wurden vermutlich vertauscht </dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00227">227</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00379">Def_IBF_Allgemein_SOLL::AG_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00450">Def_IBF_Allgemein_SOLL::AG_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00086">IBF_Flag::ag_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00378">Def_IBF_Allgemein_SOLL::AS_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00456">Def_IBF_Allgemein_SOLL::AS_Kraft_Anfahren</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00091">IBF_Flag::as_kraftanfahren_aktiv</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00097">Axialkraft()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00058">rs_aso_mode()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00377">Def_IBF_Allgemein_SOLL::RS_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00448">Def_IBF_Allgemein_SOLL::RS_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00084">IBF_Flag::rs_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00380">Def_IBF_Allgemein_SOLL::ZAL_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00452">Def_IBF_Allgemein_SOLL::ZAL_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00087">IBF_Flag::zal_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00381">Def_IBF_Allgemein_SOLL::ZAR_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00451">Def_IBF_Allgemein_SOLL::ZAR_Kraft_Vorgabe</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00088">IBF_Flag::zar_kraftregler_aktiv</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0019a53d28da7f071e72aff26ae3c62"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Anwalzen_Radial </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Legt die Kraft des Radialschlittens fest. </p>
+<p>Zunaechst werden die Modi der Radial- und Axialschlitten oben festgelegt wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a4d9e1c31beb261c2caa40417381b55f8">rs_aso_mode</a> und die Kraft am Axialschlitten festgelegt wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a592b1ec6bb39f3de3c5134917d8b2771">Axialkraft</a> beschrieben. Im Anschluss wird die Kraft am Axialgeruest, Zentrierarm links und rechts festglegt. Sollten f¿r diese Kraefte nicht expliziet Daten im Ist_IBF hinterlegt sein, werden sie standardmaessig auf 100001 [N] (Axialgeruest) und 10001 [N] (Zentrierarm links und rechts) gesetzt. Die Kraft des Radialschlittens wird, abhaengig davon, ob Radial die Kraft an den <a class="el" href="../../d5/ddc/struct_rohling.html" title="Geometrie eines Rohlings. ">Rohling</a> angefahren wird, auf den im Ist_IBF hinterlegten Wert gelegt. Sollte im Ist_IBF kein Wert hinterlegt sein, so wird er auf 80001 [N] oder 80002 [N] gesetzt.</p>
+<p>Beim Anfahren muss eine Mindestkraft vorgegeben werden! Liegt bei Kraftregelung die Soll-Walzkraft unter diesem Wert, dann kann u.U. die Kraft nicht ausreichend sein, dass der Radialschlitten positioniert werden kann. Hierdurch wird die Position nicht erreicht und das Programm kann nicht in die nachfolgende case-Anweisung springen</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>der Zeiger auf die Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> in der die Soll-Daten des Ringwalzwerkes geschrieben werden </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00180">180</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00379">Def_IBF_Allgemein_SOLL::AG_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00450">Def_IBF_Allgemein_SOLL::AG_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00086">IBF_Flag::ag_kraftregler_aktiv</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00097">Axialkraft()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00058">rs_aso_mode()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00377">Def_IBF_Allgemein_SOLL::RS_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00455">Def_IBF_Allgemein_SOLL::RS_Kraft_Anfahren</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00448">Def_IBF_Allgemein_SOLL::RS_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00090">IBF_Flag::rs_kraftanfahren_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00084">IBF_Flag::rs_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00380">Def_IBF_Allgemein_SOLL::ZAL_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00452">Def_IBF_Allgemein_SOLL::ZAL_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00087">IBF_Flag::zal_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00381">Def_IBF_Allgemein_SOLL::ZAR_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00451">Def_IBF_Allgemein_SOLL::ZAR_Kraft_Vorgabe</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00088">IBF_Flag::zar_kraftregler_aktiv</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a592b1ec6bb39f3de3c5134917d8b2771"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Axialkraft </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Legt die Kraft des Axialschlittens fest. </p>
+<p>Diese wird auf 380000.0 [N] gesetzt, sollte keine genauere Spezifikation vorliegen. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00097">97</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00378">Def_IBF_Allgemein_SOLL::AS_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00449">Def_IBF_Allgemein_SOLL::AS_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00085">IBF_Flag::as_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00120">IBF_Flag::Axial_Radialwalzen</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00227">Anwalzen_Axial()</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00180">Anwalzen_Radial()</a> und <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00139">Kraftsteuerung()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c9b1e4dbb296c02aef52268f974cf85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Breitungsexp </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Verhältnisse Wanddicke zu Werkzeughoehe und Wanddicke zu Rohlingshoehe, sowie Breitungsexponenten und dessen natuerlichen Logarithmus für <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> und setzt genannte Werte. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Ist_IBF</td><td>die Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramname">*Soll_IBF</td><td>die Strukur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> , die im Laufe der Funktion veraendert wird </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00303">303</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00239">Radial_Flex_Prof::Breitung</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00092">Breitung::e_mr</a>, <a class="el" href="../../d6/d1d/ibf__tool_8hpp_source.html#l00034">Euler</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00089">Breitung::ga</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00083">Breitung::mr</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00086">Breitung::qf</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00282">Def_IBF_Allgemein_IST::Radial</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00440">Def_IBF_Allgemein_SOLL::Radial</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00210">Radial_Flex_Prof::Rohlinghoehe</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00187">Radial_Flex_Prof::s_f</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00233">Radial_Flex_Prof::Walzspalt_Cr</a> und <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00198">Radial_Flex_Prof::Werkzeugbreite</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00371">Hoehenzunahme()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0aba578e3ceba76a894fa6e82c27943d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Durchme_t2 </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet und setzt den Aussendurchmesser, Innendurchmesser und und dessen Quadrat fuer die naechste Iteration. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00322">322</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00239">Radial_Flex_Prof::Breitung</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00187">Def_Ist_Inter::da</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00096">Breitung::Da_t2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00102">Breitung::Da_t2_h2</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00189">Def_Ist_Inter::di</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00099">Breitung::Di_t2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00105">Breitung::Di_t2_h2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00092">Breitung::e_mr</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00282">Def_IBF_Allgemein_IST::Radial</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00440">Def_IBF_Allgemein_SOLL::Radial</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00187">Radial_Flex_Prof::s_f</a> und <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00167">Radial_Flex_Prof::Soll_Wanddicke</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00371">Hoehenzunahme()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaac7c3b4cd047518fa1ea2eb526bfbcb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Hoehenzunahme </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet die Hoehenzuname der naechsten Iteration. </p>
+<p>Hierfuer wird zunaechst wie in <a class="el" href="../../d9/d85/ibf__tool_8cpp.html#a8c9b1e4dbb296c02aef52268f974cf85">Breitungsexp()</a> beschrieben der Breitungsexponent, wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a5feb52b6529d000705a411559e0a9e5b">Durchme_t2</a> beschrieben der Innen- und Aussendurchmesser der nachsten Iteration berechnete, sowie das aktuelle und das der folge Itration wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a97664590ea72bb0e8be2bbbd78081390">Volumenbestimmung</a> beschrieben.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00371">371</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00239">Radial_Flex_Prof::Breitung</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00303">Breitungsexp()</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00187">Def_Ist_Inter::da</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00096">Breitung::Da_t2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00102">Breitung::Da_t2_h2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00119">Breitung::delta_h</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00189">Def_Ist_Inter::di</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00099">Breitung::Di_t2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00105">Breitung::Di_t2_h2</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00322">Durchme_t2()</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00057">PI</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00440">Def_IBF_Allgemein_SOLL::Radial</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00116">Breitung::Volumen_diff</a> und <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00343">Volumenbestimmung()</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/d95/ibf__flex__radial_8cpp_source.html#l00034">RPW::flexibel_Radial()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52de60ad078043a89b5549afc6dcdb20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IBF_Abschaltung </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../da/d36/struct_def___soll___inter.html">Def_Soll_Inter</a> *&#160;</td>
+          <td class="paramname"><em>Soll_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00265">265</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00310">Def_Soll_Inter::ag_act</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00086">IBF_Flag::ag_kraftregler_aktiv</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00318">Def_Soll_Inter::ag_mode</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aef14ec754af5a4d5d9f960bcfd84deca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Kraftsteuerung </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Legt zunaechst den Modus der Radial- und Axialschlitten oben fest wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a4d9e1c31beb261c2caa40417381b55f8">rs_aso_mode</a> beschrieben und mit Funktionswahl = 0. </p>
+<p>Dannach wird die Kraft des Axialschlittens wie in <a class="el" href="../../d6/d1d/ibf__tool_8hpp.html#a592b1ec6bb39f3de3c5134917d8b2771">Axialkraft</a> beschrieben festgelegt. Im Anschluss werden die Kraefte am Radialschlitten, Axialgeruest, Zentrierarm links und rechts festgelegt. Sollten diese im Ist_IBF nicht aktiviert sein, so werden sie standardmaessig auf 100000 [N] gesetzt. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00139">139</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00379">Def_IBF_Allgemein_SOLL::AG_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00450">Def_IBF_Allgemein_SOLL::AG_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00086">IBF_Flag::ag_kraftregler_aktiv</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00097">Axialkraft()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00058">rs_aso_mode()</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00377">Def_IBF_Allgemein_SOLL::RS_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00448">Def_IBF_Allgemein_SOLL::RS_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00084">IBF_Flag::rs_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00380">Def_IBF_Allgemein_SOLL::ZAL_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00452">Def_IBF_Allgemein_SOLL::ZAL_Kraft_Vorgabe</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00087">IBF_Flag::zal_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00381">Def_IBF_Allgemein_SOLL::ZAR_Kraft</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00451">Def_IBF_Allgemein_SOLL::ZAR_Kraft_Vorgabe</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00088">IBF_Flag::zar_kraftregler_aktiv</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/d6f/ibf__flex__axial_8cpp_source.html#l00027">RPW::flexibel_Axial()</a>, <a class="el" href="../../de/d95/ibf__flex__radial_8cpp_source.html#l00034">RPW::flexibel_Radial()</a>, <a class="el" href="../../da/d5e/ibf__formspek_8cpp_source.html#l00024">RPW::formenspektrum()</a> und <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b19458728f386dca23bf0afd68ff103"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">KW_Drehzahl_axial </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> *&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funktion, mit der ,fuer das Axialprofilieren, die Motordrehzahl bestimmt wird. </p>
+<p>Funktion, mit der fuer das Axialprofilieren die Drehzahl der Kegelwalzen bestimmt wird.</p>
+<p>Dies ist der Rückgabewert der Funktion. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td>eine Struktur vom Typ <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00028">28</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00175">Axial_Flex_Prof::AGR_Pr</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00286">Def_IBF_Allgemein_IST::Axial</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00187">Def_Ist_Inter::da</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00062">Def_Kragen_Geo::Del_Kr_AGR</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00083">Werkzeug::Durchmesser_HW</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00135">Def_Ist_Inter::hw_n</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00050">Def_Kragen_Geo::Kr_Br</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00156">Axial_Flex_Prof::Kr_geo</a>, <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00216">Def_Ist_Inter::kw_ia</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00170">Axial_Flex_Prof::Pr_Num</a>, <a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00069">Def_Kragen_Geo::sin_kw_winkel_halbe</a> und <a class="el" href="../../dd/d3b/rpw_8hpp_source.html#l00212">Def_Ist_Inter::Werkzeug</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/d6f/ibf__flex__axial_8cpp_source.html#l00027">RPW::flexibel_Axial()</a>, <a class="el" href="../../da/d5e/ibf__formspek_8cpp_source.html#l00024">RPW::formenspektrum()</a> und <a class="el" href="../../da/d06/rpw_8cpp_source.html#l00367">RPW::Main()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3cbc8c0292c0d345da63f2e82d9bdff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float KW_Drehzahl_unten </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a>&#160;</td>
+          <td class="paramname"><em>Ist_Inter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> *&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funktion, mit der fuer das Axialprofilieren die Drehzahl der Kegelwalzen unten bestimmt wird. </p>
+<p>Der aktuelle Wert (19.6.2013) betraegt 1 </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_Inter</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00041">41</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d9e1c31beb261c2caa40417381b55f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rs_aso_mode </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Funktionswahl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Funktion, mit der die Betriebsarten von Radialschlitten und Axialschlitten festgelegt werden. </p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Strukutr vom Typ <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">Funktionswahl</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00058">58</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00091">IBF_Flag::as_kraftanfahren_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00085">IBF_Flag::as_kraftregler_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00114">IBF_Flag::aso_mode</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00254">Def_IBF_Allgemein_IST::Flag</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00437">Def_IBF_Allgemein_SOLL::Flag</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00090">IBF_Flag::rs_kraftanfahren_aktiv</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00084">IBF_Flag::rs_kraftregler_aktiv</a> und <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00117">IBF_Flag::rs_mode</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00227">Anwalzen_Axial()</a>, <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00180">Anwalzen_Radial()</a> und <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00139">Kraftsteuerung()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac69566f05aecb14e47d0872b209b825b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Volumenbestimmung </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a>&#160;</td>
+          <td class="paramname"><em>Ist_IBF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> *&#160;</td>
+          <td class="paramname"><em>Soll_IBF</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Berechnet und setzt das aktuelle und Volumen der folge Iteration sowie dessen Differenz. </p>
+<p>Diese Werte werden mit Hilfe der Werkzeugbreitem des Aussen- und Innenradius und dem natuerkichen Logarithmus des Breitungsexponenten bberechnrt.</p>
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Ist_IBF</td><td>eine Struktur vom Type <a class="el" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*Soll_IBF</td><td>ein Zeiger auf eine Struktur vom Typ <a class="el" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a> in die die berechneten Werte geschrieben werden </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00343">343</a> der Datei <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html">ibf_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00239">Radial_Flex_Prof::Breitung</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00102">Breitung::Da_t2_h2</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00092">Breitung::e_mr</a>, <a class="el" href="../../d7/dbf/teso_8hpp_source.html#l00057">PI</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00282">Def_IBF_Allgemein_IST::Radial</a>, <a class="el" href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00440">Def_IBF_Allgemein_SOLL::Radial</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00116">Breitung::Volumen_diff</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00110">Breitung::Volumen_t1</a>, <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00113">Breitung::Volumen_t2</a> und <a class="el" href="../../dc/dec/_i_b_f__radflex_8hpp_source.html#l00198">Radial_Flex_Prof::Werkzeugbreite</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00371">Hoehenzunahme()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_f9277b23b0ca65ee783fd3eabe970823.html">source</a></li><li class="navelem"><a class="el" href="../../d9/d85/ibf__tool_8cpp.html">ibf_tool.cpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:14 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

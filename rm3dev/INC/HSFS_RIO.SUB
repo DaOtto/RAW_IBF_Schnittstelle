@@ -1,0 +1,23 @@
+/*--FILE HEADER-(set tabulator to 8)-------------------------------------------
+;
+;   filename    : HSFS_RIO.SUB
+;   version     : 0002
+;   contents    : Subsystem definition
+;   author      : G.B.
+;   date        : July 31, 1992
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : HSFS RIO interface subsystem definition
+;
+;   RMOS2 & RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   July 31, 1992  G.B.  0002    Original issue after beta test
+;
+;---END OF MODIFICATION HEADER-----------------------------------------------*/
+
+$COMPACT ( HSFS -CONST IN CODE- has HSFS_RIO)

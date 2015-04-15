@@ -1,0 +1,19 @@
+/*--FILE HEADER-(no tabs used)-------------- 
+;                                            
+;   filename    : RC201.SUB              
+;   version     : 0002                       
+;   contents    : Subsystem configuration    
+;   author      : G.H.                       
+;   date        : Jun 14, 1996               
+;                                            
+;---FUNCTION AND RMOS ENVIRONMENT----------- 
+;                                            
+;   function    : Subsystem definition       
+;                                            
+;   RMOS3                                    
+;                                            
+;---END OF FILE HEADER--------------------*/ 
+$COMPACT ( RM3 -CONST IN CODE- HAS          
+$          RC201,                       
+$          RC2011,                      
+$          RC2012)                      

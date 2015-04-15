@@ -1,0 +1,257 @@
+$SAVE NOLIST
+
+;---FILE HEADER-(set tabulator to 8)-------------------------------------------
+;
+;   filename    : RIO.EQU
+;   version     : 0004
+;   contents    : RIO-Function equates for device drivers
+;   author      : W.S.
+;   date        : Dec 04, 1992
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Include file for ASM
+;
+;   RMOS2 & RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Dec 04, 1992  W.S.  0003  New Header added
+;   Jan 18, 1995  P.F.  0004  Removed EQUs for BUB driver
+;
+;---END OF MODIFICATION HEADER-------------------------------------------------
+
+
+$INCLUDE(:F1:SWSEG.MAC)		;Segment definition macros
+
+%NUC_CODE_SEG
+	DB	0, '(C) SIEMENS AG 1995', 0	;Incode-Identification
+	DB	1, 'RIO.EQU'		, 1
+	DB	2, '0004'		, 2
+	DB	3, 'P.F.'		, 3
+%END_NUC_CODE_SEG
+
+
+;************************************************************************
+;*                          RIO FUNCTION EQUATES FOR BYTE-DRIVER        *
+;************************************************************************
+
+MAX_BYT_FUNC    EQU     0EH     ; MAX. FUNCTION CODE (BYTE-DRIVER)
+BYT_IMMED_BIT   EQU     80H     ; EMERGENCY-OPTION FOR RIO-COMPLETION
+BYT_WAIT_BIT    EQU     40H     ; WAIT-OPTION UNTIL RIO-COMPLETION
+BYT_CANCEL_BIT  EQU     20H     ; CANCEL-OPTION FOR RUNNING REQUESTS
+
+;       RIO-FUNCTION EQUATES WITHOUT WAIT-OPTION
+
+BYT_RESERVE             EQU     00H     ; RESERVE DRIVER-UNIT
+BYT_RELEASE             EQU     01H     ; RELEASE DRIVER-UNIT
+BYT_READ                EQU     02H     ; NORMAL READ
+BYT_WRITE               EQU     03H     ; NORMAL WRITE
+BYT_XWRT                EQU     04H     ; EMERGENCY WRITE
+BYT_ONE_XREAD           EQU     05H     ; ONE BYTE XPARENT READ, BUFFER=STATUS
+BYT_WRT_XREAD           EQU     06H     ; NORMAL WRITE THEN XPARENT READ
+BYT_WRT_READ            EQU     07H     ; NORMAL WRITE THEN NORMAL READ
+BYT_SKIP_LINE           EQU     08H     ; SKIP LINE(S)
+BYT_FORM_FEED           EQU     09H     ; ERASE SCREEN (FORM-FEED)
+BYT_HSFS_XREAD          EQU     0AH     ; ONE BYTE XPARENT READ, HSFS
+BYT_HSFS_WRITE          EQU     0BH     ; ONE BYTE NORMAL WRITE, HSFS
+BYT_POLL_XBUF           EQU     0CH     ; POLL EXTRA BUFFER
+BYT_CHECK_ABO           EQU     0DH     ; CHECK FOR ABORT CHARACTER
+BYT_CREATE_NEW          EQU     0EH     ; CREATE NEW UNIT
+
+;       RIO-FUNCTION EQUATES WITH WAIT-OPTION
+
+BYT_RESERVE_WAIT        EQU     40H     ; RESERVE DRIVER-UNIT
+BYT_RELEASE_WAIT        EQU     41H     ; RELEASE DRIVER-UNIT
+BYT_READ_WAIT           EQU     42H     ; NORMAL READ
+BYT_WRITE_WAIT          EQU     43H     ; NORMAL WRITE
+BYT_XWRT_WAIT           EQU     44H     ; EMERGENCY WRITE
+BYT_ONE_XREAD_WAIT      EQU     45H     ; ONE BYTE XPARENT READ, BUFFER=STATUS
+BYT_WRT_XREAD_WAIT      EQU     46H     ; NORMAL WRITE THEN XPARENT READ
+BYT_WRT_READ_WAIT       EQU     47H     ; NORMAL WRITE THEN NORMAL READ
+BYT_SKIP_LINE_WAIT      EQU     48H     ; SKIP LINE(S)
+BYT_FORM_FEED_WAIT      EQU     49H     ; ERASE SCREEN (FORM-FEED)
+BYT_HSFS_XREAD_WAIT     EQU     4AH     ; ONE BYTE XPARENT READ, HSFS
+BYT_HSFS_WRT_WAIT       EQU     4BH     ; ONE BYTE NORMAL WRITE, HSFS
+BYT_POLL_XBUF_WAIT      EQU     4CH     ; POLL EXTRA BUFFER
+BYT_CHECK_ABO_WAIT      EQU     4DH     ; CHECK FOR ABORT CHARACTER
+BYT_CREATE_NEW_WAIT     EQU     4EH     ; CREATE NEW UNIT
+
+;*************************************************************************
+;*                         RIO FUNCTION EQUATES FOR COM1-DRIVER          *
+;*************************************************************************
+
+MAX_CM1_FUNC            EQU     06H     ; MAX. FUNCTION CODE
+CM1_IMMED_BIT           EQU     80H     ; EMERGENCY-OPTION FOR RIO-COMPLETION
+CM1_WAIT_BIT            EQU     40H     ; WAIT-OPTION FOR RIO-COMPLETION
+
+;       RIO FUNCTION EQUATES WITHOUT WAIT-OPTION
+
+CM1_RESERVE             EQU     00H     ; RESERVE DRIVER-UNIT
+CM1_RELEASE             EQU     01H     ; RELEASE DRIVER-UNIT
+CM1_READ                EQU     02H     ; NORMAL READ
+CM1_WRITE               EQU     03H     ; NORMAL WRITE
+CM1_BREAK_ON            EQU     04H     ; FORCE BREAK ENABLE
+CM1_BREAK_OFF           EQU     05H     ; FORCE BREAK DISABLE
+CM1_CREATE_NEW          EQU     06H     ; CREATE NEW UNIT
+
+;       RIO FUNCTION EQUATES WITH WAIT-OPTION
+
+CM1_RESERVE_WAIT        EQU     40H     ; RESERVE DRIVER-UNIT
+CM1_RELEASE_WAIT        EQU     41H     ; RELEASE DRIVER-UNIT
+CM1_READ_WAIT           EQU     42H     ; NORMAL READ
+CM1_WRITE_WAIT          EQU     43H     ; NORMAL WRITE
+CM1_BREAK_ON_WAIT       EQU     44H     ; FORCE BREAK DISABLE
+CM1_BREAK_OFF_WAIT      EQU     45H     ; FORCE BREAK ENABLE
+CM1_CREATE_NEW_WAIT     EQU     46H     ; CREATE NEW UNIT
+
+;*************************************************************************
+;*                         RIO FUNCTION EQUATES FOR CRT2-DRIVER          *
+;*************************************************************************
+
+MAX_CRT_FUNC    EQU     0CH     ; MAX. FUNCTION CODE (CONSOLE-TYPE-II-DRIVER)
+CRT_IMMED_BIT   EQU     80H     ; EMERGENCY-OPTION FOR RIO-COMPLETION
+CRT_WAIT_BIT    EQU     40H     ; WAIT-OPTION FOR RIO-COMPLETION
+
+;       RIO FUNCTION EQUATES WITHOUT WAIT-OPTION
+
+CRT_RESERVE             EQU     00H     ; RESERVE DRIVER-UNIT
+CRT_RELEASE             EQU     01H     ; RELEASE DRIVER-UNIT
+CRT_READ                EQU     02H     ; NORMAL READ
+CRT_WRITE               EQU     03H     ; NORMAL WRITE
+CRT_XWRT                EQU     04H     ; EMERGENCY WRITE (SAME AS WRITE)
+CRT_ONE_XREAD           EQU     05H     ; ONE BYTE XPARENT READ, BUFFER = STATUS
+CRT_WRT_XREAD           EQU     06H     ; NORMAL WRITE THEN XPARENT READ
+CRT_WRT_READ            EQU     07H     ; NORMAL WRITE THEN NORMAL READ
+CRT_SKIP_LINE           EQU     08H     ; SKIP LINE(S)
+CRT_FORM_FEED           EQU     09H     ; ERASE SCREEN (FORM-FEED)
+CRT_HSFS_XREAD          EQU     0AH     ; ONE BYTE XPARENT READ, HSFS
+CRT_HSFS_WRITE          EQU     0BH     ; ONE BYTE NORMAL WRITE, HSFS
+CRT_CREATE_NEW          EQU     0CH     ; CREATE NEW UNIT
+
+;       RIO FUNCTION EQUATES WITH WAIT-OPTION
+
+CRT_RESERVE_WAIT        EQU     40H     ; RESERVE DRIVER-UNIT
+CRT_RELEASE_WAIT        EQU     41H     ; RELEASE DRIVER-UNIT
+CRT_READ_WAIT           EQU     42H     ; NORMAL READ
+CRT_WRITE_WAIT          EQU     43H     ; NORMAL WRITE
+CRT_XWRT_WAIT           EQU     44H     ; EMERGENCY WRITE (SAME AS WRITE)
+CRT_ONE_XREAD_WAIT      EQU     45H     ; ONE BYTE XPARENT READ, BUFFER = STATUS
+CRT_WRT_XREAD_WAIT      EQU     46H     ; NORMAL WRITE THEN XPARENT READ
+CRT_WRT_READ_WAIT       EQU     47H     ; NORMAL WRITE THEN NORMAL READ
+CRT_SKIP_LINE_WAIT      EQU     48H     ; SKIP LINE(S)
+CRT_FORM_FEED_WAIT      EQU     49H     ; ERASE SCREEN (FORM-FEED)
+CRT_HSFS_XREAD_WAIT     EQU     4AH     ; ONE BYTE XPARENT READ, HSFS
+CRT_HSFS_WRT_WAIT       EQU     4BH     ; ONE BYTE NORMAL WRITE, HSFS
+CRT_CREATE_NEW_WAIT     EQU     4CH     ; CREATE NEW UNIT
+
+;******************************************************************************
+;**                         RIO-FUNCTION EQUATE'S    FOR DMA -DRIVER         **
+;******************************************************************************
+
+MAX_DMA_FUNC            EQU      07H            ; MAX. FUNCTION CODE    
+DMA_IMMED_BIT           EQU      80H            ; PREEMPTIVE OPTION
+DMA_WAIT_BIT            EQU      40H            ; WAIT-OPTION
+
+;               ** WITHOUT THE 'WAIT OPTION' **
+
+DMA_RESERVE             EQU      00H            ; RESERVE UNIT
+DMA_RELEASE             EQU      01H            ; RELEASE UNIT
+DMA_READ                EQU      02H            ; READ  (BUF --> DEV)
+DMA_WRITE               EQU      03H            ; WRITE (DEV --> BUF)
+DMA_ABORT               EQU      04H            ; ABORT DMA FUNCTION
+DMA_CREATE              EQU      05H            ; CREATE/READ UNIT
+DMA_DUMMY               EQU      06H            ; (RESERVED)
+DMA_XCREATE             EQU      07H            ; OLD CREATE/READ UNIT
+
+;               ** WITH THE 'WAIT OPTION' **
+
+DMA_RESERVE_WAIT        EQU      40H            ; RESERVE UNIT
+DMA_RELEASE_WAIT        EQU      41H            ; RELEASE UNIT
+DMA_READ_WAIT           EQU      42H            ; READ  (BUF --> DEV)
+DMA_WRITE_WAIT          EQU      43H            ; WRITE (DEV --> BUF)
+DMA_ABORT_WAIT          EQU      44H            ; ABORT DMA FUNCTION
+DMA_CREATE_WAIT         EQU      45H            ; CREATE/READ UNIT
+DMA_DUMMY_WAIT          EQU      46H            ; (RESERVED)
+DMA_XCREATE_WAIT        EQU      47H            ; OLD CREATE/READ UNIT
+
+;******************************************************************************
+;**                         RIO-FUNCTION EQUATE'S    FOR FD2 -DRIVER         **
+;******************************************************************************
+
+MAX_FD2_FUNC            EQU     0EH     ; MAX. FUNCTION CODE    
+FD2_IMMED_BIT           EQU     80H     ; PREEMPTIVE OPTION
+FD2_WAIT_BIT            EQU     40H     ; WAIT-OPTION
+FD2_CANCEL_BIT          EQU     20H     ; CANCEL-OPTION
+
+;       RIO FUNCTION EQUATES WITHOUT WAIT-OPTION
+
+FD2_RESERVE             EQU     00H     ; RESERVE UNIT
+FD2_RELEASE             EQU     01H     ; RELEASE UNIT
+FD2_READ_1              EQU     02H     ; READ ONE LOGICAL BLOCK/SECTOR
+FD2_WRITE_1             EQU     03H     ; WRITE ONE LOGICAL BLOCK/SECTOR
+FD2_FORMAT              EQU     04H     ; FORMAT UNIT (DRIVE)
+FD2_READ                EQU     05H     ; READ LOGICAL BLOCKS
+FD2_WRITE               EQU     06H     ; WRITE LOGICAL BLOCKS
+FD2_READ_ID             EQU     07H     ; READ ID-FIELD
+FD2_SEEK                EQU     08H     ; RECALIBRATE TO TRACK
+FD2_RECA                EQU     09H     ; RECALIBRATE TO TRACK 0
+FD2_UNIT_RDY            EQU     0AH     ; GET UNIT READY BLOCK
+FD2_DELETE              EQU     0BH     ; DELETE UNIT
+FD2_CREATE              EQU     0CH     ; CREATE UNIT
+FD2_FORM_TR             EQU     0DH     ; FORMAT TRACK
+FD2_READ_TR             EQU     0EH     ; READ TRACK-FORMAT
+
+;       RIO FUNCTION EQUATES WITH WAIT-OPTION
+
+FD2_RESERVE_WAIT        EQU     40H     ; RESERVE UNIT
+FD2_RELEASE_WAIT        EQU     41H     ; RELEASE UNIT
+FD2_READ_1_WAIT         EQU     42H     ; READ ONE LOGICAL BLOCK/SECTOR
+FD2_WRITE_1_WAIT        EQU     43H     ; WRITE ONE LOGICAL BLOCK/SECTOR
+FD2_FORMAT_WAIT         EQU     44H     ; FORMAT UNIT (DRIVE)
+FD2_READ_WAIT           EQU     45H     ; READ LOGICAL BLOCKS
+FD2_WRITE_WAIT          EQU     46H     ; WRITE LOGICAL BLOCKS
+FD2_READ_ID_WAIT        EQU     47H     ; READ ID-FIELD
+FD2_SEEK_WAIT           EQU     48H     ; RECALIBRATE TO TRACK
+FD2_RECA_WAIT           EQU     49H     ; RECALIBRATE TO TRACK 0
+FD2_UNIT_RDY_WAIT       EQU     4AH     ; GET UNIT READY BLOCK
+FD2_DELETE_WAIT         EQU     4BH     ; DELETE UNIT
+FD2_CREATE_WAIT         EQU     4CH     ; CREATE UNIT
+FD2_FORM_TR_WAIT        EQU     4DH     ; FORMAT TRACK
+FD2_READ_TR_WAIT        EQU     4DH     ; READ TRACK-FORMAT
+
+;******************************************************************************
+;**                         RIO-FUNCTION EQUATE'S    FOR HD6 -DRIVER         **
+;******************************************************************************
+
+MAX_HD6_FUNC            EQU      0FH            ; MAX. FUNCTION CODE    
+HD6_IMMED_BIT           EQU      80H            ; PREEMPTIVE OPTION
+HD6_WAIT_BIT            EQU      40H            ; WAIT-OPTION
+
+;               ** WITHOUT THE 'WAIT OPTION' **
+
+HD6_RESERVE             EQU      00H            ; RESERVE UNIT
+HD6_RELEASE             EQU      01H            ; RELEASE UNIT
+HD6_READ_1              EQU      02H            ; READ ONE BLOCK
+HD6_WRITE_1             EQU      03H            ; WRITE ONE BLOCK
+HD6_FILL                EQU      04H            ; FILL UNIT WITH DATA
+HD6_READ                EQU      05H            ; READ BLOCKS
+HD6_WRITE               EQU      06H            ; WRITE BLOCKS
+HD6_CREATE              EQU      07H            ; CREATE UNIT
+HD6_MULTI               EQU      0FH            ; MULTI FUNCTION
+
+;               ** WITH THE 'WAIT OPTION' **
+
+HD6_RESERVE_WAIT        EQU      40H            ; RESERVE UNIT
+HD6_RELEASE_WAIT        EQU      41H            ; RELEASE UNIT
+HD6_READ_1_WAIT         EQU      42H            ; READ ONE BLOCK
+HD6_WRITE_1_WAIT        EQU      43H            ; WRITE ONE BLOCK
+HD6_FILL_WAIT           EQU      44H            ; FILL UNIT WITH DATA
+HD6_READ_WAIT           EQU      45H            ; READ BLOCKS
+HD6_WRITE_WAIT          EQU      46H            ; WRITE BLOCKS
+HD6_CREATE_WAIT         EQU      47H            ; CREATE UNIT
+HD6_MULTI_WAIT          EQU      4FH            ; MULTI FUNCTION
+
+$RESTORE

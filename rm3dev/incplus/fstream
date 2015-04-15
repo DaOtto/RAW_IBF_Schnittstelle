@@ -1,0 +1,299 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: fstream,v $
+ * Revision 1.2  2000/02/08 06:20:44  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:00  aki
+ * Initial revision
+ *
+ */ 
+
+// fstream standard header
+#ifndef _FSTREAM_
+#define _FSTREAM_
+
+#pragma noarguments_in_registers(push)
+
+#include <istream>
+_STD_BEGIN
+
+/*
+ * 2008DE1
+ * set_file(),get_file() macros
+ */
+#ifndef	PSOS
+#define	set_file(x)	_File = x
+#define	get_file(x)	_File
+#endif
+/* 2008DE1 */
+
+_Filet *_Fiopen(const char *, ios_base::openmode);
+		// CLASS filebuf
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (filebuf=2)
+#else
+#pragma       align   (filebuf=4)             // 3055DE1
+#endif /* << 4719DE1 << */
+class filebuf : public streambuf {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef filebuf _Myt;
+	typedef streambuf _Mysb;
+	virtual ~filebuf()
+		{if (_Closef)
+			close(); }
+	typedef _Tr::int_type int_type;
+	typedef _Tr::pos_type pos_type;
+	typedef _Tr::off_type off_type;
+	filebuf(_Filet *_Fi = 0)
+		: _Loc(), _Mysb() {_Init(_Fi, _Newfl); }
+	filebuf(_Uninitialized)
+		: _Loc(_Noinit), _Mysb(_Noinit) {}
+	enum _Initfl {_Newfl, _Openfl, _Closefl};
+	bool is_open() const
+		{return (_File != 0); }
+	_Myt *open(const char *__S, ios_base::openmode _M)
+		{_Filet *_Fi;
+		if (_File != 0 || (_Fi = _Fiopen(__S, _M)) == 0)
+			return (0);
+		_Init(_Fi, _Openfl);
+		_Initcvt();
+		return (this); }
+	_Myt *open(const char *__N, ios::open_mode _M)
+		{return (open(__N, (ios::openmode)_M)); }
+	_Myt *close()
+						/* 2008DE1 get FILE-ptr dynamically */
+		{if (_File != 0 && _Endwrite() && fclose(get_file()) == 0)
+			{_Init(0, _Closefl);
+			return (this); }
+		else
+			return (0); }
+protected:
+	virtual int_type overflow(int_type __C = _Tr::eof())
+		{if (_Tr::eq_int_type(_Tr::eof(), __C))
+			return (_Tr::not_eof(__C));
+		else if (_Mysb::pptr() != 0
+			&& _Mysb::pptr() < _Mysb::epptr())
+			{*_Mysb::_Pninc() = _Tr::to_char_type(__C);
+			return (__C); }
+		else if (_File == 0)
+			return (_Tr::eof());
+		else
+						/* 2008DE1 get FILE-ptr dynamically */
+			return (fputc(_Tr::to_char_type(__C), get_file()) != EOF
+				? __C : _Tr::eof()); }
+	virtual int_type pbackfail(int_type __C = _Tr::eof())
+		{if (_Mysb::gptr() != 0
+			&& _Mysb::eback() < _Mysb::gptr()
+			&& (_Tr::eq_int_type(_Tr::eof(), __C)
+			 || _Tr::eq_int_type(_Tr::to_int_type(gptr()[-1]),
+				__C)))
+			{_Mysb::_Gndec();
+			return (_Tr::not_eof(__C)); }
+		else if (_File == 0 || _Tr::eq_int_type(_Tr::eof(), __C))
+			return (_Tr::eof());
+		else
+							/* 2008DE1 get FILE-ptr dynamically */
+			return (ungetc(_Tr::to_char_type(__C), get_file()) != EOF
+				? __C : _Tr::eof()); }
+	virtual int_type underflow()
+		{if (_Mysb::gptr() != 0
+			&& _Mysb::gptr() < _Mysb::egptr())
+			return (_Tr::to_int_type(*_Mysb::gptr()));
+		else
+			return (pbackfail(uflow())); }
+	virtual int_type uflow()
+		{if (_Mysb::gptr() != 0
+			&& _Mysb::gptr() < _Mysb::egptr())
+			return (_Tr::to_int_type(*_Mysb::_Gninc()));
+		else if (_File == 0)
+			return (_Tr::eof());
+		else
+			{int_type _Ch;
+					/* 2008DE1 get FILE-ptr dynamically */
+			return ((_Ch = fgetc(get_file())) != EOF ? _Ch
+				: _Tr::eof()); }}
+	virtual pos_type seekoff(off_type _O, ios_base::seekdir _Way,
+		ios_base::openmode =
+			(ios_base::openmode)(ios_base::in | ios_base::out))
+		{fpos_t _Fp;
+		if (_File == 0 || !_Endwrite()
+			/* 2008DE1 get FILE-ptr dynamically */
+			|| fseek(get_file(), _O, _Way) != 0
+			|| fgetpos(get_file(), &_Fp) != 0)
+			return (pos_type(_BADOFF));
+		return (pos_type(_State, _Fp)); }
+	virtual pos_type seekpos(pos_type __P,
+		ios_base::openmode =
+			(ios_base::openmode)(ios_base::in | ios_base::out))
+		{fpos_t _Fp = __P.seekpos();
+		off_type _Off = (off_type)__P - _FPOSOFF(_Fp);
+		if (_File == 0 || !_Endwrite()
+			/* 2008DE1 get FILE-ptr dynamically */
+			|| fsetpos(get_file(), &_Fp) != 0
+			|| _Off != 0 && fseek(get_file(), _Off, SEEK_CUR) != 0
+			|| fgetpos(get_file(), &_Fp) != 0)
+			return (pos_type(_BADOFF));
+		return (pos_type(_State, _Fp)); }
+	virtual _Mysb *setbuf(_E *__S, streamsize __N)
+					/* 2008DE1 get FILE-ptr dynamically */
+		{return (_File == 0 || setvbuf(get_file(), (char *)__S,
+			_IOFBF, __N * sizeof (_E)) != 0 ? 0 : this); }
+	virtual int sync()
+		{return (_File == 0
+			|| _Tr::eq_int_type(_Tr::eof(), overflow())
+				/* 2008DE1 get FILE-ptr dynamically */
+			|| 0 <= fflush(get_file()) ? 0 : -1); }
+	void _Init(_Filet *_Fp, _Initfl _Which)
+		{static _Tr::state_type _Stinit;
+		_Closef = _Which == _Openfl;
+		_Mysb::_Init();
+		set_file(_Fp); 	/* 2008DE1 set FILE-ptr via function-(macro), not directly */
+		_State = _Stinit; }
+	void _Initcvt()
+		{}
+	bool _Endwrite()
+		{return (true); }
+private:
+	/*
+	 * 2008DE1
+	 * Check, if the FILE-ptr can be used statically.
+	 * In non-pSOS case, this is a define.
+	 */
+#if	PSOS
+	void	set_file(_Filet *_Fp) {
+		/* For non-static case, insert symbolic constant instead of pointer */
+		if(_Fp == stdin)
+			_File = STDIN;
+		else if(_Fp == stdout)
+			_File = STDOUT;
+		else if(_Fp == stderr)
+			_File = STDERR;
+		else
+			_File = _Fp;
+	}
+#endif
+	/*
+	 * 2008DE1
+	 * Check, if the FILE-ptr must be obtained dynamically or the stored
+	 * value can be used.
+	 * In non-pSOS case, this is a define.
+	 */
+#if	PSOS
+	_Filet	*get_file(void) {
+		/* For non-static case, use actual value of pointer */
+		if(_File == STDIN) 
+			return(stdin);
+		else if(_File == STDOUT)
+			return(stdout);
+		else if(_File == STDERR) 
+			return(stderr);			
+		return(_File);
+	}
+#endif
+	_Tr::state_type _State;
+	bool _Closef;
+	locale _Loc;
+	_Filet *_File;
+	};
+
+		// CLASS ifstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ifstream=2)
+#else
+#pragma       align   (ifstream=4)            // 3055DE1 
+#endif /* << 4719DE1 << */
+class ifstream : public istream {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef ifstream _Myt;
+	typedef filebuf _Myfb;
+	typedef ios _Myios;
+	ifstream()
+		: istream(&_Fb) {}
+	explicit ifstream(const char *__S,
+		ios_base::openmode _M = ios_base::in)
+		: istream(&_Fb)
+		{if (_Fb.open(__S, _M | ios_base::in) == 0)
+			setstate(failbit); }
+	virtual ~ifstream()
+		{}
+	_Myfb *rdbuf() const
+		{return ((_Myfb *)&_Fb); }
+	bool is_open() const
+		{return (_Fb.is_open()); }
+	void open(const char *__S,
+		ios_base::openmode _M = ios_base::in)
+		{if (_Fb.open(__S, _M | ios_base::in) == 0)
+			_Myios::setstate(ios_base::failbit); }
+	void open(const char *__S, ios_base::open_mode _M)
+		{open(__S, (ios_base::openmode)_M); }
+	void close()
+		{if (_Fb.close() == 0)
+			_Myios::setstate(ios_base::failbit); }
+private:
+	_Myfb _Fb;
+	};
+
+		// CLASS ofstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ofstream=2)
+#else
+#pragma       align   (ofstream=4)            // 3055DE1
+#endif /* << 4719DE1 << */
+class ofstream : public ostream {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef ofstream _Myt;
+	typedef filebuf _Myfb;
+	typedef ios _Myios;
+	ofstream()
+		: ostream(&_Fb) {}
+	explicit ofstream(const char *__S,
+		ios_base::openmode _M = ios_base::out)
+		: ostream(&_Fb)
+		{if (_Fb.open(__S, _M | ios_base::out) == 0)
+			setstate(failbit); }
+	virtual ~ofstream()
+		{}
+	_Myfb *rdbuf() const
+		{return ((_Myfb *)&_Fb); }
+	bool is_open() const
+		{return (_Fb.is_open()); }
+	void open(const char *__S,
+		ios_base::openmode _M = ios_base::out)
+		{if (_Fb.open(__S, _M | ios_base::out) == 0)
+			_Myios::setstate(ios_base::failbit); }
+	void open(const char *__S, ios_base::open_mode _M)
+		{open(__S, (ios_base::openmode)_M); }
+	void close()
+		{if (_Fb.close() == 0)
+			_Myios::setstate(ios_base::failbit); }
+private:
+	_Myfb _Fb;
+	};
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _FSTREAM_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

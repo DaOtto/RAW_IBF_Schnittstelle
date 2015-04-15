@@ -1,0 +1,24 @@
+/*--FILE HEADER-(set tabulator to 4)-------------------------------------------
+;
+;   filename    : BUSY.SUB  
+;   version     : 0002
+;   contents    : Definition of subsystem for busy task
+;   author      : W.S.
+;   date        : Dec 4, 1992
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Definition of subsystem for busy task
+;
+;   RMOS2 & RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Jul 14, 1992  J.R.  0001  Original issue
+;   Dec  4, 1992  W.S.  0002  New Header added
+;
+;---END OF MODIFICATION HEADER-----------------------------------------------*/
+
+$COMPACT ( BUSY -CONST IN CODE- HAS BUSY_MNG ; EXPORTS x_bu_init, x_bu_get )

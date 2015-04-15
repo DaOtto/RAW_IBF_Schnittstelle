@@ -1,0 +1,28 @@
+var struct_def___a_w___geo__profiliert =
+[
+    [ "achsenlaenge", "db/d94/struct_def___a_w___geo__profiliert.html#a500c79eb7fc6478b0fc24aafc21898da", null ],
+    [ "alpha_Begr_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#a8235de64bace9f24efef1fbc8e93a71e", null ],
+    [ "alpha_Schraege_aussen_bo", "db/d94/struct_def___a_w___geo__profiliert.html#a40ebf3391cac193cc4cb7098f235fbeb", null ],
+    [ "alpha_Schraege_innen_bo", "db/d94/struct_def___a_w___geo__profiliert.html#a004773131a982dacfd294469335c951f", null ],
+    [ "du_grund", "db/d94/struct_def___a_w___geo__profiliert.html#a68a365c895538953f34df285fa0d5c6e", null ],
+    [ "du_spitze", "db/d94/struct_def___a_w___geo__profiliert.html#ab62ca35cf902c880b03e3e6f0bb8ed7e", null ],
+    [ "dx_Breite_Profil_max", "db/d94/struct_def___a_w___geo__profiliert.html#a1593d0f12691ca276d9c077c3432763a", null ],
+    [ "dx_Breite_Profil_min", "db/d94/struct_def___a_w___geo__profiliert.html#ad13860b5ce285c6b578288c548823b9f", null ],
+    [ "dx_Breite_s_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#ae362bd3eb0ccadc214d7fc733b48610b", null ],
+    [ "dx_Ecke_Profil_max_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#a15aaa1dd2bcfaae279cdc30e4b0c885d", null ],
+    [ "dx_Ecke_Profil_max_innen", "db/d94/struct_def___a_w___geo__profiliert.html#a0700497ccb74d8736aa58c0d65967314", null ],
+    [ "dx_Ecke_Profil_min_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#ad83a29fc5faa0525f7c28837cc76ef0d", null ],
+    [ "dx_Ecke_Profil_min_innen", "db/d94/struct_def___a_w___geo__profiliert.html#a91ea167d3f3dd18cc55984dba7be5ff6", null ],
+    [ "dx_Schraege_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#aadb63afba39585c62f546deca4a2fb97", null ],
+    [ "dx_Schraege_innen", "db/d94/struct_def___a_w___geo__profiliert.html#a64224f4174e017bdc9d9528b6daff7fc", null ],
+    [ "dy_AW_Kante", "db/d94/struct_def___a_w___geo__profiliert.html#a698abea6fb218a8ee615719fceac053c", null ],
+    [ "dy_BE_P", "db/d94/struct_def___a_w___geo__profiliert.html#aa88c8c1f5ad6612f07926e9a177e2437", null ],
+    [ "dy_Profil_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#ac65782c8700e6f05d16e6bf72626008f", null ],
+    [ "dy_Profil_innen", "db/d94/struct_def___a_w___geo__profiliert.html#a43762f0a1ee83113f7930fac6953803e", null ],
+    [ "dy_ueberhang_aussen", "db/d94/struct_def___a_w___geo__profiliert.html#ac24282c4f22e8b78443f02496549eb5c", null ],
+    [ "l_fehl_spitze", "db/d94/struct_def___a_w___geo__profiliert.html#af90097fc896a2f3f57d417479238eb25", null ],
+    [ "l_fehl_spitze_bis_awp", "db/d94/struct_def___a_w___geo__profiliert.html#ac8eafd0c14bb14447c58a9851f7bae0c", null ],
+    [ "l_mantel_theo", "db/d94/struct_def___a_w___geo__profiliert.html#a46bcbcd9be00e575eb983a9c85e51775", null ],
+    [ "l_zyl_ansatz", "db/d94/struct_def___a_w___geo__profiliert.html#ac21f2329538e8ec8a2a97ed25700b8b0", null ],
+    [ "Mit_Begr_flag", "db/d94/struct_def___a_w___geo__profiliert.html#a76e188e4e9571e0e49de4e59fedb51d0", null ]
+];

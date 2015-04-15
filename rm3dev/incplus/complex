@@ -1,0 +1,366 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: complex,v $
+ * Revision 1.2  2000/02/08 06:20:43  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:42:58  aki
+ * Initial revision
+ *
+ */ 
+
+// complex standard header
+#ifndef _COMPLEX_
+#define _COMPLEX_
+
+#pragma noarguments_in_registers(push)
+
+#include <ymath.h>
+#include <cmath>
+#include <sstream>
+_STD_BEGIN
+#define __STD_COMPLEX
+		// CLASS _Ctr_double
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align(_Ctr_double=2)
+#else
+#pragma       align(_Ctr_double=4)    // 3055DE1
+#endif /* << 4719DE1 << */
+class _Ctr_double {
+public:
+	typedef double _Ty;
+	static _Ty _Cosh(_Ty __X, _Ty _Y)
+		{return (_CSTD _Cosh(__X, _Y)); }
+	static short _Exp(_Ty *__P, _Ty _Y, short _E)
+		{return (_CSTD _Exp(__P, _Y, _E)); }
+	static _Ty _Infv(_Ty)
+		{return (_Inf._D); }
+	static bool _Isinf(_Ty __X)
+		{return (_Dtest(&__X) == _INFCODE); }
+	static bool _Isnan(_Ty __X)
+		{return (_Dtest(&__X) == _NANCODE); }
+	static _Ty _Nanv(_Ty)
+		{return (_Nan._D); }
+	static _Ty _Sinh(_Ty __X, _Ty _Y)
+		{return (_CSTD _Sinh(__X, _Y)); }
+	static _Ty atan2(_Ty _Y, _Ty __X)
+		{return (_CSTD atan2(_Y, __X)); }
+	static _Ty cos(_Ty __X)
+		{return (_CSTD cos(__X)); }
+	static _Ty exp(_Ty __X)
+		{return (_CSTD exp(__X)); }
+	static _Ty ldexp(_Ty _R, int _E)
+		{return (_CSTD ldexp(_R, _E)); }
+	static _Ty log(_Ty __X)
+		{return (_CSTD log(__X)); }
+	static _Ty pow(_Ty __X, _Ty _Y)
+		{return (_CSTD pow(__X, _Y)); }
+	static _Ty sin(_Ty __X)
+		{return (_CSTD sin(__X)); }
+	static _Ty sqrt(_Ty __X)
+		{return (_CSTD sqrt(__X)); }
+	static _Ty tan(_Ty __X)
+		{return (_CSTD tan(__X)); }
+	};
+		// CLASS _Ctr_float
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (_Ctr_float=2)
+#else
+#pragma       align   (_Ctr_float=4)  // 3055DE1   
+#endif /* << 4719DE1 << */
+class _Ctr_float {
+public:
+	typedef float _Ty;
+	static _Ty _Cosh(_Ty __X, _Ty _Y)
+		{return (_FCosh(__X, _Y)); }
+	static short _Exp(_Ty *__P, _Ty _Y, short _E)
+		{return (_FExp(__P, _Y, _E)); }
+	static _Ty _Infv(_Ty)
+		{return (_FInf._F); }
+	static bool _Isinf(_Ty __X)
+		{return (_FDtest(&__X) == _INFCODE); }
+	static bool _Isnan(_Ty __X)
+		{return (_FDtest(&__X) == _NANCODE); }
+	static _Ty _Nanv(_Ty)
+		{return (_FNan._F); }
+	static _Ty _Sinh(_Ty __X, _Ty _Y)
+		{return (_FSinh(__X, _Y)); }
+	static _Ty atan2(_Ty _Y, _Ty __X)
+		{return (atan2f(_Y, __X)); }
+	static _Ty cos(_Ty __X)
+		{return (cosf(__X)); }
+	static _Ty exp(_Ty __X)
+		{return (expf(__X)); }
+	static _Ty ldexp(_Ty _R, int _E)
+		{return (ldexpf(_R, _E)); }
+	static _Ty log(_Ty __X)
+		{return (logf(__X)); }
+	static _Ty pow(_Ty __X, _Ty _Y)
+		{return (powf(__X, _Y)); }
+	static _Ty sin(_Ty __X)
+		{return (sinf(__X)); }
+	static _Ty sqrt(_Ty __X)
+		{return (sqrtf(__X)); }
+	static _Ty tan(_Ty __X)
+		{return (tanf(__X)); }
+	};
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (double_complex=2)
+#else
+#pragma       align   (double_complex=4)      // 3055DE1  
+#endif /* << 4719DE1 << */
+class double_complex;
+		// CLASS float_complex
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (float_complex=2)
+#else
+#pragma       align   (float_complex=4)       // 3055DE1 
+#endif /* << 4719DE1 << */
+class float_complex {
+public:
+	typedef float _Ty;
+	typedef float_complex _Myt;
+	typedef _Ctr_float _Myctr;
+	typedef _Ty value_type;
+	explicit float_complex(const double_complex&);
+	float_complex(const _Ty& _R = 0, const _Ty& _I = 0)
+		: _Re(_R), _Im(_I) {}
+	_Myt& operator=(const _Ty& __X)
+		{_Re = __X;
+		_Im = 0;
+		return (*this); }
+	_Myt& operator+=(const _Ty& __X)
+		{_Re = _Re + __X;
+		return (*this); }
+	_Myt& operator-=(const _Ty& __X)
+		{_Re = _Re - __X;
+		return (*this); }
+	_Myt& operator*=(const _Ty& __X)
+		{_Re = _Re * __X;
+		_Im = _Im * __X;
+		return (*this); }
+	_Myt& operator/=(const _Ty& __X)
+		{_Re = _Re / __X;
+		_Im = _Im / __X;
+		return (*this); }
+	_Myt& operator+=(const _Myt& __X)
+		{_Re = _Re + (_Ty)__X.real();
+		_Im = _Im + (_Ty)__X.imag();
+		return (*this); }
+	_Myt& operator-=(const _Myt& __X)
+		{_Re = _Re - (_Ty)__X.real();
+		_Im = _Im - (_Ty)__X.imag();
+		return (*this); }
+	_Myt& operator*=(const _Myt& __X)
+		{_Ty _Xre = (_Ty)__X.real();
+		_Ty _Xim = (_Ty)__X.imag();
+		_Ty _W = _Re * _Xre - _Im * _Xim;
+		_Im = _Re * _Xim + _Im * _Xre;
+		_Re = _W;
+		return (*this); }
+	_Myt& operator/=(const _Myt& __X)
+		{_Ty _Xre = (_Ty)__X.real();
+		_Ty _Xim = (_Ty)__X.imag();
+		if (_Myctr::_Isnan(_Xre) || _Myctr::_Isnan(_Xim))
+			_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+		else if ((_Xim < 0 ? -_Xim : +_Xim)
+			< (_Xre < 0 ? -_Xre : +_Xre))
+			{_Ty _Wr = _Xim / _Xre;
+			_Ty _Wd = _Xre + _Wr * _Xim;
+			if (_Myctr::_Isnan(_Wd) || _Wd == 0)
+				_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+			else
+				{_Ty _W = (_Re + _Im * _Wr) / _Wd;
+				_Im = (_Im - _Re * _Wr) / _Wd;
+				_Re = _W; }}
+		else if (_Xim == 0)
+			_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+		else
+			{_Ty _Wr = _Xre / _Xim;
+			_Ty _Wd = _Xim + _Wr * _Xre;
+			if (_Myctr::_Isnan(_Wd) || _Wd == 0)
+				_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+			else
+				{_Ty _W = (_Re * _Wr + _Im) / _Wd;
+				_Im = (_Im * _Wr - _Re) / _Wd;
+				_Re = _W; }}
+		return (*this); }
+	_Ty real(const _Ty& __X)
+		{return (_Re = __X); }
+	_Ty real() const
+		{return (_Re); }
+	_Ty imag(const _Ty& __X)
+		{return (_Im = __X); }
+	_Ty imag() const
+		{return (_Im); }
+protected:
+	_Ty _Re, _Im;
+	};
+		// CLASS double_complex
+class double_complex {
+public:
+	typedef double _Ty;
+	typedef double_complex _Myt;
+	typedef _Ctr_double _Myctr;
+	typedef _Ty value_type;
+	double_complex(const float_complex& __X)
+		: _Re((_Ty)__X.real()), _Im((_Ty)__X.imag()) {}
+	double_complex(const _Ty& _R = 0, const _Ty& _I = 0)
+		: _Re(_R), _Im(_I) {}
+	_Myt& operator=(const _Ty& __X)
+		{_Re = __X;
+		_Im = 0;
+		return (*this); }
+	_Myt& operator+=(const _Ty& __X)
+		{_Re = _Re + __X;
+		return (*this); }
+	_Myt& operator-=(const _Ty& __X)
+		{_Re = _Re - __X;
+		return (*this); }
+	_Myt& operator*=(const _Ty& __X)
+		{_Re = _Re * __X;
+		_Im = _Im * __X;
+		return (*this); }
+	_Myt& operator/=(const _Ty& __X)
+		{_Re = _Re / __X;
+		_Im = _Im / __X;
+		return (*this); }
+	_Myt& operator+=(const _Myt& __X)
+		{_Re = _Re + (_Ty)__X.real();
+		_Im = _Im + (_Ty)__X.imag();
+		return (*this); }
+	_Myt& operator-=(const _Myt& __X)
+		{_Re = _Re - (_Ty)__X.real();
+		_Im = _Im - (_Ty)__X.imag();
+		return (*this); }
+	_Myt& operator*=(const _Myt& __X)
+		{_Ty _Xre = (_Ty)__X.real();
+		_Ty _Xim = (_Ty)__X.imag();
+		_Ty _W = _Re * _Xre - _Im * _Xim;
+		_Im = _Re * _Xim + _Im * _Xre;
+		_Re = _W;
+		return (*this); }
+	_Myt& operator/=(const _Myt& __X)
+		{_Ty _Xre = (_Ty)__X.real();
+		_Ty _Xim = (_Ty)__X.imag();
+		if (_Myctr::_Isnan(_Xre) || _Myctr::_Isnan(_Xim))
+			_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+		else if ((_Xim < 0 ? -_Xim : +_Xim)
+			< (_Xre < 0 ? -_Xre : +_Xre))
+			{_Ty _Wr = _Xim / _Xre;
+			_Ty _Wd = _Xre + _Wr * _Xim;
+			if (_Myctr::_Isnan(_Wd) || _Wd == 0)
+				_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+			else
+				{_Ty _W = (_Re + _Im * _Wr) / _Wd;
+				_Im = (_Im - _Re * _Wr) / _Wd;
+				_Re = _W; }}
+		else if (_Xim == 0)
+			_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+		else
+			{_Ty _Wr = _Xre / _Xim;
+			_Ty _Wd = _Xim + _Wr * _Xre;
+			if (_Myctr::_Isnan(_Wd) || _Wd == 0)
+				_Re = _Myctr::_Nanv(_Xre), _Im = _Re;
+			else
+				{_Ty _W = (_Re * _Wr + _Im) / _Wd;
+				_Im = (_Im * _Wr - _Re) / _Wd;
+				_Re = _W; }}
+		return (*this); }
+	_Ty real(const _Ty& __X)
+		{return (_Re = __X); }
+	_Ty real() const
+		{return (_Re); }
+	_Ty imag(const _Ty& __X)
+		{return (_Im = __X); }
+	_Ty imag() const
+		{return (_Im); }
+protected:
+	_Ty _Re, _Im;
+	};
+inline float_complex::float_complex(const double_complex& __X)
+	: _Re((_Ty)__X.real()), _Im((_Ty)__X.imag()) {}
+ #define _CMPLX(T)	_CMPLX1(T)
+ #define _CMPLX1(T)	T##_complex
+ #define _CTR(T)	_CTR1(T)
+ #define _CTR1(T)	_Ctr_##T
+ #define _TMPLT(T)
+ #define _Ty	float
+ #include <xcomplex>
+ #undef _Ty
+ #define _Ty	double
+ #include <xcomplex>
+ #undef _Ty
+		// FUNCTION operator>>
+inline istream& operator>>(istream& _I, float_complex& __X)
+	{typedef float_complex _Myt;
+	typedef float __U;
+	char _Ch;
+	__U _Re, _Im;
+	if (_I >> _Ch && _Ch != '(')
+		_I.putback(_Ch), _I >> _Re, _Im = 0;
+	else if (_I >> _Re >> _Ch && _Ch != ',')
+		if (_Ch == ')')
+			_Im = 0;
+		else
+			_I.putback(_Ch), _I.setstate(ios_base::failbit);
+	else if (_I >> _Im >> _Ch && _Ch != ')')
+			_I.putback(_Ch), _I.setstate(ios_base::failbit);
+	if (!_I.fail())
+		__X = _Myt((__U)_Re, (__U)_Im);
+	return (_I); }
+inline istream& operator>>(istream& _I, double_complex& __X)
+	{typedef double_complex _Myt;
+	typedef double __U;
+	char _Ch;
+	__U _Re, _Im;
+	if (_I >> _Ch && _Ch != '(')
+		_I.putback(_Ch), _I >> _Re, _Im = 0;
+	else if (_I >> _Re >> _Ch && _Ch != ',')
+		if (_Ch == ')')
+			_Im = 0;
+		else
+			_I.putback(_Ch), _I.setstate(ios_base::failbit);
+	else if (_I >> _Im >> _Ch && _Ch != ')')
+			_I.putback(_Ch), _I.setstate(ios_base::failbit);
+	if (!_I.fail())
+		__X = _Myt((__U)_Re, (__U)_Im);
+	return (_I); }
+		// FUNCTION operator<<
+inline ostream& operator<<(ostream& _O,
+	const float_complex& __X)
+	{ostringstream __S;
+	__S.flags(_O.flags());
+//	__S.imbue(_O.getloc());
+	__S.precision(_O.precision());
+	__S << '(' << real(__X) << ',' << imag(__X) << ')';
+	return (_O << __S.str().c_str()); }
+inline ostream& operator<<(ostream& _O,
+	const double_complex& __X)
+	{ostringstream __S;
+	__S.flags(_O.flags());
+//	__S.imbue(_O.getloc());
+	__S.precision(_O.precision());
+	__S << '(' << real(__X) << ',' << imag(__X) << ')';
+	return (_O << __S.str().c_str()); }
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _COMPLEX_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

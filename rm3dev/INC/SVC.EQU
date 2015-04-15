@@ -1,0 +1,693 @@
+$SAVE NOLIST
+
+;---FILE HEADER-(set tabulator to 8)-------------------------------------------
+;
+;   filename    : SVC.EQU
+;   version     : 0016
+;   contents    : ASM-Includefile for RMOS-systemcalls
+;   author      : W.S.
+;   date        : Jul 15, 1994
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : ASM-Includefile for RMOS-systemcalls
+;		  it contains also all Official equates
+;
+;   RMOS2 & RMOS3
+;	===============================================================
+;	NOTE:
+;	(RMOS3)
+;	All codemacros that use a pointer argument (DP) cannot be used.
+;	The ASM386 till version V4.0 does not fixup the selector value
+;	correct. The selector value will always be 0.
+;	===============================================================
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Sep  4, 1992  W.S.  0012  IH_FREE,IH_HOLD added
+;   Jun 22, 1993  W.S.  0013  New option KL_RDY for SVC KILLTSK
+;   Aug 24, 1993  W.S.  0014  CTY_MISC and CTY_USER added, CTY_OVL removed
+;   Dec 10, 1993  W.S.  0015  Old SVCs removed
+;   Jul 15, 1994  H.O.  0016  changed codemacro parameters P1,P2 to PAR1,PAR2
+;
+;---END OF MODIFICATION HEADER-------------------------------------------------
+
+$INCLUDE(:f1:prot.mac)
+$INCLUDE(:f1:swseg.mac)		;Segment definition macros
+
+%NUC_CODE_SEG
+	DB	0, '(C) SIEMENS AG 1995', 0	;Incode-Identifikation
+	DB	1, 'SVC.EQU'		, 1
+	DB	2, '0016'		, 2
+	DB	3, 'H.O.'		, 3
+%END_NUC_CODE_SEG
+
+
+;	CODE- AND TEXTMACROS FOR SDB GENERATION
+;	SDB OFFSETS
+
+;	****************************
+;	** BASIC SDB DEFININTIONS **
+;	****************************
+;
+;
+;	BASIC CODEMACROS FOR RMOS APPLICATION PROGRAMS
+;	THIS FILE SHOULD BE A PREFIX TO THE APPLICATION PROGRAM
+
+%IF (%RM3) THEN (%'
+	EXTRN	X_SVC_ENTRY_1	:FAR	;RMOS3 CALL GATE TYPE 1
+	EXTRN	X_SVC_ENTRY_2	:FAR	;RMOS3 CALL GATE TYPE 2
+
+	%*DEFINE(SVC(LABEL))	%'SDB ADR SPECIFIED DIRECTLY, NOT ON STACK
+	(CALL	X_SVC_ENTRY_2
+	DP	%LABEL)
+
+	%*DEFINE(SVCSP)		%'SDB ADDRESS ON THE STACK ALREADY
+	(CALL	X_SVC_ENTRY_1)
+
+	%DEFINE(DP) (DP)	%'POINTER TYPE
+	%DEFINE(SIZE_T) (DD)	%'SIZE TYPE: ALOC, ...
+) ELSE (%'
+	EXTRN	X_SVC_VECTOR	:ABS	;RMOS2 INTERRUPT VECTOR 
+
+	%*DEFINE(SVC(LABEL))	%'SDB ADR SPECIFIED DIRECTLY, NOT ON STACK
+	(INT	LOW X_SVC_VECTOR+1
+	DD	%LABEL)
+
+	%*DEFINE(SVCSP)		%'SDB ADDRESS ON THE STACK ALREADY
+	(INT	LOW X_SVC_VECTOR)
+
+	%DEFINE(DP) (DD)	%'POINTER TYPE
+	%DEFINE(SIZE_T) (DW)	%'SIZE TYPE: ALOC, ...
+) FI%'
+
+R1232		RECORD	P1:1,P2:2,P3:3,P4:2
+R17		RECORD	P5:1,P6:7
+R53		RECORD	P7:5,P8:3
+R323		RECORD	P9:3,PA:2,PB:3
+R62		RECORD	PC:6,PD:2
+
+JOK		EQU	JNE	;JUMP IF SVC ACCEPTED
+JBAD		EQU	JE	;JUMP IF SVC WAS REJECTED
+JCC		EQU	JNC	;JUMP IF CARRY IS CLEAR
+JCS		EQU	JC	;JUMP IF CARRY IS SET
+
+;
+;	ALLOCATE MEMORY FROM THE POOL
+;
+CODEMACRO	ALOC	WT:D(0,1),POOL:D(0,63),SZE:D,BUFR:X
+		DB	0FH
+		R17	<WT,POOL>
+		%SIZE_T	SZE
+		%DP	BUFR
+		ENDM
+;
+;	ENTER OR EXIT CONTROLLED CODE EXECUTION
+;
+CODEMACRO	CNTRL	SE:D(0,1),CID:DB
+		DB	011H
+		R17	<SE,0>
+		DB	CID
+		ENDM
+;
+;	CHANGE RUNNING PRIORITY OF ISSUING TASK
+;
+CODEMACRO	CPRI	NPS:D(0,3),PRIV:DB
+		DB	005H
+		R1232	<0,0,0,NPS>
+		DB	PRIV
+		DW	0FFFFH
+		ENDM
+;
+CODEMACRO	CPRIX	OTH:D,NPS:D(0,3),PRIV:DB,TASK:D
+		DB	005H
+		R1232	<OTH,0,0,NPS>
+		DB	PRIV
+		DW	TASK
+		ENDM
+;
+;	CREATE A DYNAMIC TASK
+;
+CODEMACRO	CREATE	BUFR:X,TCD:X
+		DB	01AH
+		%DP	BUFR
+		%DP	TCD
+		ENDM
+;
+;	RETURN A BLOCK OF PREVIOUSLY ALLOCATED MEMORY
+;
+CODEMACRO	DALOC	SZE:D,BUFR:X
+		DB	010H
+		R17	<0,0>		;FOR ALOC SDB COMPATIBILITY
+		%SIZE_T	SZE
+		%DP	BUFR
+		ENDM
+;
+;	TERMINATE AND DELETE SELF (USED BY DYNAMIC TASKS ONLY)
+;
+CODEMACRO	DELETE
+		DB	01BH
+		ENDM
+;
+;	DELETE SPECIFIED TASK IF DORMANT AND DYNAMIC
+;
+CODEMACRO	DELTSK	TASK:D(0,2047)
+		DB	01CH
+		DW	TASK
+		ENDM
+;
+;	PERFORM DISCRETE (DIGITAL) I/O
+;
+CODEMACRO	DSCRTE	IO:D(0,1),TYP:D(0,1),DSGRP:DB,DSBITS:D
+		DB	014H
+		R17	<TYP,IO>
+		DW	DSGRP
+		DB	DSBITS
+		ENDM
+;
+;	TERMINATE TASK WITH TIMED RESTART
+;
+CODEMACRO	ENDR	RSB:D(0,1),TME:D(0,7),LEN:DB
+		DB	004H
+		R1232	<RSB,0,TME,0>
+		DB	LEN
+		ENDM
+;
+;	TERMINATE TASK (QSTRTS MAY NOW BE EFFECTED).
+;
+CODEMACRO	ENDT
+		DB	003H
+		ENDM
+;
+;	PAUSE FOR A TIMED INTERVAL
+;
+CODEMACRO	PAUSE	TME:D(0,7),LEN:DB
+		DB	006H
+		R1232	<0,0,TME,0>
+		DB	LEN
+		ENDM
+;
+;	COPY STARTUP PARAMETERS
+;
+CODEMACRO	QCOPY	BUFR:X
+		DB	18H
+		%DP	BUFR
+		ENDM
+;
+;	QUEUE TASK INITIATION
+;
+CODEMACRO	QSTRT	TCORD:D(0,2),TASK:D,PRIS:D(0,3),PRIV:DB,PAR1:D,PAR2:D
+		DB	002H
+		R1232	<0,TCORD,0,PRIS>
+		DW	TASK
+		DB	PRIV
+		%SIZE_T	PAR1
+		%SIZE_T	PAR2
+		ENDM
+;
+;	RECEIVE A MESSAGE FROM A MAILBOX
+;
+CODEMACRO	RECV	WT:D(0,1),BOX:DB,BUFR:X
+		DB	00EH
+		R17	<WT,0>
+		DB	0		;SEND PRIORITY
+		DB	0		;NETWORK NODE
+		DB	BOX
+		%DP	BUFR
+		ENDM
+;
+;	RESET EVENT FLAG
+;
+CODEMACRO	REF	GRP:D(0,63),FLAGS:D
+		DB	009H
+		R17	<0,GRP>
+		%SIZE_T	FLAGS
+		ENDM
+;
+;	RESUME A PAUSED TASK BEFORE COMPLETION OF TIMED INTERVAL
+;
+CODEMACRO	RESUME	TASK:D
+		DB	007H
+		DW	TASK
+		ENDM
+;
+;	REQUEST INPUT/OUTPUT SERVICES
+;
+CODEMACRO	RIO	FUNCTN:DB,DEVICE:DB,UNIT:DB,GRP:D(0,63),
+&			FLAGS:D,STATUS:X,PARMS:X
+		DB	015H
+		DB	FUNCTN
+		DB	DEVICE
+		DB	UNIT
+		R17	<0,GRP>
+		%SIZE_T	FLAGS
+		%DP	STATUS
+		%DP	PARMS
+		ENDM
+;
+;	RESET (RELEASE) A SEMAPHORE
+;
+CODEMACRO	RSF	SFLAG:D
+		DB	016H
+		DW	SFLAG
+		ENDM
+;
+;	SET EVENT FLAG
+;
+CODEMACRO	SEF	GRP:D(0,63),FLAGS:D
+		DB	008H
+		R17	<0,GRP>
+		%SIZE_T	FLAGS
+		ENDM
+;
+;	SET EVENT FLAG AFTER AN ELAPSED TIME
+;
+CODEMACRO	SEFET	GRP:D(0,63),FLAGS:D,TME:D(0,5),LEN:DB
+		DB	0BH
+		R17	<0,GRP>
+		%SIZE_T	FLAGS
+		R1232	<0,0,TME,0>
+		DB	LEN
+		ENDM
+;
+CODEMACRO	SEND	WT:D(0,1),PRIS:D(0,3),PRIV:DB,BOX:DB,BUFR:X
+		DB	0DH
+		R1232	<WT,0,0,PRIS>
+		DB	PRIV
+		DB	0		;NETWORK NODE
+		DB	BOX
+		%DP	BUFR
+		ENDM
+;
+;	SET DATE AND TIME
+;
+CODEMACRO	STIME	FORMAT:D(0,3),BUFR:X
+		DB	013H
+		DB	FORMAT
+		%DP	BUFR
+		ENDM
+;
+;	START TASK EXECUTION
+;
+CODEMACRO	STRT	TCORD:D(0,2),TASK:D,PRIS:D(0,3),PRIV:DB,PAR1:D,PAR2:D
+		DB	001H
+		R1232	<0,TCORD,0,PRIS>
+		DW	TASK
+		DB	PRIV
+		%SIZE_T	PAR1
+		%SIZE_T	PAR2
+		ENDM
+;
+;	TEST EVENT FLAGS
+;
+CODEMACRO	TEF	TYP:D(0,1),GRP:D(0,63),FLAGS:D
+		DB	00AH
+		R17	<TYP,GRP>
+		%SIZE_T	FLAGS
+		ENDM
+;
+;	REQUEST DATE AND TIME
+;
+CODEMACRO	TIME	FORMAT:D(0,2),BUFR:X
+		DB	012H
+		DB	FORMAT
+		%DP	BUFR
+		ENDM
+;
+;	TEST AND WAIT (REQUEST) SEMAPHORE
+;
+CODEMACRO	TSF	SFLAG:D
+		DB	017H
+		DW	SFLAG
+		ENDM
+;
+;	WAIT FOR EVENT FLAGS TO BE SET
+;
+CODEMACRO	WEF	TYP:D(0,1),GRP:D(0,63),FLAGS:D
+		DB	0CH
+		R17	<TYP,GRP>
+		%SIZE_T	FLAGS
+		ENDM
+;
+;	REQUEST HSFS SERVICES
+;
+CODEMACRO	HSFS	OPCODE:DB,FLAGS:D,STATUS:X,PARMS:X
+		DB	01EH
+		DB	OPCODE
+		%SIZE_T	FLAGS
+		%DP	STATUS
+		%DP	PARMS
+		ENDM
+;
+;
+;	GET THE RAW DATA FOR THE SELECTED REPORTS
+;	   (USED ONLY BY THE RESOURCE REPORTER)
+;
+CODEMACRO	REPSVC	BUFR:X
+		DB	1FH
+		%DP	BUFR
+		ENDM
+;
+;		ENTER RESOURCE IN DIRECTORY
+;
+CODEMACRO	CATALOG		KIND:D(0,10),ID:D,BUFR:X
+		DB		022H
+		DB		KIND
+		DW		ID
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC DEVICE DRIVER
+;
+CODEMACRO	CREATEDRIV	DRTYP:D(0),DEVICE:DB,DCDPTR:X,BUFR:X
+		DB		023H
+		DB		DRTYP
+		DB		DEVICE
+		%DP		DCDPTR
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC DISCRETE BYTE GROUP
+;
+CODEMACRO	CREATEDSCT	DSCTPTR:X,BUFR:X
+		DB		024H
+		%DP		DSCTPTR
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC EVENT FLAG GROUP
+;
+CODEMACRO	CREATEFLAG	BUFR:X
+		DB		025H
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC LOCAL MAILBOX
+;
+CODEMACRO	CREATEMBOX	BUFR:X
+		DB		026H
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC MEMORY POOL
+;
+CODEMACRO	CREATEPOOL	POOLPTR:X,SZE:D,BUFR:X
+		DB		028H
+		%DP		POOLPTR
+		%SIZE_T		SZE
+		%DP		BUFR
+		ENDM
+;
+;		CREATE DYNAMIC SEMAPHORE
+;
+CODEMACRO	CREATESEMA	BUFR:X
+		DB		029H
+		%DP		BUFR
+		ENDM
+;
+;		DELETE DYNAMIC DEVICE DRIVER
+;
+CODEMACRO	DELETEDRIV	DEVICE:DB
+		DB		02BH
+		DB		DEVICE
+		ENDM
+;
+;		DELETE DYNAMIC DISCRETE BYTE GROUP
+;
+CODEMACRO	DELETEDSCT	IDPTR:X
+		DB		02CH
+		%DP		IDPTR
+		ENDM
+;
+;		DELETE DYNAMIC EVENT FLAG GROUP
+;
+CODEMACRO	DELETEFLAG	IDPTR:X
+		DB		02DH
+		%DP		IDPTR
+		ENDM
+;
+;		DELETE DYNAMIC LOCAL MAILBOX
+;
+CODEMACRO	DELETEMBOX	IDPTR:X
+		DB		02EH
+		%DP		IDPTR
+		ENDM
+;
+;		DELETE DYNAMIC MEMORY POOL
+;
+CODEMACRO	DELETEPOOL	IDPTR:X
+		DB		030H
+		%DP		IDPTR
+		ENDM
+;
+;		DELETE DYNAMIC SEMAPHORE
+;
+CODEMACRO	DELETESEMA	IDPTR:X
+		DB		031H
+		%DP		IDPTR
+		ENDM
+;
+;		GET TASK STATUS
+;
+CODEMACRO	GETSTAT		ID:D(0,2047),BUFR:X
+		DB		02AH
+		DW		ID
+		%DP		BUFR
+		ENDM
+;
+;		FIND RESOURCE IN DIRECTORY
+;
+CODEMACRO	LOOK		WT:D(0,1),BUFR:X,BID:X
+		DB		032H
+		DB		WT
+		%DP		BUFR
+		%DP		BID
+		ENDM
+;
+;		SET INTERRUPT VECTOR
+;
+CODEMACRO	SETINT		PID:DB(0,254),LEV:DB,IHAND:X
+		DB		033H
+		DB		PID
+		DB		LEV
+		%DP		IHAND
+		ENDM
+;
+;	ADDITIONAL CODEMACROS FOR PROTECTED MODE:
+;
+;		CALCULATE PHYSICAL ADDRESS
+;
+CODEMACRO	PHYSADR		POI:X,ADDR:X
+		DB		034H
+		%DP		POI
+		%DP		ADDR
+		ENDM
+;
+;		CREATE NEW DESCRIPTOR
+;
+CODEMACRO	CREATEDESC	START:DD,LIM:DD,NEWSEL:X
+		DB		035H
+		DD		START
+		DD		LIM
+		%DP		NEWSEL
+		ENDM
+;
+;		CHANGE DESCRIPTOR
+;
+CODEMACRO	CHANGEDESC	SEL:DW,START:DD,LIM:DD
+		DB		036H
+		DW		SEL
+		DD		START
+		DD		LIM
+		ENDM
+;
+;		DELETE DESCRIPTOR
+;
+CODEMACRO	DELDESC		SEL:DW
+		DB		037H
+		DW		SEL
+		ENDM
+;
+;		CHANGE DESCRIPTOR ACCESS RIGTHS
+;
+CODEMACRO	CHANGEDESCACCESS	SEL:DW,ACCESS:DW
+		DB			038H
+		DW			SEL
+		DW			ACCESS
+		ENDM
+;
+;		LIST DIRECTORY
+;
+CODEMACRO	LIST	CNT:D,IXPTR:X,KIND:DB,ACPTR:X,BUFR:X
+		DB	03BH
+		DW	CNT
+		%DP	IXPTR
+		DB	KIND
+		%DP	ACPTR
+		%DP	BUFR
+		ENDM
+;
+;		REMOVE ENTRY FROM DIRECTORY
+;
+CODEMACRO	UNCATALOG	BUFR:X
+		DB		03CH
+		%DP		BUFR
+		ENDM
+;
+;		LOCK/UNLOCK SCHEDULER
+;
+CODEMACRO	LOCKS	OPT:D(0,1)
+		DB	03DH
+		DB	OPT
+		ENDM
+;
+;               SET/RESET SVC SPECIFIC TIMEOUT
+;
+CODEMACRO       TIMEOUT TOTYP:D,TME:D(0,7),LEN:DB
+                DB      03EH
+                DW	TOTYP
+		R1232	<0,0,TME,0>
+                DB      LEN
+                ENDM
+;
+		PURGE	P1,P2,P3,P4,P5,P6,P7,P8,P9,PA,PB
+
+;******************************************************************************
+;    general purpose defines
+;******************************************************************************
+
+TRUE		EQU    -1
+FALSE		EQU	0 
+
+
+;
+;
+;***************************************************************
+; 		equates for assembler supervisor calls	  
+;***************************************************************
+;
+
+WT		EQU	1       ; aloc, recv, send, look		
+CNT		EQU	0	; aloc, recv, send, look,
+				; qstrt, strt			
+				
+				; catalog		
+CTY_TASK	EQU	0       ; catalog type task            
+CTY_DEVICE	EQU     1       ; catalog type device          
+CTY_POOL	EQU	2       ; catalog type memory pool     
+CTY_SEMA	EQU     3       ; catalog type semaphore       
+CTY_EVTFLAG	EQU     4       ; catalog type eventflag       
+CTY_CNTRL	EQU     5       ; catalog type controlled prog.
+CTY_LMBOX	EQU     6       ; catalog type local mail box  
+CTY_GMBOX	EQU     7       ; because of compatibility     
+CTY_MISC 	EQU     7       ; catalog no specific type     
+CTY_USER	EQU     8       ; catalog no specific type     
+CTY_DSCRTE	EQU     9       ; catalog type discret Byte    
+CTY_UNIT	EQU     10      ; catalog type unit            
+
+CTRL_START	EQU	0	; cntrl				
+CTRL_END	EQU	1	; cntrl				
+
+PRI_SET		EQU	0	; cpri					
+PRI_TCD		EQU	1	; cpri				
+PRI_INC		EQU	2	; cpri				
+PRI_DEC		EQU	3	; cpri				
+OWN		EQU	0	; cpri				
+OTHER		EQU	1	; cpri				
+
+DSC_IN		EQU	0	; dsctre			
+DSC_OUT		EQU	1	; dsctre			
+TEST_ALL	EQU	0	; dsctre, tef, wef	
+TEST_ONE	EQU	1	; dsctre, tef, wef	
+CLR_BITS	EQU	0	; dsctre			
+SET_BITS	EQU	1	; dsctre			
+
+S_TIME		EQU	0       ; endr                         
+C_TIME		EQU	1       ; endr                         
+MSEC_1  	EQU     0       ; endr, pause, timeout         
+MSEC_10 	EQU     1       ; endr, pause, timeout         
+MSEC_100	EQU     2       ; endr, pause, timeout         
+SEC     	EQU     3       ; endr, pause, timeout         
+SEC_10  	EQU     6       ; endr, pause, timeout         
+MIN     	EQU     4       ; endr, pause, timeout         
+MIN_10  	EQU     7       ; endr, pause, timeout         
+HOUR    	EQU     5       ; endr, pause, timeout         
+
+LOCKS_OFF	EQU     0       ; unlock scheduler             
+LOCKS_ON 	EQU     1       ; lock scheduler               
+
+WAIT_RDY	EQU	1	; qstrt, strt			
+WAIT_END	EQU	2	; qstrt, strt	
+MAX_PRI		EQU	0	; qstrt, strt			
+SET_PRI		EQU	1	; qstrt, strt, send	
+CURR_PRI	EQU	2	; qstrt, strt, send	
+TCD_PRI		EQU	3	; qstrt, strt, send	
+
+OVF_CLR		EQU	0	; send				
+OVF_SET		EQU	1	; send				
+
+MIN_FMT		EQU	0	; stime, time			
+SEC_FMT		EQU	1	; stime, time			
+GLSEC		EQU	2	; stime, time			
+ABS_TIME	EQU	3	; time			
+LCSEC		EQU	3	; stime				
+
+TB_ALOC 	EQU     1H  	; timeout for aloc             
+TB_CNTRL_TSF	EQU     2H  	; timeout for cntrl / tsf      
+TB_LOOK     	EQU     4H  	; timeout for look             
+TB_RECV     	EQU     8H  	; timeout for recv             
+TB_SEND     	EQU     10H 	; timeout for send             
+TB_WEF      	EQU     20H  	; timeout for wef              
+TB_ALL      	EQU     0FFFFH	; timeout for all svcs         
+
+
+;  Descriptor access rigths, privilege level 0
+
+ACS_ER		EQU	9AH
+ACS_RW		EQU	92H
+ACS_RWD		EQU	96H
+
+CPL_BLOCK       EQU     -1      ; daloc complete block
+
+KL_END          EQU     0       ; killtsk end option
+KL_DEL          EQU     1       ; killtsk delete option
+KL_RDY          EQU     2       ; killtsk ready  option
+
+CH_STD          EQU     0       ; createhpool standard pool
+CH_HEAP         EQU     1       ; createhpool heap
+
+RES_PTR         EQU     0       ; resblk passes pointer
+RES_PHYS        EQU     1       ; resblk passes phys address
+RES_RLS         EQU     2       ; resblk release reservation
+
+HD_ONE          EQU     0       ; hdaloc free one block
+HD_ALL          EQU     1       ; hdaloc free all owned blocks
+
+HA_OWN          EQU     0       ; haloc own block
+HA_NONE         EQU     2       ; haloc not own block
+
+OWN_TASK        EQU     -1      ; indicate own task id
+
+TID_T   STRUC                   ; timer ID type for TIMERSTART and TIMERCANCEL
+TID_A   DD ?
+TID_B   DD ?
+TID_T   ENDS
+
+BD_MBOX         EQU     1       ; bound limit for mailbox
+
+IH_CUR          EQU     0       ; read old handler               
+IH_DFT          EQU     1       ; take handler for unexp. int.   
+IH_DI           EQU     2       ; DI- handler                    
+IH_I            EQU     3       ; I - handler                    
+IH_S            EQU     4       ; S - handler                    
+IH_IS           EQU     5       ; I - handler and S - handler    
+IH_TSK          EQU     6       ; task start with int. handler   
+IH_MBOX         EQU     7       ; send message handler           
+IH_HW           EQU     0       ; hardware interrupt             
+IH_SW           EQU     80H     ; software interrupt               
+IH_FREE         EQU     0       ; free old handler
+IH_HOLD         EQU     40H     ; do not free old handler
+
+$RESTORE

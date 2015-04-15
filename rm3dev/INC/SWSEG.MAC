@@ -1,0 +1,399 @@
+$SAVE NOLIST
+
+;---FILE HEADER-(set tabulator to 8)-------------------------------------------
+;
+;   filename    : SWSEG.MAC
+;   version     : 0007
+;   contents    : Segment definition macros
+;   author      : B.N.
+;   date        : Jan 31, 1995
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Configuration support
+;
+;   RMOS3 
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;                       0002  Original issue
+;                       0004  NUC_ASSUME, _HEAP_SEG_TAIL, _DS_SEG_TAIL, 
+;                             DEB_CODE32 added.
+;                 W.S.  0005  Resource Reporter segments changed
+;   Dec  4, 1992  W.S.  0006  New Header added
+;   Dec 10, 1993  W.S.  0007  Macros for OVL and GLMBOX removed
+;
+;---END OF MODIFICATION HEADER-------------------------------------------------
+
+
+%IF(%RM3)THEN(
+
+;------------------------------------------------------------------------------
+;	SEGMENT AND UTILITY MACROS
+;------------------------------------------------------------------------------
+
+;	RMOS SEGMENT DEFINITIONS
+
+%DEFINE(RCODE)  (rm3_code32)
+%DEFINE(RDATA)  (rm3_data)
+%DEFINE(RSTACK) (rm3_data)
+%DEFINE(RCCODE) (rm3_code32)
+
+%DEFINE(RCODE_REG) (CS)
+%DEFINE(RDATA_REG) (DS)
+%DEFINE(RSTACK_REG)(SS)
+
+%DEFINE(ASSUME)		(ASSUME%'
+	DS:%RDATA, SS:%RSTACK, ES:NOTHING, FS:NOTHING, GS:NOTHING)
+%DEFINE(NO_ASSUME)	(ASSUME	NOTHING)
+%DEFINE(RASSUME)	(%ASSUME)
+
+%DEFINE(RCODE_SEG)	(%RCODE	SEGMENT	ER	PUBLIC)
+%DEFINE(RCODE_SEG_NG)	(%RCODE	SEGMENT	ER	PUBLIC)
+%DEFINE(RDATA_SEG)	(%RDATA	SEGMENT	RW	PUBLIC)
+%DEFINE(RDATA_SEG_NG)	(%RDATA	SEGMENT	RW	PUBLIC)
+
+%DEFINE(END_RCODE_SEG)(%RCODE	ENDS)
+%DEFINE(END_RDATA_SEG)(%RDATA	ENDS)
+
+;	LOAD SEGMENTS
+
+%DEFINE(MOV_RDATA)
+       (MOV	AX, %RDATA
+	MOV	%RDATA_REG, AX)
+
+%DEFINE(MOV_RSTACK)
+       (MOV	AX, %RSTACK
+	MOV	%RSTACK_REG, AX)
+
+;	RMOS STACK ORDER
+
+%DEFINE(PUSH_ALL_X)
+       (PUSHAD
+	PUSH	ES
+	PUSH	FS
+	PUSH	GS
+	PUSH	DS)
+
+%DEFINE(POP_ALL_X)
+       (POP	DS
+	POP	GS
+	POP	FS
+	POP	ES
+	POPAD)
+
+;	PUSH/POP UTILITY
+
+%define (s_all) (s_all)
+
+%*define (save (l))	(%define(_save)(%l)%' ';Save order:	%l)
+%*define (save_sec (l))	(%define(_save_sec)(%l);2nd save order:	%l)
+
+%*define (_push (l)) local s x t (%'
+%set(t,0)%'
+%define(s)(%%l)%'
+%while(%len(%s) ne 0)(%'
+%'	'%match(x s)(%s)%'
+%'	'%if(%t)then(	)fi%'
+%'	'%if(%eqs(%x,%s_all))then(PUSHAD)else(PUSH	%x)fi
+%'	'%set(t,1)%'
+))
+
+%*define (_pop (l)) local s c n t (%'
+%set(t,0)%'
+%define(s)(%%l)%'
+%set(c,0)%'
+%while(%len(%s) ne 0)(%'
+%'	'%match(x s)(%s)%'
+%'	'%set(c,%c+1)%'
+%'	'%define(n)(_%c)%'
+%'	'%define(%n)(%x)%'
+)%'
+%repeat(%c)(%'
+%'	'%define(n)(_%c)%'
+%'	'%if(%t)then(	)fi%'
+%'	'%if(%eqs(%%n,%s_all))then(POPAD)else(POP	%%n)fi
+%'	'%set(c,%c-1)%'
+%'	'%set(t,1)%'
+))
+
+%*define (push)		(%_push(_save))
+%*define (push_sec)	(%_push(_save_sec))
+%*define (pop)		(%_pop(_save))
+%*define (pop_sec)	(%_pop(_save_sec))
+
+;------------------------------------------------------------------------------
+;	NUCLEUS:
+;------------------------------------------------------------------------------
+
+%DEFINE(NUC_CODE)(%RCODE)
+%DEFINE(GROM)	 (%RCODE)
+%DEFINE(LROM)	 (%RCODE)
+%DEFINE(GRAM)	 (%RDATA)
+%DEFINE(LRAM)	 (%RDATA)
+
+%DEFINE(RCCODE_SEG)	(%RCCODE	SEGMENT ER PUBLIC)
+
+%DEFINE(NUC_CODE_SEG)	(%NUC_CODE	SEGMENT ER PUBLIC)
+%DEFINE(GROM_SEG)	(%' '%GROM	SEGMENT ER PUBLIC)
+%DEFINE(LROM_SEG)	(%' '%LROM	SEGMENT ER PUBLIC)
+%DEFINE(GRAM_SEG)	(%' '%GRAM	SEGMENT RW PUBLIC)
+%DEFINE(LRAM_SEG)	(%' '%LRAM	SEGMENT RW PUBLIC)
+
+%DEFINE(END_RCCODE_SEG)	(%RCCODE	ENDS)
+
+%DEFINE(END_NUC_CODE_SEG)(%NUC_CODE	ENDS)
+%DEFINE(END_GROM_SEG)	 (%' '%GROM	ENDS)
+%DEFINE(END_LROM_SEG)	 (%' '%LROM	ENDS)
+%DEFINE(END_GRAM_SEG)	 (%' '%GRAM	ENDS)
+%DEFINE(END_LRAM_SEG)	 (%' '%LRAM	ENDS)
+
+%DEFINE(_STK_SEG_TAIL) (SEGMENT RW PUBLIC)
+%DEFINE(_DS_SEG_TAIL)  (SEGMENT RW PUBLIC)
+%DEFINE(_POOL_SEG_TAIL)(SEGMENT RW PUBLIC)
+%DEFINE(_HEAP_SEG_TAIL)(SEGMENT RW PUBLIC)
+
+%DEFINE(CS_ASSUME)()
+%DEFINE(NUC_ASSUME)(%ASSUME)
+
+;------------------------------------------------------------------------------
+;	Dynamic Debugger:
+;------------------------------------------------------------------------------
+
+%DEFINE(DEB_CODE)(deb_code32)
+%DEFINE(DEB_DATA)(deb_data)
+
+%DEFINE(END_DEB_CODE_SEG)(%DEB_CODE	ENDS)
+%DEFINE(END_DEB_DATA_SEG)(%DEB_DATA	ENDS)
+
+%DEFINE(DEB_CODE_SEG)(%DEB_CODE	SEGMENT ER PUBLIC)
+%DEFINE(DEB_DATA_SEG)(%DEB_DATA	SEGMENT RW PUBLIC)
+
+%DEFINE(DEB_ASSUME)(ASSUME	DS:%DEB_DATA)
+
+%DEFINE(_DEB1_SEG_TAIL)(SEGMENT RW PUBLIC)
+
+;------------------------------------------------------------------------------
+;	Resource Reporter:
+;------------------------------------------------------------------------------
+
+%DEFINE(REP_CODE)(rep_code32)
+%DEFINE(REP_DATA)(rep_data)
+
+%DEFINE(REP_CODE_SEG)(%REP_CODE	SEGMENT	ER PUBLIC)
+%DEFINE(REP_DATA_SEG)(%REP_DATA	SEGMENT	RW PUBLIC)
+
+%DEFINE(END_REP_CODE_SEG)(%REP_CODE	ENDS)
+%DEFINE(END_REP_DATA_SEG)(%REP_DATA	ENDS)
+
+;----------------------------------------------------------------------------*/
+;----------------------------------------------------------------------------*/
+
+%*DEFINE (REP_GROUP) (%'
+%IF (NOT %RM3) THEN (
+REP_CGROUP	GROUP	REP_CODE
+		ASSUME	CS:REP_CGROUP
+) FI
+)
+;----------------------------------------------------------------------------*/
+%*DEFINE (REP_CODE_START) (%'
+REP_CODE32	SEGMENT	ER	PUBLIC
+)
+;----------------------------------------------------------------------------*/
+%*DEFINE (REP_CODE_STOP) (%'
+REP_CODE32		ENDS
+)
+
+)ELSE(
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;	NUCLEUS:
+;------------------------------------------------------------------------------
+%DEFINE(RCCODE)		(rm2_code)
+%DEFINE(NUC_CODE)	(rm2_code)
+%DEFINE(GROM)	 	(rm2_code)
+%DEFINE(LROM)	 	(rm2_code)
+%DEFINE(GRAM)	 	(rm2_data)
+%DEFINE(LRAM)	 	(rm2_data)
+%DEFINE(RCODE) 		(%NUC_CODE)
+%DEFINE(RDATA) 		(%GRAM)
+%DEFINE(RSTACK)		(%LRAM)
+
+%DEFINE(NUC_CGROUP)	(rm2_cgroup)
+%DEFINE(NUC_DGROUP)	(rm2_dgroup)
+
+%DEFINE(RCODE_GROUP)	(%NUC_CGROUP	GROUP	%RCODE)
+%DEFINE(RDATA_GROUP)	(%NUC_DGROUP	GROUP	%RDATA)
+
+%DEFINE(GROM_SEG)	(%' '%GROM	SEGMENT PUBLIC 'code')
+%DEFINE(LROM_SEG)	(%' '%LROM	SEGMENT PUBLIC 'code')
+%DEFINE(GRAM_SEG)	(%RDATA_GROUP
+			%' '%GRAM	SEGMENT PUBLIC 'data')
+%DEFINE(LRAM_SEG)	(%' '%LRAM	SEGMENT PUBLIC 'data')
+%DEFINE(RCCODE_SEG)	(%RCCODE	SEGMENT PUBLIC 'code')
+%DEFINE(RCODE_SEG)	(%RCODE_GROUP
+			 %NUC_CODE	SEGMENT PUBLIC 'code')
+%DEFINE(NUC_CODE_SEG)	(%RCODE_SEG)
+%DEFINE(RCODE_SEG_NG)	(%NUC_CODE	SEGMENT PUBLIC 'code')
+%DEFINE(RDATA_SEG)	(%GRAM_SEG)
+%DEFINE(RDATA_SEG_NG)	(%' '%GRAM	SEGMENT PUBLIC 'data')
+
+%DEFINE(END_GROM_SEG)	(%' '%GROM	ENDS)
+%DEFINE(END_LROM_SEG)	(%' '%LROM	ENDS)
+%DEFINE(END_GRAM_SEG)	(%' '%GRAM	ENDS)
+%DEFINE(END_LRAM_SEG)	(%' '%LRAM	ENDS)
+%DEFINE(END_RCCODE_SEG)(%RCCODE	ENDS)
+%DEFINE(END_RCODE_SEG)(%NUC_CODE	ENDS)
+%DEFINE(END_NUC_CODE_SEG)(%END_RCODE_SEG)
+%DEFINE(END_RDATA_SEG)(%END_GRAM_SEG)
+
+
+%DEFINE(NUC_ASSUME)(ASSUME	CS:%NUC_CGROUP, DS:%NUC_DGROUP, ES:NOTHING, SS:%NUC_DGROUP)
+%DEFINE(CS_ASSUME) (ASSUME	CS:%NUC_CGROUP)
+
+%DEFINE(RCODE_REG) (CS)
+%DEFINE(RDATA_REG) (DS)
+%DEFINE(RSTACK_REG)(SS)
+
+;	LOAD SEGMENTS
+
+%DEFINE(MOV_RDATA)
+       (MOV	AX, %RDATA
+	MOV	%RDATA_REG, AX)
+
+;------------------------------------------------------------------------------
+;	Dynamic Debugger:
+;------------------------------------------------------------------------------
+
+%DEFINE(DEB_CODE)(deb_code)
+%DEFINE(DEB_DATA)(deb_data)
+
+%DEFINE(END_DEB_CODE_SEG)(%DEB_CODE	ENDS)
+%DEFINE(END_DEB_DATA_SEG)(%DEB_DATA	ENDS)
+
+%DEFINE(DEB_CODE_SEG)(%DEB_CODE	SEGMENT PUBLIC 'code')
+%DEFINE(DEB_DATA_SEG)(%DEB_DATA	SEGMENT PUBLIC 'data')
+
+%DEFINE(DEB_CGROUP)(deb_cgroup)
+%DEFINE(DEB_DGROUP)(deb_dgroup)
+
+%DEFINE(DEB_GROUP)(
+%DEB_CGROUP	GROUP	%DEB_CODE
+%DEB_DGROUP	GROUP	%DEB_DATA)
+
+%DEFINE(DEB_ASSUME)(ASSUME	CS:%DEB_CGROUP, DS:%DEB_DGROUP)
+
+%DEFINE(_DEB1_SEG_TAIL)(SEGMENT PUBLIC 'data')
+
+;------------------------------------------------------------------------------
+;	Resource Reporter:
+;------------------------------------------------------------------------------
+
+%DEFINE(RM_DATA)(rm_data)
+
+%DEFINE(END_RM_DATA_SEG)(%RM_DATA	ENDS)
+
+%DEFINE(RM_DATA_SEG)(%RM_DATA	SEGMENT	PUBLIC 'data')
+
+%DEFINE(REP_DATA)(rep_data)
+
+%DEFINE(END_REP_DATA_SEG)(%REP_DATA	ENDS)
+
+
+%DEFINE(REP_DATA_SEG)(%REP_DATA	SEGMENT	PUBLIC 'data')
+;----------------------------------------------------------------------------*/
+
+%*DEFINE (REP_GROUP) (%'
+REP_CGROUP	GROUP	REP_CODE
+		ASSUME	CS:REP_CGROUP
+)
+;----------------------------------------------------------------------------*/
+%*DEFINE (REP_CODE_START) (%'
+REP_CODE		SEGMENT WORD    PUBLIC 'CODE'
+)
+;----------------------------------------------------------------------------*/
+%*DEFINE (REP_CODE_STOP) (%'
+REP_CODE 		ENDS
+)
+
+;------------------------------------------------------------------------------
+;	HSFS:
+;------------------------------------------------------------------------------
+
+%DEFINE(HSF_ROM) (hsfs_rom)
+%DEFINE(HSF_CODE)(hsfs_cs)
+%DEFINE(HSF_DATA)(hsfs_ds)
+
+%DEFINE(END_HSF_ROM_SEG) (%HSF_ROM	ENDS)
+%DEFINE(END_HSF_CODE_SEG)(%HSF_CODE	ENDS)
+%DEFINE(END_HSF_DATA_SEG)(%HSF_DATA	ENDS)
+
+%DEFINE(HSF_ROM_SEG) (%HSF_ROM	SEGMENT PUBLIC 'code')
+%DEFINE(HSF_CODE_SEG)(%HSF_CODE	SEGMENT PUBLIC 'code')
+%DEFINE(HSF_DATA_SEG)(%HSF_DATA	SEGMENT PUBLIC 'data')
+
+%DEFINE(HSF_ASSUME)(ASSUME	CS:%HSF_CODE)
+
+%DEFINE(_MAP_SEG_TAIL)	  (SEGMENT PUBLIC 'data')
+%DEFINE(_HSF_BUF_SEG_TAIL)(SEGMENT PUBLIC 'hsfs_buf_data')
+
+;------------------------------------------------------------------------------
+;	PUSH/POP UTILITY
+;------------------------------------------------------------------------------
+
+%define(push_all_x)
+       (pusha
+        push	es
+        push	ds)
+
+%define(pop_all_x)
+       (pop	ds
+	pop	es
+	popa)
+
+%define (s_all) (s_all)
+
+%*define (save (l))	(%define(_save)(%l)%' ';Save order:	%l)
+%*define (save_sec (l))	(%define(_save_sec)(%l);2nd save order:	%l)
+
+%*define (_push (l)) local s x t (%'
+%set(t,0)%'
+%define(s)(%%l)%'
+%while(%len(%s) ne 0)(%'
+%'	'%match(x s)(%s)%'
+%'	'%if(%t)then(	)fi%'
+%'	'%if(%eqs(%x,%s_all))then(PUSHA)else(PUSH	%x)fi
+%'	'%set(t,1)%'
+))
+
+%*define (_pop (l)) local s c n t (%'
+%set(t,0)%'
+%define(s)(%%l)%'
+%set(c,0)%'
+%while(%len(%s) ne 0)(%'
+%'	'%match(x s)(%s)%'
+%'	'%set(c,%c+1)%'
+%'	'%define(n)(_%c)%'
+%'	'%define(%n)(%x)%'
+)%'
+%repeat(%c)(%'
+%'	'%define(n)(_%c)%'
+%'	'%if(%t)then(	)fi%'
+%'	'%if(%eqs(%%n,%s_all))then(POPA)else(POP	%%n)fi
+%'	'%set(c,%c-1)%'
+%'	'%set(t,1)%'
+))
+
+%*define (push)		(%_push(_save))
+%*define (push_sec)	(%_push(_save_sec))
+%*define (pop)		(%_pop(_save))
+%*define (pop_sec)	(%_pop(_save_sec))
+
+)FI
+
+$RESTORE

@@ -1,0 +1,27 @@
+/*--FILE HEADER----------------------------------------------------------------
+**
+**  filename    : RM3CFG.SUB
+**  version     : 0002
+**  contents    : Definition of subsystem for RMOS configuration
+**  author      : K.P.H.
+**  date        : May 10, 1995
+**
+**--FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+**
+**  RMOS3   package
+**
+**--END OF FILE HEADER---------------------------------------------------------
+*/
+
+$compact ( RM3 -CONST IN CODE- HAS rmconf, rscanram, rcmosram, rcmostim,
+$   rcvers,   rini8259, rini8254, rmdiag,
+$   rppega,   rpp8250,  rpp8254,  rpp8251,  rpp8530,
+$   riniutsk, rinitcli, rinitdeb, rinitdpt, riniterr, rinitrep, rinitrm,
+$   rclidpat, rdpat,    rinitnpx, rinienpx, rinitdos, rinitdfs,
+$   rinitram, rinitfd0, rinithd0, rinitbk1, rinitvc,
+$   rinitbyt, ribtega,  ribtcom,  ribt8250, ribtlpt,  ribt8255, ribt8530,
+$   rinitcrt, ricrcom,  ricr8250,
+$   rini3964, ricmcom,  ricm8250, ricm8530,
+$   rinit511, rinic200,
+$   rinitpc,  rinitm36, rinitm44,
+$   rinite20, rinite45  )

@@ -1,0 +1,762 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: xtree,v $
+ * Revision 1.2  2000/02/08 06:21:08  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:07  aki
+ * Initial revision
+ *
+ */ 
+
+// tree internal header
+#ifndef _TREE_
+#define _TREE_
+
+
+#include <iterator>
+#include <memory>
+#include <stdexcept>
+_STD_BEGIN
+
+		// TEMPLATE CLASS _Tree_nod
+template<class _Ty, class _A>
+	class _Tree_nod {
+protected:
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<void>::other::pointer _Genptr;
+	struct _Node;
+	friend struct _Node;
+	struct _Node {
+		_Genptr _Left, _Parent, _Right;
+		_Ty _Value;
+		char _Color, _Isnil;
+		};
+	_Tree_nod(_A _Al)
+		: _Alnod(_Al) {}
+	_A::_TEMPLATE_MEMBER rebind<_Node>::other _Alnod;
+	};
+		// TEMPLATE CLASS _Tree_ptr
+template<class _Ty, class _A>
+	class _Tree_ptr : public _Tree_nod<_Ty, _A> {
+protected:
+	typedef typename _Tree_nod<_Ty, _A>::_Node _Node;
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<_Node>::other::pointer _Nodeptr;
+	_Tree_ptr(_A _Al)
+		: _Tree_nod<_Ty, _A>(_Al), _Alptr(_Al) {}
+	_A::_TEMPLATE_MEMBER rebind<_Nodeptr>::other _Alptr;
+	};
+		// TEMPLATE CLASS _Tree_val
+template<class _Ty, class _A>
+	class _Tree_val : public _Tree_ptr<_Ty, _A> {
+protected:
+	_Tree_val(_A _Al = _A())
+		: _Tree_ptr<_Ty, _A>(_Al), _Alval(_Al) {}
+	typedef typename _A::_TEMPLATE_MEMBER
+		rebind<_Ty>::other _Alty;
+	_Alty _Alval;
+	};
+
+		// TEMPLATE CLASS _Tree
+template<class _K, class _Ty, class _Kfn, class _Pr, class _Ax>
+	class _Tree : public _Tree_val<_Ty, _Ax> {
+public:
+	typedef _Tree<_K, _Ty, _Kfn, _Pr, _Ax> _Myt;
+	typedef _Tree_val<_Ty, _Ax> _Mybase;
+	typedef typename _Mybase::_Alty _A;
+protected:
+	typedef typename _Tree_nod<_Ty, _A>::_Genptr _Genptr;
+	typedef typename _Tree_nod<_Ty, _A>::_Node _Node;
+	enum _Redbl {_Red, _Black};
+	typedef _POINTER_X(_Node, _A) _Nodeptr;
+	typedef _REFERENCE_X(_Nodeptr, _A) _Nodepref;
+	typedef _CREFERENCE_X(_K, _A) _Keyref;
+	typedef _REFERENCE_X(char, _A) _Charref;
+	typedef _REFERENCE_X(_Ty, _A) _Vref;
+	static _Charref _Color(_Nodeptr __P)
+		{return ((_Charref)(*__P)._Color); }
+	static _Charref _Isnil(_Nodeptr __P)
+		{return ((_Charref)(*__P)._Isnil); }
+	static _Keyref _Key(_Nodeptr __P)
+		{return (_Kfn()(_Value(__P))); }
+	static _Nodepref _Left(_Nodeptr __P)
+		{return ((_Nodepref)(*__P)._Left); }
+	static _Nodepref _Parent(_Nodeptr __P)
+		{return ((_Nodepref)(*__P)._Parent); }
+	static _Nodepref _Right(_Nodeptr __P)
+		{return ((_Nodepref)(*__P)._Right); }
+	static _Vref _Value(_Nodeptr __P)
+		{return ((_Vref)(*__P)._Value); }
+public:
+	typedef _K key_type;
+	typedef _Ty value_type;
+	typedef _A allocator_type;
+	typedef typename _A::size_type size_type;
+	typedef typename _A::difference_type _Dift;
+	typedef _Dift difference_type;
+	typedef _POINTER_X(_Ty, _A) _Tptr;
+	typedef _CPOINTER_X(_Ty, _A) _Ctptr;
+	typedef _REFERENCE_X(_Ty, _A) _Reft;
+	typedef _Tptr pointer;
+	typedef _Ctptr const_pointer;
+	typedef _Reft reference;
+	typedef _CREFERENCE_X(_Ty, _A) const_reference;
+		// CLASS iterator
+	class iterator;
+	friend class iterator;
+	class iterator : public _Bidit<_Ty, _Dift, _Tptr, _Reft> {
+	public:
+		typedef _Bidit<_Ty, _Dift, _Tptr, _Reft> _Mybase;
+		typedef typename _Mybase::iterator_category
+			iterator_category;
+		typedef typename _Mybase::value_type value_type;
+		typedef typename _Mybase::difference_type
+			difference_type;
+		typedef typename _Mybase::pointer pointer;
+		typedef typename _Mybase::reference reference;
+		iterator()
+			: _Ptr(0) {}
+		iterator(_Nodeptr __P)
+			: _Ptr(__P) {}
+		reference operator*() const
+			{return (_Value(_Ptr)); }
+		iterator& operator++()
+			{_Inc();
+			return (*this); }
+		iterator operator++(int)
+			{iterator _Tmp = *this;
+			++*this;
+			return (_Tmp); }
+		iterator& operator--()
+			{_Dec();
+			return (*this); }
+		iterator operator--(int)
+			{iterator _Tmp = *this;
+			--*this;
+			return (_Tmp); }
+		bool operator==(const iterator& __X) const
+			{return (_Ptr == __X._Ptr); }
+		bool operator!=(const iterator& __X) const
+			{return (!(*this == __X)); }
+		void _Dec()
+			{if (_Color(_Ptr) == _Red
+				&& _Parent(_Parent(_Ptr)) == _Ptr)
+				_Ptr = _Right(_Ptr);
+			else if (!_Isnil(_Left(_Ptr)))
+				_Ptr = _Max(_Left(_Ptr));
+			else
+				{_Nodeptr __P;
+				while (_Ptr == _Left(__P = _Parent(_Ptr)))
+					_Ptr = __P;
+				_Ptr = __P; }}
+		void _Inc()
+			{if (!_Isnil(_Right(_Ptr)))
+				_Ptr = _Min(_Right(_Ptr));
+			else
+				{_Nodeptr __P;
+				while (_Ptr == _Right(__P = _Parent(_Ptr)))
+					_Ptr = __P;
+				if (_Right(_Ptr) != __P)
+					_Ptr = __P; }}
+		_Nodeptr _Mynode() const
+			{return (_Ptr); }
+	protected:
+		_Nodeptr _Ptr;
+		};
+		// CLASS const_iterator
+	class const_iterator;
+	friend class const_iterator;
+	class const_iterator
+		: public _Bidit<_Ty, _Dift, _Ctptr, const_reference> {
+	public:
+		typedef _Bidit<_Ty, _Dift, _Ctptr, const_reference>
+			_Mybase;
+		typedef typename _Mybase::iterator_category
+			iterator_category;
+		typedef typename _Mybase::value_type value_type;
+		typedef typename _Mybase::difference_type
+			difference_type;
+		typedef typename _Mybase::pointer pointer;
+		typedef typename _Mybase::reference reference;
+		const_iterator()
+			: _Ptr(0) {}
+		const_iterator(_Nodeptr __P)
+			: _Ptr(__P) {}
+		const_iterator(const iterator& __X)
+			: _Ptr(__X._Mynode()) {}
+		const_reference operator*() const
+			{return (_Value(_Ptr)); }
+		const_iterator& operator++()
+			{_Inc();
+			return (*this); }
+		const_iterator operator++(int)
+			{const_iterator _Tmp = *this;
+			++*this;
+			return (_Tmp); }
+		const_iterator& operator--()
+			{_Dec();
+			return (*this); }
+		const_iterator operator--(int)
+			{const_iterator _Tmp = *this;
+			--*this;
+			return (_Tmp); }
+		bool operator==(const const_iterator& __X) const
+			{return (_Ptr == __X._Ptr); }
+		bool operator!=(const const_iterator& __X) const
+			{return (!(*this == __X)); }
+		void _Dec()
+			{if (_Color(_Ptr) == _Red
+				&& _Parent(_Parent(_Ptr)) == _Ptr)
+				_Ptr = _Right(_Ptr);
+			else if (!_Isnil(_Left(_Ptr)))
+				_Ptr = _Max(_Left(_Ptr));
+			else
+				{_Nodeptr __P;
+				while (_Ptr == _Left(__P = _Parent(_Ptr)))
+					_Ptr = __P;
+				_Ptr = __P; }}
+		void _Inc()
+			{if (!_Isnil(_Right(_Ptr)))
+				_Ptr = _Min(_Right(_Ptr));
+			else
+				{_Nodeptr __P;
+				while (_Ptr == _Right(__P = _Parent(_Ptr)))
+					_Ptr = __P;
+				if (_Right(_Ptr) != __P)
+					_Ptr = __P; }}
+		_Nodeptr _Mynode() const
+			{return (_Ptr); }
+	protected:
+		_Nodeptr _Ptr;
+		};
+	typedef _STD reverse_iterator<iterator>
+		reverse_iterator;
+	typedef _STD reverse_iterator<const_iterator>
+		const_reverse_iterator;
+	typedef pair<iterator, bool> _Pairib;
+	typedef pair<iterator, iterator> _Pairii;
+	typedef pair<const_iterator, const_iterator> _Paircc;
+	explicit _Tree(const _Pr& _Parg, bool _Marg, const _A& _Al)
+		: _Mybase(_Al),
+			key_compare(_Parg), _Multi(_Marg)
+		{_Init(); }
+	_Tree(const _Ty *_F, const _Ty *__L,
+		const _Pr& _Parg, bool _Marg, const _A& _Al)
+		: _Mybase(_Al),
+			key_compare(_Parg), _Multi(_Marg)
+		{_Init();
+		insert(_F, __L); }
+	_Tree(const _Myt& __X)
+		: _Mybase(__X._Alval),
+			key_compare(__X.key_compare), _Multi(__X._Multi)
+		{_Init();
+		_Copy(__X); }
+	~_Tree()
+		{erase(begin(), end());
+		_Freenode(_Head);
+		_Head = 0, _Size = 0;
+		_Freenode(_Nil);
+		_Nil = 0; }
+	_Myt& operator=(const _Myt& __X)
+		{if (this != &__X)
+			{erase(begin(), end());
+			key_compare = __X.key_compare;
+			_Copy(__X); }
+		return (*this); }
+	iterator begin()
+		{return (iterator(_Lmost())); }
+	const_iterator begin() const
+		{return (const_iterator(_Lmost())); }
+	iterator end()
+		{return (iterator(_Head)); }
+	const_iterator end() const
+		{return (const_iterator(_Head)); }
+	reverse_iterator rbegin()
+		{return (reverse_iterator(end())); }
+	const_reverse_iterator rbegin() const
+		{return (const_reverse_iterator(end())); }
+	reverse_iterator rend()
+		{return (reverse_iterator(begin())); }
+	const_reverse_iterator rend() const
+		{return (const_reverse_iterator(begin())); }
+	size_type size() const
+		{return (_Size); }
+	size_type max_size() const
+		{return (_Alval.max_size()); }
+	bool empty() const
+		{return (size() == 0); }
+	allocator_type get_allocator() const
+		{return (_Alval); }
+	_Pr key_comp() const
+		{return (key_compare); }
+	_Pairib insert(const value_type& _V)
+		{_Nodeptr __X = _Root();
+		_Nodeptr _Y = _Head;
+		bool _Ans = true;
+		while (__X != _Nil)
+			{_Y = __X;
+			_Ans = key_compare(_Kfn()(_V), _Key(__X));
+			__X = _Ans ? _Left(__X) : _Right(__X); }
+		if (_Multi)
+			return (_Pairib(_Insert(__X, _Y, _V), true));
+		iterator __P = iterator(_Y);
+		if (!_Ans)
+			;
+		else if (__P == begin())
+			return (_Pairib(_Insert(__X, _Y, _V), true));
+		else
+			--__P;
+		if (key_compare(_Key(__P._Mynode()), _Kfn()(_V)))
+			return (_Pairib(_Insert(__X, _Y, _V), true));
+		return (_Pairib(__P, false)); }
+	iterator insert(iterator __P, const value_type& _V)
+		{if (size() == 0)
+			;
+		else if (__P == begin())
+			{if (key_compare(_Kfn()(_V), _Key(__P._Mynode())))
+				return (_Insert(_Head, __P._Mynode(), _V)); }
+		else if (__P == end())
+			{if (key_compare(_Key(_Rmost()), _Kfn()(_V)))
+				return (_Insert(_Nil, _Rmost(), _V)); }
+		else
+			{iterator _Pb = __P;
+			if (key_compare(_Key((--_Pb)._Mynode()), _Kfn()(_V))
+				&& key_compare(_Kfn()(_V), _Key(__P._Mynode())))
+				if (_Right(_Pb._Mynode()) == _Nil)
+					return (_Insert(_Nil, _Pb._Mynode(), _V));
+				else
+					return (_Insert(_Head, __P._Mynode(), _V)); }
+		return (insert(_V).first); }
+	void insert(iterator _F, iterator __L)
+		{for (; _F != __L; ++_F)
+			insert(*_F); }
+	void insert(const value_type *_F, const value_type *__L)
+		{for (; _F != __L; ++_F)
+			insert(*_F); }
+	iterator erase(iterator __P)
+		{_Nodeptr __X;
+		_Nodeptr _Y = (__P++)._Mynode();
+		_Nodeptr _Z = _Y;
+		if (_Left(_Y) == _Nil)
+			__X = _Right(_Y);
+		else if (_Right(_Y) == _Nil)
+			__X = _Left(_Y);
+		else
+			_Y = _Min(_Right(_Y)), __X = _Right(_Y);
+		if (_Y != _Z)
+			{_Parent(_Left(_Z)) = _Y;
+			_Left(_Y) = _Left(_Z);
+			if (_Y == _Right(_Z))
+				_Parent(__X) = _Y;
+			else
+				{_Parent(__X) = _Parent(_Y);
+				_Left(_Parent(_Y)) = __X;
+				_Right(_Y) = _Right(_Z);
+				_Parent(_Right(_Z)) = _Y; }
+			if (_Root() == _Z)
+				_Root() = _Y;
+			else if (_Left(_Parent(_Z)) == _Z)
+				_Left(_Parent(_Z)) = _Y;
+			else
+				_Right(_Parent(_Z)) = _Y;
+			_Parent(_Y) = _Parent(_Z);
+			_STD swap(_Color(_Y), _Color(_Z));
+			_Y = _Z; }
+		else
+			{_Parent(__X) = _Parent(_Y);
+			if (_Root() == _Z)
+				_Root() = __X;
+			else if (_Left(_Parent(_Z)) == _Z)
+				_Left(_Parent(_Z)) = __X;
+			else
+				_Right(_Parent(_Z)) = __X;
+			if (_Lmost() != _Z)
+				;
+			else if (_Right(_Z) == _Nil)
+				_Lmost() = _Parent(_Z);
+			else
+				_Lmost() = _Min(__X);
+			if (_Rmost() != _Z)
+				;
+			else if (_Left(_Z) == _Nil)
+				_Rmost() = _Parent(_Z);
+			else
+				_Rmost() = _Max(__X); }
+		if (_Color(_Y) == _Black)
+			{while (__X != _Root() && _Color(__X) == _Black)
+				if (__X == _Left(_Parent(__X)))
+					{_Nodeptr _W = _Right(_Parent(__X));
+					if (_Color(_W) == _Red)
+						{_Color(_W) = _Black;
+						_Color(_Parent(__X)) = _Red;
+						_Lrotate(_Parent(__X));
+						_W = _Right(_Parent(__X)); }
+					if (_Color(_Left(_W)) == _Black
+						&& _Color(_Right(_W)) == _Black)
+						{_Color(_W) = _Red;
+						__X = _Parent(__X); }
+					else
+						{if (_Color(_Right(_W)) == _Black)
+							{_Color(_Left(_W)) = _Black;
+							_Color(_W) = _Red;
+							_Rrotate(_W);
+							_W = _Right(_Parent(__X)); }
+						_Color(_W) = _Color(_Parent(__X));
+						_Color(_Parent(__X)) = _Black;
+						_Color(_Right(_W)) = _Black;
+						_Lrotate(_Parent(__X));
+						break; }}
+				else
+					{_Nodeptr _W = _Left(_Parent(__X));
+					if (_Color(_W) == _Red)
+						{_Color(_W) = _Black;
+						_Color(_Parent(__X)) = _Red;
+						_Rrotate(_Parent(__X));
+						_W = _Left(_Parent(__X)); }
+					if (_Color(_Right(_W)) == _Black
+						&& _Color(_Left(_W)) == _Black)
+						{_Color(_W) = _Red;
+						__X = _Parent(__X); }
+					else
+						{if (_Color(_Left(_W)) == _Black)
+							{_Color(_Right(_W)) = _Black;
+							_Color(_W) = _Red;
+							_Lrotate(_W);
+							_W = _Left(_Parent(__X)); }
+						_Color(_W) = _Color(_Parent(__X));
+						_Color(_Parent(__X)) = _Black;
+						_Color(_Left(_W)) = _Black;
+						_Rrotate(_Parent(__X));
+						break; }}
+			_Color(__X) = _Black; }
+		_Destval(&_Value(_Y));
+		_Freenode(_Y);
+		if (0 < _Size)
+			--_Size;
+		return (__P); }
+	iterator erase(iterator _F, iterator __L)
+		{if (size() == 0 || _F != begin() || __L != end())
+			{while (_F != __L)
+				erase(_F++);
+			return (_F); }
+		else
+			{_Erase(_Root());
+			_Root() = _Nil, _Size = 0;
+			_Lmost() = _Head, _Rmost() = _Head;
+			return (begin()); }}
+	size_type erase(const _K& __X)
+		{_Pairii __P = equal_range(__X);
+		size_type __N = 0;
+		_Distance(__P.first, __P.second, __N);
+		erase(__P.first, __P.second);
+		return (__N); }
+	void erase(const _K *_F, const _K *__L)
+		{for (; _F != __L; ++_F)
+			erase(*_F); }
+	void clear()
+		{erase(begin(), end()); }
+	iterator find(const _K& _Kv)
+		{iterator __P = lower_bound(_Kv);
+		return (__P == end()
+			|| key_compare(_Kv, _Key(__P._Mynode()))
+				? end() : __P); }
+	const_iterator find(const _K& _Kv) const
+		{const_iterator __P = lower_bound(_Kv);
+		return (__P == end()
+			|| key_compare(_Kv, _Key(__P._Mynode()))
+				? end() : __P); }
+	size_type count(const _K& _Kv) const
+		{_Paircc _Ans = equal_range(_Kv);
+		size_type __N = 0;
+		_Distance(_Ans.first, _Ans.second, __N);
+		return (__N); }
+	iterator lower_bound(const _K& _Kv)
+		{return (iterator(_Lbound(_Kv))); }
+	const_iterator lower_bound(const _K& _Kv) const
+		{return (const_iterator(_Lbound(_Kv))); }
+	iterator upper_bound(const _K& _Kv)
+		{return (iterator(_Ubound(_Kv))); }
+	const_iterator upper_bound(const _K& _Kv) const
+		{return (iterator(_Ubound(_Kv))); }
+	_Pairii equal_range(const _K& _Kv)
+		{return (_Pairii(lower_bound(_Kv), upper_bound(_Kv))); }
+	_Paircc equal_range(const _K& _Kv) const
+		{return (_Paircc(lower_bound(_Kv), upper_bound(_Kv))); }
+	void swap(_Myt& __X)
+		{_STD swap(key_compare, __X.key_compare);
+		if (_Alval == __X._Alval)
+			{_STD swap(_Head, __X._Head);
+			_STD swap(_Nil, __X._Nil);
+			_STD swap(_Multi, __X._Multi);
+			_STD swap(_Size, __X._Size); }
+		else
+			{_Myt _Ts = *this; *this = __X, __X = _Ts; }}
+protected:
+	void _Copy(const _Myt& __X)
+		{_Root() = _Copy(__X._Root(), _Head);
+		_Size = __X.size();
+		if (_Root() != _Nil)
+			{_Lmost() = _Min(_Root());
+			_Rmost() = _Max(_Root()); }
+		else
+			_Lmost() = _Head, _Rmost() = _Head; }
+	_Nodeptr _Copy(_Nodeptr __X, _Nodeptr __P)
+		{_Nodeptr _R = _Nil;
+		if (!_Isnil(__X))
+			{_Nodeptr _Y = _Buynode(__P, _Color(__X));
+			_TRY_BEGIN
+			_Consval(&_Value(_Y), _Value(__X));
+			_CATCH_ALL
+			_Freenode(_Y);
+			_Erase(_R);
+			_RERAISE;
+			_CATCH_END
+			_Left(_Y) = _Nil, _Right(_Y) = _Nil;
+			if (_R == _Nil)
+				_R = _Y;
+			_TRY_BEGIN
+			_Left(_Y) = _Copy(_Left(__X), _Y);
+			_Right(_Y) = _Copy(_Right(__X), _Y);
+			_CATCH_ALL
+			_Erase(_R);
+			_RERAISE;
+			_CATCH_END }
+		return (_R); }
+	void _Erase(_Nodeptr __X)
+		{for (_Nodeptr _Y = __X; _Y != _Nil; __X = _Y)
+			{_Erase(_Right(_Y));
+			_Y = _Left(_Y);
+			_Destval(&_Value(__X));
+			_Freenode(__X); }}
+	void _Init()
+		{_Nil = _Buynode(0, _Black);
+		_Isnil(_Nil) = true;
+		_Left(_Nil) = 0, _Right(_Nil) = 0;
+		_TRY_BEGIN
+		_Head = _Buynode(_Nil, _Red);
+		_CATCH_ALL
+		_Freenode(_Nil);
+		_RERAISE;
+		_CATCH_END
+		_Lmost() = _Head, _Rmost() = _Head;
+		_Size = 0; }
+	iterator _Insert(_Nodeptr __X, _Nodeptr _Y, const _Ty& _V)
+		{if (max_size() - 1 <= _Size)
+			_THROW(length_error, "map<T> or set<T> too long");
+		_Nodeptr _Z = _Buynode(_Y, _Red);
+		_Left(_Z) = _Nil, _Right(_Z) = _Nil;
+		_TRY_BEGIN
+		_Consval(&_Value(_Z), _V);
+		_CATCH_ALL
+		_Freenode(_Z);
+		_RERAISE;
+		_CATCH_END
+		++_Size;
+		if (_Y == _Head || __X != _Nil
+			|| key_compare(_Kfn()(_V), _Key(_Y)))
+			{_Left(_Y) = _Z;
+			if (_Y == _Head)
+				{_Root() = _Z;
+				_Rmost() = _Z; }
+			else if (_Y == _Lmost())
+				_Lmost() = _Z; }
+		else
+			{_Right(_Y) = _Z;
+			if (_Y == _Rmost())
+				_Rmost() = _Z; }
+		for (__X = _Z; __X != _Root()
+			&& _Color(_Parent(__X)) == _Red; )
+			if (_Parent(__X) == _Left(_Parent(_Parent(__X))))
+				{_Y = _Right(_Parent(_Parent(__X)));
+				if (_Color(_Y) == _Red)
+					{_Color(_Parent(__X)) = _Black;
+					_Color(_Y) = _Black;
+					_Color(_Parent(_Parent(__X))) = _Red;
+					__X = _Parent(_Parent(__X)); }
+				else
+					{if (__X == _Right(_Parent(__X)))
+						{__X = _Parent(__X);
+						_Lrotate(__X); }
+					_Color(_Parent(__X)) = _Black;
+					_Color(_Parent(_Parent(__X))) = _Red;
+					_Rrotate(_Parent(_Parent(__X))); }}
+			else
+				{_Y = _Left(_Parent(_Parent(__X)));
+				if (_Color(_Y) == _Red)
+					{_Color(_Parent(__X)) = _Black;
+					_Color(_Y) = _Black;
+					_Color(_Parent(_Parent(__X))) = _Red;
+					__X = _Parent(_Parent(__X)); }
+				else
+					{if (__X == _Left(_Parent(__X)))
+						{__X = _Parent(__X);
+						_Rrotate(__X); }
+					_Color(_Parent(__X)) = _Black;
+					_Color(_Parent(_Parent(__X))) = _Red;
+					_Lrotate(_Parent(_Parent(__X))); }}
+		_Color(_Root()) = _Black;
+		return (iterator(_Z)); }
+	_Nodeptr _Lbound(const _K& _Kv) const
+		{_Nodeptr __X = _Root();
+		_Nodeptr _Y = _Head;
+		while (__X != _Nil)
+			if (key_compare(_Key(__X), _Kv))
+				__X = _Right(__X);
+			else
+				_Y = __X, __X = _Left(__X);
+		return (_Y); }
+	_Nodeptr& _Lmost()
+		{return (_Left(_Head)); }
+	_Nodeptr& _Lmost() const
+		{return (_Left(_Head)); }
+	void _Lrotate(_Nodeptr __X)
+		{_Nodeptr _Y = _Right(__X);
+		_Right(__X) = _Left(_Y);
+		if (_Left(_Y) != _Nil)
+			_Parent(_Left(_Y)) = __X;
+		_Parent(_Y) = _Parent(__X);
+		if (__X == _Root())
+			_Root() = _Y;
+		else if (__X == _Left(_Parent(__X)))
+			_Left(_Parent(__X)) = _Y;
+		else
+			_Right(_Parent(__X)) = _Y;
+		_Left(_Y) = __X;
+		_Parent(__X) = _Y; }
+	static _Nodeptr _Max(_Nodeptr __P)
+		{while (!_Isnil(_Right(__P)))
+			__P = _Right(__P);
+		return (__P); }
+	static _Nodeptr _Min(_Nodeptr __P)
+		{while (!_Isnil(_Left(__P)))
+			__P = _Left(__P);
+		return (__P); }
+	_Nodeptr& _Rmost()
+		{return (_Right(_Head)); }
+	_Nodeptr& _Rmost() const
+		{return (_Right(_Head)); }
+	_Nodeptr& _Root()
+		{return (_Parent(_Head)); }
+	_Nodeptr& _Root() const
+		{return (_Parent(_Head)); }
+	void _Rrotate(_Nodeptr __X)
+		{_Nodeptr _Y = _Left(__X);
+		_Left(__X) = _Right(_Y);
+		if (_Right(_Y) != _Nil)
+			_Parent(_Right(_Y)) = __X;
+		_Parent(_Y) = _Parent(__X);
+		if (__X == _Root())
+			_Root() = _Y;
+		else if (__X == _Right(_Parent(__X)))
+			_Right(_Parent(__X)) = _Y;
+		else
+			_Left(_Parent(__X)) = _Y;
+		_Right(_Y) = __X;
+		_Parent(__X) = _Y; }
+	_Nodeptr _Ubound(const _K& _Kv) const
+		{_Nodeptr __X = _Root();
+		_Nodeptr _Y = _Head;
+		while (__X != _Nil)
+			if (key_compare(_Kv, _Key(__X)))
+				_Y = __X, __X = _Left(__X);
+			else
+				__X = _Right(__X);
+		return (_Y); }
+	_Nodeptr _Buynode(_Nodeptr _Parg, char _Carg)
+		{_Nodeptr __S = _Alnod.allocate(1, (void *)0);
+		_Alptr.construct(&_Left(__S), 0);
+		_Alptr.construct(&_Right(__S), 0);
+		_Alptr.construct(&_Parent(__S), _Parg);
+		_Color(__S) = _Carg;
+		_Isnil(__S) = false;
+		return (__S); }
+	void _Consval(_Tptr __P, const _Ty& _V)
+		{_Alval.construct(__P, _V); }
+	void _Destval(_Tptr __P)
+		{_Alval.destroy(__P); }
+	void _Freenode(_Nodeptr __S)
+		{_Alptr.destroy(&_Parent(__S));
+		_Alptr.destroy(&_Right(__S));
+		_Alptr.destroy(&_Left(__S));
+		_Alnod.deallocate(__S, 1); }
+	_Pr key_compare;
+	_Nodeptr _Head, _Nil;
+	bool _Multi;
+	size_type _Size;
+	};
+		// _Tree TEMPLATE OPERATORS
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	void swap(_Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		_Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{__X.swap(_Y); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator==(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (__X.size() == _Y.size()
+		&& equal(__X.begin(), __X.end(), _Y.begin())); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator!=(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (!(__X == _Y)); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator<(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (lexicographical_compare(__X.begin(), __X.end(),
+		_Y.begin(), _Y.end())); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator>(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (_Y < __X); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator<=(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (!(_Y < __X)); }
+template<class _K, class _Ty, class _Kfn,
+	class _Pr, class _A> inline
+	bool operator>=(const _Tree<_K, _Ty, _Kfn, _Pr, _A>& __X,
+		const _Tree<_K, _Ty, _Kfn, _Pr, _A>& _Y)
+	{return (!(__X < _Y)); }
+_STD_END
+
+
+#endif /* _TREE_ */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+ */
+
+/*
+ * This file is derived from software bearing the following
+ * restrictions:
+ *
+ * Copyright (c) 1994
+ * Hewlett-Packard Company
+ *
+ * Permission to use, copy, modify, distribute and sell this
+ * software and its documentation for any purpose is hereby
+ * granted without fee, provided that the above copyright notice
+ * appear in all copies and that both that copyright notice and
+ * this permission notice appear in supporting documentation.
+ * Hewlett-Packard Company makes no representations about the
+ * suitability of this software for any purpose. It is provided
+ * "as is" without express or implied warranty.
+V2.2:0414 */

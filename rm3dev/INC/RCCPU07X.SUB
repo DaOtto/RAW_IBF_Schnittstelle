@@ -1,0 +1,23 @@
+/*--FILE HEADER-(no tabs used)-----------------------------------------------
+;
+;   filename    : RCCPU07X.SUB
+;   version     : 0001
+;   contents    : Subsystem definition
+;   author      : B.N.
+;   date        : Feb 11, 2002
+;
+;---FUNCTION AND RMOS ENVIRONMENT--------------------------------------------
+;
+;   function    : Subsystem definition
+;
+;   RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Feb 11, 2002 :       0001  first issue
+;
+;---END OF FILE HEADER-----------------------------------------------------*/
+$COMPACT ( RM3 -CONST IN CODE- HAS          
+$          RCCPU07X )                          

@@ -1,0 +1,197 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: ios,v $
+ * Revision 1.2  2000/02/08 06:20:45  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:01  aki
+ * Initial revision
+ *
+ */ 
+
+// ios standard header
+#ifndef _IOS_
+#define _IOS_
+
+#pragma noarguments_in_registers(push)
+
+#include	<xstddef>	// 2008DE1
+#include <xlocnum>
+_STD_BEGIN
+		// CLASS ios
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ios=2)
+#else
+#pragma       align   (ios=4)         // 3055DE1
+#endif /* << 4719DE1 << */
+class ios: public ios_base {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef ios _Myt;
+	typedef ostream _Myos;
+	typedef streambuf _Mysb;
+	typedef ctype _Ctype;
+	explicit ios(_Mysb *__S)
+		{init(__S); }
+	virtual ~ios()
+		{}
+	typedef _E char_type;
+	typedef _Tr traits_type;
+	typedef _Tr::int_type int_type;
+	typedef _Tr::pos_type pos_type;
+	typedef _Tr::off_type off_type;
+	void clear(iostate _St = goodbit, bool _Ex = false)
+		{ios_base::clear((iostate)(_Sb == 0
+			? (int)_St | (int)badbit : (int)_St), _Ex); }
+	void clear(io_state _St)
+		{clear((iostate)_St); }
+	void setstate(iostate _St, bool _Ex = false)
+		{if (_St != goodbit)
+			clear((iostate)((int)rdstate() | (int)_St), _Ex); }
+	void setstate(io_state _St)
+		{setstate((iostate)_St); }
+	_Myt& copyfmt(const _Myt& _R)
+		{_Tiestr = _R.tie();
+		_Fillch = _R.fill();
+		ios_base::copyfmt(_R);
+		return (*this); }
+	_Myos *tie() const
+		{return (_Tiestr); }
+	_Myos *tie(_Myos *__N)
+		{_Myos *_O = _Tiestr;
+		_Tiestr = __N;
+		tie_sem();
+		return (_O); }
+	virtual	void	tie_sem(void) = 0;
+	_Mysb *rdbuf() const
+		{return (_Sb); }
+	_Mysb *rdbuf(_Mysb *__N)
+		{_Mysb *_O = _Sb;
+		_Sb = __N;
+		clear();
+		return (_O); }
+	locale imbue(const locale& _Ln)
+		{if (rdbuf() != 0)
+			rdbuf()->pubimbue(_Ln);
+		return (ios_base::imbue(_Ln)); }
+	_E fill() const
+		{return (_Fillch); }
+	_E fill(_E _Nf)
+		{_E _Of = _Fillch;
+		_Fillch = _Nf;
+		return (_Of); }
+	char narrow(_E __C, char _D = '\0') const
+		{const _Ctype& _Fac = _USE(getloc(), _Ctype);
+		return (_Fac.narrow(__C, _D)); }
+	_E widen(char __C) const
+		{const _Ctype& _Fac = _USE(getloc(), _Ctype);
+		return (_Fac.widen(__C)); }
+protected:
+	void init(_Mysb *__S = 0,
+		bool _Isstd = false)
+		{_Sb = __S;
+		_Tiestr = 0;
+		_Fillch = _WIDEN(_E, ' ');
+		_Init();
+		if (_Sb == 0)
+			setstate(badbit);
+		if (_Isstd)
+			_Addstd(); }
+	ios()
+		{}
+private:
+	ios(const _Myt&);	// not defined
+	ios& operator=(const _Myt&);	// not defined
+	_Mysb *_Sb;
+	_Myos *_Tiestr;
+	_E _Fillch;
+	};
+		// MANIPULATORS
+inline ios_base& boolalpha(ios_base& _I)
+	{_I.setf(ios_base::boolalpha);
+	return (_I); }
+inline ios_base& dec(ios_base& _I)
+	{_I.setf(ios_base::dec, ios_base::basefield);
+	return (_I); }
+inline ios_base& fixed(ios_base& _I)
+	{_I.setf(ios_base::fixed, ios_base::floatfield);
+	return (_I); }
+inline ios_base& hex(ios_base& _I)
+	{_I.setf(ios_base::hex, ios_base::basefield);
+	return (_I); }
+inline ios_base& internal(ios_base& _I)
+	{_I.setf(ios_base::internal, ios_base::adjustfield);
+	return (_I); }
+inline ios_base& left(ios_base& _I)
+	{_I.setf(ios_base::left, ios_base::adjustfield);
+	return (_I); }
+inline ios_base& noboolalpha(ios_base& _I)
+	{_I.unsetf(ios_base::boolalpha);
+	return (_I); }
+inline ios_base& noshowbase(ios_base& _I)
+	{_I.unsetf(ios_base::showbase);
+	return (_I); }
+inline ios_base& noshowpoint(ios_base& _I)
+	{_I.unsetf(ios_base::showpoint);
+	return (_I); }
+inline ios_base& noshowpos(ios_base& _I)
+	{_I.unsetf(ios_base::showpos);
+	return (_I); }
+inline ios_base& noskipws(ios_base& _I)
+	{_I.unsetf(ios_base::skipws);
+	return (_I); }
+inline ios_base& nounitbuf(ios_base& _I)
+	{_I.unsetf(ios_base::unitbuf);
+	return (_I); }
+inline ios_base& nouppercase(ios_base& _I)
+	{_I.unsetf(ios_base::uppercase);
+	return (_I); }
+inline ios_base& oct(ios_base& _I)
+	{_I.setf(ios_base::oct, ios_base::basefield);
+	return (_I); }
+inline ios_base& right(ios_base& _I)
+	{_I.setf(ios_base::right, ios_base::adjustfield);
+	return (_I); }
+inline ios_base& scientific(ios_base& _I)
+	{_I.setf(ios_base::scientific, ios_base::floatfield);
+	return (_I); }
+inline ios_base& showbase(ios_base& _I)
+	{_I.setf(ios_base::showbase);
+	return (_I); }
+inline ios_base& showpoint(ios_base& _I)
+	{_I.setf(ios_base::showpoint);
+	return (_I); }
+inline ios_base& showpos(ios_base& _I)
+	{_I.setf(ios_base::showpos);
+	return (_I); }
+inline ios_base& skipws(ios_base& _I)
+	{_I.setf(ios_base::skipws);
+	return (_I); }
+inline ios_base& unitbuf(ios_base& _I)
+	{_I.setf(ios_base::unitbuf);
+	return (_I); }
+inline ios_base& uppercase(ios_base& _I)
+	{_I.setf(ios_base::uppercase);
+	return (_I); }
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _IOS_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

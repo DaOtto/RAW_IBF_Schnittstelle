@@ -1,0 +1,81 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: cstdio,v $
+ * Revision 1.2  2000/02/08 06:20:43  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:42:59  aki
+ * Initial revision
+ *
+ */ 
+
+// cstdio standard header
+#ifndef _CSTDIO_
+#define _CSTDIO_
+
+#pragma noarguments_in_registers(push)
+
+#include <stdio.h>
+#include <yvals.h>
+#if 0
+ #if _HAS_NAMESPACE
+_STD_BEGIN
+using ::size_t; using ::fpos_t; using ::FILE;
+using ::clearerr; using ::fclose; using ::feof;
+using ::ferror; using ::fflush; using ::fgetc;
+using ::fgetpos; using ::fgets; using ::fopen;
+using ::fprintf; using ::fputc; using ::fputs;
+using ::fread; using ::freopen; using ::fscanf;
+using ::fseek; using ::fsetpos; using ::ftell;
+using ::fwrite; using ::gets; using ::perror;
+using ::printf; using ::puts; using ::remove;
+using ::rename; using ::rewind; using ::scanf;
+using ::setbuf; using ::setvbuf; using ::sprintf;
+using ::sscanf; using ::tmpfile; using ::tmpnam;
+using ::ungetc; using ::vfprintf; using ::vprintf;
+using ::vsprintf;
+_STD_END
+ #else
+ #endif /* _HAS_NAMESPACE */
+#endif
+
+ #if _HAS_NAMESPACE
+_STD_BEGIN
+using ::size_t; using ::fpos_t; using ::FILE;
+using ::fclose;  
+using ::fflush; using ::fgetc;
+using ::fgetpos; using ::fgets; using ::fopen;
+using ::fprintf; using ::fputc; using ::fputs;
+using ::fread; using ::freopen; using ::fscanf;
+using ::fseek; using ::fsetpos; using ::ftell;
+using ::fwrite; using ::gets; using ::perror;
+using ::printf; using ::puts; using ::remove;
+using ::rename; using ::rewind; using ::scanf;
+using ::setbuf; using ::setvbuf; using ::sprintf;
+using ::sscanf; using ::tmpfile; using ::tmpnam;
+using ::ungetc; using ::vfprintf; using ::vprintf;
+using ::vsprintf;
+using ::_getc; using ::_putc; using ::_xstream; using ::x_cr_flushall; 
+_STD_END
+ #else
+ #endif /* _HAS_NAMESPACE */
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _CSTDIO_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

@@ -1,0 +1,153 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: iosfwd,v $
+ * Revision 1.2  2000/02/08 06:20:45  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:01  aki
+ * Initial revision
+ *
+ */ 
+
+// iosfwd standard header
+#ifndef _IOSFWD_
+#define _IOSFWD_
+
+#pragma noarguments_in_registers(push)
+
+#include <cstdio>
+#include <cstring>
+#include <xstddef>
+_STD_BEGIN
+		// STREAM POSITIONING TYPES (from <streambuf>)
+typedef long streamoff;
+typedef int streamsize;
+extern fpos_t _Fpz;
+extern const streamoff _BADOFF;
+typedef int mbstate_t;
+		// CLASS fpos (from <streambuf>)
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (fpos=2)
+#else
+#pragma       align   (fpos=4)                // 3055DE1
+#endif /* << 4719DE1 << */
+class fpos {
+	typedef mbstate_t _St;
+	typedef fpos _Myt;
+public:
+	fpos(streamoff _O = 0)
+		: _Off(_O), _Fpos(_Fpz), _State(_Stz) {}
+	fpos(_St __S, fpos_t _F)
+		: _Off(0), _Fpos(_F), _State(__S) {}
+	_St state() const
+		{return (_State); }
+	void state(_St __S)
+		{_State = __S; }
+	fpos_t seekpos() const
+		{return (_Fpos); }
+	operator streamoff() const
+		{return (_Off + _FPOSOFF(_Fpos)); }
+	streamoff operator-(const _Myt& _R) const
+		{return ((streamoff)*this - (streamoff)_R); }
+	_Myt& operator+=(streamoff _O)
+		{_Off += _O;
+		return (*this); }
+	_Myt& operator-=(streamoff _O)
+		{_Off -= _O;
+		return (*this); }
+	_Myt operator+(streamoff _O) const
+		{_Myt _Tmp = *this;
+		return (_Tmp += _O); }
+	_Myt operator-(streamoff _O) const
+		{_Myt _Tmp = *this;
+		return (_Tmp -= _O); }
+	bool operator==(const _Myt& _R) const
+		{return ((streamoff)*this == (streamoff)_R); }
+	bool operator!=(const _Myt& _R) const
+		{return (!(*this == _R)); }
+private:
+	static _St _Stz;
+	streamoff _Off;
+	fpos_t _Fpos;
+	_St _State;
+	};
+typedef fpos streampos;
+		// STRUCT char_traits (FROM <string>)
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (char_traits=2)
+#else
+#pragma       align   (char_traits=4)         // 3055DE1
+#endif /* << 4719DE1 << */
+struct char_traits {
+	typedef char _E;
+	typedef _E char_type;
+	typedef int int_type;
+	typedef streampos pos_type;
+	typedef streamoff off_type;
+	typedef mbstate_t state_type;
+	static void assign(_E& __X, const _E& _Y)
+		{__X = _Y; }
+	static bool eq(const _E& __X, const _E& _Y)
+		{return (__X == _Y); }
+	static bool lt(const _E& __X, const _E& _Y)
+		{return (__X < _Y); }
+	static int compare(const _E *__U, const _E *_V,
+		size_t __N)
+		{return (memcmp(__U, _V, __N)); }
+	static size_t length(const _E *__U)
+		{return (strlen(__U)); }
+	static _E *copy(_E *__U, const _E *_V, size_t __N)
+		{return ((_E *)memcpy(__U, _V, __N)); }
+	static const _E *find(const _E *__U, size_t __N,
+		const _E& __C)
+		{return ((const _E *)memchr(__U, __C, __N)); }
+	static _E *move(_E *__U, const _E *_V, size_t __N)
+		{return ((_E *)memmove(__U, _V, __N)); }
+	static _E *assign(_E *__U, size_t __N, _E __C)
+		{return ((_E *)memset(__U, __C, __N)); }
+	static _E to_char_type(const int_type& __C)
+		{return (__C); }
+	static int_type to_int_type(const _E& __C)
+		{return ((unsigned char)__C); }
+	static bool eq_int_type(const int_type& __X,
+		const int_type& _Y)
+		{return (__X == _Y); }
+	static int_type eof()
+		{return (EOF); }
+	static int_type not_eof(const int_type& __C)
+		{return (__C != eof() ? __C : !eof()); }
+	};
+		// FORWARD REFERENCES
+class char_allocator;
+class ios_base;
+class ios;
+class streambuf;
+class istream;
+class ostream;
+class stringbuf;
+class istringstream;
+class ostringstream;
+class filebuf;
+class ifstream;
+class ofstream;
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _IOSFWD_ */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

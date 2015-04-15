@@ -1,0 +1,299 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: sstream,v $
+ * Revision 1.2  2000/02/08 06:21:06  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:04  aki
+ * Initial revision
+ *
+ */ 
+
+// sstream standard header
+#ifndef _SSTREAM_
+#define _SSTREAM_
+
+#pragma noarguments_in_registers(push)
+
+#include <string>
+_STD_BEGIN
+enum __Strstate {_Allocated = 1, _Constant = 2, _Noread = 4};
+_BITMASK(__Strstate, _Strstate);
+_BITMASK_OPS(__Strstate)
+		// CLASS stringbuf
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (stringbuf=2)
+#else
+#pragma       align   (stringbuf=4)                   // 3055DE1
+#endif /* << 4719DE1 << */
+class stringbuf : public streambuf {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef char_allocator _A;
+	typedef streambuf _Mysb;
+	typedef string _Mystr;
+	explicit stringbuf(
+		ios_base::openmode _W = ios_base::in | ios_base::out)
+		{_Init(0, 0, _Mode(_W)); }
+	explicit stringbuf(const _Mystr& __S,
+		ios_base::openmode _W = ios_base::in | ios_base::out)
+		{_Init(__S.c_str(), __S.size(), _Mode(_W)); }
+	virtual ~stringbuf()
+		{_Tidy(); }
+	typedef _Tr::int_type int_type;
+	typedef _Tr::pos_type pos_type;
+	typedef _Tr::off_type off_type;
+	_Mystr str() const
+		{if (!(_Strmode & _Constant) && _Mysb::pptr() != 0)
+			{_Mystr _Str(_Mysb::pbase(),
+				(_Seekhigh < _Mysb::pptr()
+				? _Mysb::pptr() : _Seekhigh) - _Mysb::pbase());
+			return (_Str); }
+		else if (!(_Strmode & _Noread) && _Mysb::gptr() != 0)
+			{_Mystr _Str(_Mysb::eback(),
+				_Mysb::egptr() - _Mysb::eback());
+			return (_Str); }
+		else
+			{_Mystr _Nul;
+			return (_Nul); }}
+	void str(const _Mystr& __S)
+		{_Tidy();
+		_Init(__S.c_str(), __S.size(), _Strmode); }
+protected:
+	virtual int_type overflow(int_type __C = _Tr::eof())
+		{if (_Tr::eq_int_type(_Tr::eof(), __C))
+			return (_Tr::not_eof(__C));
+		else if (_Mysb::pptr() != 0
+			&& _Mysb::pptr() < _Mysb::epptr())
+			{*_Mysb::_Pninc() = _Tr::to_char_type(__C);
+			return (__C); }
+		else if (_Strmode & _Constant)
+			return (_Tr::eof());
+		else
+			{size_t _Os = _Mysb::gptr() == 0
+				? 0 : _Mysb::epptr() - _Mysb::eback();
+			size_t _Ns = _Os + _Alsize;
+			_E *__P = _Al.allocate(_Ns, (void *)0);
+			if (0 < _Os)
+				_Tr::copy(__P, _Mysb::eback(), _Os);
+			else if (_ALSIZE < _Alsize)
+				_Alsize = _ALSIZE;
+			if (_Strmode & _Allocated)
+				_Al.deallocate(_Mysb::eback(), _Os);
+			_Strmode |= _Allocated;
+			if (_Os == 0)
+				{_Seekhigh = __P;
+				_Mysb::setp(__P, __P + _Ns);
+				_Mysb::setg(__P, __P, __P); }
+			else
+				{_Seekhigh = _Seekhigh - _Mysb::eback() + __P;
+				_Mysb::setp(_Mysb::pbase() - _Mysb::eback() + __P,
+					_Mysb::pptr() - _Mysb::eback() + __P,
+					__P + _Ns);
+				if (_Strmode & _Noread)
+					_Mysb::setg(__P, __P, __P);
+				else
+					_Mysb::setg(__P,
+						_Mysb::gptr() - _Mysb::eback() + __P,
+						_Mysb::pptr() + 1); }
+			*_Mysb::_Pninc() = _Tr::to_char_type(__C);
+			return (__C); }}
+	virtual int_type pbackfail(int_type __C = _Tr::eof())
+		{if (_Mysb::gptr() == 0
+			|| _Mysb::gptr() <= _Mysb::eback()
+			|| !_Tr::eq_int_type(_Tr::eof(), __C)
+			&& !_Tr::eq(_Tr::to_char_type(__C), _Mysb::gptr()[-1])
+			&& _Strmode & _Constant)
+			return (_Tr::eof());
+		else
+			{_Mysb::gbump(-1);
+			if (!_Tr::eq_int_type(_Tr::eof(), __C))
+				*_Mysb::gptr() = _Tr::to_char_type(__C);
+			return (_Tr::not_eof(__C)); }}
+	virtual int_type underflow()
+		{if (_Mysb::gptr() == 0)
+			return (_Tr::eof());
+		else if (_Mysb::gptr() < _Mysb::egptr())
+			return (_Tr::to_int_type(*_Mysb::gptr()));
+		else if (_Strmode & _Noread || _Mysb::pptr() == 0
+			|| _Mysb::pptr() <= _Mysb::gptr()
+				&& _Seekhigh <= _Mysb::gptr())
+			return (_Tr::eof());
+		else
+			{if (_Seekhigh < _Mysb::pptr())
+				_Seekhigh = _Mysb::pptr();
+			_Mysb::setg(_Mysb::eback(), _Mysb::gptr(), _Seekhigh);
+			return (_Tr::to_int_type(*_Mysb::gptr())); }}
+	virtual pos_type seekoff(off_type _O, ios_base::seekdir _Way,
+		ios_base::openmode _Which = ios_base::in | ios_base::out)
+		{if (_Mysb::pptr() != 0 && _Seekhigh < _Mysb::pptr())
+			_Seekhigh = _Mysb::pptr();
+		if (_Which & ios_base::in && _Mysb::gptr() != 0)
+			{if (_Way == ios_base::end)
+				_O += _Seekhigh - _Mysb::eback();
+			else if (_Way == ios_base::cur
+				&& !(_Which & ios_base::out))
+				_O += _Mysb::gptr() - _Mysb::eback();
+			else if (_Way != ios_base::beg)
+				_O = _BADOFF;
+			if (0 <= _O && _O <= _Seekhigh - _Mysb::eback())
+				{_Mysb::gbump(_Mysb::eback()
+					- _Mysb::gptr() + _O);
+				if (_Which & ios_base::out && _Mysb::pptr() != 0)
+					_Mysb::setp(_Mysb::pbase(), _Mysb::gptr(),
+						_Mysb::epptr()); }
+			else
+				_O = _BADOFF; }
+		else if (_Which & ios_base::out && _Mysb::pptr() != 0)
+			{if (_Way == ios_base::end)
+				_O += _Seekhigh - _Mysb::eback();
+			else if (_Way == ios_base::cur)
+				_O += _Mysb::pptr() - _Mysb::eback();
+			else if (_Way != ios_base::beg)
+				_O = _BADOFF;
+			if (0 <= _O && _O <= _Seekhigh - _Mysb::eback())
+				_Mysb::pbump(_Mysb::eback() - _Mysb::pptr() + _O);
+			else
+				_O = _BADOFF; }
+		else
+			_O = _BADOFF;
+		return (pos_type(_O)); }
+	virtual pos_type seekpos(pos_type __P,
+		ios_base::openmode _Which = ios_base::in | ios_base::out)
+		{streamoff _O = (streamoff)__P;
+		if (_Mysb::pptr() != 0 && _Seekhigh < _Mysb::pptr())
+			_Seekhigh = _Mysb::pptr();
+		if (_O == _BADOFF)
+			;
+		else if (_Which & ios_base::in && _Mysb::gptr() != 0)
+			{if (0 <= _O && _O <= _Seekhigh - _Mysb::eback())
+				{_Mysb::gbump(_Mysb::eback()
+					- _Mysb::gptr() + _O);
+				if (_Which & ios_base::out && pptr() != 0)
+					_Mysb::setp(_Mysb::pbase(), _Mysb::gptr(),
+						_Mysb::epptr()); }
+			else
+				_O = _BADOFF; }
+		else if (_Which & ios_base::out && _Mysb::pptr() != 0)
+			{if (0 <= _O && _O <= _Seekhigh - _Mysb::eback())
+				_Mysb::pbump(_Mysb::eback() - _Mysb::pptr() + _O);
+			else
+				_O = _BADOFF; }
+		else
+			_O = _BADOFF;
+		return (streampos(_O)); }
+	void _Init(const _E *__S, size_t __N, _Strstate _M)
+		{_Pendsave = 0, _Seekhigh = 0;
+		_Alsize = _MINSIZE, _Strmode = _M;
+		if (__N == 0 || (_Strmode & (_Noread | _Constant))
+			== (_Noread | _Constant))
+			{_Mysb::setg(0, 0, 0);
+			_Mysb::setp(0, 0); }
+		else
+			{_E *__P = _Al.allocate(__N, (void *)0);
+			_Tr::copy(__P, __S, __N);
+			_Seekhigh = __P + __N;
+			if (!(_Strmode & _Noread))
+				_Mysb::setg(__P, __P, __P + __N);
+			if (!(_Strmode & _Constant))
+				{_Mysb::setp(__P, __P + __N);
+				if (_Mysb::gptr() == 0)
+					_Mysb::setg(__P, __P, __P); }
+			_Strmode |= _Allocated; }}
+	void _Tidy()
+		{if (_Strmode & _Allocated)
+			_Al.deallocate(_Mysb::eback(),
+				(_Mysb::pptr() != 0 ? _Mysb::epptr()
+					: _Mysb::egptr()) - _Mysb::eback());
+		_Seekhigh = 0;
+		_Strmode &= ~_Allocated; }
+private:
+	enum {_ALSIZE = 512, _MINSIZE = 32};
+	_Strstate _Mode(ios_base::openmode _W)
+		{_Strstate _St = (_Strstate)0;
+		if (!(_W & ios_base::in))
+			_St |= _Noread;
+		if (!(_W & ios_base::out))
+			_St |= _Constant;
+		return (_St); }
+	_E *_Pendsave, *_Seekhigh;
+	int _Alsize;
+	_Strstate _Strmode;
+	_A _Al;
+	};
+		// CLASS istringstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (istringstream=2)
+#else
+#pragma       align   (istringstream=4)               // 3055DE1
+#endif /* << 4719DE1 << */
+class istringstream : public istream {
+public:
+	typedef char_traits _Tr;
+	typedef stringbuf _Mysb;
+	typedef string _Mystr;
+	explicit istringstream(ios_base::openmode _M = ios_base::in)
+		: istream(&_Sb), _Sb(_M | ios_base::in) {}
+	explicit istringstream(const _Mystr& __S,
+		ios_base::openmode _M = ios_base::in)
+		: istream(&_Sb), _Sb(__S, _M | ios_base::in) {}
+	virtual ~istringstream()
+		{}
+	_Mysb *rdbuf() const
+		{return ((_Mysb *)&_Sb); }
+	_Mystr str() const
+		{return (_Sb.str()); }
+	void str(const _Mystr& __S)
+		{_Sb.str(__S); }
+private:
+	_Mysb _Sb;
+	};
+		// CLASS ostringstream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ostringstream=2)
+#else
+#pragma       align   (ostringstream=4)               // 3055DE1
+#endif /* << 4719DE1 << */
+class ostringstream : public ostream {
+public:
+	typedef char_traits _Tr;
+	typedef stringbuf _Mysb;
+	typedef string _Mystr;
+	explicit ostringstream(ios_base::openmode _M = ios_base::out)
+		: ostream(&_Sb), _Sb(_M | ios_base::out) {}
+	explicit ostringstream(const _Mystr& __S,
+		ios_base::openmode _M = ios_base::out)
+		: ostream(&_Sb), _Sb(__S, _M | ios_base::out) {}
+	virtual ~ostringstream()
+		{}
+	_Mysb *rdbuf() const
+		{return ((_Mysb *)&_Sb); }
+	_Mystr str() const
+		{return (_Sb.str()); }
+	void str(const _Mystr& __S)
+		{_Sb.str(__S); }
+private:
+	_Mysb _Sb;
+	};
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _SSTREAM_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

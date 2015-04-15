@@ -1,0 +1,855 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: xstring,v $
+ * Revision 1.2  2000/02/08 06:21:08  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:07  aki
+ * Initial revision
+ *
+ */ 
+
+// xstring internal header (from <string>)
+#ifndef _XSTRING_
+#define _XSTRING_
+
+#pragma noarguments_in_registers(push)
+
+#include <iosfwd>
+_STD_BEGIN
+		// CLASS _String_base
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (_String_base=2)
+#else
+#pragma       align   (_String_base=4)                // 3055DE1
+#endif /* << 4719DE1 << */
+class _String_base {
+public:
+	void _Xlen() const;
+	void _Xran() const;
+	};
+
+		// CLASS char_allocator
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (char_allocator=2)
+#else
+#pragma       align   (char_allocator=4)              // 3055DE1
+#endif /* << 4719DE1 << */
+class char_allocator {
+public:
+	char_allocator() {}
+	static char *allocate(size_t __N, const void *)
+		{return ((char *)operator new(__N)); }
+	static void deallocate(void *__P, size_t)
+		{operator delete(__P); }
+	static size_t max_size()
+		{return ((size_t)(-1)); }
+	bool operator==(const char_allocator&) const
+		{return (true); }
+	};
+
+		// CLASS _String_val
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (_String_val=2)
+#else
+#pragma       align   (_String_val=4)                 // 3055DE1
+#endif /* << 4719DE1 << */
+class _String_val : public _String_base {
+protected:
+	_String_val(char_allocator _Al = char_allocator())
+		: _Alval(_Al) {}
+	char_allocator _Alval;
+	};
+
+		// CLASS string
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (string=2)
+#else
+#pragma       align   (string=4)                      // 3055DE
+#endif /* << 4719DE1 << */
+class string : public _String_val {
+public:
+	typedef string _Myt;
+	typedef _String_val _Mybase;
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef char_allocator _A;
+	typedef size_t size_type;
+	typedef ptrdiff_t difference_type;
+	typedef char *pointer;
+	typedef const char *const_pointer;
+	typedef char& reference;
+	typedef const char& const_reference;
+	typedef char value_type;
+	typedef pointer iterator;
+	typedef const_pointer const_iterator;
+		// CLASS reverse_iterator (from <iterator>)
+	class reverse_iterator {
+	public:
+		typedef reverse_iterator _Myt;
+		typedef char *iter_type;
+		typedef char value_type;
+		typedef char& reference;
+		typedef char *pointer;
+		typedef ptrdiff_t difference_type;
+			// CLASS reverse_iterator
+		reverse_iterator()
+			{}
+		explicit reverse_iterator(iter_type __X)
+			: current(__X) {}
+		iter_type base() const
+			{return (current); }
+		reference operator*() const
+			{return (*(current - 1)); }
+		_Myt& operator++()
+			{--current;
+			return (*this); }
+		_Myt operator++(int)
+			{_Myt _Tmp = *this;
+			--current;
+			return (_Tmp); }
+		_Myt& operator--()
+			{++current;
+			return (*this); }
+		_Myt operator--(int)
+			{_Myt _Tmp = *this;
+			++current;
+			return (_Tmp); }
+		_Myt& operator+=(difference_type __N)
+			{current -= __N;
+			return (*this); }
+		_Myt operator+(difference_type __N) const
+			{return (_Myt(current - __N)); }
+		_Myt& operator-=(difference_type __N)
+			{current += __N;
+			return (*this); }
+		_Myt operator-(difference_type __N) const
+			{return (_Myt(current + __N)); }
+		difference_type operator-(const _Myt _Y) const
+			{return (_Y.current - current); }
+		reference operator[](difference_type __N) const
+			{return (*(*this + __N)); }
+		bool operator==(const _Myt _Y) const
+			{return (current == _Y.current); }
+		bool operator!=(const _Myt _Y) const
+			{return (!(*this == _Y)); }
+		bool operator<(const _Myt _Y) const
+			{return (_Y.current < current); }
+		bool operator>(const _Myt _Y) const
+			{return (_Y < *this); }
+		bool operator<=(const _Myt _Y) const
+			{return (!(_Y < *this)); }
+		bool operator>=(const _Myt _Y) const
+			{return (!(*this < _Y)); }
+		friend _Myt operator+(ptrdiff_t __N, const _Myt& _Y)
+			{return (_Myt(_Y.current - __N)); }
+	protected:
+		iter_type current;
+		};
+			// CLASS const_reverse_iterator (from <iterator>)
+	class const_reverse_iterator {
+	public:
+		typedef const_reverse_iterator _Myt;
+		typedef const char *iter_type;
+		typedef const char value_type;
+		typedef const char& reference;
+		typedef const char *pointer;
+		typedef ptrdiff_t difference_type;
+		const_reverse_iterator()
+			{}
+		explicit const_reverse_iterator(iter_type __X)
+			: current(__X) {}
+		iter_type base() const
+			{return (current); }
+		reference operator*() const
+			{return (*(current - 1)); }
+		_Myt& operator++()
+			{--current;
+			return (*this); }
+		_Myt operator++(int)
+			{_Myt _Tmp = *this;
+			--current;
+			return (_Tmp); }
+		_Myt& operator--()
+			{++current;
+			return (*this); }
+		_Myt operator--(int)
+			{_Myt _Tmp = *this;
+			++current;
+			return (_Tmp); }
+		_Myt& operator+=(difference_type __N)
+			{current -= __N;
+			return (*this); }
+		_Myt operator+(difference_type __N) const
+			{return (_Myt(current - __N)); }
+		_Myt& operator-=(difference_type __N)
+			{current += __N;
+			return (*this); }
+		_Myt operator-(difference_type __N) const
+			{return (_Myt(current + __N)); }
+		difference_type operator-(const _Myt _Y) const
+			{return (_Y.current - current); }
+		reference operator[](difference_type __N) const
+			{return (*(*this + __N)); }
+		bool operator==(const _Myt _Y) const
+			{return (current == _Y.current); }
+		bool operator!=(const _Myt _Y) const
+			{return (!(*this == _Y)); }
+		bool operator<(const _Myt _Y) const
+			{return (_Y.current < current); }
+		bool operator>(const _Myt _Y) const
+			{return (_Y < *this); }
+		bool operator<=(const _Myt _Y) const
+			{return (!(_Y < *this)); }
+		bool operator>=(const _Myt _Y) const
+			{return (!(*this < _Y)); }
+		friend _Myt operator+(ptrdiff_t __N, const _Myt& _Y)
+			{return (_Myt(_Y.current - __N)); }
+	protected:
+		iter_type current;
+		};
+
+	string()
+		: _Mybase()
+		{_Tidy(); }
+	explicit string(const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy(); }
+	string(const _Myt& __X)
+		: _Mybase(__X._Alval)
+		{_Tidy(), assign(__X, 0, npos); }
+	string(const _Myt& __X, size_type __P,
+		size_type _M = npos)
+		: _Mybase()
+		{_Tidy(), assign(__X, __P, _M); }
+	string(const _Myt& __X, size_type __P, size_type _M,
+		const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy(), assign(__X, __P, _M); }
+	string(const _E *__S, size_type __N)
+		: _Mybase()
+		{_Tidy(), assign(__S, __N); }
+	string(const _E *__S, size_type __N, const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy(), assign(__S, __N); }
+	string(const _E *__S)
+		: _Mybase()
+		{_Tidy(), assign(__S); }
+	string(const _E *__S, const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy(), assign(__S); }
+	string(size_type __N, _E __C)
+		: _Mybase()
+		{_Tidy(), assign(__N, __C); }
+	string(size_type __N, _E __C, const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy(), assign(__N, __C); }
+	typedef const_pointer _It;
+	string(_It _F, _It __L)
+		: _Mybase()
+		{_Tidy();
+		if (_F != __L)
+			assign(&*_F, __L - _F); }
+	string(_It _F, _It __L, const _A& _Al)
+		: _Mybase(_Al)
+		{_Tidy();
+		if (_F != __L)
+			assign(&*_F, __L - _F); }
+	~string()
+		{_Tidy(true); }
+	typedef _Tr traits_type;
+	typedef _A allocator_type;
+	enum _Mref {_FROZEN = 255};
+	static const size_type npos;
+	_Myt& operator=(const _Myt& __X)
+		{return (assign(__X)); }
+	_Myt& operator=(const _E *__S)
+		{return (assign(__S)); }
+	_Myt& operator=(_E __C)
+		{return (assign(1, __C)); }
+	_Myt& operator+=(const _Myt& __X)
+		{return (append(__X)); }
+	_Myt& operator+=(const _E *__S)
+		{return (append(__S)); }
+	_Myt& operator+=(_E __C)
+		{return (append((size_type)1, __C)); }
+	_Myt& append(const _Myt& __X)
+		{return (append(__X, 0, npos)); }
+	_Myt& append(const _Myt& __X, size_type __P, size_type _M)
+		{if (__X.size() < __P)
+			_Xran();
+		size_type __N = __X.size() - __P;
+		if (__N < _M)
+			_M = __N;
+		if (npos - _Len <= _M)
+			_Xlen();
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::copy(_Ptr + _Len, &__X.c_str()[__P], _M);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& append(const _E *__S, size_type _M)
+		{if (_Inside(__S))
+			return (append(*this, __S - _Ptr, _M));
+		if (npos - _Len <= _M)
+			_Xlen();
+		size_type __N;
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::copy(_Ptr + _Len, __S, _M);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& append(const _E *__S)
+		{return (append(__S, _Tr::length(__S))); }
+	_Myt& append(size_type _M, _E __C)
+		{if (npos - _Len <= _M)
+			_Xlen();
+		size_type __N;
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::assign(_Ptr + _Len, _M, __C);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& append(_It _F, _It __L)
+		{return (replace(end(), end(), _F, __L)); }
+	_Myt& assign(const _Myt& __X)
+		{return (assign(__X, 0, npos)); }
+	_Myt& assign(const _Myt& __X, size_type __P, size_type _M)
+		{if (__X.size() < __P)
+			_Xran();
+		size_type __N = __X.size() - __P;
+		if (_M < __N)
+			__N = _M;
+		if (this == &__X)
+			erase((size_type)(__P + __N)), erase(0, __P);
+		else if (0 < __N && __N == __X.size()
+			&& _Refcnt(__X.c_str()) < _FROZEN - 1
+			&& _Alval == __X._Alval)
+			{_Tidy(true);
+			_Ptr = (_E *)__X.c_str();
+			_Len = __X.size();
+			_Res = __X.capacity();
+			++_Refcnt(_Ptr); }
+		else if (_Grow(__N, true))
+			{_Tr::copy(_Ptr, &__X.c_str()[__P], __N);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& assign(const _E *__S, size_type __N)
+		{if (_Inside(__S))
+			return (assign(*this, __S - _Ptr, __N));
+		if (_Grow(__N, true))
+			{_Tr::copy(_Ptr, __S, __N);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& assign(const _E *__S)
+		{return (assign(__S, _Tr::length(__S))); }
+	_Myt& assign(size_type __N, _E __C)
+		{if (__N == npos)
+			_Xlen();
+		if (_Grow(__N, true))
+			{_Tr::assign(_Ptr, __N, __C);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& assign(_It _F, _It __L)
+		{return (replace(begin(), end(), _F, __L)); }
+	_Myt& insert(size_type _P0, const _Myt& __X)
+		{return (insert(_P0, __X, 0, npos)); }
+	_Myt& insert(size_type _P0, const _Myt& __X, size_type __P,
+		size_type _M)
+		{if (_Len < _P0 || __X.size() < __P)
+			_Xran();
+		size_type __N = __X.size() - __P;
+		if (__N < _M)
+			_M = __N;
+		if (npos - _Len <= _M)
+			_Xlen();
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0, _Len - _P0);
+			if (this == &__X)
+				_Tr::move(_Ptr + _P0,
+					_Ptr + (_P0 < __P ? __P + _M : __P), _M);
+			else
+				_Tr::copy(_Ptr + _P0, &__X.c_str()[__P], _M);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& insert(size_type _P0, const _E *__S, size_type _M)
+		{if (_Inside(__S))
+			return (insert(_P0, *this, __S - _Ptr, _M));
+		if (_Len < _P0)
+			_Xran();
+		if (npos - _Len <= _M)
+			_Xlen();
+		size_type __N;
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0, _Len - _P0);
+			_Tr::copy(_Ptr + _P0, __S, _M);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& insert(size_type _P0, const _E *__S)
+		{return (insert(_P0, __S, _Tr::length(__S))); }
+	_Myt& insert(size_type _P0, size_type _M, _E __C)
+		{if (_Len < _P0)
+			_Xran();
+		if (npos - _Len <= _M)
+			_Xlen();
+		size_type __N;
+		if (0 < _M && _Grow(__N = _Len + _M))
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0, _Len - _P0);
+			_Tr::assign(_Ptr + _P0, _M, __C);
+			_Eos(__N); }
+		return (*this); }
+	iterator insert(iterator __P)
+		{return (insert(__P, _E())); }
+	iterator insert(iterator __P, _E __C)
+		{size_type _P0 = _Pdif(__P, begin());
+		insert(_P0, 1, __C);
+		return (begin() + _P0); }
+	void insert(iterator __P, size_type _M, _E __C)
+		{size_type _P0 = _Pdif(__P, begin());
+		insert(_P0, _M, __C); }
+	void insert(iterator __P, _It _F, _It __L)
+		{replace(__P, __P, _F, __L); }
+	_Myt& erase(size_type _P0 = 0, size_type _M = npos)
+		{if (_Len < _P0)
+			_Xran();
+		if (_Len - _P0 < _M)
+			_M = _Len - _P0;
+		if (0 < _M)
+			{_Freeze();
+			_Tr::move(_Ptr + _P0, _Ptr + _P0 + _M,
+				_Len - _P0 - _M);
+			size_type __N = _Len - _M;
+			if (_Grow(__N))
+				_Eos(__N); }
+		return (*this); }
+	iterator erase(iterator __P)
+		{size_type _M = _Pdif(__P, begin());
+		erase(_M, 1);
+		return (iterator(_Psum(_Ptr, _M))); }
+	iterator erase(iterator _F, iterator __L)
+		{size_type _M = _Pdif(_F, begin());
+		erase(_M, _Pdif(__L, _F));
+		return (iterator(_Psum(_Ptr, _M))); }
+	void clear()
+		{erase(begin(), end()); }
+	_Myt& replace(size_type _P0, size_type _N0, const _Myt& __X)
+		{return (replace(_P0, _N0, __X, 0, npos)); }
+	_Myt& replace(size_type _P0, size_type _N0, const _Myt& __X,
+		size_type __P, size_type _M)
+		{if (_Len < _P0 || __X.size() < __P)
+			_Xran();
+		if (_Len - _P0 < _N0)
+			_N0 = _Len - _P0;
+		size_type __N = __X.size() - __P;
+		if (__N < _M)
+			_M = __N;
+		if (npos - _M <= _Len - _N0)
+			_Xlen();
+		size_type _Nm = _Len - _N0 - _P0;
+		__N = _Len + _M - _N0;
+		if (_Len < __N)
+			_Grow(__N);
+		else if (0 < _M || 0 < _N0)
+			_Freeze();
+		if (this != &__X)
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::copy(_Ptr + _P0, &__X.c_str()[__P], _M); }
+		else if (_M <= _N0)
+			{_Tr::move(_Ptr + _P0, _Ptr + __P, _M);
+			_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm); }
+		else if (__P <= _P0)
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::move(_Ptr + _P0, _Ptr + __P, _M); }
+		else if (_P0 + _N0 <= __P)
+			{_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::move(_Ptr + _P0, _Ptr + (__P + _M - _N0), _M); }
+		else
+			{_Tr::move(_Ptr + _P0, _Ptr + __P, _N0);
+			_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::move(_Ptr + _P0 + _N0, _Ptr + __P + _M,
+				_M - _N0); }
+		if (_Len < __N || _Grow(__N))
+			_Eos(__N);
+		return (*this); }
+	_Myt& replace(size_type _P0, size_type _N0, const _E *__S,
+		size_type _M)
+		{if (_Inside(__S))
+			return (replace(_P0, _N0, *this, __S - _Ptr, _M));
+		if (_Len < _P0)
+			_Xran();
+		if (_Len - _P0 < _N0)
+			_N0 = _Len - _P0;
+		if (npos - _M <= _Len - _N0)
+			_Xlen();
+		size_type _Nm = _Len - _N0 - _P0;
+		if (_M < _N0)
+			{_Freeze();
+			_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm); }
+		size_type __N;
+		if ((0 < _M || 0 < _N0) && _Grow(__N = _Len + _M - _N0))
+			{if (_N0 < _M)
+				_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::copy(_Ptr + _P0, __S, _M);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& replace(size_type _P0, size_type _N0, const _E *__S)
+		{return (replace(_P0, _N0, __S, _Tr::length(__S))); }
+	_Myt& replace(size_type _P0, size_type _N0,
+		size_type _M, _E __C)
+		{if (_Len < _P0)
+			_Xran();
+		if (_Len - _P0 < _N0)
+			_N0 = _Len - _P0;
+		if (npos - _M <= _Len - _N0)
+			_Xlen();
+		size_type _Nm = _Len - _N0 - _P0;
+		if (_M < _N0)
+			{_Freeze();
+			_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm); }
+		size_type __N;
+		if ((0 < _M || 0 < _N0) && _Grow(__N = _Len + _M - _N0))
+			{if (_N0 < _M)
+				_Tr::move(_Ptr + _P0 + _M, _Ptr + _P0 + _N0, _Nm);
+			_Tr::assign(_Ptr + _P0, _M, __C);
+			_Eos(__N); }
+		return (*this); }
+	_Myt& replace(iterator _F, iterator __L, const _Myt& __X)
+		{return (replace(
+			_Pdif(_F, begin()), _Pdif(__L, _F), __X)); }
+	_Myt& replace(iterator _F, iterator __L, const _E *__S,
+		size_type _M)
+		{return (replace(
+			_Pdif(_F, begin()), _Pdif(__L, _F), __S, _M)); }
+	_Myt& replace(iterator _F, iterator __L, const _E *__S)
+		{return (replace(
+			_Pdif(_F, begin()), _Pdif(__L, _F), __S)); }
+	_Myt& replace(iterator _F, iterator __L,	size_type _M, _E __C)
+		{return (replace(
+			_Pdif(_F, begin()), _Pdif(__L, _F), _M, __C)); }
+	_Myt& replace(iterator _F1, iterator _L1,
+		_It _F2, _It _L2)
+		{if (_F2 == _L2)
+			erase(_Pdif(_F1, begin()), _Pdif(_L1, _F1));
+		else
+			replace(_Pdif(_F1, begin()), _Pdif(_L1, _F1),
+				&*_F2, _L2 - _F2);
+		return (*this); }
+	iterator begin()
+		{_Freeze();
+		return (iterator(_Ptr)); }
+	const_iterator begin() const
+		{return (const_iterator(_Ptr)); }
+	iterator end()
+		{_Freeze();
+		return (iterator(_Psum(_Ptr, _Len))); }
+	const_iterator end() const
+		{return (const_iterator(_Psum(_Ptr, _Len))); }
+	reverse_iterator rbegin()
+		{return (reverse_iterator(end())); }
+	const_reverse_iterator rbegin() const
+		{return (const_reverse_iterator(end())); }
+	reverse_iterator rend()
+		{return (reverse_iterator(begin())); }
+	const_reverse_iterator rend() const
+		{return (const_reverse_iterator(begin())); }
+	reference at(size_type _P0)
+		{if (_Len <= _P0)
+			_Xran();
+		_Freeze();
+		return (_Ptr[_P0]); }
+	const_reference at(size_type _P0) const
+		{if (_Len <= _P0)
+			_Xran();
+		return (_Ptr[_P0]); }
+	reference operator[](size_type _P0)
+		{if (_Len < _P0 || _Ptr == 0)
+			return ((reference)*_Nullstr());
+		_Freeze();
+		return (_Ptr[_P0]); }
+	const_reference operator[](size_type _P0) const
+		{if (_Ptr == 0)
+			return (*_Nullstr());
+		else
+			return (_Ptr[_P0]); }
+	void push_back(_E __C)
+		{insert(end(), __C); }
+	const _E *c_str() const
+		{return (_Ptr == 0 ? _Nullstr() : _Ptr); }
+	const _E *data() const
+		{return (c_str()); }
+	size_type length() const
+		{return (_Len); }
+	size_type size() const
+		{return (_Len); }
+	size_type max_size() const
+		{size_type __N = _Alval.max_size();
+		return (__N <= 2 ? 1 : __N - 2); }
+	void resize(size_type __N)
+		{resize(__N, _E()); }
+	void resize(size_type __N, _E __C)
+		{__N <= _Len ? erase(__N) : append(__N - _Len, __C); }
+	size_type capacity() const
+		{return (_Res); }
+	void reserve(size_type __N = 0)
+		{if (_Res < __N)
+			_Grow(__N); }
+	bool empty() const
+		{return (_Len == 0); }
+	size_type copy(_E *__S, size_type __N, size_type _P0 = 0) const
+		{if (_Len < _P0)
+			_Xran();
+		if (_Len - _P0 < __N)
+			__N = _Len - _P0;
+		if (0 < __N)
+			_Tr::copy(__S, _Ptr + _P0, __N);
+		return (__N); }
+	void swap(_Myt& __X)
+		{if (_Alval == __X._Alval)
+			{_E *_Tptr = _Ptr;
+			_Ptr = __X._Ptr, __X._Ptr = _Tptr;
+			size_type _Tlen = _Len;
+			_Len = __X._Len, __X._Len = _Tlen;
+			size_type _Tres = _Res;
+			_Res = __X._Res, __X._Res = _Tres; }
+		else
+			{_Myt _Ts = *this; *this = __X, __X = _Ts; }}
+	friend void swap(_Myt& __X, _Myt& _Y)
+		{__X.swap(_Y); }
+	size_type find(const _Myt& __X, size_type __P = 0) const
+		{return (find(__X.c_str(), __P, __X.size())); }
+	size_type find(const _E *__S, size_type __P,
+		size_type __N) const
+		{if (__N == 0 && __P <= _Len)
+			return (__P);
+		size_type _Nm;
+		if (__P < _Len && __N <= (_Nm = _Len - __P))
+			{const _E *__U, *_V;
+			for (_Nm -= __N - 1, _V = _Ptr + __P;
+				(__U = _Tr::find(_V, _Nm, *__S)) != 0;
+				_Nm -= __U - _V + 1, _V = __U + 1)
+				if (_Tr::compare(__U, __S, __N) == 0)
+					return (__U - _Ptr); }
+		return (npos); }
+	size_type find(const _E *__S, size_type __P = 0) const
+		{return (find(__S, __P, _Tr::length(__S))); }
+	size_type find(_E __C, size_type __P = 0) const
+		{return (find((const _E *)&__C, __P, 1)); }
+	size_type rfind(const _Myt& __X, size_type __P = npos) const
+		{return (rfind(__X.c_str(), __P, __X.size())); }
+	size_type rfind(const _E *__S, size_type __P,
+		size_type __N) const
+		{if (__N == 0)
+			return (__P < _Len ? __P : _Len);
+		if (__N <= _Len)
+			for (const _E *__U = _Ptr +
+				+ (__P < _Len - __N ? __P : _Len - __N); ; --__U)
+				if (_Tr::eq(*__U, *__S)
+					&& _Tr::compare(__U, __S, __N) == 0)
+					return (__U - _Ptr);
+				else if (__U == _Ptr)
+					break;
+		return (npos); }
+	size_type rfind(const _E *__S, size_type __P = npos) const
+		{return (rfind(__S, __P, _Tr::length(__S))); }
+	size_type rfind(_E __C, size_type __P = npos) const
+		{return (rfind((const _E *)&__C, __P, 1)); }
+	size_type find_first_of(const _Myt& __X,
+		size_type __P = 0) const
+		{return (find_first_of(__X.c_str(), __P, __X.size())); }
+	size_type find_first_of(const _E *__S, size_type __P,
+		size_type __N) const
+		{if (0 < __N && __P < _Len)
+			{const _E *const _V = _Ptr + _Len;
+			for (const _E *__U = _Ptr + __P; __U < _V; ++__U)
+				if (_Tr::find(__S, __N, *__U) != 0)
+					return (__U - _Ptr); }
+		return (npos); }
+	size_type find_first_of(const _E *__S, size_type __P = 0) const
+		{return (find_first_of(__S, __P, _Tr::length(__S))); }
+	size_type find_first_of(_E __C, size_type __P = 0) const
+		{return (find((const _E *)&__C, __P, 1)); }
+	size_type find_last_of(const _Myt& __X,
+		size_type __P = npos) const
+		{return (find_last_of(__X.c_str(), __P, __X.size())); }
+	size_type find_last_of(const _E *__S, size_type __P,
+		size_type __N) const
+		{if (0 < __N && 0 < _Len)
+			for (const _E *__U = _Ptr
+				+ (__P < _Len ? __P : _Len - 1); ; --__U)
+				if (_Tr::find(__S, __N, *__U) != 0)
+					return (__U - _Ptr);
+				else if (__U == _Ptr)
+					break;
+		return (npos); }
+	size_type find_last_of(const _E *__S,
+		size_type __P = npos) const
+		{return (find_last_of(__S, __P, _Tr::length(__S))); }
+	size_type find_last_of(_E __C, size_type __P = npos) const
+		{return (rfind((const _E *)&__C, __P, 1)); }
+	size_type find_first_not_of(const _Myt& __X,
+		size_type __P = 0) const
+		{return (find_first_not_of(__X.c_str(), __P,
+			__X.size())); }
+	size_type find_first_not_of(const _E *__S, size_type __P,
+		size_type __N) const
+		{if (__P < _Len)
+			{const _E *const _V = _Ptr + _Len;
+			for (const _E *__U = _Ptr + __P; __U < _V; ++__U)
+				if (_Tr::find(__S, __N, *__U) == 0)
+					return (__U - _Ptr); }
+		return (npos); }
+	size_type find_first_not_of(const _E *__S,
+		size_type __P = 0) const
+		{return (find_first_not_of(__S, __P, _Tr::length(__S))); }
+	size_type find_first_not_of(_E __C, size_type __P = 0) const
+		{return (find_first_not_of((const _E *)&__C, __P, 1)); }
+	size_type find_last_not_of(const _Myt& __X,
+		size_type __P = npos) const
+		{return (find_last_not_of(__X.c_str(), __P, __X.size())); }
+	size_type find_last_not_of(const _E *__S, size_type __P,
+		 size_type __N) const
+		{if (0 < _Len)
+			for (const _E *__U = _Ptr
+				+ (__P < _Len ? __P : _Len - 1); ; --__U)
+				if (_Tr::find(__S, __N, *__U) == 0)
+					return (__U - _Ptr);
+				else if (__U == _Ptr)
+					break;
+		return (npos); }
+	size_type find_last_not_of(const _E *__S,
+		size_type __P = npos) const
+		{return (find_last_not_of(__S, __P, _Tr::length(__S))); }
+	size_type find_last_not_of(_E __C, size_type __P = npos) const
+		{return (find_last_not_of((const _E *)&__C, __P, 1)); }
+	_Myt substr(size_type __P = 0, size_type _M = npos) const
+		{return (_Myt(*this, __P, _M)); }
+	int compare(const _Myt& __X) const
+		{return (compare(0, _Len, __X.c_str(), __X.size())); }
+	int compare(size_type _P0, size_type _N0,
+		const _Myt& __X) const
+		{return (compare(_P0, _N0, __X, 0, npos)); }
+	int compare(size_type _P0, size_type _N0, const _Myt& __X,
+		size_type __P, size_type _M) const
+		{if (__X.size() < __P)
+			_Xran();
+		if (__X._Len - __P < _M)
+			_M = __X._Len - __P;
+		return (compare(_P0, _N0, __X.c_str() + __P, _M)); }
+	int compare(const _E *__S) const
+		{return (compare(0, _Len, __S, _Tr::length(__S))); }
+	int compare(size_type _P0, size_type _N0, const _E *__S) const
+		{return (compare(_P0, _N0, __S, _Tr::length(__S))); }
+	int compare(size_type _P0, size_type _N0, const _E *__S,
+		size_type _M) const
+		{if (_Len < _P0)
+			_Xran();
+		if (_Len - _P0 < _N0)
+			_N0 = _Len - _P0;
+		size_type _Ans = _N0 == 0 ? 0
+			: _Tr::compare(_Psum(_Ptr, _P0), __S,
+				_N0 < _M ? _N0 : _M);
+		return (_Ans != 0 ? _Ans : _N0 < _M ? -1
+			: _N0 == _M ? 0 : +1); }
+	allocator_type get_allocator() const
+		{return (_Alval); }
+private:
+	enum {_MIN_SIZE = sizeof (_E) <= 32 ? 31 : 7};
+	void _Copy(size_type __N)
+		{size_type _Ns = __N | _MIN_SIZE;
+		if (max_size() < _Ns)
+			_Ns = __N;
+		_E *__S;
+		_TRY_BEGIN
+			__S = _Alval.allocate(_Ns + 2, (void *)0);
+		_CATCH_ALL
+			_Ns = __N;
+			__S = _Alval.allocate(_Ns + 2, (void *)0);
+		_CATCH_END
+		if (0 < _Len)
+			_Tr::copy(__S + 1, _Ptr, _Len);
+		size_type _Olen = _Len;
+		_Tidy(true);
+		_Ptr = __S + 1;
+		_Refcnt(_Ptr) = 0;
+		_Res = _Ns;
+		_Eos(_Olen); }
+	void _Eos(size_type __N)
+		{_Tr::assign(_Ptr[_Len = __N], _E()); }
+	void _Freeze()
+		{if (_Ptr != 0
+			&& _Refcnt(_Ptr) != 0 && _Refcnt(_Ptr) != _FROZEN)
+			_Grow(_Len);
+		if (_Ptr != 0)
+			_Refcnt(_Ptr) = _FROZEN; }
+	bool _Grow(size_type __N, bool _Trim = false)
+		{if (max_size() < __N)
+			_Xlen();
+		if (_Trim)
+			_Len = 0;
+		else if (__N < _Len)
+			_Len = __N;
+		if (_Ptr != 0
+			&& _Refcnt(_Ptr) != 0 && _Refcnt(_Ptr) != _FROZEN)
+			if (__N == 0)
+				{_Tidy(true);
+				return (false); }
+			else
+				{_Copy(__N);
+				return (true); }
+		if (__N == 0)
+			{if (_Trim)
+				_Tidy(true);
+			else if (_Ptr != 0)
+				_Eos(0);
+			return (false); }
+		else
+			{if (_Trim && (_MIN_SIZE < _Res || _Res < __N))
+				{_Tidy(true);
+				_Copy(__N); }
+			else if (!_Trim && _Res < __N)
+				_Copy(__N);
+			return (true); }}
+	bool _Inside(const _E *__S)
+		{return (_Ptr != 0 && _Ptr <= __S && __S <= _Ptr + _Len); }
+	static const _E *_Nullstr()
+		{static _E __C;
+		__C = _E();
+		return (&__C); }
+	static size_type _Pdif(const_iterator _P2,
+		const_iterator _P1)
+		{return (_P2 == 0 ? 0 : _P2 - _P1); }
+	static const_pointer _Psum(const_pointer __P, size_type __N)
+		{return (__P == 0 ? 0 : __P + __N); }
+	static pointer _Psum(pointer __P, size_type __N)
+		{return (__P == 0 ? 0 : __P + __N); }
+	unsigned char& _Refcnt(const _E *__U)
+		{return (((unsigned char *)__U)[-1]); }
+	void _Tidy(bool _Built = false)
+		{if (!_Built || _Ptr == 0)
+			;
+		else if (_Refcnt(_Ptr) == 0 || _Refcnt(_Ptr) == _FROZEN)
+			_Alval.deallocate(_Ptr - 1, _Res + 2);
+		else
+			--_Refcnt(_Ptr);
+		_Ptr = 0, _Len = 0, _Res = 0; }
+	_E *_Ptr;
+	size_type _Len, _Res;
+	};
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _XSTRING */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

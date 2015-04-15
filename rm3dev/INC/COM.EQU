@@ -1,0 +1,40 @@
+$SAVE NOLIST
+
+;---FILE HEADER----------------------------------------------------------------
+;
+;   filename    : COM.EQU
+;   version     : 0001
+;   contents    : Equates for COM-DRIVER
+;   author      : P.F.
+;   date        : Oct 27, 1994
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Include file for COM-DRIVER
+;
+;   RMOS2 & RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+
+;************************************************************************
+;*                          RIO FUNCTION EQUATES FOR COM-DRIVER         *
+;************************************************************************
+
+C64_RESERVE             EQU     00H     ; RESERVE DRIVER-UNIT
+C64_RELEASE             EQU     01H     ; RELEASE DRIVER-UNIT
+C64_READ                EQU     02H     ; NORMAL READ
+C64_WRITE               EQU     03H     ; NORMAL WRITE
+C64_CREATE_NEW          EQU     04H     ; CREATE NEW UNIT
+
+
+;************************************************************************
+;*                          EQUATES FOR COM-DRIVER WITH WAIT            *
+;************************************************************************
+
+C64_RESERVE_WAIT        EQU     40H     ; RESERVE DRIVER-UNIT
+C64_RELEASE_WAIT        EQU     41H     ; RELEASE DRIVER-UNIT
+C64_READ_WAIT           EQU     42H     ; NORMAL READ
+C64_WRITE_WAIT          EQU     43H     ; NORMAL WRITE
+C64_CREATE_NEW_WAIT     EQU     44H     ; CREATE NEW UNIT
+
+$RESTORE

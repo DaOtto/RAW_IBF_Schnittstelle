@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: teso.hpp Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d7/dbf/teso_8hpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">teso.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/dbf/teso_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _TESO_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">    #define _TESO_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifdef _BORLAND_C</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">        #define __max(a, b)  (((a) &gt; (b)) ? (a) : (b))</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">        #define __min(a, b)  (((a) &lt; (b)) ? (a) : (b))</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">      #endif</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifdef SMP16</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">    #ifndef TRUE</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">        #define TRUE    -1</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">    #ifndef FALSE</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">        #define FALSE   0</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">    #ifndef TRUE</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#aa8cecfc5c5c054d2875c03e77b7be15d">   18</a></span>&#160;<span class="preprocessor">        #define TRUE    1</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    #ifndef FALSE</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#aa93f0eb578d23995850d61f7d61c55c1">   21</a></span>&#160;<span class="preprocessor">        #define FALSE   0</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#af87ffdae418c9fbfe2f3bda6c3ae7ac4">   25</a></span>&#160;<span class="preprocessor">#define ZAHLGROSS 100000000.0F</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a002b2f4894492820fe708b1b7e7c5e70">   26</a></span>&#160;<span class="preprocessor">    #define EPSILON 0.001F</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// Korrekturfaktoren</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#adbc777944b6cb3a5ba90c24d7baa0f09">   31</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define DM3_MM3_FAK     (1.0F / 1000000.0F)</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a3b1e82ca7dd22b53c50ff465084b2291">   34</a></span>&#160;<span class="preprocessor">#define MILL_FAK        1000000.0F</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a3841ed080a29377843ee3ba546c54c69">   37</a></span>&#160;<span class="preprocessor">#define BAR_FAK         0.1F                     // Umrechnungsfaktor 1 Bar == 0.1N/mm² in </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a97b1fbc164514a4b506c63f36181b2bf">   40</a></span>&#160;<span class="preprocessor">#define PROZ_FAK        0.01F</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a46868e5d1c9fcaa0affd1dd321847725">   43</a></span>&#160;<span class="preprocessor">#define PROMILL_FAK     0.001F</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a85a327ded35eb907029e62a3c5725514">   46</a></span>&#160;<span class="preprocessor">#define KILO_FAK        1000.0F</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a05e94f2e4f00600632f22292fb4f5805">   49</a></span>&#160;<span class="preprocessor">#define MIN_FAK         (1.0F / 60.0F)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#ifndef M_PI</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3">   52</a></span>&#160;<span class="preprocessor">        #define M_PI        3.14159265358979323846F</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#ifndef _WIN32  // MSVC++ 6.0</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#ifndef PI</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a598a3330b3c21701223ee0ca14316eca">   57</a></span>&#160;<span class="preprocessor">            #define PI      3.14159265358979323846F</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">        #endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    #else               // Borland 3.1</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        #define PI  M_PI</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Maximum und Minimum bestimmen</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">//-------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">long</span> max(<span class="keywordtype">long</span> a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    {<span class="keywordflow">return</span>(a &gt; b ? a : b);}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">long</span> min(<span class="keywordtype">long</span> a, <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    {<span class="keywordflow">return</span>(a &lt; b ? a : b);}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> max(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    {<span class="keywordflow">return</span>(a &gt; b ? a : b);}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">double</span> min(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    {<span class="keywordflow">return</span>(a &lt; b ? a : b);}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#ifdef PI</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a470e24f17038de501937e0cc2b75d0b0">   75</a></span>&#160;<span class="preprocessor">      #define GRAD      (2 * PI / 360.0)</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">   #endif</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifndef EULER</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a7f4ee7567f891560bb62dfbda5f93088">   79</a></span>&#160;<span class="preprocessor">      #define EULER 2.7182818284590452F</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">   #endif</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// Definition der Messageboxtypen</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a372580f8bce1a0b90741c372ea56e81b">   85</a></span>&#160;<span class="preprocessor">#define GUI_T_MB_ABORTRETRYIGNORE   0</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a1beb9019dbcb660ee10b6a68e55fafe2">   86</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_OK                     1</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a48a0c3c4eaa8a5f4f7b1d1971ef02170">   87</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_OKCANCEL               2</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a3003117920dd768750e87e208768e4a0">   88</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RETRYCANCEL            3</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a210fad48cd635131aee40fb39183f7ac">   89</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_YESNO                  4</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#adeb8c03c60d7313fa1ddbe4174addc7c">   90</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_YESNOCANCEL            5</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">//---------------------------------------------------------------------------   </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">// Definition der Messageboxbitmaps</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#aa143ceffd4c711a99022f9e67f53a212">   95</a></span>&#160;<span class="preprocessor">#define GUI_T_MB_WARNING            0</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a0971538cb8b5dea54bdc07834c6cb7bc">   96</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_INFORMATION        1</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#ab1279616bbbfd14baff27ff2575586da">   97</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_QUESTION           2</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a9b9d89178b799b717a50b9ab80e28f69">   98</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_STOP               3</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">// Definition der Messageboxrückgabewerte</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#aeff4dea4f0e3b4409e4a06ffe16c9385">  103</a></span>&#160;<span class="preprocessor">#define GUI_T_MB_RET_OK             0</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#ae8b91744801d6a94e628bbecbf7723b8">  104</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_ABORT          1</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#ad97bd55ce3b47e3fd6e9ac5f3092710f">  105</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_RETRY          2</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a73dc7e3d4d4115b01cef60251562aca9">  106</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_IGNORE     3</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#ae09afc71535f4876441e3c4349272d86">  107</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_CANCEL     4</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a76ae741e5391d3c904d7f9933827b356">  108</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_YES            5</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d7/dbf/teso_8hpp.html#a4c5f36f1cfeeaae7d2a4976bce3a0593">  109</a></span>&#160;<span class="preprocessor">    #define GUI_T_MB_RET_NO             6</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#ifdef __WIN32</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;       <span class="keyword">struct </span>Def_f012</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;       {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;           <span class="keywordtype">float</span> nr0;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;           <span class="keywordtype">float</span> nr1;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;           <span class="keywordtype">float</span> nr2;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;       };</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;       <span class="keyword">struct   </span>Def_s012</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;       {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;           <span class="keywordtype">short</span> nr0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;           <span class="keywordtype">short</span> nr1;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;           <span class="keywordtype">short</span> nr2;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;       };</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;       <span class="keyword">struct </span>Def_sxyz</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;       {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;           <span class="keywordtype">short</span> x;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;           <span class="keywordtype">short</span> y;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;           <span class="keywordtype">short</span> z;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;       };</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;       <span class="keyword">struct </span>Def_i01</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;       {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;           <span class="keywordtype">int</span>  nr0;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;           <span class="keywordtype">int</span>  nr1;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;       };</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;       <span class="keyword">struct </span>Def_i012</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;       {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;           <span class="keywordtype">int</span>  nr0;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;           <span class="keywordtype">int</span>  nr1;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;           <span class="keywordtype">int</span>  nr2;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;       };</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;       <span class="keyword">struct </span>Def_RGB</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;       {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;           <span class="keywordtype">int</span>  rot;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;           <span class="keywordtype">int</span>  gruen;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;           <span class="keywordtype">int</span>  blau;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;       };</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;       <span class="keyword">struct </span>Def_i0123</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;       {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;           <span class="keywordtype">int</span>  nr0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;           <span class="keywordtype">int</span>  nr1;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;           <span class="keywordtype">int</span>  nr2;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;           <span class="keywordtype">int</span>  nr3;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;       };</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;       <span class="keyword">struct </span>Def_Rechteck</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;       {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;           <span class="keywordtype">double</span> hoehe;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;           <span class="keywordtype">double</span> breite;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;           <span class="keywordtype">double</span> x;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;           <span class="keywordtype">double</span> y;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;       };</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">   #endif</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_a2abdbaa7473ee34f6db7f792595f5c8.html">inc</a></li><li class="navelem"><a class="el" href="../../d7/dbf/teso_8hpp.html">teso.hpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:13 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

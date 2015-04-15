@@ -1,0 +1,258 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: xiosbase,v $
+ * Revision 1.2  2000/02/08 06:21:07  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:06  aki
+ * Initial revision
+ *
+ */ 
+
+// xiosbase internal header (from <ios>)
+#ifndef _XIOSBASE_
+#define _XIOSBASE_
+
+#pragma noarguments_in_registers(push)
+
+#include <cctype>
+#include <stdexcept>
+#include	<xstddef>	// 2008DE1
+_STD_BEGIN
+ #define _USE(loc, fac)		fac()
+		// CLASS locale
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (locale=2)
+#else
+#pragma       align   (locale=4)              // 3055DE1
+#endif /* << 4719DE1 << */
+class locale {
+public:
+	locale()
+		{}
+	locale(_Uninitialized)
+		{}
+	locale(const char *)
+		{}
+	bool operator==(const locale&)
+		{return (true); }
+	bool operator!=(const locale&)
+		{return (false); }
+	};
+		// CLASS ctype
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ctype=2)
+#else
+#pragma       align   (ctype=4)               // 3055DE1
+#endif /* << 4719DE1 << */
+class ctype {
+public:
+	enum mask {space};
+	static bool is(mask, char __C)
+		{return (isspace(__C)); }
+	static char widen(char __X)
+		{return (__X); }
+	static char narrow(char __C, char = '\0')
+		{return (__C); }
+	};
+		// CLASS ios_base
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ios_base=2)
+#else
+#pragma       align   (ios_base=4)            // 3055DE1
+#endif /* << 4719DE1 << */
+class ios_base {
+public:
+			// CLASS failure
+	class failure : public runtime_error {
+	public:
+		explicit failure(const string &__S)
+			: runtime_error(__S) {}
+		virtual ~failure()
+			{}
+	protected:
+		virtual void _Doraise() const
+			{_RAISE(*this); }
+	};
+	enum _Fmtflags {skipws = 0x0001, unitbuf = 0x0002,
+		uppercase = 0x0004, showbase = 0x0008,
+		showpoint = 0x0010, showpos = 0x0020,
+		left = 0x0040, right = 0x0080, internal = 0x0100,
+		dec = 0x0200, oct = 0x0400, hex = 0x0800,
+		scientific = 0x1000, fixed = 0x2000, boolalpha = 0x4000,
+		adjustfield = 0x01c0, basefield = 0x0e00,
+		floatfield = 0x3000, _Fmtmask = 0x7fff, _Fmtzero = 0};
+	enum _Iostate {goodbit = 0x0, eofbit = 0x1,
+		failbit = 0x2, badbit = 0x4, _Statmask = 0x7};
+	enum _Openmode {in = 0x01, out = 0x02, ate = 0x04,
+		app = 0x08, trunc = 0x10, binary = 0x20};
+	enum seekdir {beg = 0, cur = 1, end = 2};
+	enum event {erase_event, imbue_event, copyfmt_event};
+	typedef void (*event_callback)(event, ios_base&, int);
+	_BITMASK(_Fmtflags, fmtflags);
+	_BITMASK(_Iostate, iostate);
+	_BITMASK(_Openmode, openmode);
+	typedef short io_state, open_mode, seek_dir;
+			// CLASS Init
+	class Init {
+	public:
+		Init();
+		~Init();
+	private:
+		static int _Init_cnt;
+		};
+	ios_base& operator=(const ios_base& _R)
+		{if (this != &_R)
+			{_State = _R._State;
+			copyfmt(_R); }
+		return (*this); }
+	operator void *() const
+		{return (fail() ? 0 : (void *)this); }
+	bool operator!() const
+		{return (fail()); }
+	void clear(iostate = goodbit, bool = false);
+	void clear(io_state _St)
+		{clear((iostate)_St); }
+	iostate rdstate() const
+		{return (_State); }
+	void setstate(iostate _St, bool _Ex = false)
+		{if (_St != goodbit)
+			clear((iostate)((int)rdstate() | (int)_St), _Ex); }
+	void setstate(io_state _St)
+		{setstate((iostate)_St); }
+	bool good() const
+		{return (rdstate() == goodbit); }
+	bool eof() const
+		{return ((int)rdstate() & (int)eofbit); }
+	bool fail() const
+		{return (((int)rdstate()
+			& ((int)badbit | (int)failbit)) != 0); }
+	bool bad() const
+		{return (((int)rdstate() & (int)badbit) != 0); }
+	iostate exceptions() const
+		{return (_Except); }
+	void exceptions(iostate _Ne)
+		{_Except = (iostate)((int)_Ne & (int)_Statmask);
+		clear(_State); }
+	void exceptions(io_state _St)
+		{exceptions((iostate)_St); }
+	fmtflags flags() const
+		{return (_Fmtfl); }
+	fmtflags flags(fmtflags _Nf)
+		{fmtflags _Of = _Fmtfl;
+		_Fmtfl = (fmtflags)((int)_Nf & (int)_Fmtmask);
+		return (_Of); }
+	fmtflags setf(fmtflags _Nf)
+		{ios_base::fmtflags _Of = _Fmtfl;
+		_Fmtfl = (fmtflags)((int)_Fmtfl
+			| (int)_Nf & (int)_Fmtmask);
+		return (_Of); }
+	fmtflags setf(fmtflags _Nf, fmtflags _M)
+		{ios_base::fmtflags _Of = _Fmtfl;
+		_Fmtfl = (fmtflags)(((int)_Fmtfl & (int)~_M)
+			| ((int)_Nf & (int)_M & (int)_Fmtmask));
+		return (_Of); }
+	void unsetf(fmtflags _M)
+		{_Fmtfl = (fmtflags)((int)_Fmtfl & (int)~_M); }
+	streamsize precision() const
+		{return (_Prec); }
+	streamsize precision(int _Np)
+		{streamsize _Op = _Prec;
+		_Prec = _Np;
+		return (_Op); }
+	streamsize width() const
+		{return (_Wide); }
+	streamsize width(streamsize _Nw)
+		{streamsize _Ow = _Wide;
+		_Wide = _Nw;
+		return (_Ow); }
+	locale getloc() const
+		{return (_Loc); }
+	locale imbue(const locale&);
+	static int xalloc()
+		{return (_Index++); }
+	long& iword(int _Idx)
+		{return (_Findarr(_Idx)._Lo); }
+	void *& pword(int _Idx)
+		{return (_Findarr(_Idx)._Vp); }
+	void register_callback(event_callback, int);
+	ios_base& copyfmt(const ios_base&);
+	virtual ~ios_base();
+	static bool sync_with_stdio(bool _Sfl = true)
+		{const bool _Osfl = _Sync;
+		_Sync = _Sfl;
+		return (_Osfl); }
+protected:
+	ios_base()
+		: _Loc(_Noinit), _Stdstr(0) { 
+		/*
+		 * 2008DE1
+		 * Create the semaphore for locking
+		 */
+		__cadul_enable_critical_section_lock((void *)&_ios_sem);
+		}
+	void _Addstd();
+	void _Init();
+private:
+			// STRUCT _Iosarray
+	struct _Iosarray {
+	public:
+		_Iosarray(int _Idx, _Iosarray *_Link)
+			: _Next(_Link), _Index(_Idx), _Lo(0), _Vp(0) {}
+		_Iosarray *_Next;
+		int _Index;
+		long _Lo;
+		void *_Vp;
+		};
+			// STRUCT _Fnarray
+	struct _Fnarray {
+		_Fnarray(int _Idx, event_callback __P, _Fnarray *_Link)
+			: _Next(_Link), _Index(_Idx), _Pfn(__P) {}
+		_Fnarray *_Next;
+		int _Index;
+		event_callback _Pfn;
+		};
+	void _Callfns(event);
+	_Iosarray& _Findarr(int);
+	void _Tidy();
+	iostate _State, _Except;
+	fmtflags _Fmtfl;
+	int _Prec, _Wide;
+	_Iosarray *_Arr;
+	_Fnarray *_Calls;
+	locale _Loc;
+	size_t _Stdstr;
+	static int _Index;
+	static bool _Sync;
+        /*
+         * 2008DE1
+         * The lock semaphore of this stream
+         */
+        public:
+        _IOS_SEM _ios_sem;
+
+	};
+_BITMASK_OPS(ios_base::_Fmtflags)
+_BITMASK_OPS(ios_base::_Iostate)
+_BITMASK_OPS(ios_base::_Openmode)
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _XIOSBASE_ */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: IBF_stuetz.hpp Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('da/df4/_i_b_f__stuetz_8hpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">IBF_stuetz.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/df4/_i_b_f__stuetz_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*--FILE HEADER---------------------------------------------------------------</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">;   filename        : ibf_stuetz.hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">;   version         : V1.0</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">;   contents        : IBF-Stützstellenberechnung  </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">;   author          : S. Frank, IBF RWTH Aachen</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">;   date            : März, 2008</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">;---FUNCTION AND ENVIRONMENT---------------------------------------------------</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">;   function:   folgende Strukturen enthalten: Ist_Inter, Soll_Inter, </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">;                                              IBF_FLag, Radial_Flexibel </span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">;               </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">;               </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">;       RMOS3  Version 3.30</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">;       CAD-UL Version V120C</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">;---END OF  FILE HEADER------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*--MODIFICATION HEADER--------------------------------------------------------</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">;   März , 17.2008  0001  S.F.  original issue V1.0</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">;   </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">;---END OF MODIFICATION HEADER-----------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef _IBF_stuetz_HPP</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">   #define _IBF_stuetz_HPP</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../da/df4/_i_b_f__stuetz_8hpp.html#a04224582b155a7bb846b086b630be051">   34</a></span>&#160;<span class="preprocessor">#define maxstellen 25</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// Funktionsprototypen </span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/df4/_i_b_f__stuetz_8hpp.html#a85ef697d579a5e07cc8b2e09cbbedb94">stuetzstellen</a>(<span class="keyword">struct</span> <a class="code" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, <span class="keyword">struct</span> <a class="code" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                   <span class="keyword">struct</span> <a class="code" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a>* <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/df4/_i_b_f__stuetz_8hpp.html#a87200aa5e39219edb01d6dc524feb5b6">konst_cr_radial</a>(<span class="keyword">struct</span> <a class="code" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, <span class="keyword">struct</span> <a class="code" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                     <span class="keyword">struct</span> <a class="code" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a>* <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../da/df4/_i_b_f__stuetz_8hpp.html#aa42524f288d9e75e2700caa2764f276b">konst_cr_axial</a>(<span class="keyword">struct</span> <a class="code" href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a>, <span class="keyword">struct</span> <a class="code" href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="keyword">struct</span> <a class="code" href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a>* <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html">   50</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../d2/d01/structstuetzstellen__var.html">stuetzstellen_var</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a27f30a683ccec4546750ba092b443eb1">   56</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a27f30a683ccec4546750ba092b443eb1">t_U</a>;                         <span class="comment">//t_U = (float)(diam_f/(diam_hw*f_H));</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#ac594cc31992049805c712411f01fd6e2">   59</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#ac594cc31992049805c712411f01fd6e2">crtimer</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a5aee4ae0b9e941ee43ca45dc0ae98eec">   64</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a5aee4ae0b9e941ee43ca45dc0ae98eec">stellen</a>[2][<a class="code" href="../../da/df4/_i_b_f__stuetz_8hpp.html#a04224582b155a7bb846b086b630be051">maxstellen</a>];</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#ae1d442fe5da62847ba702ff94a3b6d2a">   67</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#ae1d442fe5da62847ba702ff94a3b6d2a">merker</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a062e328feceb43562e65c508004a41b8">   70</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a062e328feceb43562e65c508004a41b8">skip_faktor</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a3e9d02136c043402b0d9a83196c8665c">   73</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a3e9d02136c043402b0d9a83196c8665c">kontrollmerker</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a550f6fd2bf3d8a5182336abd1bda3467">   76</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a550f6fd2bf3d8a5182336abd1bda3467">cr</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a57366a01216f218b0e1cf2198e831344">   79</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a57366a01216f218b0e1cf2198e831344">ca</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a21dfe488af66860bb9354a8b2f4391ae">   83</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a21dfe488af66860bb9354a8b2f4391ae">delta_h</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d2/d01/structstuetzstellen__var.html#a77b45bbe59ea11fab968bc1677233e3f">   86</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="../../d2/d01/structstuetzstellen__var.html#a77b45bbe59ea11fab968bc1677233e3f">delta_s</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_def___ist___inter_html"><div class="ttname"><a href="../../d5/d06/struct_def___ist___inter.html">Def_Ist_Inter</a></div><div class="ttdoc">Beinhaltet detailliert Informationen über den aktuellen Zustand des Ringwalzwerks. </div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d3b/rpw_8hpp_source.html#l00105">rpw.hpp:105</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a27f30a683ccec4546750ba092b443eb1"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a27f30a683ccec4546750ba092b443eb1">stuetzstellen_var::t_U</a></div><div class="ttdeci">float t_U</div><div class="ttdoc">Zeit für eine Ringumdrehung gemessen in [s] t_U = (float)(diam_f/(diam_hw*f_H)) </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00056">IBF_stuetz.hpp:56</a></div></div>
+<div class="ttc" id="_i_b_f__stuetz_8hpp_html_a85ef697d579a5e07cc8b2e09cbbedb94"><div class="ttname"><a href="../../da/df4/_i_b_f__stuetz_8hpp.html#a85ef697d579a5e07cc8b2e09cbbedb94">stuetzstellen</a></div><div class="ttdeci">void stuetzstellen(struct Def_Ist_Inter Ist_Inter, struct Def_IBF_Allgemein_IST Ist_IBF, struct Def_IBF_Allgemein_SOLL *Soll_IBF)</div><div class="ttdoc">Schreibt die aktuell gemessene Stuetzstelle in das Array stuetzstellen_var.stellen ...</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d1d/ibf__stuetz_8cpp_source.html#l00044">ibf_stuetz.cpp:44</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_ae1d442fe5da62847ba702ff94a3b6d2a"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#ae1d442fe5da62847ba702ff94a3b6d2a">stuetzstellen_var::merker</a></div><div class="ttdeci">int merker</div><div class="ttdoc">Variable, welche die jeweils aktive Stützstelle im Array aufnimmt. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00067">IBF_stuetz.hpp:67</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a77b45bbe59ea11fab968bc1677233e3f"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a77b45bbe59ea11fab968bc1677233e3f">stuetzstellen_var::delta_s</a></div><div class="ttdeci">float delta_s</div><div class="ttdoc">delta_s </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00086">IBF_stuetz.hpp:86</a></div></div>
+<div class="ttc" id="struct_def___i_b_f___allgemein___i_s_t_html"><div class="ttname"><a href="../../d6/d0b/struct_def___i_b_f___allgemein___i_s_t.html">Def_IBF_Allgemein_IST</a></div><div class="ttdoc">Enthält Informationen über die aktuellen Kräfte, Positionen und Geometrie, sowie Informationen über d...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00168">IBF_struct.hpp:168</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a5aee4ae0b9e941ee43ca45dc0ae98eec"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a5aee4ae0b9e941ee43ca45dc0ae98eec">stuetzstellen_var::stellen</a></div><div class="ttdeci">float stellen[2][maxstellen]</div><div class="ttdoc">Array zur Aufnahme der Stützstellen. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00064">IBF_stuetz.hpp:64</a></div></div>
+<div class="ttc" id="_i_b_f__stuetz_8hpp_html_a04224582b155a7bb846b086b630be051"><div class="ttname"><a href="../../da/df4/_i_b_f__stuetz_8hpp.html#a04224582b155a7bb846b086b630be051">maxstellen</a></div><div class="ttdeci">#define maxstellen</div><div class="ttdoc">Legt (max.) Anzahl von Stützstellen fest. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00034">IBF_stuetz.hpp:34</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a21dfe488af66860bb9354a8b2f4391ae"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a21dfe488af66860bb9354a8b2f4391ae">stuetzstellen_var::delta_h</a></div><div class="ttdeci">float delta_h</div><div class="ttdoc">Stichabnahme für 1 Ringumdrehung an Stützstelle i. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00083">IBF_stuetz.hpp:83</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_ac594cc31992049805c712411f01fd6e2"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#ac594cc31992049805c712411f01fd6e2">stuetzstellen_var::crtimer</a></div><div class="ttdeci">float crtimer</div><div class="ttdoc">als Zählvariable zur Bestimmung des Stützstellenwechsels. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00059">IBF_stuetz.hpp:59</a></div></div>
+<div class="ttc" id="struct_def___i_b_f___allgemein___s_o_l_l_html"><div class="ttname"><a href="../../d5/db7/struct_def___i_b_f___allgemein___s_o_l_l.html">Def_IBF_Allgemein_SOLL</a></div><div class="ttdoc">Enthält Informationen über die Sollkräfte, -Positionen und -Geometrien, sowie Informationen über die ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d0e/_i_b_f__struct_8hpp_source.html#l00336">IBF_struct.hpp:336</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html">stuetzstellen_var</a></div><div class="ttdoc">Struktur enthält Parameter zur Stützstellenberechnung. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00050">IBF_stuetz.hpp:50</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_ae5d0584e02f37547648ba0e359d2b130"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#ae5d0584e02f37547648ba0e359d2b130">Ist_Inter</a></div><div class="ttdeci">struct Def_Ist_Inter Ist_Inter</div></div>
+<div class="ttc" id="_i_b_f__stuetz_8hpp_html_aa42524f288d9e75e2700caa2764f276b"><div class="ttname"><a href="../../da/df4/_i_b_f__stuetz_8hpp.html#aa42524f288d9e75e2700caa2764f276b">konst_cr_axial</a></div><div class="ttdeci">void konst_cr_axial(struct Def_Ist_Inter Ist_Inter, struct Def_IBF_Allgemein_IST Ist_IBF, struct Def_IBF_Allgemein_SOLL *Soll_IBF)</div><div class="ttdoc">Berechnet die angestrebte axiale Wanddicke. </div><div class="ttdef"><b>Definition:</b> <a href="../../db/d1d/ibf__stuetz_8cpp_source.html#l00259">ibf_stuetz.cpp:259</a></div></div>
+<div class="ttc" id="_i_b_f__stuetz_8hpp_html_a87200aa5e39219edb01d6dc524feb5b6"><div class="ttname"><a href="../../da/df4/_i_b_f__stuetz_8hpp.html#a87200aa5e39219edb01d6dc524feb5b6">konst_cr_radial</a></div><div class="ttdeci">void konst_cr_radial(struct Def_Ist_Inter Ist_Inter, struct Def_IBF_Allgemein_IST Ist_IBF, struct Def_IBF_Allgemein_SOLL *Soll_IBF)</div><div class="ttdoc">Diese Methode berechnet nur etwas, wenn das Array mit den Stuetzstellen bereits komplett gefuellt ist...</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d1d/ibf__stuetz_8cpp_source.html#l00200">ibf_stuetz.cpp:200</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a3e9d02136c043402b0d9a83196c8665c"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a3e9d02136c043402b0d9a83196c8665c">stuetzstellen_var::kontrollmerker</a></div><div class="ttdeci">float kontrollmerker</div><div class="ttdoc">Merker zur Korrektur der Nachkommastelle. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00073">IBF_stuetz.hpp:73</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a1dc0ce7639d117300391112b6f3ab6f1"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a1dc0ce7639d117300391112b6f3ab6f1">Soll_IBF</a></div><div class="ttdeci">struct Def_IBF_Allgemein_SOLL Soll_IBF</div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a511dc3a8616031a9be327a750858206f"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a511dc3a8616031a9be327a750858206f">Ist_IBF</a></div><div class="ttdeci">struct Def_IBF_Allgemein_IST Ist_IBF</div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a550f6fd2bf3d8a5182336abd1bda3467"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a550f6fd2bf3d8a5182336abd1bda3467">stuetzstellen_var::cr</a></div><div class="ttdeci">float cr</div><div class="ttdoc">Walzspaltzverhältnis Radial. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00076">IBF_stuetz.hpp:76</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a062e328feceb43562e65c508004a41b8"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a062e328feceb43562e65c508004a41b8">stuetzstellen_var::skip_faktor</a></div><div class="ttdeci">int skip_faktor</div><div class="ttdoc">Wird verwendet um hohe Werte von maxstellen bei kleinen Ringen umsetzen zu können. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00070">IBF_stuetz.hpp:70</a></div></div>
+<div class="ttc" id="structstuetzstellen__var_html_a57366a01216f218b0e1cf2198e831344"><div class="ttname"><a href="../../d2/d01/structstuetzstellen__var.html#a57366a01216f218b0e1cf2198e831344">stuetzstellen_var::ca</a></div><div class="ttdeci">float ca</div><div class="ttdoc">Walzspaltverhältnis Axial. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/df4/_i_b_f__stuetz_8hpp_source.html#l00079">IBF_stuetz.hpp:79</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_a2abdbaa7473ee34f6db7f792595f5c8.html">inc</a></li><li class="navelem"><a class="el" href="../../da/df4/_i_b_f__stuetz_8hpp.html">IBF_stuetz.hpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:12 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

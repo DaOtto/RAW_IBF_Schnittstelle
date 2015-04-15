@@ -1,0 +1,130 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: numeric,v $
+ * Revision 1.2  2000/02/08 06:21:05  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:03  aki
+ * Initial revision
+ *
+ */ 
+
+// numeric standard header
+#ifndef _NUMERIC_
+#define _NUMERIC_
+
+
+#include <iterator>
+_STD_BEGIN
+		// TEMPLATE FUNCTION accumulate
+template<class _II, class _Ty> inline
+	_Ty accumulate(_II _F, _II __L, _Ty _V)
+	{for (; _F != __L; ++_F)
+		_V = _V + *_F;
+	return (_V); }
+		// TEMPLATE FUNCTION accumulate WITH BINOP
+template<class _II, class _Ty, class _Bop> inline
+	_Ty accumulate(_II _F, _II __L, _Ty _V, _Bop __B)
+	{for (; _F != __L; ++_F)
+		_V = __B(_V, *_F);
+	return (_V); }
+		// TEMPLATE FUNCTION inner_product
+template<class _II1, class _II2, class _Ty> inline
+	_Ty inner_product(_II1 _F, _II1 __L, _II2 __X, _Ty _V)
+	{for (; _F != __L; ++_F, ++__X)
+		_V = _V + *_F * *__X;
+	return (_V); }
+		// TEMPLATE FUNCTION inner_product WITH BINOPS
+template<class _II1, class _II2, class _Ty,
+	class _Bop1, class _Bop2> inline
+	_Ty inner_product(_II1 _F, _II1 __L, _II2 __X, _Ty _V,
+		_Bop1 _B1, _Bop2 _B2)
+	{for (; _F != __L; ++_F, ++__X)
+		_V = _B1(_V, _B2(*_F, *__X));
+	return (_V); }
+		// TEMPLATE FUNCTION partial_sum
+template<class _II, class _OI> inline
+	_OI partial_sum(_II _F, _II __L, _OI __X)
+	{return (_F == __L ? __X
+		: _Partial_sum(_F, __L, __X, _Val_type(_F))); }
+template<class _II, class _OI, class _Ty> inline
+	_OI _Partial_sum(_II _F, _II __L, _OI __X, _Ty *)
+	{_Ty _V = *_F;
+	for (*__X = _V; ++_F != __L; *++__X = _V)
+		_V = _V + *_F;
+	return (++__X); }
+		// TEMPLATE FUNCTION partial_sum WITH BINOP
+template<class _II, class _OI, class _Bop> inline
+	_OI partial_sum(_II _F, _II __L, _OI __X, _Bop __B)
+	{return (_F == __L ? __X
+		: _Partial_sum(_F, __L, __X, __B, _Val_type(_F))); }
+template<class _II, class _OI, class _Bop, class _Ty> inline
+	_OI _Partial_sum(_II _F, _II __L, _OI __X, _Bop __B, _Ty *)
+	{_Ty _V = *_F;
+	for (*__X = _V; ++_F != __L; *++__X = _V)
+		_V = __B(_V, *_F);
+	return (++__X); }
+		// TEMPLATE FUNCTION adjacent_difference
+template<class _II, class _OI> inline
+	_OI adjacent_difference(_II _F, _II __L, _OI __X)
+	{return (_F == __L ? __X
+		: _Adjacent_difference(_F, __L, __X, _Val_type(_F))); }
+template<class _II, class _OI, class _Ty> inline
+	_OI _Adjacent_difference(_II _F, _II __L, _OI __X, _Ty *)
+	{_Ty _V = *_F;
+	for (*__X = _V; ++_F != __L; )
+		{_Ty _Tmp = *_F;
+		*++__X = _Tmp - _V;
+		_V = _Tmp; }
+	return (++__X); }
+		// TEMPLATE FUNCTION adjacent_difference WITH BINOP
+template<class _II, class _OI, class _Bop> inline
+	_OI adjacent_difference(_II _F, _II __L, _OI __X, _Bop __B)
+	{return (_F == __L ? __X
+		: _Adjacent_difference(_F, __L, __X, __B, _Val_type(_F))); }
+template<class _II, class _OI, class _Bop, class _Ty> inline
+	_OI _Adjacent_difference(_II _F, _II __L, _OI __X,
+		_Bop __B, _Ty *)
+	{_Ty _V = *_F;
+	for (*__X = _V; ++_F != __L; )
+		{_Ty _Tmp = *_F;
+		*++__X = __B(_Tmp, _V);
+		_V = _Tmp; }
+	return (++__X); }
+_STD_END
+
+
+#endif /* _NUMERIC_ */
+
+/*
+ * Copyright (c) 1995 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+ */
+
+/*
+ * This file is derived from software bearing the following
+ * restrictions:
+ *
+ * Copyright (c) 1994
+ * Hewlett-Packard Company
+ *
+ * Permission to use, copy, modify, distribute and sell this
+ * software and its documentation for any purpose is hereby
+ * granted without fee, provided that the above copyright notice
+ * appear in all copies and that both that copyright notice and
+ * this permission notice appear in supporting documentation.
+ * Hewlett-Packard Company makes no representations about the
+ * suitability of this software for any purpose. It is provided
+ * "as is" without express or implied warranty.
+V2.2:0414 */

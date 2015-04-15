@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: rwth_task.cpp Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d0/da3/rwth__task_8cpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">rwth_task.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/da3/rwth__task_8cpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*--FILE HEADER----------------------------------------------------------------</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">;   filename        : RWTH_TASK.CPP</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">;   version         : V1.0</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">;   contents        : Task mangement for technology </span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">;   author          : K. Brauckmann, SMS Eumuco GmbH</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">;   date            : May, 2006</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">;   function    : Main-Task RWTH</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">;---END OF FILE HEADER---------------------------------------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">;---MODIFICATION HEADER--------------------------------------------------------</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">;   May , 10. 2006  0001  K.B.  original issue</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">;---END OF MODIFICATION HEADER-----------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*  includes                                                                */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* includes from outside the project */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/d49/rmos__inc_8h.html">rmos_inc.h</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="../../d0/da3/rwth__task_8cpp.html#a3cd737c041607eff58c0dc5d40708b93">   27</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> far <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a3cd737c041607eff58c0dc5d40708b93">strgFlag</a>[] = <span class="stringliteral">&quot;RWTH_FLAG&quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d0/da3/rwth__task_8cpp.html#acf81869177764a2bb3ea68f495970254">   28</a></span>&#160;<span class="keyword">const</span> <span class="keywordtype">char</span> far <a class="code" href="../../d0/da3/rwth__task_8cpp.html#acf81869177764a2bb3ea68f495970254">strgRWTH_Task</a>[] = <span class="stringliteral">&quot;RWTH_TASK&quot;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d0/da3/rwth__task_8cpp.html#a2372682da2ddf608e91b101fcb8338c8">   30</a></span>&#160;<span class="preprocessor">#define  MainModul  </span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html">rwth_task.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d8/d11/test__ibf_8hpp.html">test_ibf.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifndef RWTH_Version</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"> #error Keine Versionsinformation in RWTH_TASK.HPP!</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> _FAR <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a3a74059a398a4168e468448e0f00248e">RWTH_Task</a>(<span class="keywordtype">void</span>); </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d0/da3/rwth__task_8cpp.html#a91ad5beef1ce57a2fbba970ae6ad7d45">   40</a></span>&#160;<span class="keywordtype">void</span> _FAR <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a91ad5beef1ce57a2fbba970ae6ad7d45">main</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> Status;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    uint                CurrentFlag;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    uint                RWTH_tid;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;20; i++)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a308bb8f6d9026498d5edc4a8a13215dd">TestCounter</a>[i] = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a>.open(<span class="stringliteral">&quot;R:\\RWTH_LOG.TXT&quot;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a> &lt;&lt; <span class="stringliteral">&quot;RWTH-Task - Version: &quot;</span> &lt;&lt; <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a5f8171e5c53247d1c0ed1c29a4bd4db9">RWTH_Version</a> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;INIT RWTH_TASK&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a> &lt;&lt; <span class="stringliteral">&quot;INIT RWTH_TASK&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    Status  = RmCreateFlagGrp(<a class="code" href="../../d0/da3/rwth__task_8cpp.html#a3cd737c041607eff58c0dc5d40708b93">strgFlag</a>, &amp;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a> (1001, <span class="stringliteral">&quot;RmCreateFlagGrp RWTH&quot;</span>, Status);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Status=RmCreateTask(<a class="code" href="../../d0/da3/rwth__task_8cpp.html#acf81869177764a2bb3ea68f495970254">strgRWTH_Task</a>,<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a>,<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#ae363ecb1dc29ca349b962c0451a93d68">PRIO_RWTH</a>,(rmfarproc)<a class="code" href="../../d0/da3/rwth__task_8cpp.html#a3a74059a398a4168e468448e0f00248e">RWTH_Task</a>,&amp;RWTH_tid);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a>(1010,<span class="stringliteral">&quot;RmCreateTask RWTH&quot;</span>,Status);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;RWTH_Task hat die Task-ID: &quot;</span> &lt;&lt; hex &lt;&lt;  RWTH_tid &lt;&lt; endl;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a> &lt;&lt; <span class="stringliteral">&quot;RWTH_Task hat die Task-ID: &quot;</span> &lt;&lt; hex &lt;&lt;  RWTH_tid &lt;&lt; endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#af1e57dbe66f18e3373ba7de203af124e">Logger</a>    = <span class="keyword">new</span> <a class="code" href="../../db/d26/class_l_o_g_g_e_r___r_w_t_h.html">LOGGER_RWTH</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a> = <span class="keyword">new</span> <a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html">RWTH_EXCH</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a4679920724c56053a47fc7af0f7c5504">rpw</a>       = <span class="keyword">new</span> <a class="code" href="../../de/d98/class_r_p_w.html">RPW</a>;    <span class="comment">//Initialisierung der Klasse RPW (Aufruf Konstruktor)</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="../../d8/d11/test__ibf_8hpp.html#af2906042e407a3b28052930c88768d42">tmode</a>[i] = <span class="keyword">new</span> <a class="code" href="../../dd/dd9/class_t_e_s_t___i_b_f.html">TEST_IBF</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a5f571b0d2c7da6952dd06e7946fd1645">running_flag</a>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#af1e57dbe66f18e3373ba7de203af124e">Logger</a>-&gt;<a class="code" href="../../db/d26/class_l_o_g_g_e_r___r_w_t_h.html#a1eda19fc9818d594e58d18547336973d">Kanalliste</a>();             <span class="comment">//Variablenadressen in Loggertabelle eintragen</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      Status=RmStartTask(RM_WAIT_READY,RWTH_tid,<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#ae363ecb1dc29ca349b962c0451a93d68">PRIO_RWTH</a>,0,0);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a>(1020,<span class="stringliteral">&quot;RmStartTask RWTH&quot;</span>,Status);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      cout &lt;&lt; <span class="stringliteral">&quot;RWTH_Task ist gestartet.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a> &lt;&lt; <span class="stringliteral">&quot;RWTH_Task ist gestartet.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      cout &lt;&lt; <span class="stringliteral">&quot;INIT RWTH_TASK waits on Flaggroup &quot;</span> &lt;&lt; hex &lt;&lt; <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a> &lt;&lt; <span class="stringliteral">&quot;INIT RWTH_TASK waits on Flaggroup &quot;</span> &lt;&lt; hex &lt;&lt; <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a>.close();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      Status    = RmGetFlag(RM_WAIT, RM_TEST_ONE, <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a>, <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a5a66bc50448dc75d4db9f5e59432ca5f">FLAG1</a>, &amp;CurrentFlag);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a>   (1002, <span class="stringliteral">&quot;RmGetFlag RWTH&quot;</span>, Status);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a>.close();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    RmDeleteTask(RWTH_tid);     </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">delete</span> <a class="code" href="../../d8/d11/test__ibf_8hpp.html#af2906042e407a3b28052930c88768d42">tmode</a>[i];</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#af1e57dbe66f18e3373ba7de203af124e">Logger</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">delete</span> <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a4679920724c56053a47fc7af0f7c5504">rpw</a>;      <span class="comment">// Freigabe des Speichers (Destruktor)</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;RWTH TASK has been deleted!&quot;</span> &lt;&lt; endl &lt;&lt; endl;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    Status  = RmDeleteFlagGrp(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a> (1004, <span class="stringliteral">&quot;RmDeleteFlagGrp RWTH&quot;</span>, Status);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    exit(0);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//  function:    RWTH Task                                       </span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d0/da3/rwth__task_8cpp.html#a3a74059a398a4168e468448e0f00248e">  119</a></span>&#160;<span class="keywordtype">void</span> _FAR <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a3a74059a398a4168e468448e0f00248e">RWTH_Task</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">//Laufzeittest auf high word von TeDa[0][0]</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">//wird von 10ms Task abgefragt</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    *(((<span class="keywordtype">short</span> *) &amp;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">TeDat</a>.<a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDa</a>[0][0])+1) = 1;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a4168e277407573eb81a766c5654c4284">get_puff</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#ad42efa2675ce161d624cd263a941eab4">Main_Control</a>();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#ad0d91b4b35a4aabe125b5bc61fdad52d">put_puff</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i= 0; i &lt; 4; i++)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;       <a class="code" href="../../d8/d11/test__ibf_8hpp.html#af2906042e407a3b28052930c88768d42">tmode</a>[i]-&gt;WRITE_VALUES(&amp;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">TeDat</a>.<a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDa</a>[i][0],</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                              &amp;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">TeDat</a>.<a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">Teststring</a>[i][0],</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                              <span class="keyword">sizeof</span>(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">TeDat</a>.<a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">Teststring</a>[0]));</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    *(((<span class="keywordtype">short</span> *) &amp;<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">TeDat</a>.<a class="code" href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDa</a>[0][0])+1) = 0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a5f571b0d2c7da6952dd06e7946fd1645">running_flag</a> &amp;&amp; !<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a>-&gt;<a class="code" href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a55154c2f6d2da45eed71cccf7c694c41">finish_flag</a>)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        RmRestartTask(RM_LAST_READY_TIME, RM_MILLISECOND(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a5cf6a9d01e7a594e8c2cab58a826b64e">RWTH_Abtastzeit</a>));</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        RmSetFlag(<a class="code" href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a>, <a class="code" href="../../d0/d8f/rwth__task_8hpp.html#a5a66bc50448dc75d4db9f5e59432ca5f">FLAG1</a>);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        RmEndTask();</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;} </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">//  function:    error output</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/****************************************************************************/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d7/d5a/rwth__exch_8hpp.html#a061bf3da67d2717334cbe551fb52d69e">  150</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index, <span class="keywordtype">char</span> *svc_txt, <span class="keywordtype">int</span> status)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">char</span> buf[RM_MAXDECODELEN];</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">if</span> (status &gt;0)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        printf  (<span class="stringliteral">&quot;\nERROR: %s  INDEX: %i  CODE: %i&quot;</span>, svc_txt, index, status);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">if</span> (RmDecode(RM_SVCERROR, status, buf) == RM_OK)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            printf  (<span class="stringliteral">&quot; = %s\n&quot;</span>, buf);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            printf  (<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;}</div>
+<div class="ttc" id="struct_te_dat4__type_html_a362e230ea2d959589a54405f401af923"><div class="ttname"><a href="../../d6/d9b/struct_te_dat4__type.html#a362e230ea2d959589a54405f401af923">TeDat4_type::TeDa</a></div><div class="ttdeci">long TeDa[4][10]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00067">raw_t_pool.hpp:67</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html">rwth_task.hpp</a></div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_a5f571b0d2c7da6952dd06e7946fd1645"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a5f571b0d2c7da6952dd06e7946fd1645">RWTH_EXCH::running_flag</a></div><div class="ttdeci">int running_flag</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5a/rwth__exch_8hpp_source.html#l00036">rwth_exch.hpp:36</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a8a3fd8a6d1c0c4dc0d93a81f43bc9525"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a8a3fd8a6d1c0c4dc0d93a81f43bc9525">MyLogFile</a></div><div class="ttdeci">ofstream MyLogFile</div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_a4168e277407573eb81a766c5654c4284"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a4168e277407573eb81a766c5654c4284">RWTH_EXCH::get_puff</a></div><div class="ttdeci">int get_puff(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d8f/rwth__exch_8cpp_source.html#l00420">rwth_exch.cpp:420</a></div></div>
+<div class="ttc" id="rwth__task_8cpp_html_a061bf3da67d2717334cbe551fb52d69e"><div class="ttname"><a href="../../d0/da3/rwth__task_8cpp.html#a061bf3da67d2717334cbe551fb52d69e">svc_sts</a></div><div class="ttdeci">void svc_sts(unsigned int index, char *svc_txt, int status)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da3/rwth__task_8cpp_source.html#l00150">rwth_task.cpp:150</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_abc858ac49f0e5876dfce59536878d165"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#abc858ac49f0e5876dfce59536878d165">FlagId</a></div><div class="ttdeci">uint FlagId</div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_a6cdd05516b32669e8b53fd0ead7e44bd"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a6cdd05516b32669e8b53fd0ead7e44bd">RWTH_EXCH::TeDat</a></div><div class="ttdeci">TeDat4_type TeDat</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5a/rwth__exch_8hpp_source.html#l00039">rwth_exch.hpp:39</a></div></div>
+<div class="ttc" id="test__ibf_8hpp_html_af2906042e407a3b28052930c88768d42"><div class="ttname"><a href="../../d8/d11/test__ibf_8hpp.html#af2906042e407a3b28052930c88768d42">tmode</a></div><div class="ttdeci">TEST_IBF * tmode[4]</div></div>
+<div class="ttc" id="rwth__task_8cpp_html_a91ad5beef1ce57a2fbba970ae6ad7d45"><div class="ttname"><a href="../../d0/da3/rwth__task_8cpp.html#a91ad5beef1ce57a2fbba970ae6ad7d45">main</a></div><div class="ttdeci">void _FAR main(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da3/rwth__task_8cpp_source.html#l00040">rwth_task.cpp:40</a></div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_ad0d91b4b35a4aabe125b5bc61fdad52d"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#ad0d91b4b35a4aabe125b5bc61fdad52d">RWTH_EXCH::put_puff</a></div><div class="ttdeci">int put_puff(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d8f/rwth__exch_8cpp_source.html#l00394">rwth_exch.cpp:394</a></div></div>
+<div class="ttc" id="class_t_e_s_t___i_b_f_html"><div class="ttname"><a href="../../dd/dd9/class_t_e_s_t___i_b_f.html">TEST_IBF</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d11/test__ibf_8hpp_source.html#l00024">test_ibf.hpp:24</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a308bb8f6d9026498d5edc4a8a13215dd"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a308bb8f6d9026498d5edc4a8a13215dd">TestCounter</a></div><div class="ttdeci">ulong TestCounter[20]</div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_ad42efa2675ce161d624cd263a941eab4"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#ad42efa2675ce161d624cd263a941eab4">RWTH_EXCH::Main_Control</a></div><div class="ttdeci">int Main_Control(void)</div><div class="ttdoc">Diese Methode kann in zwei Teile gegliedert werden. </div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d8f/rwth__exch_8cpp_source.html#l00461">rwth_exch.cpp:461</a></div></div>
+<div class="ttc" id="test__ibf_8hpp_html"><div class="ttname"><a href="../../d8/d11/test__ibf_8hpp.html">test_ibf.hpp</a></div></div>
+<div class="ttc" id="struct_te_dat4__type_html_a12bb393918cb56516456af9ab29c21dc"><div class="ttname"><a href="../../d6/d9b/struct_te_dat4__type.html#a12bb393918cb56516456af9ab29c21dc">TeDat4_type::Teststring</a></div><div class="ttdeci">char Teststring[4][80]</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d53/raw__t__pool_8hpp_source.html#l00066">raw_t_pool.hpp:66</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_ae363ecb1dc29ca349b962c0451a93d68"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#ae363ecb1dc29ca349b962c0451a93d68">PRIO_RWTH</a></div><div class="ttdeci">#define PRIO_RWTH</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d8f/rwth__task_8hpp_source.html#l00028">rwth_task.hpp:28</a></div></div>
+<div class="ttc" id="rwth__task_8cpp_html_a3cd737c041607eff58c0dc5d40708b93"><div class="ttname"><a href="../../d0/da3/rwth__task_8cpp.html#a3cd737c041607eff58c0dc5d40708b93">strgFlag</a></div><div class="ttdeci">const char far strgFlag[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da3/rwth__task_8cpp_source.html#l00027">rwth_task.cpp:27</a></div></div>
+<div class="ttc" id="class_l_o_g_g_e_r___r_w_t_h_html_a1eda19fc9818d594e58d18547336973d"><div class="ttname"><a href="../../db/d26/class_l_o_g_g_e_r___r_w_t_h.html#a1eda19fc9818d594e58d18547336973d">LOGGER_RWTH::Kanalliste</a></div><div class="ttdeci">int Kanalliste(void)</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/dd9/rwth__logger_8cpp_source.html#l00055">rwth_logger.cpp:55</a></div></div>
+<div class="ttc" id="rwth__task_8cpp_html_acf81869177764a2bb3ea68f495970254"><div class="ttname"><a href="../../d0/da3/rwth__task_8cpp.html#acf81869177764a2bb3ea68f495970254">strgRWTH_Task</a></div><div class="ttdeci">const char far strgRWTH_Task[]</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da3/rwth__task_8cpp_source.html#l00028">rwth_task.cpp:28</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_af1e57dbe66f18e3373ba7de203af124e"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#af1e57dbe66f18e3373ba7de203af124e">Logger</a></div><div class="ttdeci">LOGGER_RWTH * Logger</div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a6423a880df59733d2d9b509c7718d3a9"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a6423a880df59733d2d9b509c7718d3a9">STACK_SIZE</a></div><div class="ttdeci">#define STACK_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d8f/rwth__task_8hpp_source.html#l00027">rwth_task.hpp:27</a></div></div>
+<div class="ttc" id="class_l_o_g_g_e_r___r_w_t_h_html"><div class="ttname"><a href="../../db/d26/class_l_o_g_g_e_r___r_w_t_h.html">LOGGER_RWTH</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d8d/rwth__logger_8hpp_source.html#l00029">rwth_logger.hpp:29</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a796f08b3d8145a9c660ad9a72356ccd9"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a796f08b3d8145a9c660ad9a72356ccd9">rwth_exch</a></div><div class="ttdeci">RWTH_EXCH * rwth_exch</div></div>
+<div class="ttc" id="rwth__task_8cpp_html_a3a74059a398a4168e468448e0f00248e"><div class="ttname"><a href="../../d0/da3/rwth__task_8cpp.html#a3a74059a398a4168e468448e0f00248e">RWTH_Task</a></div><div class="ttdeci">void _FAR RWTH_Task(void)</div><div class="ttdoc">Das Programm, welches von der Maschine abgespielt wird und nach welcher sie sich verhält. </div><div class="ttdef"><b>Definition:</b> <a href="../../d0/da3/rwth__task_8cpp_source.html#l00119">rwth_task.cpp:119</a></div></div>
+<div class="ttc" id="class_r_p_w_html"><div class="ttname"><a href="../../de/d98/class_r_p_w.html">RPW</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d3b/rpw_8hpp_source.html#l00348">rpw.hpp:348</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a5a66bc50448dc75d4db9f5e59432ca5f"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a5a66bc50448dc75d4db9f5e59432ca5f">FLAG1</a></div><div class="ttdeci">#define FLAG1</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d8f/rwth__task_8hpp_source.html#l00026">rwth_task.hpp:26</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a4679920724c56053a47fc7af0f7c5504"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a4679920724c56053a47fc7af0f7c5504">rpw</a></div><div class="ttdeci">RPW * rpw</div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html">RWTH_EXCH</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5a/rwth__exch_8hpp_source.html#l00028">rwth_exch.hpp:28</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a5f8171e5c53247d1c0ed1c29a4bd4db9"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a5f8171e5c53247d1c0ed1c29a4bd4db9">RWTH_Version</a></div><div class="ttdeci">#define RWTH_Version</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d8f/rwth__task_8hpp_source.html#l00023">rwth_task.hpp:23</a></div></div>
+<div class="ttc" id="class_r_w_t_h___e_x_c_h_html_a55154c2f6d2da45eed71cccf7c694c41"><div class="ttname"><a href="../../d6/d87/class_r_w_t_h___e_x_c_h.html#a55154c2f6d2da45eed71cccf7c694c41">RWTH_EXCH::finish_flag</a></div><div class="ttdeci">int finish_flag</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/d5a/rwth__exch_8hpp_source.html#l00037">rwth_exch.hpp:37</a></div></div>
+<div class="ttc" id="rmos__inc_8h_html"><div class="ttname"><a href="../../d6/d49/rmos__inc_8h.html">rmos_inc.h</a></div></div>
+<div class="ttc" id="rwth__task_8hpp_html_a5cf6a9d01e7a594e8c2cab58a826b64e"><div class="ttname"><a href="../../d0/d8f/rwth__task_8hpp.html#a5cf6a9d01e7a594e8c2cab58a826b64e">RWTH_Abtastzeit</a></div><div class="ttdeci">#define RWTH_Abtastzeit</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/d8f/rwth__task_8hpp_source.html#l00025">rwth_task.hpp:25</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_f9277b23b0ca65ee783fd3eabe970823.html">source</a></li><li class="navelem"><a class="el" href="../../d0/da3/rwth__task_8cpp.html">rwth_task.cpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:13 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

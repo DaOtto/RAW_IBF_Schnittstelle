@@ -1,0 +1,2079 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: CIniFile Klassenreferenz</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Auflistung&#160;der&#160;Klassen</span></a></li>
+      <li><a href="../../classes.html"><span>Klassen-Verzeichnis</span></a></li>
+      <li><a href="../../hierarchy.html"><span>Klassenhierarchie</span></a></li>
+      <li><a href="../../functions.html"><span>Klassen-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d4/d65/class_c_ini_file.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Klassen</a> &#124;
+<a href="#pub-types">Öffentliche Typen</a> &#124;
+<a href="#pub-methods">Öffentliche Methoden</a> &#124;
+<a href="#pri-methods">Private Methoden</a> &#124;
+<a href="#pri-attribs">Private Attribute</a> &#124;
+<a href="../../d1/d74/class_c_ini_file-members.html">Aufstellung aller Elemente</a>  </div>
+  <div class="headertitle">
+<div class="title">CIniFile Klassenreferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &quot;<a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>&quot;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Klassen</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/ddf/struct_c_ini_file_1_1key.html">key</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Öffentliche Typen</h2></td></tr>
+<tr class="memitem:a060bd68e7eaf80afe856dc2332c914c7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a060bd68e7eaf80afe856dc2332c914c7">errors</a> { <a class="el" href="../../d4/d65/class_c_ini_file.html#a060bd68e7eaf80afe856dc2332c914c7ab92b9bd30d4710fecce7fe23309058c9">noID</a> = -1
+ }</td></tr>
+<tr class="separator:a060bd68e7eaf80afe856dc2332c914c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Öffentliche Methoden</h2></td></tr>
+<tr class="memitem:a29bf2bd012029b1ed5c75c97e8385462"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a29bf2bd012029b1ed5c75c97e8385462">CIniFile</a> (string const iniPath=&quot;&quot;)</td></tr>
+<tr class="separator:a29bf2bd012029b1ed5c75c97e8385462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d6522dbbb07af37ecdc83ec6998f1d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#af0d6522dbbb07af37ecdc83ec6998f1d">~CIniFile</a> ()</td></tr>
+<tr class="separator:af0d6522dbbb07af37ecdc83ec6998f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2c50af68facafc7d3210a82b43324f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#abb2c50af68facafc7d3210a82b43324f">CaseSensitive</a> ()</td></tr>
+<tr class="separator:abb2c50af68facafc7d3210a82b43324f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728795ad80cc649ff4ad3ded40deb115"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a728795ad80cc649ff4ad3ded40deb115">CaseInsensitive</a> ()</td></tr>
+<tr class="separator:a728795ad80cc649ff4ad3ded40deb115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d9f46ccfad93bfbd230b9d1d30c0aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a55d9f46ccfad93bfbd230b9d1d30c0aa">Path</a> (string const newPath)</td></tr>
+<tr class="separator:a55d9f46ccfad93bfbd230b9d1d30c0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5174e2dcd4f97f04ea7c1ac4421b2d4"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#aa5174e2dcd4f97f04ea7c1ac4421b2d4">Path</a> () const </td></tr>
+<tr class="separator:aa5174e2dcd4f97f04ea7c1ac4421b2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72ce386550ce03c3784bb48faee19b6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a72ce386550ce03c3784bb48faee19b6c">SetPath</a> (string const newPath)</td></tr>
+<tr class="separator:a72ce386550ce03c3784bb48faee19b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5eaa1f46449dd430a35320f5c5bc560"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ab5eaa1f46449dd430a35320f5c5bc560">ReadFile</a> ()</td></tr>
+<tr class="separator:ab5eaa1f46449dd430a35320f5c5bc560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace104b8fc33d6a0f2e2cc75fc9240dab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ace104b8fc33d6a0f2e2cc75fc9240dab">WriteFile</a> ()</td></tr>
+<tr class="separator:ace104b8fc33d6a0f2e2cc75fc9240dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a709af311d79ca4c1ee95baffdb1c0bd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a709af311d79ca4c1ee95baffdb1c0bd5">Erase</a> ()</td></tr>
+<tr class="separator:a709af311d79ca4c1ee95baffdb1c0bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74631718258a1c9dd836995c346be159"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a74631718258a1c9dd836995c346be159">Clear</a> ()</td></tr>
+<tr class="separator:a74631718258a1c9dd836995c346be159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2186a50f94c832d0f2dd4dbdeed58ddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a2186a50f94c832d0f2dd4dbdeed58ddc">Reset</a> ()</td></tr>
+<tr class="separator:a2186a50f94c832d0f2dd4dbdeed58ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e06052214ee34787d8bc110871315f2"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a3e06052214ee34787d8bc110871315f2">FindKey</a> (string const keyname) const </td></tr>
+<tr class="separator:a3e06052214ee34787d8bc110871315f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac14ffdbd6526e237b5ffafdec1632795"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ac14ffdbd6526e237b5ffafdec1632795">FindValue</a> (unsigned const keyID, string const valuename) const </td></tr>
+<tr class="separator:ac14ffdbd6526e237b5ffafdec1632795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59547a3ec09d5cbbbfb4b2b4f61fec0c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a59547a3ec09d5cbbbfb4b2b4f61fec0c">NumKeys</a> () const </td></tr>
+<tr class="separator:a59547a3ec09d5cbbbfb4b2b4f61fec0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d506fecfdb226201ac45b3d1184963"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ac7d506fecfdb226201ac45b3d1184963">GetNumKeys</a> () const </td></tr>
+<tr class="separator:ac7d506fecfdb226201ac45b3d1184963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad82d40e4eafbd3052c51da64e407defe"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ad82d40e4eafbd3052c51da64e407defe">AddKeyName</a> (string const keyname)</td></tr>
+<tr class="separator:ad82d40e4eafbd3052c51da64e407defe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad48a4405bab000be4ac3eaf985376d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a0ad48a4405bab000be4ac3eaf985376d">KeyName</a> (unsigned const keyID) const </td></tr>
+<tr class="separator:a0ad48a4405bab000be4ac3eaf985376d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c0a17cb462e38e0d3d1429013c0d3a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#aa1c0a17cb462e38e0d3d1429013c0d3a">GetKeyName</a> (unsigned const keyID) const </td></tr>
+<tr class="separator:aa1c0a17cb462e38e0d3d1429013c0d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cc9e3c2b54cfcef258a152fc86eddf"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a45cc9e3c2b54cfcef258a152fc86eddf">NumValues</a> (unsigned const keyID)</td></tr>
+<tr class="separator:a45cc9e3c2b54cfcef258a152fc86eddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab102a1b21a4011b1944ced49721c72"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a2ab102a1b21a4011b1944ced49721c72">GetNumValues</a> (unsigned const keyID)</td></tr>
+<tr class="separator:a2ab102a1b21a4011b1944ced49721c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae147417911e52667e000cda0a6c6b09d"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ae147417911e52667e000cda0a6c6b09d">NumValues</a> (string const keyname)</td></tr>
+<tr class="separator:ae147417911e52667e000cda0a6c6b09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5bd6542d2b9b60a2d6f143078ef56b1"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ae5bd6542d2b9b60a2d6f143078ef56b1">GetNumValues</a> (string const keyname)</td></tr>
+<tr class="separator:ae5bd6542d2b9b60a2d6f143078ef56b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a051d80e2c0651d2bb3003bd3e18164ea"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a051d80e2c0651d2bb3003bd3e18164ea">ValueName</a> (unsigned const keyID, unsigned const valueID) const </td></tr>
+<tr class="separator:a051d80e2c0651d2bb3003bd3e18164ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cb7ca1906d1fa127a0de4cb9398ca6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a27cb7ca1906d1fa127a0de4cb9398ca6">GetValueName</a> (unsigned const keyID, unsigned const valueID) const </td></tr>
+<tr class="separator:a27cb7ca1906d1fa127a0de4cb9398ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e449914f1f526701eb23d2497eff81"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ae0e449914f1f526701eb23d2497eff81">ValueName</a> (string const keyname, unsigned const valueID) const </td></tr>
+<tr class="separator:ae0e449914f1f526701eb23d2497eff81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a093356087826d951561daa0f571239c6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a093356087826d951561daa0f571239c6">GetValueName</a> (string const keyname, unsigned const valueID) const </td></tr>
+<tr class="separator:a093356087826d951561daa0f571239c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8fdf80cb0de0ad71930a1bf6f76766f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#aa8fdf80cb0de0ad71930a1bf6f76766f">GetValue</a> (unsigned const keyID, unsigned const valueID, string const defValue=&quot;&quot;) const </td></tr>
+<tr class="separator:aa8fdf80cb0de0ad71930a1bf6f76766f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df3ef180d8a2531719e584873e8c3fc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a5df3ef180d8a2531719e584873e8c3fc">GetValue</a> (string const keyname, string const valuename, string const defValue=&quot;&quot;) const </td></tr>
+<tr class="separator:a5df3ef180d8a2531719e584873e8c3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc467c89b0023e5fb85371914d14700d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#adc467c89b0023e5fb85371914d14700d">GetValueI</a> (string const keyname, string const valuename, int const defValue=0) const </td></tr>
+<tr class="memdesc:adc467c89b0023e5fb85371914d14700d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liest einen speziellen Wert aus der <a class="el" href="../../d4/d65/class_c_ini_file.html">CIniFile</a> aus.  <a href="#adc467c89b0023e5fb85371914d14700d">Mehr ...</a><br /></td></tr>
+<tr class="separator:adc467c89b0023e5fb85371914d14700d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4e0abac307d255e028bf363eb4821d8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ab4e0abac307d255e028bf363eb4821d8">GetValueF</a> (string const keyname, string const valuename, double const defValue) const </td></tr>
+<tr class="separator:ab4e0abac307d255e028bf363eb4821d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d1b24fb8acd08f4bc223d4108b632c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a46d1b24fb8acd08f4bc223d4108b632c">GetValueV</a> (string const keyname, string const valuename, char *format, void *v1=0, void *v2=0, void *v3=0, void *v4=0, void *v5=0, void *v6=0, void *v7=0, void *v8=0, void *v9=0, void *v10=0, void *v11=0, void *v12=0, void *v13=0, void *v14=0, void *v15=0, void *v16=0)</td></tr>
+<tr class="separator:a46d1b24fb8acd08f4bc223d4108b632c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe726fea5cd457ac9225bdbba1d55384"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#abe726fea5cd457ac9225bdbba1d55384">SetValue</a> (unsigned const keyID, unsigned const valueID, string const value)</td></tr>
+<tr class="separator:abe726fea5cd457ac9225bdbba1d55384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e4c35de4c3325e88ba3524e38452b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a57e4c35de4c3325e88ba3524e38452b1">SetValue</a> (string const keyname, string const valuename, string const value, bool const create=true)</td></tr>
+<tr class="separator:a57e4c35de4c3325e88ba3524e38452b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04d11d67537a109e2b966917112e2033"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a04d11d67537a109e2b966917112e2033">SetValueI</a> (string const keyname, string const valuename, int const value, bool const create=true)</td></tr>
+<tr class="separator:a04d11d67537a109e2b966917112e2033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe078de4383880c411561f4c9a7b59d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#adfe078de4383880c411561f4c9a7b59d">SetValueB</a> (string const keyname, string const valuename, bool const value, bool const create=true)</td></tr>
+<tr class="separator:adfe078de4383880c411561f4c9a7b59d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3094b57e98ff209d213c197350ae63a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a3094b57e98ff209d213c197350ae63a2">SetValueF</a> (string const keyname, string const valuename, double const value, bool const create=true)</td></tr>
+<tr class="separator:a3094b57e98ff209d213c197350ae63a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c36bc4037e27feaf50a3bfee70c97ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a0c36bc4037e27feaf50a3bfee70c97ff">SetValueV</a> (string const keyname, string const valuename, char *format,...)</td></tr>
+<tr class="separator:a0c36bc4037e27feaf50a3bfee70c97ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20656de1e63decf243b742c1bf9d1211"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a20656de1e63decf243b742c1bf9d1211">DeleteValue</a> (string const keyname, string const valuename)</td></tr>
+<tr class="separator:a20656de1e63decf243b742c1bf9d1211"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bc7875b60a5823683e46eac72579e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a64bc7875b60a5823683e46eac72579e6">DeleteKey</a> (string keyname)</td></tr>
+<tr class="separator:a64bc7875b60a5823683e46eac72579e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02b280e29135f8fc81846b01c710b86"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#af02b280e29135f8fc81846b01c710b86">NumHeaderComments</a> ()</td></tr>
+<tr class="separator:af02b280e29135f8fc81846b01c710b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a956add93ea7bafb33cc4421de2da798c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a956add93ea7bafb33cc4421de2da798c">HeaderComment</a> (string const comment)</td></tr>
+<tr class="separator:a956add93ea7bafb33cc4421de2da798c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eacff670f9679d816055a784ab8e52a"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a0eacff670f9679d816055a784ab8e52a">HeaderComment</a> (unsigned const commentID) const </td></tr>
+<tr class="separator:a0eacff670f9679d816055a784ab8e52a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4651f260732e9f7f8b328ad060db1a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#aa4651f260732e9f7f8b328ad060db1a8">DeleteHeaderComment</a> (unsigned commentID)</td></tr>
+<tr class="separator:aa4651f260732e9f7f8b328ad060db1a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c33ed2d9bcbc442186767f6df6d2be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a24c33ed2d9bcbc442186767f6df6d2be">DeleteHeaderComments</a> ()</td></tr>
+<tr class="separator:a24c33ed2d9bcbc442186767f6df6d2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771c0c302c82d15ca67752ab2f760750"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a771c0c302c82d15ca67752ab2f760750">NumKeyComments</a> (unsigned const keyID) const </td></tr>
+<tr class="separator:a771c0c302c82d15ca67752ab2f760750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b8bec9cee38cb7ebbb5bb0219a8ccf8"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a3b8bec9cee38cb7ebbb5bb0219a8ccf8">NumKeyComments</a> (string const keyname) const </td></tr>
+<tr class="separator:a3b8bec9cee38cb7ebbb5bb0219a8ccf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a490485e03c6dc038a598557a50321a53"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a490485e03c6dc038a598557a50321a53">KeyComment</a> (unsigned const keyID, string const comment)</td></tr>
+<tr class="separator:a490485e03c6dc038a598557a50321a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf854a0d8d54a46bf9c677108539345f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#adf854a0d8d54a46bf9c677108539345f">KeyComment</a> (string const keyname, string const comment)</td></tr>
+<tr class="separator:adf854a0d8d54a46bf9c677108539345f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af232eef018ea9220fd3b0622e490da2c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#af232eef018ea9220fd3b0622e490da2c">KeyComment</a> (unsigned const keyID, unsigned const commentID) const </td></tr>
+<tr class="separator:af232eef018ea9220fd3b0622e490da2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9da6657185a84cd1acdc50343c652147"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a9da6657185a84cd1acdc50343c652147">KeyComment</a> (string const keyname, unsigned const commentID) const </td></tr>
+<tr class="separator:a9da6657185a84cd1acdc50343c652147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ac9b153fe4c8c2e09c51b4ac98149b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#ac7ac9b153fe4c8c2e09c51b4ac98149b">DeleteKeyComment</a> (unsigned const keyID, unsigned const commentID)</td></tr>
+<tr class="separator:ac7ac9b153fe4c8c2e09c51b4ac98149b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f7d89499ac9529e17b197b1be1cb43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#aa8f7d89499ac9529e17b197b1be1cb43">DeleteKeyComment</a> (string const keyname, unsigned const commentID)</td></tr>
+<tr class="separator:aa8f7d89499ac9529e17b197b1be1cb43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b536ad8340f3fde1f3d2f5498644a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a80b536ad8340f3fde1f3d2f5498644a6">DeleteKeyComments</a> (unsigned const keyID)</td></tr>
+<tr class="separator:a80b536ad8340f3fde1f3d2f5498644a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a683e56dbd0ef6116d55066abe2ad0455"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a683e56dbd0ef6116d55066abe2ad0455">DeleteKeyComments</a> (string const keyname)</td></tr>
+<tr class="separator:a683e56dbd0ef6116d55066abe2ad0455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Methoden</h2></td></tr>
+<tr class="memitem:a3ed29118f151d6dda329de30309b39c1"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a3ed29118f151d6dda329de30309b39c1">CheckCase</a> (string s) const </td></tr>
+<tr class="separator:a3ed29118f151d6dda329de30309b39c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attribute</h2></td></tr>
+<tr class="memitem:a8ce139c37b7b44fa1cdf5b44fe896e7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a8ce139c37b7b44fa1cdf5b44fe896e7a">caseInsensitive</a></td></tr>
+<tr class="separator:a8ce139c37b7b44fa1cdf5b44fe896e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f219ff3422125410223693be86e8bc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a71f219ff3422125410223693be86e8bc">path</a></td></tr>
+<tr class="separator:a71f219ff3422125410223693be86e8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25ea049ea0da97eda40eec19d786a93c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="../../df/ddf/struct_c_ini_file_1_1key.html">key</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a25ea049ea0da97eda40eec19d786a93c">keys</a></td></tr>
+<tr class="separator:a25ea049ea0da97eda40eec19d786a93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bfd43ba45fb7a1c94d8ee5d103775a1"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#a2bfd43ba45fb7a1c94d8ee5d103775a1">names</a></td></tr>
+<tr class="separator:a2bfd43ba45fb7a1c94d8ee5d103775a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaa344229e0054ad6512bc3b263e480c"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d65/class_c_ini_file.html#abaa344229e0054ad6512bc3b263e480c">comments</a></td></tr>
+<tr class="separator:abaa344229e0054ad6512bc3b263e480c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<div class="textblock">
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00019">19</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+</div><h2 class="groupheader">Dokumentation der Aufzählungstypen</h2>
+<a class="anchor" id="a060bd68e7eaf80afe856dc2332c914c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="../../d4/d65/class_c_ini_file.html#a060bd68e7eaf80afe856dc2332c914c7">CIniFile::errors</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Aufzählungswerte</th></tr><tr><td class="fieldname"><a class="anchor" id="a060bd68e7eaf80afe856dc2332c914c7ab92b9bd30d4710fecce7fe23309058c9"></a>noID&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">35</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
+<a class="anchor" id="a29bf2bd012029b1ed5c75c97e8385462"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CIniFile::CIniFile </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>iniPath</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00038">38</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00022">caseInsensitive</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00043">Path()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0d6522dbbb07af37ecdc83ec6998f1d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CIniFile::~CIniFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00037">37</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
+<a class="anchor" id="ad82d40e4eafbd3052c51da64e407defe"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::AddKeyName </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00164">164</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00217">SetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a728795ad80cc649ff4ad3ded40deb115"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::CaseInsensitive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00040">40</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb2c50af68facafc7d3210a82b43324f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::CaseSensitive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00039">39</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ed29118f151d6dda329de30309b39c1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::CheckCase </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00392">392</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00022">caseInsensitive</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">FindValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74631718258a1c9dd836995c346be159"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::Clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00051">51</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4651f260732e9f7f8b328ad060db1a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteHeaderComment </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>commentID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a24c33ed2d9bcbc442186767f6df6d2be"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::DeleteHeaderComments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00116">116</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64bc7875b60a5823683e46eac72579e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteKey </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac7ac9b153fe4c8c2e09c51b4ac98149b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteKeyComment </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>commentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa8f7d89499ac9529e17b197b1be1cb43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteKeyComment </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>commentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a80b536ad8340f3fde1f3d2f5498644a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteKeyComments </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a683e56dbd0ef6116d55066abe2ad0455"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteKeyComments </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a20656de1e63decf243b742c1bf9d1211"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::DeleteValue </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a709af311d79ca4c1ee95baffdb1c0bd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::Erase </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3e06052214ee34787d8bc110871315f2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long CIniFile::FindKey </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">143</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00392">CheckCase()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00276">GetValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00369">KeyComment()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00351">NumKeyComments()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00186">NumValues()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00217">SetValue()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00201">ValueName()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac14ffdbd6526e237b5ffafdec1632795"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long CIniFile::FindValue </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">153</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00392">CheckCase()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00276">GetValue()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00217">SetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa1c0a17cb462e38e0d3d1429013c0d3a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::GetKeyName </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00065">65</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7d506fecfdb226201ac45b3d1184963"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::GetNumKeys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00059">59</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ab102a1b21a4011b1944ced49721c72"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::GetNumValues </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00068">68</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5bd6542d2b9b60a2d6f143078ef56b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::GetNumValues </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00070">70</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8fdf80cb0de0ad71930a1bf6f76766f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>defValue</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00269">269</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00307">GetValueF()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00299">GetValueI()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00316">GetValueV()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5df3ef180d8a2531719e584873e8c3fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::GetValue </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>defValue</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00276">276</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">FindValue()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4e0abac307d255e028bf363eb4821d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CIniFile::GetValueF </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>defValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00307">307</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00269">GetValue()</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00017">MAX_VALUEDATA</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00536">RPW::IBFPARA_auslesen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc467c89b0023e5fb85371914d14700d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CIniFile::GetValueI </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int const&#160;</td>
+          <td class="paramname"><em>defValue</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Liest einen speziellen Wert aus der <a class="el" href="../../d4/d65/class_c_ini_file.html">CIniFile</a> aus. </p>
+<p>Der Wert der ausgelesen wird, muss durch die Parameter keyname und valuename defferenziert werden. Durch "keyname" wird hier eine grobe Unterteilung in Rubriken gemacht. Die Spezifizierung in einer Rubrik wird dann durch "valuename" vorgenommen. </p><dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyname</td><td>Name der Rubrik, aus welcher der Wert ausgelesen werden soll </td></tr>
+    <tr><td class="paramname">valuename</td><td>Name der Variable, die innerhalb einer Rubrik ausgelesen werden soll </td></tr>
+    <tr><td class="paramname">defValue</td><td>Standard Wert, falls kein Wert ausgelesen wurde </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rückgabe</dt><dd></dd></dl>
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00299">299</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00269">GetValue()</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00017">MAX_VALUEDATA</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00536">RPW::IBFPARA_auslesen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27cb7ca1906d1fa127a0de4cb9398ca6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::GetValueName </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00073">73</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a093356087826d951561daa0f571239c6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::GetValueName </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00077">77</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a46d1b24fb8acd08f4bc223d4108b632c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::GetValueV </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v1</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v2</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v3</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v4</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v5</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v6</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v7</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v8</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v9</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v10</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v11</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v12</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v13</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v14</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v15</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v16</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00316">316</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00269">GetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a956add93ea7bafb33cc4421de2da798c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::HeaderComment </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>comment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00332">332</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0eacff670f9679d816055a784ab8e52a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::HeaderComment </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>commentID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00337">337</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a490485e03c6dc038a598557a50321a53"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::KeyComment </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">359</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00369">KeyComment()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf854a0d8d54a46bf9c677108539345f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::KeyComment </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00369">369</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">KeyComment()</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af232eef018ea9220fd3b0622e490da2c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::KeyComment </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>commentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00377">377</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9da6657185a84cd1acdc50343c652147"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::KeyComment </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>commentID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00384">384</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">KeyComment()</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ad48a4405bab000be4ac3eaf985376d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::KeyName </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00171">171</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af02b280e29135f8fc81846b01c710b86"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumHeaderComments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00108">108</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a771c0c302c82d15ca67752ab2f760750"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumKeyComments </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00344">344</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b8bec9cee38cb7ebbb5bb0219a8ccf8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumKeyComments </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00351">351</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a59547a3ec09d5cbbbfb4b2b4f61fec0c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumKeys </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00058">58</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45cc9e3c2b54cfcef258a152fc86eddf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumValues </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00179">179</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00536">RPW::IBFPARA_auslesen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae147417911e52667e000cda0a6c6b09d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned CIniFile::NumValues </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00186">186</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a55d9f46ccfad93bfbd230b9d1d30c0aa"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::Path </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00042">42</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5174e2dcd4f97f04ea7c1ac4421b2d4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::Path </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00043">43</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00038">CIniFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5eaa1f46449dd430a35320f5c5bc560"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::ReadFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">44</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00164">AddKeyName()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00332">HeaderComment()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">KeyComment()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00023">path</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">SetValue()</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d9/d85/ibf__tool_8cpp_source.html#l00536">RPW::IBFPARA_auslesen()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2186a50f94c832d0f2dd4dbdeed58ddc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00052">52</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a72ce386550ce03c3784bb48faee19b6c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CIniFile::SetPath </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>newPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00044">44</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe726fea5cd457ac9225bdbba1d55384"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValue </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">209</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00250">SetValueF()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00242">SetValueI()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00258">SetValueV()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57e4c35de4c3325e88ba3524e38452b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValue </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>create</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00217">217</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00164">AddKeyName()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">FindValue()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfe078de4383880c411561f4c9a7b59d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValueB </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>create</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00096">96</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3094b57e98ff209d213c197350ae63a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValueF </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>create</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00250">250</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00017">MAX_VALUEDATA</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">SetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04d11d67537a109e2b966917112e2033"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValueI </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int const&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool const&#160;</td>
+          <td class="paramname"><em>create</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00242">242</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00017">MAX_VALUEDATA</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">SetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c36bc4037e27feaf50a3bfee70c97ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::SetValueV </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>valuename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00258">258</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00017">MAX_VALUEDATA</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">SetValue()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a051d80e2c0651d2bb3003bd3e18164ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::ValueName </td>
+          <td>(</td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>keyID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00194">194</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00201">ValueName()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0e449914f1f526701eb23d2497eff81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::ValueName </td>
+          <td>(</td>
+          <td class="paramtype">string const&#160;</td>
+          <td class="paramname"><em>keyname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned const&#160;</td>
+          <td class="paramname"><em>valueID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00201">201</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00035">noID</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00194">ValueName()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace104b8fc33d6a0f2e2cc75fc9240dab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::WriteFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00110">110</a> der Datei <a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">comments</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00035">iniEOL</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">keys</a>, <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">names</a> und <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00023">path</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentation der Datenelemente</h2>
+<a class="anchor" id="a8ce139c37b7b44fa1cdf5b44fe896e7a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CIniFile::caseInsensitive</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00022">22</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00392">CheckCase()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00038">CIniFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abaa344229e0054ad6512bc3b263e480c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;string&gt; CIniFile::comments</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00031">31</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00332">HeaderComment()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">KeyComment()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00344">NumKeyComments()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00110">WriteFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25ea049ea0da97eda40eec19d786a93c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="../../df/ddf/struct_c_ini_file_1_1key.html">key</a>&gt; CIniFile::keys</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00029">29</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00164">AddKeyName()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">FindValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00269">GetValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00359">KeyComment()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00344">NumKeyComments()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00179">NumValues()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00209">SetValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00194">ValueName()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00110">WriteFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2bfd43ba45fb7a1c94d8ee5d103775a1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;string&gt; CIniFile::names</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00030">30</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00164">AddKeyName()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00143">FindKey()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00153">FindValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00171">KeyName()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00179">NumValues()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00217">SetValue()</a>, <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00194">ValueName()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00110">WriteFile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a71f219ff3422125410223693be86e8bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CIniFile::path</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d4/da0/ini_file_8h_source.html#l00023">23</a> der Datei <a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00044">ReadFile()</a> und <a class="el" href="../../de/dab/ini_file_8cpp_source.html#l00110">WriteFile()</a>.</p>
+
+</div>
+</div>
+<hr/>Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien:<ul>
+<li><a class="el" href="../../d4/da0/ini_file_8h_source.html">iniFile.h</a></li>
+<li><a class="el" href="../../de/dab/ini_file_8cpp_source.html">iniFile.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/d65/class_c_ini_file.html">CIniFile</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:15 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

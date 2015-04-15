@@ -1,0 +1,23 @@
+
+CAD-UL CXX386 Version: V401Z 10/25/2006 17:17:52 Page 1
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V102\RWTH_SMP.bd\source\config.cpp
+
+Line  Level
+    1             #include ".\config.h"
+    2             
+    3             config::config()
+    4             {}
+    5             
+    6             config::~config()
+
+CAD-UL CXX386 Version: V401Z 10/25/2006 17:17:52 Page 2
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V102\RWTH_SMP.bd\source\config.cpp
+
+Line  Level
+    1+            #include ".\config.h"
+    2+            
+    3+            config::config()
+    4+            {}
+CXX386-E-FATAL:C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V102\RWTH_SMP.bd\inc\.\config.h: 13: In cc0: member offset differs 'config.configStream' 32 8

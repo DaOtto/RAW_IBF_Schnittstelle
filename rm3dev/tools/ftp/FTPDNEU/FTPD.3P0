@@ -1,0 +1,19 @@
+FTPD V3.0                                                   AUG 24, 2001
+----------------------------------------------------------------------------
+
+Der FTP Demon V3.0 ist ein Update für das bestehende Produkt RMOS3-TCPIP V2.0.
+
+
+Veränderungen zur Version 2.0:
+-----------------------
+* Es ist nun möglich mit grafischen FTP-Clients zu arbeiten.
+  Speziell wurde dies mit dem Internet Explorer 4.x und 5.x
+  unter 95/98/NT getestet.
+
+* Beim Start des FTPD.386 werden 4 FTP Tasks erzeugt.
+  Dies ist notwendig, da einige FTP-Clients mit 3 oder mehr 
+  Verbindungen gleichzeitig arbeiten.
+
+Bedienungshinweise entnehmen Sie bitte Ihrer RMOS3-TCPIP V2.0
+Dokumentation. 
+

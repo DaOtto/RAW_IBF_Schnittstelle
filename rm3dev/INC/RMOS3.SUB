@@ -1,0 +1,20 @@
+/*--FILE HEADER----------------------------------------------------------------
+**
+**  filename    : RMOS3.SUB
+**  version     : 0004
+**  contents    : Definition of the subsystem for RMOS3
+**  author      : A.J./K.P.H.
+**  date        : Aug 16, 1995
+**
+**--FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+**
+**  RMOS3 package
+**
+**--END OF FILE HEADER---------------------------------------------------------
+*/
+
+$compact( RM3 -CONST IN CODE- HAS printf, ncat, ncfgc, ngetsys, ndecode, ndecmsg,
+$	ndectime, ndecdmy, nlnktim, excout, svcexc, sleep, wakeup, timeout, untimeout, 
+$       nsubrc, ntask, ndmytime, rcascii, rcfgread;
+$	EXPORTS x_nucsprintf, x_nucprintf, x_errprintf, errprintf, 
+$       RcReadASCII, RcASCIIConfig, RcLinkASCIIDecode )

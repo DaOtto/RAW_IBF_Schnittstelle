@@ -1,0 +1,340 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: xcomplex,v $
+ * Revision 1.2  2000/02/08 06:21:07  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:06  aki
+ * Initial revision
+ *
+ */ 
+// Note NO check against multiple inclusion, because it MUST be included
+// 2 times by <complex>
+
+// Note this pragma is only OK , if complex-classes are NOT template based.
+// Check _TMPLT(T) define in <complex> header.
+#pragma noarguments_in_registers(push)
+
+// xcomplex internal header
+		// TEMPLATE FUNCTION imag
+_TMPLT(_Ty) inline
+	_Ty imag(const _CMPLX(_Ty)& __X)
+	{return (__X.imag()); }
+		// TEMPLATE FUNCTION real
+_TMPLT(_Ty) inline
+	_Ty real(const _CMPLX(_Ty)& __X)
+	{return (__X.real()); }
+		// TEMPLATE FUNCTION _Fabs
+_TMPLT(_Ty) inline
+	_Ty _Fabs(const _CMPLX(_Ty)& __X, int *_Pexp)
+	{*_Pexp = 0;
+	_Ty _A = real(__X);
+	_Ty __B = imag(__X);
+	if (_CTR(_Ty)::_Isnan(_A))
+		return (_A);
+	else if (_CTR(_Ty)::_Isnan(__B))
+		return (__B);
+	else
+		{if (_A < 0)
+			_A = -_A;
+		if (__B < 0)
+			__B = -__B;
+		if (_A < __B)
+			{_Ty _W = _A;
+			_A = __B, __B = _W; }
+		if (_A == 0 || _CTR(_Ty)::_Isinf(_A))
+			return (_A);
+		if (1 <= _A)
+			*_Pexp = 2, _A = _A * 0.25, __B = __B * 0.25;
+		else
+			*_Pexp = -2, _A = _A * 4, __B = __B * 4;
+		_Ty _W = _A - __B;
+		if (_W == _A)
+			return (_A);
+		else if (__B < _W)
+			{const _Ty _Q = _A / __B;
+			return (_A + __B
+				/ (_Q + _CTR(_Ty)::sqrt(_Q * _Q + 1))); }
+		else
+			{static const _Ty _R2 = (_Ty)1.4142135623730950488L;
+			static const _Ty _Xh = (_Ty)2.4142L;
+			static const _Ty _Xl =
+				(_Ty)0.0000135623730950488016887L;
+			const _Ty _Q = _W / __B;
+			const _Ty _R = (_Q + 2) * _Q;
+			const _Ty __S = _R / (_R2 + _CTR(_Ty)::sqrt(_R + 2))
+				+ _Xl + _Q + _Xh;
+			return (_A + __B / __S); }}}
+		// TEMPLATE FUNCTION operator+
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator+(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W += _R); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator+(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{_CMPLX(_Ty) _W(__L);
+	_W.real(_W.real() + _R);
+	return (_W); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator+(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W += _R); }
+		// TEMPLATE FUNCTION operator-
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator-(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W -= _R); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator-(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{_CMPLX(_Ty) _W(__L);
+	_W.real(_W.real() - _R);
+	return (_W); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator-(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W -= _R); }
+		// TEMPLATE FUNCTION operator*
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator*(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W *= _R); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator*(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{_CMPLX(_Ty) _W(__L);
+	_W.real(_W.real() * _R);
+	_W.imag(_W.imag() * _R);
+	return (_W); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator*(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W *= _R); }
+		// TEMPLATE FUNCTION operator/
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator/(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W /= _R); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator/(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{_CMPLX(_Ty) _W(__L);
+	_W.real(_W.real() / _R);
+	_W.imag(_W.imag() / _R);
+	return (_W); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator/(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{_CMPLX(_Ty) _W(__L);
+	return (_W /= _R); }
+		// TEMPLATE FUNCTION UNARY operator+
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator+(const _CMPLX(_Ty)& __L)
+	{return (_CMPLX(_Ty)(__L)); }
+		// TEMPLATE FUNCTION UNARY operator-
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) operator-(const _CMPLX(_Ty)& __L)
+	{return (_CMPLX(_Ty)(-real(__L), -imag(__L))); }
+		// TEMPLATE FUNCTION operator==
+_TMPLT(_Ty) inline
+	bool operator==(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{return (real(__L) == real(_R) && imag(__L) == imag(_R)); }
+_TMPLT(_Ty) inline
+	bool operator==(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{return (real(__L) == _R && imag(__L) == 0); }
+_TMPLT(_Ty) inline
+	bool operator==(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{return (__L == real(_R) && 0 == imag(_R)); }
+_TMPLT(_Ty) inline
+	bool operator!=(const _CMPLX(_Ty)& __L,
+		const _CMPLX(_Ty)& _R)
+	{return (!(__L == _R)); }
+_TMPLT(_Ty) inline
+	bool operator!=(const _CMPLX(_Ty)& __L,
+		const _Ty& _R)
+	{return (!(__L == _R)); }
+_TMPLT(_Ty) inline
+	bool operator!=(const _Ty& __L,
+		const _CMPLX(_Ty)& _R)
+	{return (!(__L == _R)); }
+		// TEMPLATE FUNCTION abs
+_TMPLT(_Ty) inline
+	_Ty abs(const _CMPLX(_Ty)& __X)
+	{int _Xexp;
+	_Ty _Rho = _Fabs(__X, &_Xexp);
+	if (_Xexp == 0)
+		return (_Rho);
+	else
+		return (_CTR(_Ty)::ldexp(_Rho, _Xexp)); }
+		// TEMPLATE FUNCTION arg
+_TMPLT(_Ty) inline
+	_Ty arg(const _CMPLX(_Ty)& __X)
+	{return (_CTR(_Ty)::atan2(imag(__X), real(__X))); }
+		// TEMPLATE FUNCTION conj
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) conj(const _CMPLX(_Ty)& __X)
+	{return (_CMPLX(_Ty)(real(__X), -imag(__X))); }
+		// TEMPLATE FUNCTION cos
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) cos(const _CMPLX(_Ty)& __X)
+	{return (_CMPLX(_Ty)(
+		_CTR(_Ty)::_Cosh(imag(__X), _CTR(_Ty)::cos(real(__X))),
+		-_CTR(_Ty)::_Sinh(imag(__X),
+			_CTR(_Ty)::sin(real(__X))))); }
+		// TEMPLATE FUNCTION cosh
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) cosh(const _CMPLX(_Ty)& __X)
+	{return (_CMPLX(_Ty)(
+		_CTR(_Ty)::_Cosh(real(__X), _CTR(_Ty)::cos(imag(__X))),
+		_CTR(_Ty)::_Sinh(real(__X), _CTR(_Ty)::sin(imag(__X))))); }
+		// TEMPLATE FUNCTION exp
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) exp(const _CMPLX(_Ty)& __X)
+	{_Ty _Re(real(__X)), _Im(real(__X));
+	_CTR(_Ty)::_Exp(&_Re, _CTR(_Ty)::cos(imag(__X)), 0);
+	_CTR(_Ty)::_Exp(&_Im, _CTR(_Ty)::sin(imag(__X)), 0);
+	return (_CMPLX(_Ty)(_Re, _Im)); }
+		// TEMPLATE FUNCTION log
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) log(const _CMPLX(_Ty)& __X)
+	{int _Xexp;
+	_Ty _Rho = _Fabs(__X, &_Xexp);
+	if (_CTR(_Ty)::_Isnan(_Rho))
+		return (_CMPLX(_Ty)(_Rho, _Rho));
+	else
+		{static const _Ty _Cm = (_Ty)(22713.0 / 32768.0);
+		static const _Ty _Cl = (_Ty)1.428606820309417232e-6L;
+		_Ty _Xn = _Xexp;
+		_CMPLX(_Ty) _W(_Rho == 0 ? -_CTR(_Ty)::_Infv(_Rho)
+			: _CTR(_Ty)::_Isinf(_Rho) ? _Rho
+			: _CTR(_Ty)::log(_Rho) + _Xn * _Cl + _Xn * _Cm,
+				_CTR(_Ty)::atan2(imag(__X), real(__X)));
+		return (_W); }}
+		// TEMPLATE FUNCTION log10
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) log10(const _CMPLX(_Ty)& __X)
+	{return (log(__X) * (_Ty)0.4342944819032518276511289L); }
+		// TEMPLATE FUNCTION norm
+_TMPLT(_Ty) inline
+	_Ty norm(const _CMPLX(_Ty)& __X)
+	{return (real(__X) * real(__X) + imag(__X) * imag(__X)); }
+		// TEMPLATE FUNCTION polar
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) polar(const _Ty& _Rho, const _Ty& _Theta)
+	{return (_CMPLX(_Ty)(_Rho * _CTR(_Ty)::cos(_Theta),
+		_Rho * _CTR(_Ty)::sin(_Theta))); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) polar(const _Ty& _Rho)
+	{return (polar(_Rho, (_Ty)0)); }
+		// TEMPLATE FUNCTION pow
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) pow(const _CMPLX(_Ty)& __X, const _Ty& _Y)
+	{if (imag(__X) == 0)
+		return (_CMPLX(_Ty)(_CTR(_Ty)::pow(real(__X), _Y)));
+	else
+		return (exp(_Y * log(__X))); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) pow(const _CMPLX(_Ty)& __X, int _Y)
+	{if (imag(__X) == 0)
+		return (_CMPLX(_Ty)(_CTR(_Ty)::pow(real(__X), _Y)));
+	else
+		{_CMPLX(_Ty) _W = __X;
+		unsigned int __N = _Y;
+		if (_Y < 0)
+			__N = -__N;
+		for (_CMPLX(_Ty) _Z = _CMPLX(_Ty)(1); ; _W *= _W)
+			{if ((__N & 1) != 0)
+				_Z *= _W;
+			if ((__N >>= 1) == 0)
+				return (_Y < 0 ? _CMPLX(_Ty)(1) / _Z : _Z); }}}
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) pow(const _Ty& __X, const _CMPLX(_Ty)& _Y)
+	{if (imag(_Y) == 0)
+		return (_CMPLX(_Ty)(_CTR(_Ty)::pow(__X, real(_Y))));
+	else
+		return (exp(_Y * _CTR(_Ty)::log(__X))); }
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) pow(const _CMPLX(_Ty)& __X,
+		const _CMPLX(_Ty)& _Y)
+	{if (imag(_Y) == 0)
+		return (pow(__X, real(_Y)));
+	else if (imag(__X) == 0)
+		return (_CMPLX(_Ty)(pow(real(__X), _Y)));
+	else
+		return (exp(_Y * log(__X))); }
+		// TEMPLATE FUNCTION sin
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) sin(const _CMPLX(_Ty)& __X)
+	{return (_CMPLX(_Ty)(
+		_CTR(_Ty)::_Cosh(imag(__X), _CTR(_Ty)::sin(real(__X))),
+		_CTR(_Ty)::_Sinh(imag(__X), _CTR(_Ty)::cos(real(__X))))); }
+		// TEMPLATE FUNCTION sinh
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) sinh(const _CMPLX(_Ty)& __X)
+	{return (_CMPLX(_Ty)(
+		_CTR(_Ty)::_Sinh(real(__X), _CTR(_Ty)::cos(imag(__X))),
+		_CTR(_Ty)::_Cosh(real(__X), _CTR(_Ty)::sin(imag(__X))))); }
+		// TEMPLATE FUNCTION sqrt
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) sqrt(const _CMPLX(_Ty)& __X)
+	{int _Xexp;
+	_Ty _Rho = _Fabs(__X, &_Xexp);
+	if (_Xexp == 0)
+		return (_CMPLX(_Ty)(_Rho, _Rho));
+	else
+		{_Ty _Remag = _CTR(_Ty)::ldexp(real(__X) < 0
+			? - real(__X) : real(__X), -_Xexp);
+		_Rho = _CTR(_Ty)::ldexp(_CTR(_Ty)::sqrt(
+			2 * (_Remag + _Rho)), _Xexp / 2 - 1);
+		if (0 <= real(__X))
+			return (_CMPLX(_Ty)(_Rho, imag(__X) / (2 * _Rho)));
+		else if (imag(__X) < 0)
+			return (_CMPLX(_Ty)(-imag(__X) / (2 * _Rho), -_Rho));
+		else
+			return (_CMPLX(_Ty)(imag(__X) / (2 * _Rho),
+				_Rho)); }}
+		// TEMPLATE FUNCTION tanh
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) tanh(const _CMPLX(_Ty)& __X)
+	{_Ty _Tv = _CTR(_Ty)::tan(imag(__X));
+	_Ty _Sv = _CTR(_Ty)::_Sinh(real(__X), (_Ty)(1));
+	_Ty _Bv = _Sv *((_Ty)(1) + _Tv * _Tv);
+	_Ty _Dv = (_Ty)(1) + _Bv * _Sv;
+	return (_CMPLX(_Ty)((_CTR(_Ty)::sqrt((_Ty)(1) + _Sv * _Sv))
+		* _Bv / _Dv, _Tv / _Dv)); }
+		// TEMPLATE FUNCTION tan
+_TMPLT(_Ty) inline
+	_CMPLX(_Ty) tan(const _CMPLX(_Ty)& __X)
+	{_CMPLX(_Ty) _Z(tanh(_CMPLX(_Ty)(-imag(__X), real(__X))));
+	return (_CMPLX(_Ty)(imag(_Z), -real(_Z))); }
+
+
+
+#pragma arguments_in_registers(pop)
+
+/*
+ * Copyright (c) 1996 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

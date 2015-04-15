@@ -1,0 +1,2655 @@
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 1
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+    1             /*--DATEI HEADER--------------------------------------------
+     +            -------------------
+    2             ;   Dateiname       : IBF_Geometrie_tool.cpp
+    3             ;   Version         : V1.00a
+    4             ;   Beschreibung    : Einige gemeinsame Geometrie Funktionen
+     +            .
+    5             ;					  	
+    6             ;	Plattform		: RMOS3, WIN32
+     +            	  
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 2
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+    1+            /*--DATEI HEADER--------------------------------------------
+     +            -------------------
+    2+            ;   Dateiname       : IBF_Geometrie_tool.cpp
+    3+            ;   Version         : V1.00a
+    4+            ;   Beschreibung    : Einige gemeinsame Geometrie Funktionen
+     +            .
+    5             ;					  	
+    6             ;	Plattform		: RMOS3, WIN32
+     +            	  
+    7             ;
+    8             ;                    
+    9             ;
+   10             ;   Autor           : D.Otto
+   11             ;   date            : Dezember 2014
+   12             ;
+   13             ------------------------------------------------------------
+     +            -----------------*/
+   14             
+   15             #include <math.h>
+   16             
+   17             #include "IBF_Geometrie_tool.hpp"
+   18             
+   19             ///////////////////////////////////////////
+   20             //Berechnet die Norm (Laenge) eines Vektors
+   21             float	Norm(const vektor2D_t& v_In ) { return sqrt( pow( v_I
+     +            n.dx , 2 ) + pow( v_In.dy , 2) ); };
+   22             
+   23             ////////////////////////////////////////////////////////////
+     +            //
+   24             // Berechnet die Schnittpunkte eines Kreises und einer Ellip
+     +            se
+   25             int Schnittpunkt(		  P4&			SPOut
+     +            ,
+   26             					const kreis_t&
+     +            k_In ,
+   27             					const ellipse_t&
+     +            e_In )
+   28             {
+   29             	// Ellipsengleichung e1
+   30             	double	k_a00	= pow( k_In.r , -2 ) ,
+     +            // 1/r^2
+   31             			k_a11	= pow( k_In.r , -2 ) ,
+     +            	// 1/r^2		
+   32             			k_b0	= -2.0F * k_In.M.x * k_a00 ,
+     +            // -2xo/r^2
+   33             			k_b1	= -2.0F * k_In.M.y * k_a11 ,
+     +            // -2yo/r^2
+   34             			k_c		= pow( k_In.M.x / k_I
+     +            n.r , 2 ) + pow( k_In.M.y / k_In.r , 2 ) - 1.0F ;	// xo
+     +            ^2/r^2 + yo^2/r^2 - 1		
+   35             	
+   36             	// Ellipsengleichung e2
+   37             	double	e_a00	= pow( e_In.a , -2 ) ,
+     +            // 1/a^2
+   38             			e_a11	= pow( e_In.b , -2 ) ,
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 3
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+     +            	// 1/b^2	
+   39             			e_b0	= -2.0F * e_In.M.x * e_a00 ,
+     +            // -2xo/a^2
+   40             			e_b1	= -2.0F * e_In.M.y * e_a11 ,
+     +            // -2yo/b^2
+   41             			e_c		= pow( e_In.M.x / e_I
+     +            n.a , 2 ) + pow( e_In.M.y / e_In.b , 2 ) - 1.0F ;	// xo
+     +            ^2/a^2 + yo^2/b^2 - 1		
+   42             
+   43             	double	v1 = k_a00 * e_a11- e_a00 * k_a11,
+   44             			v2 = k_a00 * e_b0 - e_a00 * k_b0 ,
+   45             			v3 = k_a00 * e_b1 - e_a00 * k_b1 ,
+   46             			v4 = k_a00 * e_c  - e_a00 * k_c  ,
+   47             			v5 = k_a11 * e_b0 - e_a11 * k_b0 ,
+   48             			v6 = k_b0  * e_b1 - e_b0  * k_b1 ,
+   49             			v7 = k_b0  * e_c  - e_b0  * k_c  ;
+   50             
+   51             	d5		u	= {  v2 * v7 - pow( v4 , 2 )
+     +            , 
+   52             					 v2 * v6 - 2.0F * v3
+     +            * v4 ,
+   53             					-v5 * v2 - pow( v3 ,
+     +            2 ) - 2.0F * v1 * v4 , 
+   54             					-2.0F * v1 * v3 ,
+   55             					-pow( v1 , 2 ) };
+   56             
+   57             	d4	nst		= {};
+   58             	int znst	= LF4( nst, u );
+   59             
+   60             	if ( !znst ) return 0; // keine NSt (Schnittpunkte) g
+     +            efunden
+   61             
+   62             	d3		a	= {},
+   63             			b	= {};
+   64             	d2		nsta = {},
+   65             			nstb = {};
+   66             
+   67             	for ( int i=0; i < znst; i++ )
+   68             	{
+   69             		SPOut[i].y = (float)nst[i];
+   70             
+   71             		a[0] = k_c + nst[i] * k_b1 + SPOut[i].y * nst
+     +            [i] * k_a11;
+   72             		a[1] = k_b0;
+   73             		a[2] = k_a00;
+   74             
+   75             		b[0] = e_c + nst[i] * e_b1 + SPOut[i].y * nst
+     +            [i] * e_a11;
+   76             		b[1] = e_b0;
+   77             		b[2] = e_a00;
+   78             	
+   79             		LF2( nsta , a );
+   80             		LF2( nstb , b );
+   81             
+   82             		if ( ( fabs( nsta[0] - nstb[0] ) < 0.01F ) ||
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 4
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+     +             ( fabs( nsta[0] - nstb[1] ) < 0.01F ) ) SPOut[i].x = (float
+     +            )nsta[0];
+   83             		else SPOut[i].x = (float)nsta[1];
+     +            
+   84             	}
+   85             	
+   86             	return znst; // Anzahl der gefundenen Schnittpunkte
+   87             };
+   88             
+   89             ////////////////////////////////////////////////////////////
+     +            /
+   90             // Berechnet die Schnittpunkte einer Gerade und einer Ellips
+     +            e
+   91             int Schnittpunkt(		  P2&			SPOut
+     +            	,
+   92             					const gerade2D_t&
+     +            g_In	,
+   93             					const ellipse_t&
+     +            e_In	)
+   94             {
+   95             	// Geradengleichung mx + c = y
+   96             	double	g_b0	= ( g_In.Vr.dy ) / ( g_In.Vr.dx ) ,
+     +            // dy/dx = m
+   97             			g_b1	= -1.0F ,
+     +            				// -1y
+   98             			g_c		= g_In.Pu.y - ( g_b0
+     +            * g_In.Pu.x );	// yo - m*xo = c
+   99             
+  100             	// Ellipsengleichung
+  101             	double	e_a00	= pow( e_In.a , -2 ) ,
+     +            	// 1/a^2
+  102             			e_a11	= pow( e_In.b , -2 ) ,
+     +            		// 1/b^2	
+  103             			e_b0	= -2.0F * e_In.M.x * e_a00 ,
+     +            		// -2xo/a^2
+  104             			e_b1	= -2.0F * e_In.M.y * e_a11 ,
+     +            	// -2yo/b^2
+  105             			e_c		= pow( e_In.M.x / e_I
+     +            n.a , 2 ) + pow( e_In.M.y / e_In.b , 2) - 1.0F ;	// xo
+     +            ^2/a^2 + yo^2/b^2 - 1		
+  106             	
+  107             	double	v0	= -e_a00 * g_b0 ,
+  108             			v1	=  e_a00        ,
+  109             			v2	= -e_a00 * g_c  ,
+  110             			v3	=  e_a11 * g_b0 ,
+  111             			v4	=  g_b0  * e_b1 - e_b0 * g_b1
+     +             ,
+  112             			v5	=  g_b0  * e_c  - e_b0 * g_c
+     +             ;
+  113             
+  114             	// Polynomkoeffizienten
+  115             	d3		u	= { v0 * v5 - pow( v2 , 2 )
+     +             ,
+  116             					v0 * v4 - 2.0F * v1 *
+     +             v2 ,	
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 5
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+  117             					v0 * v3 - pow( v1 , 2
+     +             )	};
+  118             	
+  119             	// Nullstellen
+  120             	d2		nst = {}; 
+  121             	
+  122             	int znst = LF2( nst , u );
+  123             	
+  124             	if ( znst > 0 )	// Schnittpunkte gefunden
+  125             	{
+  126             		SPOut[0].y = (float)nst[0];
+  127             		SPOut[1].y = (float)nst[1];
+  128             		SPOut[0].x = (float)( nst[0] - g_c ) / (float
+     +            )g_b0 ;
+  129             		SPOut[1].x = (float)( nst[1] - g_c ) / (float
+     +            )g_b0 ;
+  130             
+  131             		return znst;
+  132             	};
+  133             	
+  134             	return 0; // keine Schnittpunkte
+  135             };
+  136             
+  137             ////////////////////////////////////////////////////////////
+     +            //////
+  138             // Nullstellen eines Polynoms 4. Grades bestimmen (NUR reell
+     +            e NSt)
+  139             // in Anlehnung an das Bairstow-Verfahren
+  140             int LF4(d4& nst, const d5& pn)
+  141             {
+  142             	// Lokale Kopie des Eingabepolynoms, (wg. Schreibzugr
+     +            iff)
+  143             	d5		poly	= { pn[0] ,	pn[1] ,	pn[2]
+     +             ,	pn[3] ,	pn[4] };
+  144             	
+  145             	// Maximale Anzahl an Iterationen
+  146             	int		maxiter	= 20;
+  147             
+  148             	// Anzahl der reellen Nullstellen (Returnvalue)
+  149             	int		znst	= 0;
+  150             
+  151             	int		n = norm(poly),	// Polynom normieren
+     +            und Grad (n) bestimmen
+  152             			j = n,			// Schleifenz
+     +            aehler
+  153             			i = 0;			// Schleifenz
+     +            aehler
+  154             	
+  155             	if ( n > 2 ) // wenn poly eigentlich 2.Grades -> Abkü
+     +            rzung nehmen.
+  156             	{
+  157             		double	b0 = poly[n],	// Divisionsrest
+  158             				b1 = 0,
+  159             				b2;
+  160             	
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 6
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+  161             		double	q0 = 0,			// Quotient
+  162             				q1 = 0,
+  163             				q2;
+  164             	
+  165             		double	a0 = poly[n-2], // Startwert der Iter
+     +            ation
+  166             				a1 = poly[n-1], // Startwert
+     +            der Iteration
+  167             				da0 = 0,
+  168             				da1 = 0;
+  169             	
+  170             		double	M = 0,
+  171             				D = 0;
+  172             		
+  173             		do // Zerlegung von poly^n -> a^2 * b^(n-2)
+  174             		{
+  175             			b0 = poly[n];
+  176             			b1 = 0;
+  177             			
+  178             			q0 = 0;
+  179             			q1 = 0;
+  180             			
+  181             			for ( j = n - 1; j >= 0; j-- )
+  182             			{
+  183             				b2 = b1;
+  184             				b1 = b0;
+  185             				b0 = poly[j] - a1 * b1 - a0 *
+     +             b2;
+  186             				q2 = q1;
+  187             				q1 = q0;
+  188             				q0 = b2      - a1 * q1 - a0 *
+     +             q2;
+  189             			}
+  190             	
+  191             			M = -a0 * q1 - a1 * q0;
+  192             			D =  q0 * q0 -  M * q1;
+  193             	
+  194             			da1 = (b0 * q1 - b1 * q0) / D;
+  195             			da0 = (b1 * M  - b0 * q0) / D;
+  196             	
+  197             			a1 = a1 - da1;
+  198             			a0 = a0 - da0;
+  199             			maxiter -=1 ;
+  200             		}
+  201             		while ( ( ( fabs(da0) > 0.0001F ) && ( fabs(d
+     +            a1) > 0.0001F ) ) || ( maxiter < 0 ) ); // Abbruchbedingung
+     +            der Iterationsschleife
+  202             			
+  203             		d3 a = { a0, a1, 1  };	// P(2)
+  204             		d3 b = {};				// P(
+     +            n-2)
+  205             	
+  206             		// Eingabe Polynom reduzieren durch abdividie
+     +            ren der
+  207             		// gefundenen Nullstellen ( poly(x)/a(x) = b(
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 7
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+     +            x) )
+  208             		for( i = n-2 ; i >= 0 ; i-- )
+  209             		{
+  210             			b[i] = poly[i+2] / a[2];
+  211             			for( j = 2 ; j >= 0 ; j-- )
+  212             				poly[i+j] = poly[i + j] - a[j
+     +            ] * b[i];
+  213             		}
+  214             		
+  215             		d2 n01 = {}; // x0,x1
+  216             		d2 n23 = {}; // x2,x3
+  217             		
+  218             		// Nullstellen-Array initialisieren...
+  219             		for ( i = 4 ; i > 0 ; nst[--i] = 0.0F );
+  220             		
+  221             		// Reelle Loesungen der quadratischen Faktore
+     +            n bestimmen
+  222             		znst = LF2( n01 , a );
+  223             		if (znst)
+  224             		{
+  225             			nst[i++] = n01[0];
+  226             			nst[i++] = n01[1];
+  227             		}
+  228             		
+  229             		znst += LF2( n23 , b );
+  230             		if (znst)
+  231             		{
+  232             			nst[i++] = n23[0];
+  233             			nst[i  ] = n23[1];
+  234             		}
+  235             	} // if (n>2)
+  236             	else // Loesen alles <= 2.Grades
+  237             	{
+  238             		d3 a	= { poly[0], poly[1], poly[2] };
+  239             		d2 n01	= {};
+  240             		znst	= LF2( n01 , a );
+  241             
+  242             		for ( i = 0 ; i < znst ; nst[i++] = n01[i] );
+     +            
+  243             	}
+  244             
+  245             	return znst; // Rueckgabewert ist die Anzahl der Reel
+     +            len Loesungen (0 bis 4)
+  246             };
+  247             
+  248             ////////////////////////////////////////////////////////////
+     +            //////////////
+  249             // Bestimmung der REELLEN Loesungen einer quadratischen/line
+     +            aren Gleichung
+  250             int LF2(d2& nst, const d3& pn)
+  251             {
+  252             	double	p,
+  253             			q,
+  254             			D;
+  255             	
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 8
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+  256             	// Lokale Kopie des Eingabepolynoms, mit Schreibzugri
+     +            ff
+  257             	d3		poly = { pn[0] , pn[1] , pn[2] };
+  258             	
+  259             	// Anzahl der reellen Nullstellen (Returnvalue)
+  260             	int		znst	= 0;
+  261             
+  262             	switch ( norm(poly) )
+  263             	{	
+  264             	case 2:		// Quadratische Gl. ->Loesen mit pq-F
+     +            ormel
+  265             	
+  266             		q = poly[0] / poly[2];
+  267             		p = (poly[1] / poly[2]) / 2.0F; // genauer: p
+     +            /2
+  268             
+  269             		D = p*p - q;
+  270             
+  271             		if (D > 0.0F)	// zwei reelle Loesungen
+  272             		{
+  273             			nst[0] = -p+sqrt(D);
+  274             			nst[1] = -p-sqrt(D);
+  275             
+  276             			znst = 2;
+  277             		}
+  278             		else if ( D == 0.0F )	// doppelte Nullstell
+     +            e
+  279             		{
+  280             			nst[0] = nst[1] = -p;
+  281             
+  282             			znst = 2;
+  283             		}
+  284             		else			// keine reelle Loesu
+     +            ng
+  285             		{
+  286             			nst[0] = 0.0F;
+  287             			nst[1] = 0.0F;
+  288             
+  289             			znst = 0;
+  290             		}
+  291             		break;
+  292             	
+  293             	case 1:	// Lineare Gl. -> Eine Loesung 
+  294             	
+  295             		nst[0] = -poly[0] / poly[1];
+  296             		nst[1] = 0.0F;
+  297             
+  298             		znst = 1;
+  299             		break;
+  300             	
+  301             	case 0:	// Konstante -> keine Loesung oder 0
+  302             	
+  303             		nst[0] = 0.0F;
+  304             		nst[1] = 0.0F;
+  305             
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 9
+
+     Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+Line  Level
+  306             		znst = ( poly[0] == 0.0F ) ? 1 : 0 ;
+  307             		break;
+  308             
+  309             	default: break;
+  310             	};
+  311             
+  312             	return znst; // Rueckgabewert ist die Anzahl der Reel
+     +            len Loesungen (0 bis 2)
+  313             };
+  314             
+  315             ////////////////////////////////////
+  316             // Normieren eines Polynoms 4.Grades
+  317             int norm(d5& poly)
+  318             {
+  319             	int n = 4;
+  320             	while ( ( poly[n] == 0.0F ) && ( n > 0 ) ) n--; // Gr
+     +            ad bestimmen...
+  321             	
+  322             	if ( n > 0 ) // ...und normieren
+  323             		for ( int j = 0; j <= n; j++ )
+  324             			poly[j] = poly[j] / poly[n];
+  325             	
+  326             	return n;
+  327             };
+  328             
+  329             //////////////////////////////////////////
+  330             // Normieren einer quadratischen Gleichung
+  331             int norm(d3& poly)
+  332             {
+  333             	int n = 2;
+  334     1       	while ( ( poly[n] == 0.0F ) && ( n > 0 ) ) n--; // Gr
+     +            ad bestimmen...
+  335     2       	
+  336     2       	if ( n > 0 ) // ...und normieren
+  337     6       		for ( int j = 0; j <= n; j++ )
+  338     1       			poly[j] = poly[j] / poly[n];
+  339             	
+  340             	return n;
+  341             };
+  342             
+No errors have been detected
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 10
+
+     Used Files
+
+
+       0 c:\rm3dev\inc\setjmp.h
+       1 c:\rm3dev\inc\math.h
+       2 C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\inc\IBF_Geometrie_tool.hpp
+       3 C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 11
+
+     Used Options
+
+
+     
+        -DSMP16 -D_ARCHITECTURE=386 -VCOMPACT -VSUBSYS=libc.sub
+        -VSUBSYS=libx.sub -VNDP -VFIXEDPARAMS -VCPU=PENTIUM -VNEARFAR
+        -VNOALIGN -VBUILTIN -o -VLISTING -VROM -VSYMUPPER -VFARCRT
+        -IC:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\inc
+        -Ic:\rm3dev\inc -Ic:\rm3dev\incplus
+        -VCXX=exceptions,rtti,instantiate=used,cxxdbg
+        C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
+        -VDP
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 12
+
+     Interleaved Listing
+
+C****************************************************************************
+C    21:  float	Norm(const vektor2D_t& v_In ) { return sqrt( pow( v_I
+C +       n.dx , 2 ) + pow( v_In.dy , 2) ); }; 
+
+C****************************************************************************
+                                            PUBLIC   Norm__FRC10vektor2D_t
+                                  Norm__FRC10vektor2D_t    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000000   55                       PUSH  EBP
+   CODE32:000001   8B EC                    MOV   EBP,ESP
+   CODE32:000003   83 EC 0C                 SUB   ESP,12
+   CODE32:000006   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000009   26 D9 06                 FLD   ES:DWORD PTR [ESI]
+   CODE32:00000C   83 EC 08                 SUB   ESP,8
+   CODE32:00000F   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000012   68 00 00 00 40           PUSH  1073741824
+   CODE32:000017   6A 00                    PUSH  0
+   CODE32:000019   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:000020   56                       PUSH  ESI
+   CODE32:000021   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000024   26 D9 46 04              FLD   ES:DWORD PTR [ESI+4]
+   CODE32:000028   83 EC 08                 SUB   ESP,8
+   CODE32:00002B   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:00002E   68 00 00 00 40           PUSH  1073741824
+   CODE32:000033   6A 00                    PUSH  0
+   CODE32:000035   DB 7D F4                 FSTP  TBYTE PTR [EBP-12]
+   CODE32:000038   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00003F   DB 6D F4                 FLD   TBYTE PTR [EBP-12]
+   CODE32:000042   DE C1                    FADD                              
+   CODE32:000044   5E                       POP   ESI
+   CODE32:000045   D9 FA                    FSQRT                             
+   CODE32:000047   C9                       LEAVE   
+   CODE32:000048   C2 08 00                 RET   8
+                                  Norm__FRC10vektor2D_t  ENDP
+
+C****************************************************************************
+C    25:  int Schnittpunkt(		  P4&			SPOut
+C +       , 
+C    26:  					const kreis_t&
+C +       k_In , 
+C    27:  					const ellipse_t&
+C +       e_In ) 
+C    28:  { 
+C****************************************************************************
+                                  L20001  LABEL BYTE
+   LINK  :000000   00                       DB    0
+   LINK  :000001   00                       DB    0
+   LINK  :000002   00                       DB    0
+   LINK  :000003   C0                       DB    192
+                                  L20002  LABEL BYTE
+   LINK  :000004   00                       DB    0
+   LINK  :000005   00                       DB    0
+   LINK  :000006   00                       DB    0
+   LINK  :000007   00                       DB    0
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 13
+
+     Interleaved Listing
+
+   LINK  :000008   00                       DB    0
+   LINK  :000009   00                       DB    0
+   LINK  :00000A   F0                       DB    240
+   LINK  :00000B   3F                       DB    63
+                                  L20003  LABEL BYTE
+   LINK  :00000C   00                       DB    0
+   LINK  :00000D   00                       DB    0
+   LINK  :00000E   00                       DB    0
+   LINK  :00000F   00                       DB    0
+   LINK  :000010   00                       DB    0
+   LINK  :000011   00                       DB    0
+   LINK  :000012   00                       DB    0
+   LINK  :000013   40                       DB    64
+                                  L20004  LABEL BYTE
+   LINK  :000014   00                       DB    0
+   LINK  :000015   00                       DB    0
+   LINK  :000016   00                       DB    0
+   LINK  :000017   00                       DB    0
+   LINK  :000018   00                       DB    0
+   LINK  :000019   00                       DB    0
+   LINK  :00001A   00                       DB    0
+   LINK  :00001B   C0                       DB    192
+                                  L20005  LABEL BYTE
+   LINK  :00001C   00                       DB    0
+   LINK  :00001D   00                       DB    0
+   LINK  :00001E   00                       DB    0
+   LINK  :00001F   40                       DB    64
+   LINK  :000020   E1                       DB    225
+   LINK  :000021   7A                       DB    122
+   LINK  :000022   84                       DB    132
+   LINK  :000023   3F                       DB    63
+
+                                            PUBLIC   Schnittpunkt__FRA4_9punkt2D_tRC7kreis_tRC9ellipse_t
+                                  Schnittpunkt__FRA4_9punkt2D_tRC7kreis_tRC9ellipse_t    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:00004B   55                       PUSH  EBP
+   CODE32:00004C   8B EC                    MOV   EBP,ESP
+   CODE32:00004E   81 EC 30 01 00           SUB   ESP,304
+                   00                                                         
+C****************************************************************************
+C    29:  	// Ellipsengleichung e1 
+C    30:  	double	k_a00	= pow( k_In.r , -2 ) ,
+C +       // 1/r^2 
+C    31:  			k_a11	= pow( k_In.r , -2 ) ,
+C +       	// 1/r^2		 
+C    32:  			k_b0	= -2.0F * k_In.M.x * k_a00 ,
+C +       // -2xo/r^2 
+C    33:  			k_b1	= -2.0F * k_In.M.y * k_a11 ,
+C +       // -2yo/r^2 
+C    34:  			k_c		= pow( k_In.M.x / k_I
+C +       n.r , 2 ) + pow( k_In.M.y / k_In.r , 2 ) - 1.0F ;	// xo
+C +       ^2/r^2 + yo^2/r^2 - 1		 
+C    35:  	 
+C    36:  	// Ellipsengleichung e2 
+C    37:  	double	e_a00	= pow( e_In.a , -2 ) ,
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 14
+
+     Interleaved Listing
+
+C +       // 1/a^2 
+C    38:  			e_a11	= pow( e_In.b , -2 ) ,
+C +       	// 1/b^2	 
+C    39:  			e_b0	= -2.0F * e_In.M.x * e_a00 ,
+C +       // -2xo/a^2 
+C    40:  			e_b1	= -2.0F * e_In.M.y * e_a11 ,
+C +       // -2yo/b^2 
+C    41:  			e_c		= pow( e_In.M.x / e_I
+C +       n.a , 2 ) + pow( e_In.M.y / e_In.b , 2 ) - 1.0F ;	// xo
+C +       ^2/a^2 + yo^2/b^2 - 1		 
+C    42:   
+C    43:  	double	v1 = k_a00 * e_a11- e_a00 * k_a11, 
+C    44:  			v2 = k_a00 * e_b0 - e_a00 * k_b0 , 
+C    45:  			v3 = k_a00 * e_b1 - e_a00 * k_b1 , 
+C    46:  			v4 = k_a00 * e_c  - e_a00 * k_c  , 
+C    47:  			v5 = k_a11 * e_b0 - e_a11 * k_b0 , 
+C    48:  			v6 = k_b0  * e_b1 - e_b0  * k_b1 , 
+C    49:  			v7 = k_b0  * e_c  - e_b0  * k_c  ; 
+C    50:   
+C    51:  	d5		u	= {  v2 * v7 - pow( v4 , 2 )
+C +       ,  
+C    52:  					 v2 * v6 - 2.0F * v3
+C +       * v4 , 
+C    53:  					-v5 * v2 - pow( v3 ,
+C +       2 ) - 2.0F * v1 * v4 ,  
+C    54:  					-2.0F * v1 * v3 , 
+C    55:  					-pow( v1 , 2 ) }; 
+C    56:   
+C    57:  	d4	nst		= {}; 
+C    58:  	int znst	= LF4( nst, u ); 
+C    59:   
+C    60:  	if ( !znst ) return 0; // keine NSt (Schnittpunkte) g
+C +       efunden 
+C    61:   
+C    62:  	d3		a	= {}, 
+C    63:  			b	= {}; 
+C    64:  	d2		nsta = {}, 
+C    65:  			nstb = {}; 
+C****************************************************************************
+   CODE32:000054   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000057   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:00005B   83 EC 08                 SUB   ESP,8
+   CODE32:00005E   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000061   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:000066   6A 00                    PUSH  0
+   CODE32:000068   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00006F   DD 5D 90                 FSTP  QWORD PTR [EBP-112]
+   CODE32:000072   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000075   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:000079   83 EC 08                 SUB   ESP,8
+   CODE32:00007C   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:00007F   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:000084   6A 00                    PUSH  0
+   CODE32:000086   9A 00 00 00 00R          CALL FAR PTR         pow
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 15
+
+     Interleaved Listing
+
+                   00 00                                                      
+   CODE32:00008D   DD 9D 70 FF FF           FSTP  QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:000093   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:00009A   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:00009D   26 D8 0E                 FMUL  ES:DWORD PTR [ESI]
+   CODE32:0000A0   DC 4D 90                 FMUL  QWORD PTR [EBP-112]
+   CODE32:0000A3   DD 5D 80                 FSTP  QWORD PTR [EBP-128]
+   CODE32:0000A6   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:0000AD   26 D8 4E 04              FMUL  ES:DWORD PTR [ESI+4]
+   CODE32:0000B1   DC 8D 70 FF FF           FMUL  QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:0000B7   DD 9D 4C FF FF           FSTP  QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:0000BD   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:0000C1   0F B4 5D 10              LFS   EBX,PWORD PTR [EBP+16]
+   CODE32:0000C5   64 D8 3B                 FDIVR FS:DWORD PTR [EBX]
+   CODE32:0000C8   83 EC 08                 SUB   ESP,8
+   CODE32:0000CB   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:0000CE   68 00 00 00 40           PUSH  1073741824
+   CODE32:0000D3   6A 00                    PUSH  0
+   CODE32:0000D5   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0000DC   56                       PUSH  ESI
+   CODE32:0000DD   53                       PUSH  EBX
+   CODE32:0000DE   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:0000E1   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:0000E5   0F B4 5D 10              LFS   EBX,PWORD PTR [EBP+16]
+   CODE32:0000E9   64 D8 7B 04              FDIVR FS:DWORD PTR [EBX+4]
+   CODE32:0000ED   83 EC 08                 SUB   ESP,8
+   CODE32:0000F0   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:0000F3   68 00 00 00 40           PUSH  1073741824
+   CODE32:0000F8   6A 00                    PUSH  0
+   CODE32:0000FA   DB BD D0 FE FF           FSTP  TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:000100   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:000107   DB AD D0 FE FF           FLD   TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:00010D   DE C1                    FADD                              
+   CODE32:00010F   5B                       POP   EBX
+   CODE32:000110   5E                       POP   ESI
+   CODE32:000111   2E DC 25 00 00           FSUB  CS:QWORD PTR L20002
+                   00 00R                                                     
+   CODE32:000118   DD 9D 54 FF FF           FSTP  QWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:00011E   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000121   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:000125   83 EC 08                 SUB   ESP,8
+   CODE32:000128   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:00012B   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:000130   6A 00                    PUSH  0
+   CODE32:000132   9A 00 00 00 00R          CALL FAR PTR         pow
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 16
+
+     Interleaved Listing
+
+                   00 00                                                      
+   CODE32:000139   DD 5D 98                 FSTP  QWORD PTR [EBP-104]
+   CODE32:00013C   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:00013F   26 D9 46 0C              FLD   ES:DWORD PTR [ESI+12]
+   CODE32:000143   83 EC 08                 SUB   ESP,8
+   CODE32:000146   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000149   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:00014E   6A 00                    PUSH  0
+   CODE32:000150   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:000157   DD 9D 78 FF FF           FSTP  QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:00015D   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:000164   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000167   26 D8 0E                 FMUL  ES:DWORD PTR [ESI]
+   CODE32:00016A   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:00016D   DD 5D 88                 FSTP  QWORD PTR [EBP-120]
+   CODE32:000170   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:000177   26 D8 4E 04              FMUL  ES:DWORD PTR [ESI+4]
+   CODE32:00017B   DC 8D 78 FF FF           FMUL  QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:000181   DD 9D 5C FF FF           FSTP  QWORD PTR [EBP-164]
+                   FF                                                         
+   CODE32:000187   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:00018B   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:00018F   64 D8 3B                 FDIVR FS:DWORD PTR [EBX]
+   CODE32:000192   83 EC 08                 SUB   ESP,8
+   CODE32:000195   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000198   68 00 00 00 40           PUSH  1073741824
+   CODE32:00019D   6A 00                    PUSH  0
+   CODE32:00019F   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0001A6   56                       PUSH  ESI
+   CODE32:0001A7   53                       PUSH  EBX
+   CODE32:0001A8   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:0001AB   26 D9 46 0C              FLD   ES:DWORD PTR [ESI+12]
+   CODE32:0001AF   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:0001B3   64 D8 7B 04              FDIVR FS:DWORD PTR [EBX+4]
+   CODE32:0001B7   83 EC 08                 SUB   ESP,8
+   CODE32:0001BA   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:0001BD   68 00 00 00 40           PUSH  1073741824
+   CODE32:0001C2   6A 00                    PUSH  0
+   CODE32:0001C4   DB BD D0 FE FF           FSTP  TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:0001CA   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0001D1   DB AD D0 FE FF           FLD   TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:0001D7   DE C1                    FADD                              
+   CODE32:0001D9   5B                       POP   EBX
+   CODE32:0001DA   5E                       POP   ESI
+   CODE32:0001DB   2E DC 25 00 00           FSUB  CS:QWORD PTR L20002
+                   00 00R                                                     
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 17
+
+     Interleaved Listing
+
+   CODE32:0001E2   DD 9D 64 FF FF           FSTP  QWORD PTR [EBP-156]
+                   FF                                                         
+   CODE32:0001E8   DD 85 78 FF FF           FLD   QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:0001EE   DC 4D 90                 FMUL  QWORD PTR [EBP-112]
+   CODE32:0001F1   DD 85 70 FF FF           FLD   QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:0001F7   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:0001FA   DE E9                    FSUBR                             
+   CODE32:0001FC   DD 9D 04 FF FF           FSTP  QWORD PTR [EBP-252]
+                   FF                                                         
+   CODE32:000202   DD 45 88                 FLD   QWORD PTR [EBP-120]
+   CODE32:000205   DC 4D 90                 FMUL  QWORD PTR [EBP-112]
+   CODE32:000208   DD 45 80                 FLD   QWORD PTR [EBP-128]
+   CODE32:00020B   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:00020E   DE E9                    FSUBR                             
+   CODE32:000210   DD 9D 0C FF FF           FSTP  QWORD PTR [EBP-244]
+                   FF                                                         
+   CODE32:000216   DD 85 5C FF FF           FLD   QWORD PTR [EBP-164]
+                   FF                                                         
+   CODE32:00021C   DC 4D 90                 FMUL  QWORD PTR [EBP-112]
+   CODE32:00021F   DD 85 4C FF FF           FLD   QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:000225   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:000228   DE E9                    FSUBR                             
+   CODE32:00022A   DD 9D 14 FF FF           FSTP  QWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000230   DD 85 64 FF FF           FLD   QWORD PTR [EBP-156]
+                   FF                                                         
+   CODE32:000236   DC 4D 90                 FMUL  QWORD PTR [EBP-112]
+   CODE32:000239   DD 85 54 FF FF           FLD   QWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:00023F   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:000242   DE E9                    FSUBR                             
+   CODE32:000244   DD 9D 1C FF FF           FSTP  QWORD PTR [EBP-228]
+                   FF                                                         
+   CODE32:00024A   DD 45 88                 FLD   QWORD PTR [EBP-120]
+   CODE32:00024D   DC 8D 70 FF FF           FMUL  QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:000253   DD 45 80                 FLD   QWORD PTR [EBP-128]
+   CODE32:000256   DC 8D 78 FF FF           FMUL  QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:00025C   DE E9                    FSUBR                             
+   CODE32:00025E   DD 9D EC FE FF           FSTP  QWORD PTR [EBP-276]
+                   FF                                                         
+   CODE32:000264   DD 85 5C FF FF           FLD   QWORD PTR [EBP-164]
+                   FF                                                         
+   CODE32:00026A   DC 4D 80                 FMUL  QWORD PTR [EBP-128]
+   CODE32:00026D   DD 85 4C FF FF           FLD   QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:000273   DC 4D 88                 FMUL  QWORD PTR [EBP-120]
+   CODE32:000276   DE E9                    FSUBR                             
+   CODE32:000278   DD 9D F4 FE FF           FSTP  QWORD PTR [EBP-268]
+                   FF                                                         
+   CODE32:00027E   DD 85 64 FF FF           FLD   QWORD PTR [EBP-156]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 18
+
+     Interleaved Listing
+
+                   FF                                                         
+   CODE32:000284   DC 4D 80                 FMUL  QWORD PTR [EBP-128]
+   CODE32:000287   DD 85 54 FF FF           FLD   QWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:00028D   DC 4D 88                 FMUL  QWORD PTR [EBP-120]
+   CODE32:000290   DE E9                    FSUBR                             
+   CODE32:000292   DC 8D 0C FF FF           FMUL  QWORD PTR [EBP-244]
+                   FF                                                         
+   CODE32:000298   FF B5 20 FF FF           PUSH  DWORD PTR [EBP-224]
+                   FF                                                         
+   CODE32:00029E   FF B5 1C FF FF           PUSH  DWORD PTR [EBP-228]
+                   FF                                                         
+   CODE32:0002A4   68 00 00 00 40           PUSH  1073741824
+   CODE32:0002A9   6A 00                    PUSH  0
+   CODE32:0002AB   DB BD D0 FE FF           FSTP  TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:0002B1   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0002B8   DB AD D0 FE FF           FLD   TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:0002BE   DE E1                    FSUB                              
+   CODE32:0002C0   DD 9D 24 FF FF           FSTP  QWORD PTR [EBP-220]
+                   FF                                                         
+   CODE32:0002C6   DD 85 F4 FE FF           FLD   QWORD PTR [EBP-268]
+                   FF                                                         
+   CODE32:0002CC   DC 8D 0C FF FF           FMUL  QWORD PTR [EBP-244]
+                   FF                                                         
+   CODE32:0002D2   2E DD 05 00 00           FLD   CS:QWORD PTR L20003
+                   00 00R                                                     
+   CODE32:0002D9   DC 8D 14 FF FF           FMUL  QWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:0002DF   DC 8D 1C FF FF           FMUL  QWORD PTR [EBP-228]
+                   FF                                                         
+   CODE32:0002E5   DE E9                    FSUBR                             
+   CODE32:0002E7   DD 9D 2C FF FF           FSTP  QWORD PTR [EBP-212]
+                   FF                                                         
+   CODE32:0002ED   DD 85 EC FE FF           FLD   QWORD PTR [EBP-276]
+                   FF                                                         
+   CODE32:0002F3   D9 E0                    FCHS                              
+   CODE32:0002F5   DC 8D 0C FF FF           FMUL  QWORD PTR [EBP-244]
+                   FF                                                         
+   CODE32:0002FB   FF B5 18 FF FF           PUSH  DWORD PTR [EBP-232]
+                   FF                                                         
+   CODE32:000301   FF B5 14 FF FF           PUSH  DWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000307   68 00 00 00 40           PUSH  1073741824
+   CODE32:00030C   6A 00                    PUSH  0
+   CODE32:00030E   DB BD D0 FE FF           FSTP  TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:000314   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00031B   DB AD D0 FE FF           FLD   TBYTE PTR [EBP-304]
+                   FF                                                         
+   CODE32:000321   DE E1                    FSUB                              
+   CODE32:000323   2E DD 05 00 00           FLD   CS:QWORD PTR L20003
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 19
+
+     Interleaved Listing
+
+                   00 00R                                                     
+   CODE32:00032A   DC 8D 04 FF FF           FMUL  QWORD PTR [EBP-252]
+                   FF                                                         
+   CODE32:000330   DC 8D 1C FF FF           FMUL  QWORD PTR [EBP-228]
+                   FF                                                         
+   CODE32:000336   DE E9                    FSUBR                             
+   CODE32:000338   DD 9D 34 FF FF           FSTP  QWORD PTR [EBP-204]
+                   FF                                                         
+   CODE32:00033E   2E DD 05 00 00           FLD   CS:QWORD PTR L20004
+                   00 00R                                                     
+   CODE32:000345   DC 8D 04 FF FF           FMUL  QWORD PTR [EBP-252]
+                   FF                                                         
+   CODE32:00034B   DC 8D 14 FF FF           FMUL  QWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000351   DD 9D 3C FF FF           FSTP  QWORD PTR [EBP-196]
+                   FF                                                         
+   CODE32:000357   FF B5 08 FF FF           PUSH  DWORD PTR [EBP-248]
+                   FF                                                         
+   CODE32:00035D   FF B5 04 FF FF           PUSH  DWORD PTR [EBP-252]
+                   FF                                                         
+   CODE32:000363   68 00 00 00 40           PUSH  1073741824
+   CODE32:000368   6A 00                    PUSH  0
+   CODE32:00036A   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:000371   D9 E0                    FCHS                              
+   CODE32:000373   DD 9D 44 FF FF           FSTP  QWORD PTR [EBP-188]
+                   FF                                                         
+   CODE32:000379   8D 7D E0                 LEA   EDI,DWORD PTR [EBP-32]
+   CODE32:00037C   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:00037E   B9 08 00 00 00           MOV   ECX,8
+   CODE32:000383   FC                       CLD                               
+   CODE32:000384   31 C0                    XOR   EAX,EAX
+   CODE32:000386   F3 AB                    REP STOSD                         
+   CODE32:000388   16                       PUSH  SS
+   CODE32:000389   8D 45 E0                 LEA   EAX,DWORD PTR [EBP-32]
+   CODE32:00038C   50                       PUSH  EAX
+   CODE32:00038D   16                       PUSH  SS
+   CODE32:00038E   8D 85 24 FF FF           LEA   EAX,DWORD PTR [EBP-220]
+                   FF                                                         
+   CODE32:000394   50                       PUSH  EAX
+   CODE32:000395   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF4__FRA4_dRA5_Cd
+   CODE32:00039A   89 85 6C FF FF           MOV   DWORD PTR [EBP-148],EAX
+                   FF                                                         
+   CODE32:0003A0   09 C0                    OR    EAX,EAX
+   CODE32:0003A2   75 07                    JNE   NEAR PTR   L3
+   CODE32:0003A4   31 C0                    XOR   EAX,EAX
+   CODE32:0003A6   E9 D2 01 00 00           JMP   NEAR PTR   L2
+                                  L3:
+   CODE32:0003AB   8D 7D A0                 LEA   EDI,DWORD PTR [EBP-96]
+   CODE32:0003AE   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0003B0   B9 06 00 00 00           MOV   ECX,6
+   CODE32:0003B5   FC                       CLD                               
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 20
+
+     Interleaved Listing
+
+   CODE32:0003B6   31 C0                    XOR   EAX,EAX
+   CODE32:0003B8   F3 AB                    REP STOSD                         
+   CODE32:0003BA   8D 7D B8                 LEA   EDI,DWORD PTR [EBP-72]
+   CODE32:0003BD   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0003BF   B9 06 00 00 00           MOV   ECX,6
+   CODE32:0003C4   FC                       CLD                               
+   CODE32:0003C5   31 C0                    XOR   EAX,EAX
+   CODE32:0003C7   F3 AB                    REP STOSD                         
+   CODE32:0003C9   8D 7D D0                 LEA   EDI,DWORD PTR [EBP-48]
+   CODE32:0003CC   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0003CE   B9 04 00 00 00           MOV   ECX,4
+   CODE32:0003D3   FC                       CLD                               
+   CODE32:0003D4   31 C0                    XOR   EAX,EAX
+   CODE32:0003D6   F3 AB                    REP STOSD                         
+   CODE32:0003D8   8D BD DC FE FF           LEA   EDI,DWORD PTR [EBP-292]
+                   FF                                                         
+   CODE32:0003DE   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0003E0   B9 04 00 00 00           MOV   ECX,4
+   CODE32:0003E5   FC                       CLD                               
+   CODE32:0003E6   31 C0                    XOR   EAX,EAX
+   CODE32:0003E8   F3 AB                    REP STOSD                         
+C****************************************************************************
+C    66:   
+C    67:  	for ( int i=0; i < znst; i++ ) 
+C    68:  	{ 
+C****************************************************************************
+   CODE32:0003EA   C7 85 D8 FE FF           MOV   DWORD PTR [EBP-296],0
+                   FF 00 00 00 00                                             
+   CODE32:0003F4   E9 6C 01 00 00           JMP   NEAR PTR   L6
+                                  L7:
+C****************************************************************************
+C    69:  		SPOut[i].y = (float)nst[i]; 
+C****************************************************************************
+   CODE32:0003F9   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:0003FF   16 0F A1                 PUSH  SS
+                                            POP   FS
+   CODE32:000402   64 DD 44 C5 E0           FLD   FS:QWORD PTR [EBP+EAX*8-32]
+   CODE32:000407   C1 E0 03                 SAL   EAX,3
+   CODE32:00040A   03 45 18                 ADD   EAX,DWORD PTR [EBP+24]
+   CODE32:00040D   8E 45 1C                 MOV   ES,WORD PTR [EBP+28]
+   CODE32:000410   26 D9 58 04              FSTP  ES:DWORD PTR [EAX+4]
+C****************************************************************************
+C    70:   
+C    71:  		a[0] = k_c + nst[i] * k_b1 + SPOut[i].y * nst
+C +       [i] * k_a11; 
+C****************************************************************************
+   CODE32:000414   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:00041A   C1 E0 03                 SAL   EAX,3
+   CODE32:00041D   89 85 D4 FE FF           MOV   DWORD PTR [EBP-300],EAX
+                   FF                                                         
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 21
+
+     Interleaved Listing
+
+   CODE32:000423   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:000429   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:00042B   26 DD 44 C5 E0           FLD   ES:QWORD PTR [EBP+EAX*8-32]
+   CODE32:000430   8B 85 D4 FE FF           MOV   EAX,DWORD PTR [EBP-300]
+                   FF                                                         
+   CODE32:000436   03 45 18                 ADD   EAX,DWORD PTR [EBP+24]
+   CODE32:000439   8E 65 1C                 MOV   FS,WORD PTR [EBP+28]
+   CODE32:00043C   64 D8 48 04              FMUL  FS:DWORD PTR [EAX+4]
+   CODE32:000440   DC 8D 70 FF FF           FMUL  QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:000446   DD 85 4C FF FF           FLD   QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:00044C   8B 85 D4 FE FF           MOV   EAX,DWORD PTR [EBP-300]
+                   FF                                                         
+   CODE32:000452   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000454   26 DC 4C 28 E0           FMUL  ES:QWORD PTR [EAX+EBP-32]
+   CODE32:000459   DC 85 54 FF FF           FADD  QWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:00045F   DE C1                    FADD                              
+   CODE32:000461   DD 5D A0                 FSTP  QWORD PTR [EBP-96]
+C****************************************************************************
+C    72:  		a[1] = k_b0; 
+C****************************************************************************
+   CODE32:000464   DD 45 80                 FLD   QWORD PTR [EBP-128]
+   CODE32:000467   DD 5D A8                 FSTP  QWORD PTR [EBP-88]
+C****************************************************************************
+C    73:  		a[2] = k_a00; 
+C****************************************************************************
+   CODE32:00046A   DD 45 90                 FLD   QWORD PTR [EBP-112]
+   CODE32:00046D   DD 5D B0                 FSTP  QWORD PTR [EBP-80]
+C****************************************************************************
+C    74:   
+C    75:  		b[0] = e_c + nst[i] * e_b1 + SPOut[i].y * nst
+C +       [i] * e_a11; 
+C****************************************************************************
+   CODE32:000470   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:000476   C1 E0 03                 SAL   EAX,3
+   CODE32:000479   89 85 D4 FE FF           MOV   DWORD PTR [EBP-300],EAX
+                   FF                                                         
+   CODE32:00047F   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:000485   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000487   26 DD 44 C5 E0           FLD   ES:QWORD PTR [EBP+EAX*8-32]
+   CODE32:00048C   8B 85 D4 FE FF           MOV   EAX,DWORD PTR [EBP-300]
+                   FF                                                         
+   CODE32:000492   03 45 18                 ADD   EAX,DWORD PTR [EBP+24]
+   CODE32:000495   8E 65 1C                 MOV   FS,WORD PTR [EBP+28]
+   CODE32:000498   89 C3                    MOV   EBX,EAX
+   CODE32:00049A   64 D8 4B 04              FMUL  FS:DWORD PTR [EBX+4]
+   CODE32:00049E   DC 8D 78 FF FF           FMUL  QWORD PTR [EBP-136]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 22
+
+     Interleaved Listing
+
+                   FF                                                         
+   CODE32:0004A4   DD 85 5C FF FF           FLD   QWORD PTR [EBP-164]
+                   FF                                                         
+   CODE32:0004AA   8B 85 D4 FE FF           MOV   EAX,DWORD PTR [EBP-300]
+                   FF                                                         
+   CODE32:0004B0   01 E8                    ADD   EAX,EBP
+   CODE32:0004B2   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0004B4   89 C6                    MOV   ESI,EAX
+   CODE32:0004B6   26 DC 4E E0              FMUL  ES:QWORD PTR [ESI-32]
+   CODE32:0004BA   DC 85 64 FF FF           FADD  QWORD PTR [EBP-156]
+                   FF                                                         
+   CODE32:0004C0   DE C1                    FADD                              
+   CODE32:0004C2   DD 5D B8                 FSTP  QWORD PTR [EBP-72]
+C****************************************************************************
+C    76:  		b[1] = e_b0; 
+C****************************************************************************
+   CODE32:0004C5   DD 45 88                 FLD   QWORD PTR [EBP-120]
+   CODE32:0004C8   DD 5D C0                 FSTP  QWORD PTR [EBP-64]
+C****************************************************************************
+C    77:  		b[2] = e_a00; 
+C****************************************************************************
+   CODE32:0004CB   DD 45 98                 FLD   QWORD PTR [EBP-104]
+   CODE32:0004CE   DD 5D C8                 FSTP  QWORD PTR [EBP-56]
+C****************************************************************************
+C    78:  	 
+C    79:  		LF2( nsta , a ); 
+C****************************************************************************
+   CODE32:0004D1   16                       PUSH  SS
+   CODE32:0004D2   8D 45 D0                 LEA   EAX,DWORD PTR [EBP-48]
+   CODE32:0004D5   50                       PUSH  EAX
+   CODE32:0004D6   16                       PUSH  SS
+   CODE32:0004D7   8D 45 A0                 LEA   EAX,DWORD PTR [EBP-96]
+   CODE32:0004DA   50                       PUSH  EAX
+   CODE32:0004DB   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+C****************************************************************************
+C    80:  		LF2( nstb , b ); 
+C****************************************************************************
+   CODE32:0004E0   16                       PUSH  SS
+   CODE32:0004E1   8D 85 DC FE FF           LEA   EAX,DWORD PTR [EBP-292]
+                   FF                                                         
+   CODE32:0004E7   50                       PUSH  EAX
+   CODE32:0004E8   16                       PUSH  SS
+   CODE32:0004E9   8D 45 B8                 LEA   EAX,DWORD PTR [EBP-72]
+   CODE32:0004EC   50                       PUSH  EAX
+   CODE32:0004ED   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+C****************************************************************************
+C    81:   
+C    82:  		if ( ( fabs( nsta[0] - nstb[0] ) < 0.01F ) ||
+C +        ( fabs( nsta[0] - nstb[1] ) < 0.01F ) ) SPOut[i].x = (float
+C +       )nsta[0]; 
+C****************************************************************************
+   CODE32:0004F2   DD 85 DC FE FF           FLD   QWORD PTR [EBP-292]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 23
+
+     Interleaved Listing
+
+                   FF                                                         
+   CODE32:0004F8   DC 6D D0                 FSUBR QWORD PTR [EBP-48]
+   CODE32:0004FB   83 EC 08                 SUB   ESP,8
+   CODE32:0004FE   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000501   9A 00 00 00 00R          CALL FAR PTR         x_fabs
+                   00 00                                                      
+   CODE32:000508   2E DD 05 00 00           FLD   CS:QWORD PTR L20005
+                   00 00R                                                     
+   CODE32:00050F   DE D9                    FCOMPP                            
+   CODE32:000511   DF E0                    FNSTSW AX                         
+   CODE32:000513   9E                       SAHF                              
+   CODE32:000514   77 24                    JA    NEAR PTR   L20006
+   CODE32:000516   DD 85 E4 FE FF           FLD   QWORD PTR [EBP-284]
+                   FF                                                         
+   CODE32:00051C   DC 6D D0                 FSUBR QWORD PTR [EBP-48]
+   CODE32:00051F   83 EC 08                 SUB   ESP,8
+   CODE32:000522   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000525   9A 00 00 00 00R          CALL FAR PTR         x_fabs
+                   00 00                                                      
+   CODE32:00052C   2E DD 05 00 00           FLD   CS:QWORD PTR L20005
+                   00 00R                                                     
+   CODE32:000533   DE D9                    FCOMPP                            
+   CODE32:000535   DF E0                    FNSTSW AX                         
+   CODE32:000537   9E                       SAHF                              
+   CODE32:000538   76 15                    JBE   NEAR PTR   L8
+                                  L20006:
+   CODE32:00053A   DD 45 D0                 FLD   QWORD PTR [EBP-48]
+   CODE32:00053D   8B 8D D8 FE FF           MOV   ECX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:000543   C1 E1 03                 SAL   ECX,3
+   CODE32:000546   C4 75 18                 LES   ESI,PWORD PTR [EBP+24]
+C****************************************************************************
+C    83:  		else SPOut[i].x = (float)nsta[1];
+C +        
+C****************************************************************************
+   CODE32:000549   26 D9 1C 0E              FSTP  ES:DWORD PTR [ESI+ECX]
+   CODE32:00054D   EB 10                    JMP   NEAR PTR   L9
+                                  L8:
+   CODE32:00054F   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:000552   8B 8D D8 FE FF           MOV   ECX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:000558   C4 75 18                 LES   ESI,PWORD PTR [EBP+24]
+   CODE32:00055B   26 D9 1C CE              FSTP  ES:DWORD PTR [ESI+ECX*8]
+                                  L9:
+   CODE32:00055F   FF 85 D8 FE FF           INC   DWORD PTR [EBP-296]
+                   FF                                                         
+                                  L6:
+   CODE32:000565   8B 85 D8 FE FF           MOV   EAX,DWORD PTR [EBP-296]
+                   FF                                                         
+   CODE32:00056B   3B 85 6C FF FF           CMP   EAX,DWORD PTR [EBP-148]
+                   FF                                                         
+   CODE32:000571   0F 8C 82 FE FF           JL    NEAR PTR   L7
+                   FF                                                         
+C****************************************************************************
+C    84:  	} 
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 24
+
+     Interleaved Listing
+
+C    85:  	 
+C    86:  	return znst; // Anzahl der gefundenen Schnittpunkte 
+C****************************************************************************
+   CODE32:000577   8B 85 6C FF FF           MOV   EAX,DWORD PTR [EBP-148]
+                   FF                                                         
+                                  L2:
+   CODE32:00057D   C9                       LEAVE   
+   CODE32:00057E   C2 18 00                 RET   24
+                                  Schnittpunkt__FRA4_9punkt2D_tRC7kreis_tRC9ellipse_t  ENDP
+
+C****************************************************************************
+C    91:  int Schnittpunkt(		  P2&			SPOut
+C +       	, 
+C    92:  					const gerade2D_t&
+C +       g_In	, 
+C    93:  					const ellipse_t&
+C +       e_In	) 
+C    94:  { 
+
+C****************************************************************************
+                                            PUBLIC   Schnittpunkt__FRA2_9punkt2D_tRC10gerade2D_tRC9ellipse_t
+                                  Schnittpunkt__FRA2_9punkt2D_tRC10gerade2D_tRC9ellipse_t    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000581   55                       PUSH  EBP
+   CODE32:000582   8B EC                    MOV   EBP,ESP
+   CODE32:000584   81 EC A8 00 00           SUB   ESP,168
+                   00                                                         
+C****************************************************************************
+C    95:  	// Geradengleichung mx + c = y 
+C    96:  	double	g_b0	= ( g_In.Vr.dy ) / ( g_In.Vr.dx ) ,
+C +       // dy/dx = m 
+C    97:  			g_b1	= -1.0F ,
+C +       				// -1y 
+C    98:  			g_c		= g_In.Pu.y - ( g_b0
+C +       * g_In.Pu.x );	// yo - m*xo = c 
+C    99:   
+C   100:  	// Ellipsengleichung 
+C   101:  	double	e_a00	= pow( e_In.a , -2 ) ,
+C +       	// 1/a^2 
+C   102:  			e_a11	= pow( e_In.b , -2 ) ,
+C +       		// 1/b^2	 
+C   103:  			e_b0	= -2.0F * e_In.M.x * e_a00 ,
+C +       		// -2xo/a^2 
+C   104:  			e_b1	= -2.0F * e_In.M.y * e_a11 ,
+C +       	// -2yo/b^2 
+C   105:  			e_c		= pow( e_In.M.x / e_I
+C +       n.a , 2 ) + pow( e_In.M.y / e_In.b , 2) - 1.0F ;	// xo
+C +       ^2/a^2 + yo^2/b^2 - 1		 
+C   106:  	 
+C   107:  	double	v0	= -e_a00 * g_b0 , 
+C   108:  			v1	=  e_a00        , 
+C   109:  			v2	= -e_a00 * g_c  , 
+C   110:  			v3	=  e_a11 * g_b0 , 
+C   111:  			v4	=  g_b0  * e_b1 - e_b0 * g_b1
+C +        , 
+C   112:  			v5	=  g_b0  * e_c  - e_b0 * g_c
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 25
+
+     Interleaved Listing
+
+C +        ; 
+C   113:   
+C   114:  	// Polynomkoeffizienten 
+C   115:  	d3		u	= { v0 * v5 - pow( v2 , 2 )
+C +        , 
+C   116:  					v0 * v4 - 2.0F * v1 *
+C +        v2 ,	 
+C   117:  					v0 * v3 - pow( v1 , 2
+C +        )	}; 
+C   118:  	 
+C   119:  	// Nullstellen 
+C   120:  	d2		nst = {};  
+C   121:  	 
+C   122:  	int znst = LF2( nst , u ); 
+C****************************************************************************
+   CODE32:00058A   C7 85 68 FF FF           MOV   DWORD PTR [EBP-152],0
+                   FF 00 00 00 00                                             
+   CODE32:000594   C7 85 6C FF FF           MOV   DWORD PTR [EBP-148],
+                   FF 00 00 F0 BF                 -1074790400
+   CODE32:00059E   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:0005A1   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:0005A5   0F B4 5D 10              LFS   EBX,PWORD PTR [EBP+16]
+   CODE32:0005A9   64 D8 7B 0C              FDIVR FS:DWORD PTR [EBX+12]
+   CODE32:0005AD   DD 5D F8                 FSTP  QWORD PTR [EBP-8]
+   CODE32:0005B0   26 D9 06                 FLD   ES:DWORD PTR [ESI]
+   CODE32:0005B3   DC 4D F8                 FMUL  QWORD PTR [EBP-8]
+   CODE32:0005B6   64 D8 6B 04              FSUBR FS:DWORD PTR [EBX+4]
+   CODE32:0005BA   DD 5D D8                 FSTP  QWORD PTR [EBP-40]
+   CODE32:0005BD   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:0005C0   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:0005C4   83 EC 08                 SUB   ESP,8
+   CODE32:0005C7   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:0005CA   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:0005CF   6A 00                    PUSH  0
+   CODE32:0005D1   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0005D8   DD 5D E0                 FSTP  QWORD PTR [EBP-32]
+   CODE32:0005DB   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:0005DE   26 D9 46 0C              FLD   ES:DWORD PTR [ESI+12]
+   CODE32:0005E2   83 EC 08                 SUB   ESP,8
+   CODE32:0005E5   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:0005E8   68 00 00 00 C0           PUSH  -1073741824
+   CODE32:0005ED   6A 00                    PUSH  0
+   CODE32:0005EF   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0005F6   DD 5D 98                 FSTP  QWORD PTR [EBP-104]
+   CODE32:0005F9   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:000600   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000603   26 D8 0E                 FMUL  ES:DWORD PTR [ESI]
+   CODE32:000606   DC 4D E0                 FMUL  QWORD PTR [EBP-32]
+   CODE32:000609   DD 5D A0                 FSTP  QWORD PTR [EBP-96]
+   CODE32:00060C   2E D9 05 00 00           FLD   CS:DWORD PTR L20001
+                   00 00R                                                     
+   CODE32:000613   26 D8 4E 04              FMUL  ES:DWORD PTR [ESI+4]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 26
+
+     Interleaved Listing
+
+   CODE32:000617   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:00061A   DD 9D 70 FF FF           FSTP  QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:000620   26 D9 46 08              FLD   ES:DWORD PTR [ESI+8]
+   CODE32:000624   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:000628   64 D8 3B                 FDIVR FS:DWORD PTR [EBX]
+   CODE32:00062B   83 EC 08                 SUB   ESP,8
+   CODE32:00062E   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000631   68 00 00 00 40           PUSH  1073741824
+   CODE32:000636   6A 00                    PUSH  0
+   CODE32:000638   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00063F   56                       PUSH  ESI
+   CODE32:000640   53                       PUSH  EBX
+   CODE32:000641   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000644   26 D9 46 0C              FLD   ES:DWORD PTR [ESI+12]
+   CODE32:000648   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:00064C   64 D8 7B 04              FDIVR FS:DWORD PTR [EBX+4]
+   CODE32:000650   83 EC 08                 SUB   ESP,8
+   CODE32:000653   DD 1C 24                 FSTP  QWORD PTR [ESP]
+   CODE32:000656   68 00 00 00 40           PUSH  1073741824
+   CODE32:00065B   6A 00                    PUSH  0
+   CODE32:00065D   DB BD 58 FF FF           FSTP  TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:000663   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00066A   DB AD 58 FF FF           FLD   TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:000670   DE C1                    FADD                              
+   CODE32:000672   5B                       POP   EBX
+   CODE32:000673   5E                       POP   ESI
+   CODE32:000674   2E DC 25 00 00           FSUB  CS:QWORD PTR L20002
+                   00 00R                                                     
+   CODE32:00067B   DD 9D 78 FF FF           FSTP  QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:000681   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:000684   D9 E0                    FCHS                              
+   CODE32:000686   DC 4D F8                 FMUL  QWORD PTR [EBP-8]
+   CODE32:000689   DD 5D B8                 FSTP  QWORD PTR [EBP-72]
+   CODE32:00068C   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:00068F   DD 5D A8                 FSTP  QWORD PTR [EBP-88]
+   CODE32:000692   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:000695   D9 E0                    FCHS                              
+   CODE32:000697   DC 4D D8                 FMUL  QWORD PTR [EBP-40]
+   CODE32:00069A   DD 5D B0                 FSTP  QWORD PTR [EBP-80]
+   CODE32:00069D   DD 45 F8                 FLD   QWORD PTR [EBP-8]
+   CODE32:0006A0   DC 4D 98                 FMUL  QWORD PTR [EBP-104]
+   CODE32:0006A3   DD 5D 80                 FSTP  QWORD PTR [EBP-128]
+   CODE32:0006A6   DD 85 70 FF FF           FLD   QWORD PTR [EBP-144]
+                   FF                                                         
+   CODE32:0006AC   DC 4D F8                 FMUL  QWORD PTR [EBP-8]
+   CODE32:0006AF   DD 85 68 FF FF           FLD   QWORD PTR [EBP-152]
+                   FF                                                         
+   CODE32:0006B5   DC 4D A0                 FMUL  QWORD PTR [EBP-96]
+   CODE32:0006B8   DE E9                    FSUBR                             
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 27
+
+     Interleaved Listing
+
+   CODE32:0006BA   DD 5D 88                 FSTP  QWORD PTR [EBP-120]
+   CODE32:0006BD   DD 85 78 FF FF           FLD   QWORD PTR [EBP-136]
+                   FF                                                         
+   CODE32:0006C3   DC 4D F8                 FMUL  QWORD PTR [EBP-8]
+   CODE32:0006C6   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:0006C9   DC 4D A0                 FMUL  QWORD PTR [EBP-96]
+   CODE32:0006CC   DE E9                    FSUBR                             
+   CODE32:0006CE   DC 4D B8                 FMUL  QWORD PTR [EBP-72]
+   CODE32:0006D1   FF 75 B4                 PUSH  DWORD PTR [EBP-76]
+   CODE32:0006D4   FF 75 B0                 PUSH  DWORD PTR [EBP-80]
+   CODE32:0006D7   68 00 00 00 40           PUSH  1073741824
+   CODE32:0006DC   6A 00                    PUSH  0
+   CODE32:0006DE   DB BD 58 FF FF           FSTP  TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:0006E4   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:0006EB   DB AD 58 FF FF           FLD   TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:0006F1   DE E1                    FSUB                              
+   CODE32:0006F3   DD 5D C0                 FSTP  QWORD PTR [EBP-64]
+   CODE32:0006F6   DD 45 88                 FLD   QWORD PTR [EBP-120]
+   CODE32:0006F9   DC 4D B8                 FMUL  QWORD PTR [EBP-72]
+   CODE32:0006FC   2E DD 05 00 00           FLD   CS:QWORD PTR L20003
+                   00 00R                                                     
+   CODE32:000703   DC 4D A8                 FMUL  QWORD PTR [EBP-88]
+   CODE32:000706   DC 4D B0                 FMUL  QWORD PTR [EBP-80]
+   CODE32:000709   DE E9                    FSUBR                             
+   CODE32:00070B   DD 5D C8                 FSTP  QWORD PTR [EBP-56]
+   CODE32:00070E   DD 45 80                 FLD   QWORD PTR [EBP-128]
+   CODE32:000711   DC 4D B8                 FMUL  QWORD PTR [EBP-72]
+   CODE32:000714   FF 75 AC                 PUSH  DWORD PTR [EBP-84]
+   CODE32:000717   FF 75 A8                 PUSH  DWORD PTR [EBP-88]
+   CODE32:00071A   68 00 00 00 40           PUSH  1073741824
+   CODE32:00071F   6A 00                    PUSH  0
+   CODE32:000721   DB BD 58 FF FF           FSTP  TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:000727   9A 00 00 00 00R          CALL FAR PTR         pow
+                   00 00                                                      
+   CODE32:00072E   DB AD 58 FF FF           FLD   TBYTE PTR [EBP-168]
+                   FF                                                         
+   CODE32:000734   DE E1                    FSUB                              
+   CODE32:000736   DD 5D D0                 FSTP  QWORD PTR [EBP-48]
+   CODE32:000739   8D 7D E8                 LEA   EDI,DWORD PTR [EBP-24]
+   CODE32:00073C   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:00073E   B9 04 00 00 00           MOV   ECX,4
+   CODE32:000743   FC                       CLD                               
+   CODE32:000744   31 C0                    XOR   EAX,EAX
+   CODE32:000746   F3 AB                    REP STOSD                         
+   CODE32:000748   16                       PUSH  SS
+   CODE32:000749   8D 45 E8                 LEA   EAX,DWORD PTR [EBP-24]
+   CODE32:00074C   50                       PUSH  EAX
+   CODE32:00074D   16                       PUSH  SS
+   CODE32:00074E   8D 45 C0                 LEA   EAX,DWORD PTR [EBP-64]
+   CODE32:000751   50                       PUSH  EAX
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 28
+
+     Interleaved Listing
+
+   CODE32:000752   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+   CODE32:000757   89 85 64 FF FF           MOV   DWORD PTR [EBP-156],EAX
+                   FF                                                         
+C****************************************************************************
+C   123:  	 
+C   124:  	if ( znst > 0 )	// Schnittpunkte gefunden 
+C   125:  	{ 
+C****************************************************************************
+   CODE32:00075D   09 C0                    OR    EAX,EAX
+   CODE32:00075F   7E 2C                    JLE   NEAR PTR   L11
+C****************************************************************************
+C   126:  		SPOut[0].y = (float)nst[0]; 
+C****************************************************************************
+   CODE32:000761   DD 45 E8                 FLD   QWORD PTR [EBP-24]
+   CODE32:000764   C4 75 18                 LES   ESI,PWORD PTR [EBP+24]
+   CODE32:000767   26 D9 5E 04              FSTP  ES:DWORD PTR [ESI+4]
+C****************************************************************************
+C   127:  		SPOut[1].y = (float)nst[1]; 
+C****************************************************************************
+   CODE32:00076B   DD 45 F0                 FLD   QWORD PTR [EBP-16]
+   CODE32:00076E   26 D9 5E 0C              FSTP  ES:DWORD PTR [ESI+12]
+C****************************************************************************
+C   128:  		SPOut[0].x = (float)( nst[0] - g_c ) / (float
+C +       )g_b0 ; 
+C****************************************************************************
+   CODE32:000772   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:000775   DC 6D E8                 FSUBR QWORD PTR [EBP-24]
+   CODE32:000778   DC 75 F8                 FDIV  QWORD PTR [EBP-8]
+   CODE32:00077B   26 D9 1E                 FSTP  ES:DWORD PTR [ESI]
+C****************************************************************************
+C   129:  		SPOut[1].x = (float)( nst[1] - g_c ) / (float
+C +       )g_b0 ; 
+C****************************************************************************
+   CODE32:00077E   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:000781   DC 6D F0                 FSUBR QWORD PTR [EBP-16]
+   CODE32:000784   DC 75 F8                 FDIV  QWORD PTR [EBP-8]
+C****************************************************************************
+C   130:   
+C   131:  		return znst; 
+C****************************************************************************
+   CODE32:000787   26 D9 5E 08              FSTP  ES:DWORD PTR [ESI+8]
+   CODE32:00078B   EB 02                    JMP   NEAR PTR   L10
+                                  L11:
+C****************************************************************************
+C   132:  	}; 
+C   133:  	 
+C   134:  	return 0; // keine Schnittpunkte 
+C****************************************************************************
+   CODE32:00078D   31 C0                    XOR   EAX,EAX
+                                  L10:
+   CODE32:00078F   C9                       LEAVE   
+   CODE32:000790   C2 18 00                 RET   24
+                                  Schnittpunkt__FRA2_9punkt2D_tRC10gerade2D_tRC9ellipse_t  ENDP
+
+C****************************************************************************
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 29
+
+     Interleaved Listing
+
+C   140:  int LF4(d4& nst, const d5& pn) 
+C   141:  { 
+C****************************************************************************
+                                  L20007  LABEL BYTE
+   LINK  :000024   00                       DB    0
+   LINK  :000025   00                       DB    0
+   LINK  :000026   00                       DB    0
+   LINK  :000027   E0                       DB    224
+   LINK  :000028   E2                       DB    226
+   LINK  :000029   36                       DB    54
+   LINK  :00002A   1A                       DB    26
+   LINK  :00002B   3F                       DB    63
+
+                                            PUBLIC   LF4__FRA4_dRA5_Cd
+                                  LF4__FRA4_dRA5_Cd    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000793   55                       PUSH  EBP
+   CODE32:000794   8B EC                    MOV   EBP,ESP
+   CODE32:000796   81 EC EC 00 00           SUB   ESP,236
+                   00                                                         
+C****************************************************************************
+C   142:  	// Lokale Kopie des Eingabepolynoms, (wg. Schreibzugr
+C +       iff) 
+C   143:  	d5		poly	= { pn[0] ,	pn[1] ,	pn[2]
+C +        ,	pn[3] ,	pn[4] }; 
+C   144:  	 
+C   145:  	// Maximale Anzahl an Iterationen 
+C   146:  	int		maxiter	= 20; 
+C   147:   
+C   148:  	// Anzahl der reellen Nullstellen (Returnvalue) 
+C   149:  	int		znst	= 0; 
+C   150:   
+C   151:  	int		n = norm(poly),	// Polynom normieren
+C +       und Grad (n) bestimmen 
+C   152:  			j = n,			// Schleifenz
+C +       aehler 
+C   153:  			i = 0;			// Schleifenz
+C +       aehler 
+C****************************************************************************
+   CODE32:00079C   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:00079F   26 DD 06                 FLD   ES:QWORD PTR [ESI]
+   CODE32:0007A2   DD 5D D4                 FSTP  QWORD PTR [EBP-44]
+   CODE32:0007A5   26 DD 46 08              FLD   ES:QWORD PTR [ESI+8]
+   CODE32:0007A9   DD 5D DC                 FSTP  QWORD PTR [EBP-36]
+   CODE32:0007AC   26 DD 46 10              FLD   ES:QWORD PTR [ESI+16]
+   CODE32:0007B0   DD 5D E4                 FSTP  QWORD PTR [EBP-28]
+   CODE32:0007B3   26 DD 46 18              FLD   ES:QWORD PTR [ESI+24]
+   CODE32:0007B7   DD 5D EC                 FSTP  QWORD PTR [EBP-20]
+   CODE32:0007BA   26 DD 46 20              FLD   ES:QWORD PTR [ESI+32]
+   CODE32:0007BE   DD 5D F4                 FSTP  QWORD PTR [EBP-12]
+   CODE32:0007C1   C7 45 CC 14 00           MOV   DWORD PTR [EBP-52],20
+                   00 00                                                      
+   CODE32:0007C8   C7 45 C8 00 00           MOV   DWORD PTR [EBP-56],0
+                   00 00                                                      
+   CODE32:0007CF   16                       PUSH  SS
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 30
+
+     Interleaved Listing
+
+   CODE32:0007D0   8D 45 D4                 LEA   EAX,DWORD PTR [EBP-44]
+   CODE32:0007D3   50                       PUSH  EAX
+   CODE32:0007D4   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  norm__FRA5_d
+   CODE32:0007D9   89 45 D0                 MOV   DWORD PTR [EBP-48],EAX
+   CODE32:0007DC   89 45 FC                 MOV   DWORD PTR [EBP-4],EAX
+   CODE32:0007DF   C7 45 C4 00 00           MOV   DWORD PTR [EBP-60],0
+                   00 00                                                      
+C****************************************************************************
+C   154:  	 
+C   155:  	if ( n > 2 ) // wenn poly eigentlich 2.Grades -> Abkü
+C +       rzung nehmen. 
+C   156:  	{ 
+C****************************************************************************
+   CODE32:0007E6   83 7D D0 02              CMP   DWORD PTR [EBP-48],2
+   CODE32:0007EA   0F 8E B4 03 00           JLE   NEAR PTR   L13
+                   00                                                         
+C****************************************************************************
+C   157:  		double	b0 = poly[n],	// Divisionsrest 
+C   158:  				b1 = 0, 
+C   159:  				b2; 
+C   160:  	 
+C   161:  		double	q0 = 0,			// Quotient 
+C   162:  				q1 = 0, 
+C   163:  				q2; 
+C   164:  	 
+C   165:  		double	a0 = poly[n-2], // Startwert der Iter
+C +       ation 
+C   166:  				a1 = poly[n-1], // Startwert
+C +       der Iteration 
+C   167:  				da0 = 0, 
+C   168:  				da1 = 0; 
+C   169:  	 
+C   170:  		double	M = 0, 
+C   171:  				D = 0; 
+C   172:  		 
+C   173:  		do // Zerlegung von poly^n -> a^2 * b^(n-2) 
+C   174:  		{ 
+C   175:  			b0 = poly[n]; 
+C   176:  			b1 = 0; 
+C   177:  			 
+C   178:  			q0 = 0; 
+C   179:  			q1 = 0; 
+C   180:  			 
+C   181:  			for ( j = n - 1; j >= 0; j-- ) 
+C   182:  			{ 
+C   183:  				b2 = b1; 
+C   184:  				b1 = b0; 
+C   185:  				b0 = poly[j] - a1 * b1 - a0 *
+C +        b2; 
+C   186:  				q2 = q1; 
+C   187:  				q1 = q0; 
+C   188:  				q0 = b2      - a1 * q1 - a0 *
+C +        q2; 
+C   189:  			} 
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 31
+
+     Interleaved Listing
+
+C   190:  	 
+C   191:  			M = -a0 * q1 - a1 * q0; 
+C   192:  			D =  q0 * q0 -  M * q1; 
+C   193:  	 
+C   194:  			da1 = (b0 * q1 - b1 * q0) / D; 
+C   195:  			da0 = (b1 * M  - b0 * q0) / D; 
+C   196:  	 
+C   197:  			a1 = a1 - da1; 
+C   198:  			a0 = a0 - da0; 
+C   199:  			maxiter -=1 ; 
+C   200:  		} 
+C   201:  		while ( ( ( fabs(da0) > 0.0001F ) && ( fabs(d
+C +       a1) > 0.0001F ) ) || ( maxiter < 0 ) ); // Abbruchbedingung
+C +       der Iterationsschleife 
+C   202:  			 
+C   203:  		d3 a = { a0, a1, 1  };	// P(2) 
+C   204:  		d3 b = {};				// P(
+C +       n-2) 
+C   205:  	 
+C   206:  		// Eingabe Polynom reduzieren durch abdividie
+C +       ren der 
+C   207:  		// gefundenen Nullstellen ( poly(x)/a(x) = b(
+C +       x) ) 
+C   208:  		for( i = n-2 ; i >= 0 ; i-- ) 
+C   209:  		{ 
+C   210:  			b[i] = poly[i+2] / a[2]; 
+C   211:  			for( j = 2 ; j >= 0 ; j-- ) 
+C   212:  				poly[i+j] = poly[i + j] - a[j
+C +       ] * b[i]; 
+C   213:  		} 
+C   214:  		 
+C   215:  		d2 n01 = {}; // x0,x1 
+C   216:  		d2 n23 = {}; // x2,x3 
+C****************************************************************************
+   CODE32:0007F0   C7 45 AC 00 00           MOV   DWORD PTR [EBP-84],0
+                   00 00                                                      
+   CODE32:0007F7   C7 45 B0 00 00           MOV   DWORD PTR [EBP-80],0
+                   00 00                                                      
+   CODE32:0007FE   C7 45 BC 00 00           MOV   DWORD PTR [EBP-68],0
+                   00 00                                                      
+   CODE32:000805   C7 45 C0 00 00           MOV   DWORD PTR [EBP-64],0
+                   00 00                                                      
+   CODE32:00080C   C7 45 B4 00 00           MOV   DWORD PTR [EBP-76],0
+                   00 00                                                      
+   CODE32:000813   C7 45 B8 00 00           MOV   DWORD PTR [EBP-72],0
+                   00 00                                                      
+   CODE32:00081A   C7 85 34 FF FF           MOV   DWORD PTR [EBP-204],0
+                   FF 00 00 00 00                                             
+   CODE32:000824   C7 85 38 FF FF           MOV   DWORD PTR [EBP-200],0
+                   FF 00 00 00 00                                             
+   CODE32:00082E   C7 85 3C FF FF           MOV   DWORD PTR [EBP-196],0
+                   FF 00 00 00 00                                             
+   CODE32:000838   C7 85 40 FF FF           MOV   DWORD PTR [EBP-192],0
+                   FF 00 00 00 00                                             
+   CODE32:000842   C7 85 44 FF FF           MOV   DWORD PTR [EBP-188],0
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 32
+
+     Interleaved Listing
+
+                   FF 00 00 00 00                                             
+   CODE32:00084C   C7 85 48 FF FF           MOV   DWORD PTR [EBP-184],0
+                   FF 00 00 00 00                                             
+   CODE32:000856   C7 85 4C FF FF           MOV   DWORD PTR [EBP-180],0
+                   FF 00 00 00 00                                             
+   CODE32:000860   C7 85 50 FF FF           MOV   DWORD PTR [EBP-176],0
+                   FF 00 00 00 00                                             
+   CODE32:00086A   8B 45 D0                 MOV   EAX,DWORD PTR [EBP-48]
+   CODE32:00086D   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:00086F   26 DD 44 C5 D4           FLD   ES:QWORD PTR [EBP+EAX*8-44]
+   CODE32:000874   DD 5D 94                 FSTP  QWORD PTR [EBP-108]
+   CODE32:000877   C1 E0 03                 SAL   EAX,3
+   CODE32:00087A   2D 10 00 00 00           SUB   EAX,16
+   CODE32:00087F   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000881   26 DD 44 28 D4           FLD   ES:QWORD PTR [EAX+EBP-44]
+   CODE32:000886   DD 5D 9C                 FSTP  QWORD PTR [EBP-100]
+   CODE32:000889   8B 45 D0                 MOV   EAX,DWORD PTR [EBP-48]
+   CODE32:00088C   C1 E0 03                 SAL   EAX,3
+   CODE32:00088F   2D 08 00 00 00           SUB   EAX,8
+   CODE32:000894   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000896   26 DD 44 28 D4           FLD   ES:QWORD PTR [EAX+EBP-44]
+   CODE32:00089B   DD 5D A4                 FSTP  QWORD PTR [EBP-92]
+                                  L16:
+   CODE32:00089E   8B 45 D0                 MOV   EAX,DWORD PTR [EBP-48]
+   CODE32:0008A1   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0008A3   26 DD 44 C5 D4           FLD   ES:QWORD PTR [EBP+EAX*8-44]
+   CODE32:0008A8   DD 5D 94                 FSTP  QWORD PTR [EBP-108]
+   CODE32:0008AB   C7 45 AC 00 00           MOV   DWORD PTR [EBP-84],0
+                   00 00                                                      
+   CODE32:0008B2   C7 45 B0 00 00           MOV   DWORD PTR [EBP-80],0
+                   00 00                                                      
+   CODE32:0008B9   C7 45 BC 00 00           MOV   DWORD PTR [EBP-68],0
+                   00 00                                                      
+   CODE32:0008C0   C7 45 C0 00 00           MOV   DWORD PTR [EBP-64],0
+                   00 00                                                      
+   CODE32:0008C7   C7 45 B4 00 00           MOV   DWORD PTR [EBP-76],0
+                   00 00                                                      
+   CODE32:0008CE   C7 45 B8 00 00           MOV   DWORD PTR [EBP-72],0
+                   00 00                                                      
+   CODE32:0008D5   48                       DEC   EAX
+   CODE32:0008D6   89 45 FC                 MOV   DWORD PTR [EBP-4],EAX
+   CODE32:0008D9   EB 48                    JMP   NEAR PTR   L19
+                                  L20:
+   CODE32:0008DB   DD 45 AC                 FLD   QWORD PTR [EBP-84]
+   CODE32:0008DE   DD 5D 8C                 FSTP  QWORD PTR [EBP-116]
+   CODE32:0008E1   DD 45 94                 FLD   QWORD PTR [EBP-108]
+   CODE32:0008E4   DD 55 AC                 FST   QWORD PTR [EBP-84]
+   CODE32:0008E7   DC 4D A4                 FMUL  QWORD PTR [EBP-92]
+   CODE32:0008EA   8B 45 FC                 MOV   EAX,DWORD PTR [EBP-4]
+   CODE32:0008ED   C1 E0 03                 SAL   EAX,3
+   CODE32:0008F0   01 E8                    ADD   EAX,EBP
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 33
+
+     Interleaved Listing
+
+   CODE32:0008F2   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:0008F4   26 DC 68 D4              FSUBR ES:QWORD PTR [EAX-44]
+   CODE32:0008F8   DD 45 8C                 FLD   QWORD PTR [EBP-116]
+   CODE32:0008FB   DC 4D 9C                 FMUL  QWORD PTR [EBP-100]
+   CODE32:0008FE   DE E9                    FSUBR                             
+   CODE32:000900   DD 5D 94                 FSTP  QWORD PTR [EBP-108]
+   CODE32:000903   DD 45 B4                 FLD   QWORD PTR [EBP-76]
+   CODE32:000906   DD 5D 84                 FSTP  QWORD PTR [EBP-124]
+   CODE32:000909   DD 45 BC                 FLD   QWORD PTR [EBP-68]
+   CODE32:00090C   DD 55 B4                 FST   QWORD PTR [EBP-76]
+   CODE32:00090F   DC 4D A4                 FMUL  QWORD PTR [EBP-92]
+   CODE32:000912   DC 6D 8C                 FSUBR QWORD PTR [EBP-116]
+   CODE32:000915   DD 45 84                 FLD   QWORD PTR [EBP-124]
+   CODE32:000918   DC 4D 9C                 FMUL  QWORD PTR [EBP-100]
+   CODE32:00091B   DE E9                    FSUBR                             
+   CODE32:00091D   DD 5D BC                 FSTP  QWORD PTR [EBP-68]
+   CODE32:000920   FF 4D FC                 DEC   DWORD PTR [EBP-4]
+                                  L19:
+   CODE32:000923   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+   CODE32:000927   7D B2                    JGE   NEAR PTR   L20
+   CODE32:000929   DD 45 9C                 FLD   QWORD PTR [EBP-100]
+   CODE32:00092C   D9 E0                    FCHS                              
+   CODE32:00092E   DC 4D B4                 FMUL  QWORD PTR [EBP-76]
+   CODE32:000931   DD 45 BC                 FLD   QWORD PTR [EBP-68]
+   CODE32:000934   DC 4D A4                 FMUL  QWORD PTR [EBP-92]
+   CODE32:000937   DE E9                    FSUBR                             
+   CODE32:000939   DD 9D 44 FF FF           FSTP  QWORD PTR [EBP-188]
+                   FF                                                         
+   CODE32:00093F   DD 45 BC                 FLD   QWORD PTR [EBP-68]
+   CODE32:000942   DC 4D BC                 FMUL  QWORD PTR [EBP-68]
+   CODE32:000945   DD 45 B4                 FLD   QWORD PTR [EBP-76]
+   CODE32:000948   DC 8D 44 FF FF           FMUL  QWORD PTR [EBP-188]
+                   FF                                                         
+   CODE32:00094E   DE E9                    FSUBR                             
+   CODE32:000950   DD 9D 4C FF FF           FSTP  QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:000956   DD 45 B4                 FLD   QWORD PTR [EBP-76]
+   CODE32:000959   DC 4D 94                 FMUL  QWORD PTR [EBP-108]
+   CODE32:00095C   DD 45 BC                 FLD   QWORD PTR [EBP-68]
+   CODE32:00095F   DC 4D AC                 FMUL  QWORD PTR [EBP-84]
+   CODE32:000962   DE E9                    FSUBR                             
+   CODE32:000964   DC B5 4C FF FF           FDIV  QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:00096A   DD 9D 3C FF FF           FSTP  QWORD PTR [EBP-196]
+                   FF                                                         
+   CODE32:000970   DD 85 44 FF FF           FLD   QWORD PTR [EBP-188]
+                   FF                                                         
+   CODE32:000976   DC 4D AC                 FMUL  QWORD PTR [EBP-84]
+   CODE32:000979   DD 45 BC                 FLD   QWORD PTR [EBP-68]
+   CODE32:00097C   DC 4D 94                 FMUL  QWORD PTR [EBP-108]
+   CODE32:00097F   DE E9                    FSUBR                             
+   CODE32:000981   DC B5 4C FF FF           FDIV  QWORD PTR [EBP-180]
+                   FF                                                         
+   CODE32:000987   DD 9D 34 FF FF           FSTP  QWORD PTR [EBP-204]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 34
+
+     Interleaved Listing
+
+                   FF                                                         
+   CODE32:00098D   DD 85 3C FF FF           FLD   QWORD PTR [EBP-196]
+                   FF                                                         
+   CODE32:000993   DC 6D A4                 FSUBR QWORD PTR [EBP-92]
+   CODE32:000996   DD 5D A4                 FSTP  QWORD PTR [EBP-92]
+   CODE32:000999   DD 85 34 FF FF           FLD   QWORD PTR [EBP-204]
+                   FF                                                         
+   CODE32:00099F   DC 6D 9C                 FSUBR QWORD PTR [EBP-100]
+   CODE32:0009A2   DD 5D 9C                 FSTP  QWORD PTR [EBP-100]
+   CODE32:0009A5   FF 4D CC                 DEC   DWORD PTR [EBP-52]
+   CODE32:0009A8   FF B5 38 FF FF           PUSH  DWORD PTR [EBP-200]
+                   FF                                                         
+   CODE32:0009AE   FF B5 34 FF FF           PUSH  DWORD PTR [EBP-204]
+                   FF                                                         
+   CODE32:0009B4   9A 00 00 00 00R          CALL FAR PTR         x_fabs
+                   00 00                                                      
+   CODE32:0009BB   2E DD 05 00 00           FLD   CS:QWORD PTR L20007
+                   00 00R                                                     
+   CODE32:0009C2   DE D9                    FCOMPP                            
+   CODE32:0009C4   DF E0                    FNSTSW AX                         
+   CODE32:0009C6   9E                       SAHF                              
+   CODE32:0009C7   73 25                    JAE   NEAR PTR   L20008
+   CODE32:0009C9   FF B5 40 FF FF           PUSH  DWORD PTR [EBP-192]
+                   FF                                                         
+   CODE32:0009CF   FF B5 3C FF FF           PUSH  DWORD PTR [EBP-196]
+                   FF                                                         
+   CODE32:0009D5   9A 00 00 00 00R          CALL FAR PTR         x_fabs
+                   00 00                                                      
+   CODE32:0009DC   2E DD 05 00 00           FLD   CS:QWORD PTR L20007
+                   00 00R                                                     
+   CODE32:0009E3   DE D9                    FCOMPP                            
+   CODE32:0009E5   DF E0                    FNSTSW AX                         
+   CODE32:0009E7   9E                       SAHF                              
+   CODE32:0009E8   0F 82 B0 FE FF           JB    NEAR PTR   L16
+                   FF                                                         
+                                  L20008:
+   CODE32:0009EE   83 7D CC 00              CMP   DWORD PTR [EBP-52],0
+   CODE32:0009F2   0F 8C A6 FE FF           JL    NEAR PTR   L16
+                   FF                                                         
+   CODE32:0009F8   C7 85 6C FF FF           MOV   DWORD PTR [EBP-148],0
+                   FF 00 00 00 00                                             
+   CODE32:000A02   C7 85 70 FF FF           MOV   DWORD PTR [EBP-144],0
+                   FF 00 00 00 00                                             
+   CODE32:000A0C   C7 85 74 FF FF           MOV   DWORD PTR [EBP-140],0
+                   FF 00 00 00 00                                             
+   CODE32:000A16   C7 85 78 FF FF           MOV   DWORD PTR [EBP-136],0
+                   FF 00 00 00 00                                             
+   CODE32:000A20   C7 85 7C FF FF           MOV   DWORD PTR [EBP-132],0
+                   FF 00 00 00 00                                             
+   CODE32:000A2A   C7 45 80 00 00           MOV   DWORD PTR [EBP-128],
+                   F0 3F                          1072693248
+   CODE32:000A31   DD 45 9C                 FLD   QWORD PTR [EBP-100]
+   CODE32:000A34   DD 9D 6C FF FF           FSTP  QWORD PTR [EBP-148]
+                   FF                                                         
+   CODE32:000A3A   DD 45 A4                 FLD   QWORD PTR [EBP-92]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 35
+
+     Interleaved Listing
+
+   CODE32:000A3D   DD 9D 74 FF FF           FSTP  QWORD PTR [EBP-140]
+                   FF                                                         
+   CODE32:000A43   8D BD 54 FF FF           LEA   EDI,DWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:000A49   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000A4B   B9 06 00 00 00           MOV   ECX,6
+   CODE32:000A50   FC                       CLD                               
+   CODE32:000A51   31 C0                    XOR   EAX,EAX
+   CODE32:000A53   F3 AB                    REP STOSD                         
+   CODE32:000A55   8B 45 D0                 MOV   EAX,DWORD PTR [EBP-48]
+   CODE32:000A58   48                       DEC   EAX
+   CODE32:000A59   48                       DEC   EAX
+   CODE32:000A5A   89 45 C4                 MOV   DWORD PTR [EBP-60],EAX
+   CODE32:000A5D   EB 6D                    JMP   NEAR PTR   L23
+                                  L24:
+   CODE32:000A5F   DD 85 7C FF FF           FLD   QWORD PTR [EBP-132]
+                   FF                                                         
+   CODE32:000A65   8B 45 C4                 MOV   EAX,DWORD PTR [EBP-60]
+   CODE32:000A68   C1 E0 03                 SAL   EAX,3
+   CODE32:000A6B   05 10 00 00 00           ADD   EAX,16
+   CODE32:000A70   16 0F A1                 PUSH  SS
+                                            POP   FS
+   CODE32:000A73   64 DC 7C 28 D4           FDIVR FS:QWORD PTR [EAX+EBP-44]
+   CODE32:000A78   8B 45 C4                 MOV   EAX,DWORD PTR [EBP-60]
+   CODE32:000A7B   C1 E0 03                 SAL   EAX,3
+   CODE32:000A7E   01 E8                    ADD   EAX,EBP
+   CODE32:000A80   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000A82   26 DD 98 54 FF           FSTP  ES:QWORD PTR [EAX-172]
+                   FF FF                                                      
+   CODE32:000A89   C7 45 FC 02 00           MOV   DWORD PTR [EBP-4],2
+                   00 00                                                      
+   CODE32:000A90   EB 31                    JMP   NEAR PTR   L27
+                                  L28:
+   CODE32:000A92   8B 45 C4                 MOV   EAX,DWORD PTR [EBP-60]
+   CODE32:000A95   16 0F A1                 PUSH  SS
+                                            POP   FS
+   CODE32:000A98   64 DD 84 C5 54           FLD   FS:QWORD PTR 
+                   FF FF FF                       [EBP+EAX*8-172]
+   CODE32:000AA0   8B 45 FC                 MOV   EAX,DWORD PTR [EBP-4]
+   CODE32:000AA3   16 0F A9                 PUSH  SS
+                                            POP   GS
+   CODE32:000AA6   65 DC 8C C5 6C           FMUL  GS:QWORD PTR 
+                   FF FF FF                       [EBP+EAX*8-148]
+   CODE32:000AAE   03 45 C4                 ADD   EAX,DWORD PTR [EBP-60]
+   CODE32:000AB1   C1 E0 03                 SAL   EAX,3
+   CODE32:000AB4   01 E8                    ADD   EAX,EBP
+   CODE32:000AB6   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000AB8   26 DC 68 D4              FSUBR ES:QWORD PTR [EAX-44]
+   CODE32:000ABC   26 DD 58 D4              FSTP  ES:QWORD PTR [EAX-44]
+   CODE32:000AC0   FF 4D FC                 DEC   DWORD PTR [EBP-4]
+                                  L27:
+   CODE32:000AC3   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 36
+
+     Interleaved Listing
+
+   CODE32:000AC7   7D C9                    JGE   NEAR PTR   L28
+   CODE32:000AC9   FF 4D C4                 DEC   DWORD PTR [EBP-60]
+                                  L23:
+   CODE32:000ACC   83 7D C4 00              CMP   DWORD PTR [EBP-60],0
+   CODE32:000AD0   7D 8D                    JGE   NEAR PTR   L24
+   CODE32:000AD2   8D BD 24 FF FF           LEA   EDI,DWORD PTR [EBP-220]
+                   FF                                                         
+   CODE32:000AD8   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000ADA   B9 04 00 00 00           MOV   ECX,4
+   CODE32:000ADF   FC                       CLD                               
+   CODE32:000AE0   31 C0                    XOR   EAX,EAX
+   CODE32:000AE2   F3 AB                    REP STOSD                         
+   CODE32:000AE4   8D BD 14 FF FF           LEA   EDI,DWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000AEA   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000AEC   B9 04 00 00 00           MOV   ECX,4
+   CODE32:000AF1   FC                       CLD                               
+   CODE32:000AF2   31 C0                    XOR   EAX,EAX
+   CODE32:000AF4   F3 AB                    REP STOSD                         
+C****************************************************************************
+C   217:  		 
+C   218:  		// Nullstellen-Array initialisieren... 
+C   219:  		for ( i = 4 ; i > 0 ; nst[--i] = 0.0F ); 
+C****************************************************************************
+   CODE32:000AF6   C7 45 C4 04 00           MOV   DWORD PTR [EBP-60],4
+                   00 00                                                      
+   CODE32:000AFD   EB 1D                    JMP   NEAR PTR   L31
+                                  L32:
+   CODE32:000AFF   FF 4D C4                 DEC   DWORD PTR [EBP-60]
+   CODE32:000B02   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
+   CODE32:000B05   C1 E1 03                 SAL   ECX,3
+   CODE32:000B08   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000B0B   26 C7 04 0E 00           MOV   ES:DWORD PTR [ESI+ECX],0
+                   00 00 00                                                   
+   CODE32:000B13   26 C7 44 0E 04           MOV   ES:DWORD PTR [ESI+ECX+4],0
+                   00 00 00 00                                                
+                                  L31:
+   CODE32:000B1C   83 7D C4 00              CMP   DWORD PTR [EBP-60],0
+   CODE32:000B20   7F DD                    JG    NEAR PTR   L32
+C****************************************************************************
+C   220:  		 
+C   221:  		// Reelle Loesungen der quadratischen Faktore
+C +       n bestimmen 
+C   222:  		znst = LF2( n01 , a ); 
+C****************************************************************************
+   CODE32:000B22   16                       PUSH  SS
+   CODE32:000B23   8D 85 24 FF FF           LEA   EAX,DWORD PTR [EBP-220]
+                   FF                                                         
+   CODE32:000B29   50                       PUSH  EAX
+   CODE32:000B2A   16                       PUSH  SS
+   CODE32:000B2B   8D 85 6C FF FF           LEA   EAX,DWORD PTR [EBP-148]
+                   FF                                                         
+   CODE32:000B31   50                       PUSH  EAX
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 37
+
+     Interleaved Listing
+
+   CODE32:000B32   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+   CODE32:000B37   89 45 C8                 MOV   DWORD PTR [EBP-56],EAX
+C****************************************************************************
+C   223:  		if (znst) 
+C   224:  		{ 
+C****************************************************************************
+   CODE32:000B3A   09 C0                    OR    EAX,EAX
+   CODE32:000B3C   74 23                    JE    NEAR PTR   L33
+C****************************************************************************
+C   225:  			nst[i++] = n01[0]; 
+C****************************************************************************
+   CODE32:000B3E   DD 85 24 FF FF           FLD   QWORD PTR [EBP-220]
+                   FF                                                         
+   CODE32:000B44   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
+   CODE32:000B47   FF 45 C4                 INC   DWORD PTR [EBP-60]
+   CODE32:000B4A   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000B4D   26 DD 1C CE              FSTP  ES:QWORD PTR [ESI+ECX*8]
+C****************************************************************************
+C   226:  			nst[i++] = n01[1]; 
+C****************************************************************************
+   CODE32:000B51   DD 85 2C FF FF           FLD   QWORD PTR [EBP-212]
+                   FF                                                         
+   CODE32:000B57   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
+   CODE32:000B5A   FF 45 C4                 INC   DWORD PTR [EBP-60]
+   CODE32:000B5D   26 DD 1C CE              FSTP  ES:QWORD PTR [ESI+ECX*8]
+                                  L33:
+C****************************************************************************
+C   227:  		} 
+C   228:  		 
+C   229:  		znst += LF2( n23 , b ); 
+C****************************************************************************
+   CODE32:000B61   16                       PUSH  SS
+   CODE32:000B62   8D 85 14 FF FF           LEA   EAX,DWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000B68   50                       PUSH  EAX
+   CODE32:000B69   16                       PUSH  SS
+   CODE32:000B6A   8D 85 54 FF FF           LEA   EAX,DWORD PTR [EBP-172]
+                   FF                                                         
+   CODE32:000B70   50                       PUSH  EAX
+   CODE32:000B71   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+   CODE32:000B76   01 45 C8                 ADD   DWORD PTR [EBP-56],EAX
+C****************************************************************************
+C   230:  		if (znst) 
+C   231:  		{ 
+C****************************************************************************
+   CODE32:000B79   83 7D C8 00              CMP   DWORD PTR [EBP-56],0
+   CODE32:000B7D   74 7E                    JE    NEAR PTR   L35
+C****************************************************************************
+C   232:  			nst[i++] = n23[0]; 
+C****************************************************************************
+   CODE32:000B7F   DD 85 14 FF FF           FLD   QWORD PTR [EBP-236]
+                   FF                                                         
+   CODE32:000B85   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 38
+
+     Interleaved Listing
+
+   CODE32:000B88   FF 45 C4                 INC   DWORD PTR [EBP-60]
+   CODE32:000B8B   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000B8E   26 DD 1C CE              FSTP  ES:QWORD PTR [ESI+ECX*8]
+C****************************************************************************
+C   233:  			nst[i  ] = n23[1]; 
+C****************************************************************************
+   CODE32:000B92   DD 85 1C FF FF           FLD   QWORD PTR [EBP-228]
+                   FF                                                         
+   CODE32:000B98   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
+   CODE32:000B9B   C1 E1 03                 SAL   ECX,3
+   CODE32:000B9E   26 DD 1C 0E              FSTP  ES:QWORD PTR [ESI+ECX]
+C****************************************************************************
+C   234:  		} 
+C   235:  	} // if (n>2) 
+C   236:  	else // Loesen alles <= 2.Grades 
+C   237:  	{ 
+C****************************************************************************
+   CODE32:000BA2   EB 59                    JMP   NEAR PTR   L35
+                                  L13:
+C****************************************************************************
+C   238:  		d3 a	= { poly[0], poly[1], poly[2] }; 
+C   239:  		d2 n01	= {}; 
+C****************************************************************************
+   CODE32:000BA4   DD 45 D4                 FLD   QWORD PTR [EBP-44]
+   CODE32:000BA7   DD 5D AC                 FSTP  QWORD PTR [EBP-84]
+   CODE32:000BAA   DD 45 DC                 FLD   QWORD PTR [EBP-36]
+   CODE32:000BAD   DD 5D B4                 FSTP  QWORD PTR [EBP-76]
+   CODE32:000BB0   DD 45 E4                 FLD   QWORD PTR [EBP-28]
+   CODE32:000BB3   DD 5D BC                 FSTP  QWORD PTR [EBP-68]
+   CODE32:000BB6   8D 7D 9C                 LEA   EDI,DWORD PTR [EBP-100]
+   CODE32:000BB9   16 07                    PUSH  SS
+                                            POP   ES
+   CODE32:000BBB   B9 04 00 00 00           MOV   ECX,4
+   CODE32:000BC0   FC                       CLD                               
+   CODE32:000BC1   31 C0                    XOR   EAX,EAX
+   CODE32:000BC3   F3 AB                    REP STOSD                         
+C****************************************************************************
+C   240:  		znst	= LF2( n01 , a ); 
+C****************************************************************************
+   CODE32:000BC5   16                       PUSH  SS
+   CODE32:000BC6   8D 45 9C                 LEA   EAX,DWORD PTR [EBP-100]
+   CODE32:000BC9   50                       PUSH  EAX
+   CODE32:000BCA   16                       PUSH  SS
+   CODE32:000BCB   8D 45 AC                 LEA   EAX,DWORD PTR [EBP-84]
+   CODE32:000BCE   50                       PUSH  EAX
+   CODE32:000BCF   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  LF2__FRA2_dRA3_Cd
+   CODE32:000BD4   89 45 C8                 MOV   DWORD PTR [EBP-56],EAX
+C****************************************************************************
+C   241:   
+C   242:  		for ( i = 0 ; i < znst ; nst[i++] = n01[i] );
+C +        
+C****************************************************************************
+   CODE32:000BD7   C7 45 C4 00 00           MOV   DWORD PTR [EBP-60],0
+                   00 00                                                      
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 39
+
+     Interleaved Listing
+
+   CODE32:000BDE   EB 15                    JMP   NEAR PTR   L38
+                                  L39:
+   CODE32:000BE0   8B 45 C4                 MOV   EAX,DWORD PTR [EBP-60]
+   CODE32:000BE3   16 0F A1                 PUSH  SS
+                                            POP   FS
+   CODE32:000BE6   64 DD 44 C5 9C           FLD   FS:QWORD PTR 
+                                                  [EBP+EAX*8-100]
+   CODE32:000BEB   FF 45 C4                 INC   DWORD PTR [EBP-60]
+   CODE32:000BEE   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000BF1   26 DD 1C C6              FSTP  ES:QWORD PTR [ESI+EAX*8]
+                                  L38:
+   CODE32:000BF5   8B 45 C4                 MOV   EAX,DWORD PTR [EBP-60]
+   CODE32:000BF8   3B 45 C8                 CMP   EAX,DWORD PTR [EBP-56]
+   CODE32:000BFB   7C E3                    JL    NEAR PTR   L39
+                                  L35:
+C****************************************************************************
+C   243:  	} 
+C   244:   
+C   245:  	return znst; // Rueckgabewert ist die Anzahl der Reel
+C +       len Loesungen (0 bis 4) 
+C****************************************************************************
+   CODE32:000BFD   8B 45 C8                 MOV   EAX,DWORD PTR [EBP-56]
+   CODE32:000C00   C9                       LEAVE   
+   CODE32:000C01   C2 10 00                 RET   16
+                                  LF4__FRA4_dRA5_Cd  ENDP
+
+C****************************************************************************
+C   250:  int LF2(d2& nst, const d3& pn) 
+C   251:  { 
+
+C****************************************************************************
+                                            PUBLIC   LF2__FRA2_dRA3_Cd
+                                  LF2__FRA2_dRA3_Cd    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000C04   55                       PUSH  EBP
+   CODE32:000C05   8B EC                    MOV   EBP,ESP
+   CODE32:000C07   83 EC 34                 SUB   ESP,52
+C****************************************************************************
+C   252:  	double	p, 
+C   253:  			q, 
+C   254:  			D; 
+C   255:  	 
+C   256:  	// Lokale Kopie des Eingabepolynoms, mit Schreibzugri
+C +       ff 
+C   257:  	d3		poly = { pn[0] , pn[1] , pn[2] }; 
+C   258:  	 
+C   259:  	// Anzahl der reellen Nullstellen (Returnvalue) 
+C   260:  	int		znst	= 0; 
+C****************************************************************************
+   CODE32:000C0A   C4 75 08                 LES   ESI,PWORD PTR [EBP+8]
+   CODE32:000C0D   26 DD 06                 FLD   ES:QWORD PTR [ESI]
+   CODE32:000C10   DD 5D E8                 FSTP  QWORD PTR [EBP-24]
+   CODE32:000C13   26 DD 46 08              FLD   ES:QWORD PTR [ESI+8]
+   CODE32:000C17   DD 5D F0                 FSTP  QWORD PTR [EBP-16]
+   CODE32:000C1A   26 DD 46 10              FLD   ES:QWORD PTR [ESI+16]
+   CODE32:000C1E   DD 5D F8                 FSTP  QWORD PTR [EBP-8]
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 40
+
+     Interleaved Listing
+
+   CODE32:000C21   C7 45 CC 00 00           MOV   DWORD PTR [EBP-52],0
+                   00 00                                                      
+C****************************************************************************
+C   261:   
+C   262:  	switch ( norm(poly) ) 
+C****************************************************************************
+   CODE32:000C28   16                       PUSH  SS
+   CODE32:000C29   8D 45 E8                 LEA   EAX,DWORD PTR [EBP-24]
+   CODE32:000C2C   50                       PUSH  EAX
+   CODE32:000C2D   E8 00 00 00 00R          CALL  NEAR PTR         
+                                                  norm__FRA3_d
+   CODE32:000C32   3D 02 00 00 00           CMP   EAX,2
+   CODE32:000C37   0F 87 1D 01 00           JA    NEAR PTR   L41
+                   00                                                         
+   CODE32:000C3D   2E FF 24 85 00           JMP   CS:WORD PTR L20012[EAX*4]
+                   00 00 00R                                                  
+                                  L20012:
+   CODE32:000C45   00 00 00 00R             DD    L48
+   CODE32:000C49   00 00 00 00R             DD    L47
+   CODE32:000C4D   00 00 00 00R             DD    L42
+C****************************************************************************
+C   263:  	{	 
+C   264:  	case 2:		// Quadratische Gl. ->Loesen mit pq-F
+C +       ormel 
+C   265:  	 
+C   266:  		q = poly[0] / poly[2]; 
+C****************************************************************************
+                                  L42:
+   CODE32:000C51   DD 45 F8                 FLD   QWORD PTR [EBP-8]
+   CODE32:000C54   DC 7D E8                 FDIVR QWORD PTR [EBP-24]
+   CODE32:000C57   DD 5D D0                 FSTP  QWORD PTR [EBP-48]
+C****************************************************************************
+C   267:  		p = (poly[1] / poly[2]) / 2.0F; // genauer: p
+C +       /2 
+C****************************************************************************
+   CODE32:000C5A   DD 45 F8                 FLD   QWORD PTR [EBP-8]
+   CODE32:000C5D   DC 7D F0                 FDIVR QWORD PTR [EBP-16]
+   CODE32:000C60   2E DC 35 00 00           FDIV  CS:QWORD PTR L20003
+                   00 00R                                                     
+   CODE32:000C67   DD 55 E0                 FST   QWORD PTR [EBP-32]
+C****************************************************************************
+C   268:   
+C   269:  		D = p*p - q; 
+C****************************************************************************
+   CODE32:000C6A   DC 4D E0                 FMUL  QWORD PTR [EBP-32]
+   CODE32:000C6D   DC 65 D0                 FSUB  QWORD PTR [EBP-48]
+   CODE32:000C70   DD 5D D8                 FSTP  QWORD PTR [EBP-40]
+C****************************************************************************
+C   270:   
+C   271:  		if (D > 0.0F)	// zwei reelle Loesungen 
+C   272:  		{ 
+C****************************************************************************
+   CODE32:000C73   D9 EE                    FLDZ                              
+   CODE32:000C75   DC 5D D8                 FCOMP QWORD PTR [EBP-40]
+   CODE32:000C78   DF E0                    FNSTSW AX                         
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 41
+
+     Interleaved Listing
+
+   CODE32:000C7A   9E                       SAHF                              
+   CODE32:000C7B   73 2E                    JAE   NEAR PTR   L43
+C****************************************************************************
+C   273:  			nst[0] = -p+sqrt(D); 
+C****************************************************************************
+   CODE32:000C7D   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:000C80   D9 E0                    FCHS                              
+   CODE32:000C82   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:000C85   D9 FA                    FSQRT                             
+   CODE32:000C87   DE C1                    FADD                              
+   CODE32:000C89   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000C8C   26 DD 1E                 FSTP  ES:QWORD PTR [ESI]
+C****************************************************************************
+C   274:  			nst[1] = -p-sqrt(D); 
+C****************************************************************************
+   CODE32:000C8F   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:000C92   D9 E0                    FCHS                              
+   CODE32:000C94   DD 45 D8                 FLD   QWORD PTR [EBP-40]
+   CODE32:000C97   D9 FA                    FSQRT                             
+   CODE32:000C99   DE E9                    FSUBR                             
+   CODE32:000C9B   26 DD 5E 08              FSTP  ES:QWORD PTR [ESI+8]
+C****************************************************************************
+C   275:   
+C   276:  			znst = 2; 
+C   277:  		} 
+C   278:  		else if ( D == 0.0F )	// doppelte Nullstell
+C +       e 
+C****************************************************************************
+   CODE32:000C9F   C7 45 CC 02 00           MOV   DWORD PTR [EBP-52],2
+                   00 00                                                      
+   CODE32:000CA6   E9 AF 00 00 00           JMP   NEAR PTR   L41
+                                  L43:
+C****************************************************************************
+C   279:  		{ 
+C****************************************************************************
+   CODE32:000CAB   D9 EE                    FLDZ                              
+   CODE32:000CAD   DC 5D D8                 FCOMP QWORD PTR [EBP-40]
+   CODE32:000CB0   DF E0                    FNSTSW AX                         
+   CODE32:000CB2   9E                       SAHF                              
+   CODE32:000CB3   75 1B                    JNE   NEAR PTR   L45
+C****************************************************************************
+C   280:  			nst[0] = nst[1] = -p; 
+C****************************************************************************
+   CODE32:000CB5   DD 45 E0                 FLD   QWORD PTR [EBP-32]
+   CODE32:000CB8   D9 E0                    FCHS                              
+   CODE32:000CBA   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000CBD   26 DD 56 08              FST   ES:QWORD PTR [ESI+8]
+   CODE32:000CC1   26 DD 1E                 FSTP  ES:QWORD PTR [ESI]
+C****************************************************************************
+C   281:   
+C   282:  			znst = 2; 
+C   283:  		} 
+C   284:  		else			// keine reelle Loesu
+C +       ng 
+C   285:  		{ 
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 42
+
+     Interleaved Listing
+
+C****************************************************************************
+   CODE32:000CC4   C7 45 CC 02 00           MOV   DWORD PTR [EBP-52],2
+                   00 00                                                      
+   CODE32:000CCB   E9 8A 00 00 00           JMP   NEAR PTR   L41
+                                  L45:
+C****************************************************************************
+C   286:  			nst[0] = 0.0F; 
+C****************************************************************************
+   CODE32:000CD0   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000CD3   26 C7 06 00 00           MOV   ES:DWORD PTR [ESI],0
+                   00 00                                                      
+   CODE32:000CDA   26 C7 46 04 00           MOV   ES:DWORD PTR [ESI+4],0
+                   00 00 00                                                   
+C****************************************************************************
+C   287:  			nst[1] = 0.0F; 
+C****************************************************************************
+   CODE32:000CE2   26 C7 46 08 00           MOV   ES:DWORD PTR [ESI+8],0
+                   00 00 00                                                   
+   CODE32:000CEA   26 C7 46 0C 00           MOV   ES:DWORD PTR [ESI+12],0
+                   00 00 00                                                   
+C****************************************************************************
+C   288:   
+C   289:  			znst = 0; 
+C****************************************************************************
+   CODE32:000CF2   C7 45 CC 00 00           MOV   DWORD PTR [EBP-52],0
+                   00 00                                                      
+C****************************************************************************
+C   290:  		} 
+C   291:  		break; 
+C****************************************************************************
+   CODE32:000CF9   EB 5F                    JMP   NEAR PTR   L41
+C****************************************************************************
+C   292:  	 
+C   293:  	case 1:	// Lineare Gl. -> Eine Loesung  
+C   294:  	 
+C   295:  		nst[0] = -poly[0] / poly[1]; 
+C****************************************************************************
+                                  L47:
+   CODE32:000CFB   DD 45 E8                 FLD   QWORD PTR [EBP-24]
+   CODE32:000CFE   D9 E0                    FCHS                              
+   CODE32:000D00   DC 75 F0                 FDIV  QWORD PTR [EBP-16]
+   CODE32:000D03   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000D06   26 DD 1E                 FSTP  ES:QWORD PTR [ESI]
+C****************************************************************************
+C   296:  		nst[1] = 0.0F; 
+C****************************************************************************
+   CODE32:000D09   26 C7 46 08 00           MOV   ES:DWORD PTR [ESI+8],0
+                   00 00 00                                                   
+   CODE32:000D11   26 C7 46 0C 00           MOV   ES:DWORD PTR [ESI+12],0
+                   00 00 00                                                   
+C****************************************************************************
+C   297:   
+C   298:  		znst = 1; 
+C   299:  		break; 
+C****************************************************************************
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 43
+
+     Interleaved Listing
+
+   CODE32:000D19   C7 45 CC 01 00           MOV   DWORD PTR [EBP-52],1
+                   00 00                                                      
+   CODE32:000D20   EB 38                    JMP   NEAR PTR   L41
+C****************************************************************************
+C   300:  	 
+C   301:  	case 0:	// Konstante -> keine Loesung oder 0 
+C   302:  	 
+C   303:  		nst[0] = 0.0F; 
+C****************************************************************************
+                                  L48:
+   CODE32:000D22   C4 75 10                 LES   ESI,PWORD PTR [EBP+16]
+   CODE32:000D25   26 C7 06 00 00           MOV   ES:DWORD PTR [ESI],0
+                   00 00                                                      
+   CODE32:000D2C   26 C7 46 04 00           MOV   ES:DWORD PTR [ESI+4],0
+                   00 00 00                                                   
+C****************************************************************************
+C   304:  		nst[1] = 0.0F; 
+C****************************************************************************
+   CODE32:000D34   26 C7 46 08 00           MOV   ES:DWORD PTR [ESI+8],0
+                   00 00 00                                                   
+   CODE32:000D3C   26 C7 46 0C 00           MOV   ES:DWORD PTR [ESI+12],0
+                   00 00 00                                                   
+C****************************************************************************
+C   305:   
+C   306:  		znst = ( poly[0] == 0.0F ) ? 1 : 0 ; 
+C****************************************************************************
+   CODE32:000D44   D9 EE                    FLDZ                              
+   CODE32:000D46   DC 5D E8                 FCOMP QWORD PTR [EBP-24]
+   CODE32:000D49   DF E0                    FNSTSW AX                         
+   CODE32:000D4B   9E                       SAHF                              
+   CODE32:000D4C   75 07                    JNE   NEAR PTR   L20010
+   CODE32:000D4E   B8 01 00 00 00           MOV   EAX,1
+   CODE32:000D53   EB 02                    JMP   NEAR PTR   L20011
+                                  L20010:
+   CODE32:000D55   31 C0                    XOR   EAX,EAX
+                                  L20011:
+C****************************************************************************
+C   307:  		break; 
+C****************************************************************************
+   CODE32:000D57   89 45 CC                 MOV   DWORD PTR [EBP-52],EAX
+C****************************************************************************
+C   308:   
+C   309:  	default: break; 
+C****************************************************************************
+                                  L41:
+C****************************************************************************
+C   310:  	}; 
+C   311:   
+C   312:  	return znst; // Rueckgabewert ist die Anzahl der Reel
+C +       len Loesungen (0 bis 2) 
+C****************************************************************************
+   CODE32:000D5A   8B 45 CC                 MOV   EAX,DWORD PTR [EBP-52]
+   CODE32:000D5D   C9                       LEAVE   
+   CODE32:000D5E   C2 10 00                 RET   16
+                                  LF2__FRA2_dRA3_Cd  ENDP
+
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 44
+
+     Interleaved Listing
+
+C****************************************************************************
+C   317:  int norm(d5& poly) 
+C   318:  { 
+
+C****************************************************************************
+                                            PUBLIC   norm__FRA5_d
+                                  norm__FRA5_d    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000D61   55                       PUSH  EBP
+   CODE32:000D62   8B EC                    MOV   EBP,ESP
+   CODE32:000D64   83 EC 08                 SUB   ESP,8
+C****************************************************************************
+C   319:  	int n = 4; 
+C   320:  	while ( ( poly[n] == 0.0F ) && ( n > 0 ) ) n--; // Gr
+C +       ad bestimmen... 
+C****************************************************************************
+   CODE32:000D67   C7 45 FC 04 00           MOV   DWORD PTR [EBP-4],4
+                   00 00                                                      
+   CODE32:000D6E   EB 03                    JMP   NEAR PTR   L51
+                                  L53:
+   CODE32:000D70   FF 4D FC                 DEC   DWORD PTR [EBP-4]
+                                  L51:
+   CODE32:000D73   8B 4D FC                 MOV   ECX,DWORD PTR [EBP-4]
+   CODE32:000D76   C1 E1 03                 SAL   ECX,3
+   CODE32:000D79   C4 55 08                 LES   EDX,PWORD PTR [EBP+8]
+   CODE32:000D7C   01 CA                    ADD   EDX,ECX
+   CODE32:000D7E   D9 EE                    FLDZ                              
+   CODE32:000D80   26 DC 1A                 FCOMP ES:QWORD PTR [EDX]
+   CODE32:000D83   DF E0                    FNSTSW AX                         
+   CODE32:000D85   9E                       SAHF                              
+   CODE32:000D86   75 06                    JNE   NEAR PTR   L20013
+   CODE32:000D88   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+   CODE32:000D8C   7F E2                    JG    NEAR PTR   L53
+                                  L20013:
+C****************************************************************************
+C   321:  	 
+C   322:  	if ( n > 0 ) // ...und normieren 
+C   323:  		for ( int j = 0; j <= n; j++ ) 
+C****************************************************************************
+   CODE32:000D8E   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+   CODE32:000D92   7E 30                    JLE   NEAR PTR   L54
+C****************************************************************************
+C   324:  			poly[j] = poly[j] / poly[n]; 
+C****************************************************************************
+   CODE32:000D94   C7 45 F8 00 00           MOV   DWORD PTR [EBP-8],0
+                   00 00                                                      
+   CODE32:000D9B   EB 1F                    JMP   NEAR PTR   L57
+                                  L58:
+   CODE32:000D9D   8B 4D FC                 MOV   ECX,DWORD PTR [EBP-4]
+   CODE32:000DA0   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:000DA4   64 DD 04 CB              FLD   FS:QWORD PTR [EBX+ECX*8]
+   CODE32:000DA8   8B 5D F8                 MOV   EBX,DWORD PTR [EBP-8]
+   CODE32:000DAB   C1 E3 03                 SAL   EBX,3
+   CODE32:000DAE   C4 55 08                 LES   EDX,PWORD PTR [EBP+8]
+   CODE32:000DB1   01 DA                    ADD   EDX,EBX
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 45
+
+     Interleaved Listing
+
+   CODE32:000DB3   26 DC 3A                 FDIVR ES:QWORD PTR [EDX]
+   CODE32:000DB6   26 DD 1A                 FSTP  ES:QWORD PTR [EDX]
+   CODE32:000DB9   FF 45 F8                 INC   DWORD PTR [EBP-8]
+                                  L57:
+   CODE32:000DBC   8B 45 F8                 MOV   EAX,DWORD PTR [EBP-8]
+   CODE32:000DBF   3B 45 FC                 CMP   EAX,DWORD PTR [EBP-4]
+   CODE32:000DC2   7E D9                    JLE   NEAR PTR   L58
+                                  L54:
+C****************************************************************************
+C   325:  	 
+C   326:  	return n; 
+C****************************************************************************
+   CODE32:000DC4   8B 45 FC                 MOV   EAX,DWORD PTR [EBP-4]
+   CODE32:000DC7   C9                       LEAVE   
+   CODE32:000DC8   C2 08 00                 RET   8
+                                  norm__FRA5_d  ENDP
+
+C****************************************************************************
+C   331:  int norm(d3& poly) 
+C   332:  { 
+
+C****************************************************************************
+                                            PUBLIC   norm__FRA3_d
+                                  norm__FRA3_d    PROC NEAR
+                                            ASSUME DS:DATA
+   CODE32:000DCB   55                       PUSH  EBP
+   CODE32:000DCC   8B EC                    MOV   EBP,ESP
+   CODE32:000DCE   83 EC 08                 SUB   ESP,8
+C****************************************************************************
+C   333:  	int n = 2; 
+C   334:  	while ( ( poly[n] == 0.0F ) && ( n > 0 ) ) n--; // Gr
+C +       ad bestimmen... 
+C****************************************************************************
+   CODE32:000DD1   C7 45 FC 02 00           MOV   DWORD PTR [EBP-4],2
+                   00 00                                                      
+   CODE32:000DD8   EB 03                    JMP   NEAR PTR   L60
+                                  L62:
+   CODE32:000DDA   FF 4D FC                 DEC   DWORD PTR [EBP-4]
+                                  L60:
+   CODE32:000DDD   8B 4D FC                 MOV   ECX,DWORD PTR [EBP-4]
+   CODE32:000DE0   C1 E1 03                 SAL   ECX,3
+   CODE32:000DE3   C4 55 08                 LES   EDX,PWORD PTR [EBP+8]
+   CODE32:000DE6   01 CA                    ADD   EDX,ECX
+   CODE32:000DE8   D9 EE                    FLDZ                              
+   CODE32:000DEA   26 DC 1A                 FCOMP ES:QWORD PTR [EDX]
+   CODE32:000DED   DF E0                    FNSTSW AX                         
+   CODE32:000DEF   9E                       SAHF                              
+   CODE32:000DF0   75 06                    JNE   NEAR PTR   L20014
+   CODE32:000DF2   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+   CODE32:000DF6   7F E2                    JG    NEAR PTR   L62
+                                  L20014:
+C****************************************************************************
+C   335:  	 
+C   336:  	if ( n > 0 ) // ...und normieren 
+C   337:  		for ( int j = 0; j <= n; j++ ) 
+C****************************************************************************
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 46
+
+     Interleaved Listing
+
+   CODE32:000DF8   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
+   CODE32:000DFC   7E 30                    JLE   NEAR PTR   L63
+C****************************************************************************
+C   338:  			poly[j] = poly[j] / poly[n]; 
+C****************************************************************************
+   CODE32:000DFE   C7 45 F8 00 00           MOV   DWORD PTR [EBP-8],0
+                   00 00                                                      
+   CODE32:000E05   EB 1F                    JMP   NEAR PTR   L66
+                                  L67:
+   CODE32:000E07   8B 4D FC                 MOV   ECX,DWORD PTR [EBP-4]
+   CODE32:000E0A   0F B4 5D 08              LFS   EBX,PWORD PTR [EBP+8]
+   CODE32:000E0E   64 DD 04 CB              FLD   FS:QWORD PTR [EBX+ECX*8]
+   CODE32:000E12   8B 5D F8                 MOV   EBX,DWORD PTR [EBP-8]
+   CODE32:000E15   C1 E3 03                 SAL   EBX,3
+   CODE32:000E18   C4 55 08                 LES   EDX,PWORD PTR [EBP+8]
+   CODE32:000E1B   01 DA                    ADD   EDX,EBX
+   CODE32:000E1D   26 DC 3A                 FDIVR ES:QWORD PTR [EDX]
+   CODE32:000E20   26 DD 1A                 FSTP  ES:QWORD PTR [EDX]
+   CODE32:000E23   FF 45 F8                 INC   DWORD PTR [EBP-8]
+                                  L66:
+   CODE32:000E26   8B 45 F8                 MOV   EAX,DWORD PTR [EBP-8]
+   CODE32:000E29   3B 45 FC                 CMP   EAX,DWORD PTR [EBP-4]
+   CODE32:000E2C   7E D9                    JLE   NEAR PTR   L67
+                                  L63:
+C****************************************************************************
+C   339:  	 
+C   340:  	return n; 
+C****************************************************************************
+   CODE32:000E2E   8B 45 FC                 MOV   EAX,DWORD PTR [EBP-4]
+   CODE32:000E31   C9                       LEAVE   
+   CODE32:000E32   C2 08 00                 RET   8
+                                  norm__FRA3_d  ENDP
+
+                                            EXTRN  pow:BYTE
+                                            EXTRN  x_fabs:BYTE
+                                            EXTRN  P2:BYTE
+                                            EXTRN  P4:BYTE
+                                            EXTRN  d2:BYTE
+                                            EXTRN  d3:BYTE
+                                            EXTRN  d4:BYTE
+                                            EXTRN  d5:BYTE
+
+
+                                            END
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 47
+
+     Offsets of Pseudo Segments
+
+     Name                Offset              Size
+     CONST                        0        0H          0        0H 
+     STRINGS                      0        0H          0        0H 
+     LINK                         0        0H         44       2CH 
+     CODE32                      44       2CH       3637      E35H 
+     CODE32                    3684      E64H          0        0H 
+     CODE32                    3684      E64H          0        0H 
+     DATA                         0        0H          0        0H 
+     FAR_DATA                     0        0H          0        0H 
+     DATA                         0        0H          0        0H 
+     BSS                          0        0H          0        0H 
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 48
+
+     Segment Sizes
+
+
+     Code Size: 		00000e64H  3684 (decimal) 
+     Data Size: 		00000000H  0 (decimal) 
+     Const Size:		00000000H  0 (decimal) 
+
+CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 49
+
+     Symbols
+
+Function Name
+               Start Address    End   Address    Start Line       End Line
+Norm__FRC10vektor2D_t
+                      00002C           000048            21             21
+Schnittpunkt__FRA4_9punkt2D_tRC7kreis_tRC9ellipse_t
+                      000077           00057E            25             86
+Schnittpunkt__FRA2_9punkt2D_tRC10gerade2D_tRC9ellipse_t
+                      0005AD           000790            91            134
+LF4__FRA4_dRA5_Cd
+                      0007BF           000C01           140            245
+LF2__FRA2_dRA3_Cd
+                      000C30           000D5E           250            312
+norm__FRA5_d
+                      000D8D           000DC8           317            326
+norm__FRA3_d
+                      000DF7           000E32           331            340

@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: IBF_Geometrie_tool.cpp-Dateireferenz</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('d7/d10/_i_b_f___geometrie__tool_8cpp.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funktionen</a>  </div>
+  <div class="headertitle">
+<div class="title">IBF_Geometrie_tool.cpp-Dateireferenz</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html">IBF_Geometrie_tool.hpp</a>&quot;</code><br />
+</div>
+<p><a href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">gehe zum Quellcode dieser Datei</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funktionen</h2></td></tr>
+<tr class="memitem:ada98a58555503726711bd11b58fe2e94"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#ada98a58555503726711bd11b58fe2e94">Norm</a> (const <a class="el" href="../../dd/d93/structvektor2_d__t.html">vektor2D_t</a> &amp;v_In)</td></tr>
+<tr class="separator:ada98a58555503726711bd11b58fe2e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4928d7e433dcf287e17508510527d21"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#aa4928d7e433dcf287e17508510527d21">Schnittpunkt</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a425c1e07cccb9223be6ddbeda5678e10">P4</a> &amp;SPOut, const <a class="el" href="../../de/da8/structkreis__t.html">kreis_t</a> &amp;k_In, const <a class="el" href="../../d9/dee/structellipse__t.html">ellipse_t</a> &amp;e_In)</td></tr>
+<tr class="separator:aa4928d7e433dcf287e17508510527d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd4b0e4e223e168b12e470514a8ed4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#a5fd4b0e4e223e168b12e470514a8ed4b">Schnittpunkt</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a961777db6b2b6d13eb748659aed6417e">P2</a> &amp;SPOut, const <a class="el" href="../../d4/db1/structgerade2_d__t.html">gerade2D_t</a> &amp;g_In, const <a class="el" href="../../d9/dee/structellipse__t.html">ellipse_t</a> &amp;e_In)</td></tr>
+<tr class="separator:a5fd4b0e4e223e168b12e470514a8ed4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d0a69c9e26cc4d7b7ae37b2f17f392"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#aa2d0a69c9e26cc4d7b7ae37b2f17f392">LF4</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a3c1a19749196999444aba345a1501a6c">d4</a> &amp;nst, const <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af3f54fd59fd109935553adea52db1363">d5</a> &amp;pn)</td></tr>
+<tr class="separator:aa2d0a69c9e26cc4d7b7ae37b2f17f392"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd245ca041539776885a0653fbfcbda"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#a7fd245ca041539776885a0653fbfcbda">LF2</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a0376f2349c047fe4bc0790b728c688ba">d2</a> &amp;nst, const <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af9cb04497bb1bdbc7ac5ccb4ac5026aa">d3</a> &amp;pn)</td></tr>
+<tr class="separator:a7fd245ca041539776885a0653fbfcbda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19acfe2a828a8652220a59ad8e0afa2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#a19acfe2a828a8652220a59ad8e0afa2f">norm</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af3f54fd59fd109935553adea52db1363">d5</a> &amp;poly)</td></tr>
+<tr class="separator:a19acfe2a828a8652220a59ad8e0afa2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba960514b2002baab7f9f73d262bac1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html#aba960514b2002baab7f9f73d262bac1b">norm</a> (<a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af9cb04497bb1bdbc7ac5ccb4ac5026aa">d3</a> &amp;poly)</td></tr>
+<tr class="separator:aba960514b2002baab7f9f73d262bac1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Dokumentation der Funktionen</h2>
+<a class="anchor" id="a7fd245ca041539776885a0653fbfcbda"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LF2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a0376f2349c047fe4bc0790b728c688ba">d2</a> &amp;&#160;</td>
+          <td class="paramname"><em>nst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af9cb04497bb1bdbc7ac5ccb4ac5026aa">d3</a> &amp;&#160;</td>
+          <td class="paramname"><em>pn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00250">250</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00317">norm()</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00140">LF4()</a>, <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00025">Schnittpunkt()</a> und <a class="el" href="../../d5/dca/_i_b_f___schuessel___form_8cpp_source.html#l00020">Schuessel_Form_IST()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2d0a69c9e26cc4d7b7ae37b2f17f392"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LF4 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a3c1a19749196999444aba345a1501a6c">d4</a> &amp;&#160;</td>
+          <td class="paramname"><em>nst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af3f54fd59fd109935553adea52db1363">d5</a> &amp;&#160;</td>
+          <td class="paramname"><em>pn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00140">140</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00250">LF2()</a> und <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00317">norm()</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00025">Schnittpunkt()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada98a58555503726711bd11b58fe2e94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Norm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/d93/structvektor2_d__t.html">vektor2D_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>v_In</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00021">21</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00028">vektor2D_t::dx</a> und <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00029">vektor2D_t::dy</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/d24/_i_b_f___schuessel___d_r__pos_8cpp_source.html#l00021">DRR_trans_IST()</a> und <a class="el" href="../../d3/d24/_i_b_f___schuessel___d_r__pos_8cpp_source.html#l00168">DRR_trans_Soll()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19acfe2a828a8652220a59ad8e0afa2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int norm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af3f54fd59fd109935553adea52db1363">d5</a> &amp;&#160;</td>
+          <td class="paramname"><em>poly</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00317">317</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00250">LF2()</a> und <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00140">LF4()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba960514b2002baab7f9f73d262bac1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int norm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#af9cb04497bb1bdbc7ac5ccb4ac5026aa">d3</a> &amp;&#160;</td>
+          <td class="paramname"><em>poly</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00331">331</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4928d7e433dcf287e17508510527d21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Schnittpunkt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a425c1e07cccb9223be6ddbeda5678e10">P4</a> &amp;&#160;</td>
+          <td class="paramname"><em>SPOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/da8/structkreis__t.html">kreis_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>k_In</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/dee/structellipse__t.html">ellipse_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>e_In</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">SPOut</td><td>Vier berechnete Schnittpunkte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">k_In</td><td>Kreisdefinition </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e_In</td><td>Ellipsendefinition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00025">25</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00047">ellipse_t::a</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00048">ellipse_t::b</a>, <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00250">LF2()</a>, <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00140">LF4()</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00040">kreis_t::M</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00046">ellipse_t::M</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00041">kreis_t::r</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00018">punkt2D_t::x</a> und <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00019">punkt2D_t::y</a>.</p>
+
+<p>Wird benutzt von <a class="el" href="../../d3/d24/_i_b_f___schuessel___d_r__pos_8cpp_source.html#l00021">DRR_trans_IST()</a>, <a class="el" href="../../d3/d24/_i_b_f___schuessel___d_r__pos_8cpp_source.html#l00168">DRR_trans_Soll()</a>, <a class="el" href="../../db/d81/_i_b_f___schuessel___z_r__pos_8cpp_source.html#l00022">ZER_trans_IST()</a> und <a class="el" href="../../db/d81/_i_b_f___schuessel___z_r__pos_8cpp_source.html#l00077">ZER_trans_Soll()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5fd4b0e4e223e168b12e470514a8ed4b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Schnittpunkt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp.html#a961777db6b2b6d13eb748659aed6417e">P2</a> &amp;&#160;</td>
+          <td class="paramname"><em>SPOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/db1/structgerade2_d__t.html">gerade2D_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>g_In</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d9/dee/structellipse__t.html">ellipse_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>e_In</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameter</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">SPOut</td><td>Zwei berechnete Schnittpunkte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g_In</td><td>Geradendefinition </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e_In</td><td>Ellipsendefinition </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definiert in Zeile <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00091">91</a> der Datei <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html">IBF_Geometrie_tool.cpp</a>.</p>
+
+<p>Benutzt <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00047">ellipse_t::a</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00048">ellipse_t::b</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00028">vektor2D_t::dx</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00029">vektor2D_t::dy</a>, <a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp_source.html#l00250">LF2()</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00046">ellipse_t::M</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00034">gerade2D_t::Pu</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00035">gerade2D_t::Vr</a>, <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00018">punkt2D_t::x</a> und <a class="el" href="../../d4/df8/_i_b_f___geometrie__tool_8hpp_source.html#l00019">punkt2D_t::y</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_f9277b23b0ca65ee783fd3eabe970823.html">source</a></li><li class="navelem"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html">IBF_Geometrie_tool.cpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:14 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

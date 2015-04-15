@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>RWTH_SMP: IBF_axproflex.hpp Quellcode</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../IBF_Logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">RWTH_SMP
+   &#160;<span id="projectnumber">110</span>
+   </div>
+   <div id="projectbrief">Flexibles Steuerungsmodul für Ringwalzprozesse</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Hauptseite</span></a></li>
+      <li><a href="../../pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="../../annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+      <li><a href="../../globals.html"><span>Datei-Elemente</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('da/db2/_i_b_f__axproflex_8hpp_source.html','../../');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Makrodefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">IBF_axproflex.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../da/db2/_i_b_f__axproflex_8hpp.html">gehe zur Dokumentation dieser Datei</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*--FILE HEADER---------------------------------------------------------------</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">;   filename        : IBF_axproflex.hpp</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">;   version         : V1.0</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">;   contents        : IBF-Variablen IBF software </span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">;   author          : D. Michl, IBF RWTH Aachen</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">;   date            : July, 2007</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">;---FUNCTION AND ENVIRONMENT---------------------------------------------------</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">;   function:   enthält alle Strukturen, die für das flexible axiale </span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">;               Profilieren notwendig sind</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">;               </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">;       RMOS3  Version 3.30</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">;       CAD-UL Version V120C</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">;---END OF  FILE HEADER------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*--MODIFICATION HEADER--------------------------------------------------------</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">;   July , 19. 2007  0001  D.M.  original issue V1.0</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">;   </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">;---END OF MODIFICATION HEADER-----------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef _IBF_axproflex_HPP</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">   #define _IBF_axproflex_HPP</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">   #include &quot;<a class="code" href="../../dd/d3b/rpw_8hpp.html">rpw.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*          Protottypen der IBF_Funktionen                                                 */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*-----------------------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// Setzungen</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//---------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;   <span class="comment">// Maximale Anzahl der walzbaren Profile</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../da/db2/_i_b_f__axproflex_8hpp.html#af2c923d5a9c7136f5684f332ea2632d5">   38</a></span>&#160;<span class="preprocessor">   #define PROF_ANZ_MAX 6</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//Los geht´s</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html">   46</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d3/dd6/struct_def___kragen___geo.html">Def_Kragen_Geo</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a998c43df19e7c4038c9a37e178b6304f">   50</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a998c43df19e7c4038c9a37e178b6304f">Kr_Br</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#ae79899b8460ac814ba526c85ca5e8287">   53</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#ae79899b8460ac814ba526c85ca5e8287">Kr_d_nenn_mitte</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a5553e42fa8fabf9f9c152ce03c0f3128">   56</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a5553e42fa8fabf9f9c152ce03c0f3128">Kr_d_nenn_vorne</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#acd8edc774840dbbf6175426696450591">   59</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#acd8edc774840dbbf6175426696450591">Kr_d_nenn_hinten</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a36920f303ddf3ca07d1070c913e5cc43">   62</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a36920f303ddf3ca07d1070c913e5cc43">Del_Kr_AGR</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#acad8196c51160ed19aabf2ba18764e92">   66</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#acad8196c51160ed19aabf2ba18764e92">max_Pr_Tiefe</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a596edaa0d4f5826b18175071c4ac4347">   69</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a596edaa0d4f5826b18175071c4ac4347">sin_kw_winkel_halbe</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a4d004ba3805b4a3f9c215c242b34fd87">   72</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a4d004ba3805b4a3f9c215c242b34fd87">l_fehlende_spitze_ukw</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d3/dd6/struct_def___kragen___geo.html#a0cbf849db91b16d5d1643645a7d09d45">   76</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d3/dd6/struct_def___kragen___geo.html#a0cbf849db91b16d5d1643645a7d09d45">l_mantel_ukw_o_fehlende_spitze</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Länge der unteren KW von der reellen Spite bis Kragenwalze   [mm]</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    };</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html">   83</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d7/d6c/struct_def___biss___ver.html">Def_Biss_Ver</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#a4940867f0ceb02a75278450b85d1aea1">   85</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#a4940867f0ceb02a75278450b85d1aea1">Verhaeltnis</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">// Bissverhältnis für breite Profile                                    [%]</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#af8f5bc62b6fac046a4c49c22f74900ef">   87</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#af8f5bc62b6fac046a4c49c22f74900ef">AG_Pos_alt</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="comment">// Merker der vorherige Axialgerüstposition                             [mm]</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#ac7976e0a4ef7d594dc7a4b04b0764628">   91</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#ac7976e0a4ef7d594dc7a4b04b0764628">Position</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// Position des Bissversatzes Rechts- oder Links neben erster Stufe     [-]</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#a2d0e6007cd07212649864ea1363d0af9">   93</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#a2d0e6007cd07212649864ea1363d0af9">Anzahl</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">// Anzahl der Bisse erste Ebene</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#ac87bf04dcb65e184139ba255620fc9fe">   95</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#ac87bf04dcb65e184139ba255620fc9fe">Anzahl_zweite_Ebene</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment">// Anzahl der Bisse zweite Ebene</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#ae625b29de9863ad0af102e5a957b4d29">   98</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#ae625b29de9863ad0af102e5a957b4d29">AGR_Pr_Merker</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="comment">// Zahlen-Merker der in IBFPare.ini vorgebenen Axialgerüstposition [0] für Neustart [mm]</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d7/d6c/struct_def___biss___ver.html#a04ee8ceefcb078fade3acb9265006148">  100</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d6c/struct_def___biss___ver.html#a04ee8ceefcb078fade3acb9265006148">AG_Pos_Erreicht</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// Merker für Positonierung des AG in case 13 (Profilflag.Axial....)</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    };</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html">  105</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d7/d07/struct_def___turbine.html">Def_Turbine</a></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#aea0d845e8ed11242b97c5330ef950bc3">  107</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#aea0d845e8ed11242b97c5330ef950bc3">Turbinenscheibe</a>;          <span class="comment">// Schalter in inipara setzen</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#a6dcfb153f407d78a5b69f718377b618b">  109</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#a6dcfb153f407d78a5b69f718377b618b">Ebene1_fertig</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="comment">// Erste Ebene bestehend aus x-Biss gewalzt</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#a1ab9547527b954fce3aee8b0602b1284">  111</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#a1ab9547527b954fce3aee8b0602b1284">AG_Pos_Erreicht</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">// Neuposition für zweite Ebende</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#ae57e3f8f2f20f9617618e22b1c3c2a94">  114</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#ae57e3f8f2f20f9617618e22b1c3c2a94">s_akt_Merker</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment">// Merker der aktuellen Wanddicke nach erreichen der ersten Ebene</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#a5320658283c0f159b9f59e5e341896c1">  117</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#a5320658283c0f159b9f59e5e341896c1">Stufe_erreicht</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="comment">// Erreichen der zweiten Stufe</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d7/d07/struct_def___turbine.html#a2e2550bc03378288c59bd4a9ef2435c0">  119</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../d7/d07/struct_def___turbine.html#a2e2550bc03378288c59bd4a9ef2435c0">zweite_Ebene_erreicht</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="comment">// Erreichen der zeiten Ebene</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html">  128</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../de/d0a/struct_axial___flex___prof.html">Axial_Flex_Prof</a></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#aede6d9b29344faf05fcd9d005019bc0c">  143</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#aede6d9b29344faf05fcd9d005019bc0c">Profilflag</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#aad30b4d9aec8712d7c58e4a28db7f36c">  147</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#aad30b4d9aec8712d7c58e4a28db7f36c">Anfahrdurchm</a>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a44ea02a9603a7d508e27b46f08818947">  150</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a44ea02a9603a7d508e27b46f08818947">Umdrehungen</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a1fb69e260ad620d76ebe8792de036a2a">  156</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../d3/dd6/struct_def___kragen___geo.html">Def_Kragen_Geo</a> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a1fb69e260ad620d76ebe8792de036a2a">Kr_geo</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a11dfc0f52684a0587ba5c259409a71eb">  160</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../d7/d6c/struct_def___biss___ver.html">Def_Biss_Ver</a> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a11dfc0f52684a0587ba5c259409a71eb">Biss</a>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="comment">// Struktur Bissverhältnis</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a048525d11de7210bc3e88d5d2b51c9d2">  162</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="../../d7/d07/struct_def___turbine.html">Def_Turbine</a> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a048525d11de7210bc3e88d5d2b51c9d2">Turbine</a>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">// Struktur zum walzen verschiedener Ebenenen wie bei Turbinenscheiben</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a4ff01f2a5f482e0a94de71d4e209f337">  167</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a4ff01f2a5f482e0a94de71d4e209f337">Profilanzahl</a>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a74a7ad8bb0bc6278b9999c14595fcd9c">  170</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a74a7ad8bb0bc6278b9999c14595fcd9c">Pr_Num</a>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a77da45d5e7891900a3ab336df5ce80a3">  175</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a77da45d5e7891900a3ab336df5ce80a3">AGR_Pr</a>[<a class="code" href="../../da/db2/_i_b_f__axproflex_8hpp.html#af2c923d5a9c7136f5684f332ea2632d5">PROF_ANZ_MAX</a>];</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a86060b118cfefbbb53a6e6996b36d6bd">  178</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a86060b118cfefbbb53a6e6996b36d6bd">Pr_Tiefe</a>[<a class="code" href="../../da/db2/_i_b_f__axproflex_8hpp.html#af2c923d5a9c7136f5684f332ea2632d5">PROF_ANZ_MAX</a>];</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a201e20f3ae3a1db9a455db08b4642953">  181</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a201e20f3ae3a1db9a455db08b4642953">Vorschub</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a8ead611f16a851e3ec98cc148d6e639a">  186</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a8ead611f16a851e3ec98cc148d6e639a">Verh_pr_sf_proz_start</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#aed59d92fdf4309ff41a1f8eee8b5d3b9">  189</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#aed59d92fdf4309ff41a1f8eee8b5d3b9">Verh_pr_sf_proz</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="../../de/d0a/struct_axial___flex___prof.html#a77b73c0464c6110d5250fb3fd7e40477">  193</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="../../de/d0a/struct_axial___flex___prof.html#a77b73c0464c6110d5250fb3fd7e40477">Wert</a>;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    };</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="struct_def___biss___ver_html_af8f5bc62b6fac046a4c49c22f74900ef"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#af8f5bc62b6fac046a4c49c22f74900ef">Def_Biss_Ver::AG_Pos_alt</a></div><div class="ttdeci">float AG_Pos_alt</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00087">IBF_axproflex.hpp:87</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a4d004ba3805b4a3f9c215c242b34fd87"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a4d004ba3805b4a3f9c215c242b34fd87">Def_Kragen_Geo::l_fehlende_spitze_ukw</a></div><div class="ttdeci">float l_fehlende_spitze_ukw</div><div class="ttdoc">Laenge der fehlenden Spitze an der unteren Kegelwalze in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00072">IBF_axproflex.hpp:72</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_aad30b4d9aec8712d7c58e4a28db7f36c"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#aad30b4d9aec8712d7c58e4a28db7f36c">Axial_Flex_Prof::Anfahrdurchm</a></div><div class="ttdeci">float Anfahrdurchm</div><div class="ttdoc">Vorgegebenr Ringdurchmesser zum Anfahren des Axialgeruests in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00147">IBF_axproflex.hpp:147</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_ae57e3f8f2f20f9617618e22b1c3c2a94"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#ae57e3f8f2f20f9617618e22b1c3c2a94">Def_Turbine::s_akt_Merker</a></div><div class="ttdeci">float s_akt_Merker</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00114">IBF_axproflex.hpp:114</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_ae625b29de9863ad0af102e5a957b4d29"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#ae625b29de9863ad0af102e5a957b4d29">Def_Biss_Ver::AGR_Pr_Merker</a></div><div class="ttdeci">float AGR_Pr_Merker</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00098">IBF_axproflex.hpp:98</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a1fb69e260ad620d76ebe8792de036a2a"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a1fb69e260ad620d76ebe8792de036a2a">Axial_Flex_Prof::Kr_geo</a></div><div class="ttdeci">struct Def_Kragen_Geo Kr_geo</div><div class="ttdoc">Strucktur vom Type Def_Kragen_Geo zur Beschreibung der Kragenzwalzgeomtrie. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00156">IBF_axproflex.hpp:156</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_a4940867f0ceb02a75278450b85d1aea1"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#a4940867f0ceb02a75278450b85d1aea1">Def_Biss_Ver::Verhaeltnis</a></div><div class="ttdeci">float Verhaeltnis</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00085">IBF_axproflex.hpp:85</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html">Def_Biss_Ver</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00083">IBF_axproflex.hpp:83</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_a5320658283c0f159b9f59e5e341896c1"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#a5320658283c0f159b9f59e5e341896c1">Def_Turbine::Stufe_erreicht</a></div><div class="ttdeci">int Stufe_erreicht</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00117">IBF_axproflex.hpp:117</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a86060b118cfefbbb53a6e6996b36d6bd"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a86060b118cfefbbb53a6e6996b36d6bd">Axial_Flex_Prof::Pr_Tiefe</a></div><div class="ttdeci">float Pr_Tiefe[PROF_ANZ_MAX]</div><div class="ttdoc">Profieltefe. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00178">IBF_axproflex.hpp:178</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a596edaa0d4f5826b18175071c4ac4347"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a596edaa0d4f5826b18175071c4ac4347">Def_Kragen_Geo::sin_kw_winkel_halbe</a></div><div class="ttdeci">float sin_kw_winkel_halbe</div><div class="ttdoc">Halber Sinus-Winkel Kragenwalze in [°]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00069">IBF_axproflex.hpp:69</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_aea0d845e8ed11242b97c5330ef950bc3"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#aea0d845e8ed11242b97c5330ef950bc3">Def_Turbine::Turbinenscheibe</a></div><div class="ttdeci">int Turbinenscheibe</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00107">IBF_axproflex.hpp:107</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a5553e42fa8fabf9f9c152ce03c0f3128"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a5553e42fa8fabf9f9c152ce03c0f3128">Def_Kragen_Geo::Kr_d_nenn_vorne</a></div><div class="ttdeci">float Kr_d_nenn_vorne</div><div class="ttdoc">Nennduchmesser Kragenvorderkante in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00056">IBF_axproflex.hpp:56</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_aede6d9b29344faf05fcd9d005019bc0c"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#aede6d9b29344faf05fcd9d005019bc0c">Axial_Flex_Prof::Profilflag</a></div><div class="ttdeci">int Profilflag</div><div class="ttdoc">Profilflag fuer die Funtion Axialprofilieren. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00143">IBF_axproflex.hpp:143</a></div></div>
+<div class="ttc" id="_i_b_f__axproflex_8hpp_html_af2c923d5a9c7136f5684f332ea2632d5"><div class="ttname"><a href="../../da/db2/_i_b_f__axproflex_8hpp.html#af2c923d5a9c7136f5684f332ea2632d5">PROF_ANZ_MAX</a></div><div class="ttdeci">#define PROF_ANZ_MAX</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00038">IBF_axproflex.hpp:38</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a8ead611f16a851e3ec98cc148d6e639a"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a8ead611f16a851e3ec98cc148d6e639a">Axial_Flex_Prof::Verh_pr_sf_proz_start</a></div><div class="ttdeci">float Verh_pr_sf_proz_start</div><div class="ttdoc">Verh_pr_sf_proz_start. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00186">IBF_axproflex.hpp:186</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_aed59d92fdf4309ff41a1f8eee8b5d3b9"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#aed59d92fdf4309ff41a1f8eee8b5d3b9">Axial_Flex_Prof::Verh_pr_sf_proz</a></div><div class="ttdeci">float Verh_pr_sf_proz</div><div class="ttdoc">Verhaeltnis der Profilposition zur Wanddicke in [%]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00189">IBF_axproflex.hpp:189</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_ae79899b8460ac814ba526c85ca5e8287"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#ae79899b8460ac814ba526c85ca5e8287">Def_Kragen_Geo::Kr_d_nenn_mitte</a></div><div class="ttdeci">float Kr_d_nenn_mitte</div><div class="ttdoc">Nennduchmesser Kragenmittelpunk in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00053">IBF_axproflex.hpp:53</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a201e20f3ae3a1db9a455db08b4642953"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a201e20f3ae3a1db9a455db08b4642953">Axial_Flex_Prof::Vorschub</a></div><div class="ttdeci">float Vorschub</div><div class="ttdoc">Zustellungsgeschwindigkeit der Kragenwalze in [mm/U]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00181">IBF_axproflex.hpp:181</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a0cbf849db91b16d5d1643645a7d09d45"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a0cbf849db91b16d5d1643645a7d09d45">Def_Kragen_Geo::l_mantel_ukw_o_fehlende_spitze</a></div><div class="ttdeci">float l_mantel_ukw_o_fehlende_spitze</div><div class="ttdoc">Laenge der unteren Kegelwalze von der reellen Spitze bis Kragenwalze in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00076">IBF_axproflex.hpp:76</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a11dfc0f52684a0587ba5c259409a71eb"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a11dfc0f52684a0587ba5c259409a71eb">Axial_Flex_Prof::Biss</a></div><div class="ttdeci">struct Def_Biss_Ver Biss</div><div class="ttdoc">Struktur mit Informationen über das Bissverhältnis. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00160">IBF_axproflex.hpp:160</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a4ff01f2a5f482e0a94de71d4e209f337"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a4ff01f2a5f482e0a94de71d4e209f337">Axial_Flex_Prof::Profilanzahl</a></div><div class="ttdeci">int Profilanzahl</div><div class="ttdoc">Anzahl der zu walzenden Profile. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00167">IBF_axproflex.hpp:167</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html">Axial_Flex_Prof</a></div><div class="ttdoc">Nötige Information über das axiale Profilieren. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00128">IBF_axproflex.hpp:128</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_acad8196c51160ed19aabf2ba18764e92"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#acad8196c51160ed19aabf2ba18764e92">Def_Kragen_Geo::max_Pr_Tiefe</a></div><div class="ttdeci">float max_Pr_Tiefe</div><div class="ttdoc">maximale walzbare Profieltiefe durch Hoehe der Kragenschenkel [mm] </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00066">IBF_axproflex.hpp:66</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html">Def_Kragen_Geo</a></div><div class="ttdoc">Informationen über die Kragenwalze. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00046">IBF_axproflex.hpp:46</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_ac7976e0a4ef7d594dc7a4b04b0764628"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#ac7976e0a4ef7d594dc7a4b04b0764628">Def_Biss_Ver::Position</a></div><div class="ttdeci">int Position</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00091">IBF_axproflex.hpp:91</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_acd8edc774840dbbf6175426696450591"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#acd8edc774840dbbf6175426696450591">Def_Kragen_Geo::Kr_d_nenn_hinten</a></div><div class="ttdeci">float Kr_d_nenn_hinten</div><div class="ttdoc">Nennduchmesser Kragenhiterkante in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00059">IBF_axproflex.hpp:59</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a36920f303ddf3ca07d1070c913e5cc43"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a36920f303ddf3ca07d1070c913e5cc43">Def_Kragen_Geo::Del_Kr_AGR</a></div><div class="ttdeci">float Del_Kr_AGR</div><div class="ttdoc">Abstand hintere Kante kragenwalze -theorethische Spitze in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00062">IBF_axproflex.hpp:62</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a74a7ad8bb0bc6278b9999c14595fcd9c"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a74a7ad8bb0bc6278b9999c14595fcd9c">Axial_Flex_Prof::Pr_Num</a></div><div class="ttdeci">int Pr_Num</div><div class="ttdoc">Aktuelle zu walzende Profilnummer. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00170">IBF_axproflex.hpp:170</a></div></div>
+<div class="ttc" id="struct_def___kragen___geo_html_a998c43df19e7c4038c9a37e178b6304f"><div class="ttname"><a href="../../d3/dd6/struct_def___kragen___geo.html#a998c43df19e7c4038c9a37e178b6304f">Def_Kragen_Geo::Kr_Br</a></div><div class="ttdeci">float Kr_Br</div><div class="ttdoc">Kragenbreite in [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00050">IBF_axproflex.hpp:50</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a77b73c0464c6110d5250fb3fd7e40477"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a77b73c0464c6110d5250fb3fd7e40477">Axial_Flex_Prof::Wert</a></div><div class="ttdeci">int Wert</div><div class="ttdoc">Variable in Funtkion AGR_Nachfuehr_Entscheider() [&#39;A&#39;/&#39;I&#39;]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00193">IBF_axproflex.hpp:193</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_ac87bf04dcb65e184139ba255620fc9fe"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#ac87bf04dcb65e184139ba255620fc9fe">Def_Biss_Ver::Anzahl_zweite_Ebene</a></div><div class="ttdeci">int Anzahl_zweite_Ebene</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00095">IBF_axproflex.hpp:95</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_a6dcfb153f407d78a5b69f718377b618b"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#a6dcfb153f407d78a5b69f718377b618b">Def_Turbine::Ebene1_fertig</a></div><div class="ttdeci">int Ebene1_fertig</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00109">IBF_axproflex.hpp:109</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_a1ab9547527b954fce3aee8b0602b1284"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#a1ab9547527b954fce3aee8b0602b1284">Def_Turbine::AG_Pos_Erreicht</a></div><div class="ttdeci">int AG_Pos_Erreicht</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00111">IBF_axproflex.hpp:111</a></div></div>
+<div class="ttc" id="struct_def___turbine_html"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html">Def_Turbine</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00105">IBF_axproflex.hpp:105</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_a04ee8ceefcb078fade3acb9265006148"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#a04ee8ceefcb078fade3acb9265006148">Def_Biss_Ver::AG_Pos_Erreicht</a></div><div class="ttdeci">int AG_Pos_Erreicht</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00100">IBF_axproflex.hpp:100</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a77da45d5e7891900a3ab336df5ce80a3"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a77da45d5e7891900a3ab336df5ce80a3">Axial_Flex_Prof::AGR_Pr</a></div><div class="ttdeci">float AGR_Pr[PROF_ANZ_MAX]</div><div class="ttdoc">Profilierposition auf der Ringstrinseite [mm]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00175">IBF_axproflex.hpp:175</a></div></div>
+<div class="ttc" id="struct_def___turbine_html_a2e2550bc03378288c59bd4a9ef2435c0"><div class="ttname"><a href="../../d7/d07/struct_def___turbine.html#a2e2550bc03378288c59bd4a9ef2435c0">Def_Turbine::zweite_Ebene_erreicht</a></div><div class="ttdeci">int zweite_Ebene_erreicht</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00119">IBF_axproflex.hpp:119</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a048525d11de7210bc3e88d5d2b51c9d2"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a048525d11de7210bc3e88d5d2b51c9d2">Axial_Flex_Prof::Turbine</a></div><div class="ttdeci">struct Def_Turbine Turbine</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00162">IBF_axproflex.hpp:162</a></div></div>
+<div class="ttc" id="rpw_8hpp_html"><div class="ttname"><a href="../../dd/d3b/rpw_8hpp.html">rpw.hpp</a></div></div>
+<div class="ttc" id="struct_def___biss___ver_html_a2d0e6007cd07212649864ea1363d0af9"><div class="ttname"><a href="../../d7/d6c/struct_def___biss___ver.html#a2d0e6007cd07212649864ea1363d0af9">Def_Biss_Ver::Anzahl</a></div><div class="ttdeci">int Anzahl</div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00093">IBF_axproflex.hpp:93</a></div></div>
+<div class="ttc" id="struct_axial___flex___prof_html_a44ea02a9603a7d508e27b46f08818947"><div class="ttname"><a href="../../de/d0a/struct_axial___flex___prof.html#a44ea02a9603a7d508e27b46f08818947">Axial_Flex_Prof::Umdrehungen</a></div><div class="ttdeci">int Umdrehungen</div><div class="ttdoc">Umdrehungen in Rundungsphase in [-]. </div><div class="ttdef"><b>Definition:</b> <a href="../../da/db2/_i_b_f__axproflex_8hpp_source.html#l00150">IBF_axproflex.hpp:150</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_a2abdbaa7473ee34f6db7f792595f5c8.html">inc</a></li><li class="navelem"><a class="el" href="../../da/db2/_i_b_f__axproflex_8hpp.html">IBF_axproflex.hpp</a></li>
+    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:11 für RWTH_SMP von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
+  </ul>
+</div>
+</body>
+</html>

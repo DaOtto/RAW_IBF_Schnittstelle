@@ -1,0 +1,418 @@
+ /*(
+ * The information  contained  herein is a trade secret of CAD-UL GmbH,
+ * Ulm, Germany, and is confidential information. It is provided  under
+ * a license agreement, and may be  copied or disclosed  only under the
+ * terms of  that  agreement.  Any  reproduction or disclosure  of this
+ * material  without  the express written  authorization of CAD-UL GmbH
+ * or persuant to the license agreement is unlawful.
+ *
+ * Copyright (c) 1991-1998 CAD-UL GmbH
+ * An unpublished work by CAD-UL GmbH, Germany
+ * All rights reserved.
+ *
+ *
+ * $Log: ostream,v $
+ * Revision 1.2  2000/02/08 06:21:05  pla
+ * LIBCXX V210
+ *
+ * Revision 1.1  1998/05/04 14:43:03  aki
+ * Initial revision
+ *
+ */ 
+
+// ostream standard header
+#ifndef _OSTREAM_
+#define _OSTREAM_
+
+#pragma noarguments_in_registers(push)
+
+#include <ios>
+		// I/O exception macros
+ #if _HAS_EXCEPTIONS
+ #define _TRY_IO_BEGIN	_TRY_BEGIN
+ #define _CATCH_IO_END	_CATCH_ALL \
+	_Myios::setstate(ios_base::badbit, true); _CATCH_END
+ #define _CATCH_IO_(x)	_CATCH_ALL \
+	(x).setstate(ios_base::badbit, true); _CATCH_END
+ #else
+ #define _TRY_IO_BEGIN	{
+ #define _CATCH_IO_END	}
+ #define _CATCH_IO_(x)	}
+ #endif
+_STD_BEGIN
+		// CLASS ostream
+#if i8086 /* >> 4719DE1 >> */
+#pragma       align   (ostream=2)
+#else
+#pragma       align   (ostream=4)                     // 3055DE1
+#endif /* << 4719DE1 << */
+class ostream: public ios {
+public:
+	typedef char _E;
+	typedef char_traits _Tr;
+	typedef ostream _Myt;
+	typedef ios _Myios;
+	typedef streambuf _Mysb;
+	typedef _Ostrit _Iter;
+	typedef num_put _Nput;
+	explicit ostream(streambuf *__S,
+		bool _Isstd = false)
+		{init(__S, _Isstd); }
+	ostream(_Uninitialized)
+		{_Addstd(); }
+	virtual ~ostream()
+		{}
+	typedef _Tr::int_type int_type;
+	typedef _Tr::pos_type pos_type;
+	typedef _Tr::off_type off_type;
+	class sentry {
+	public:
+		explicit sentry(_Myt& _Os)
+			/* 2008DE1 pass pointer _ios_sem to lock function */
+			: _Lk(_LOCK_STREAM,&_Os._ios_sem), _Ostr(_Os)
+			{if (_Os.good() && _Os.tie() != 0)
+				_Os.tie()->flush();
+			_Ok = _Os.good(); }
+		~sentry()
+			{_Ostr.osfx(); }
+		operator bool() const
+			{return (_Ok); }
+	private:
+		sentry(const sentry&);	// not defined
+		sentry& operator=(const sentry&);	// not defined
+		bool _Ok;
+		_Lockit _Lk;
+		_Myt& _Ostr;
+		};
+	bool opfx()
+		{if (ios_base::good() && _Myios::tie() != 0)
+			_Myios::tie()->flush();
+		return (ios_base::good()); }
+	void osfx()
+		{if (ios_base::flags() & ios_base::unitbuf)
+			flush(); }
+	_Myt& operator<<(_Myt& (*_F)(_Myt&))
+		{return ((*_F)(*this)); }
+	_Myt& operator<<(_Myios& (*_F)(_Myios&))
+		{(*_F)(*(_Myios *)this);
+		return (*this); }
+	_Myt& operator<<(ios_base& (*_F)(ios_base&))
+		{(*_F)(*(ios_base *)this);
+		return (*this); }
+	_Myt& operator<<(_Bool __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(short __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			ios_base::fmtflags _Bfl =
+				ios_base::flags() & ios_base::basefield;
+			long _Y = (_Bfl == oct || _Bfl == hex)
+				? (long)(unsigned short)__X : (long)__X;
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), _Y).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(unsigned short __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), (unsigned long)__X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(int __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			ios_base::fmtflags _Bfl =
+				ios_base::flags() & ios_base::basefield;
+			long _Y = (_Bfl == oct || _Bfl == hex)
+				? (long)(unsigned int)__X : (long)__X;
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), _Y).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(unsigned int __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), (unsigned long)__X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(long __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(unsigned long __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(float __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), (double)__X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(double __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(long double __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(const void *__X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (_Ok)
+			{const _Nput& _Fac = _USE(ios_base::getloc(), _Nput);
+			_TRY_IO_BEGIN
+			if (_Fac.put(_Iter(_Myios::rdbuf()), *this,
+				_Myios::fill(), __X).failed())
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& operator<<(_Mysb *_Pb)
+		{ios_base::iostate _St = ios_base::goodbit;
+		bool _Copied = false;
+		const sentry _Ok(*this);
+		if (_Ok && _Pb != 0)
+			for (int_type __C = _Tr::eof(); ; _Copied = true)
+				{_TRY_BEGIN
+				__C = _Tr::eq_int_type(_Tr::eof(), __C)
+					? _Pb->sgetc() : _Pb->snextc();
+				_CATCH_ALL
+					_Myios::setstate(ios_base::failbit);
+					_RERAISE;
+				_CATCH_END
+				if (_Tr::eq_int_type(_Tr::eof(),__C))
+					break;
+				_TRY_IO_BEGIN
+					if (_Tr::eq_int_type(_Tr::eof(),
+						_Myios::rdbuf()->sputc(
+							_Tr::to_char_type(__C))))
+						{_St |= ios_base::badbit;
+						break; }
+				_CATCH_IO_END }
+		ios_base::width(0);
+		_Myios::setstate(!_Copied
+			? _St | ios_base::failbit : _St);
+		return (*this); }
+	_Myt& put(_E __X)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (!_Ok)
+			_St |= ios_base::badbit;
+		else
+			{_TRY_IO_BEGIN
+			 if (_Tr::eq_int_type(_Tr::eof(),
+				_Myios::rdbuf()->sputc(__X)))
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& write(const _E *__S, streamsize __N)
+		{ios_base::iostate _St = ios_base::goodbit;
+		const sentry _Ok(*this);
+		if (!_Ok)
+			_St |= ios_base::badbit;
+		else
+			{_TRY_IO_BEGIN
+			if (_Myios::rdbuf()->sputn(__S, __N) != __N)
+				_St |= ios_base::badbit;
+			_CATCH_IO_END }
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& flush()
+		{ios_base::iostate _St = ios_base::goodbit;
+		if (!ios_base::fail()
+			&& _Myios::rdbuf()->pubsync() == -1)
+			_St |= ios_base::badbit;
+		_Myios::setstate(_St);
+		return (*this); }
+	_Myt& seekp(pos_type __P)
+		{if (!ios_base::fail())
+			_Myios::rdbuf()->pubseekpos(__P, ios_base::out);
+		return (*this); }
+	_Myt& seekp(off_type _O, ios_base::seekdir _W)
+		{if (!ios_base::fail())
+			_Myios::rdbuf()->pubseekoff(_O, _W, ios_base::out);
+		return (*this); }
+	pos_type tellp()
+		{if (!ios_base::fail())
+			return (_Myios::rdbuf()->pubseekoff(0,
+				ios_base::cur, ios_base::out));
+		else
+			return (pos_type(_BADOFF)); }
+protected:
+	/*
+	 * 2008DE1
+	 * If a stream is tied to another one, the semaphore must be
+	 * be shared.
+	 */
+        void    tie_sem(void) {
+                __cadul_share_critical_section_lock((void *)&_ios_sem,
+                                           (void *)&(tie()->_ios_sem));
+        }
+	};
+		// INSERTERS
+inline ostream& operator<<(ostream& _O, const char *__X)
+	{typedef char _E;
+	typedef char_traits _Tr;
+	typedef ostream _Myos;
+	ios_base::iostate _St = ios_base::goodbit;
+	size_t __N = _Tr::length(__X);
+	size_t _M = _O.width() <= 0 || _O.width() <= __N
+		? 0 : _O.width() - __N;
+	const _Myos::sentry _Ok(_O);
+	if (!_Ok)
+		_St |= ios_base::badbit;
+	else
+		{_TRY_IO_BEGIN
+		if ((_O.flags() & ios_base::adjustfield)
+			!= ios_base::left)
+			for (; 0 < _M; --_M)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(_O.fill())))
+					{_St |= ios_base::badbit;
+					break; }
+		if (_St == ios_base::goodbit
+			&& _O.rdbuf()->sputn(__X, __N) != __N)
+			_St |= ios_base::badbit;
+		if (_St == ios_base::goodbit)
+			for (; 0 < _M; --_M)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(_O.fill())))
+					{_St |= ios_base::badbit;
+					break; }
+		_O.width(0);
+		_CATCH_IO_(_O) }
+	_O.setstate(_St);
+	return (_O); }
+inline ostream& operator<<(ostream& _O, char __C)
+	{typedef char _E;
+	typedef char_traits _Tr;
+	typedef ostream _Myos;
+	ios_base::iostate _St = ios_base::goodbit;
+	const _Myos::sentry _Ok(_O);
+	if (_Ok)
+		{size_t _M = _O.width() <= 1 ? 0 : _O.width() - 1;
+		_TRY_IO_BEGIN
+		if ((_O.flags() & ios_base::adjustfield)
+			!= ios_base::left)
+			for (; _St == ios_base::goodbit && 0 < _M; --_M)
+				if (_Tr::eq_int_type(_Tr::eof(),
+					_O.rdbuf()->sputc(_O.fill())))
+					_St |= ios_base::badbit;
+		if (_St == ios_base::goodbit
+			&& _Tr::eq_int_type(_Tr::eof(),
+				_O.rdbuf()->sputc(__C)))
+			_St |= ios_base::badbit;
+		for (; _St == ios_base::goodbit && 0 < _M; --_M)
+			if (_Tr::eq_int_type(_Tr::eof(),
+				_O.rdbuf()->sputc(_O.fill())))
+				_St |= ios_base::badbit;
+		_CATCH_IO_(_O) }
+	_O.width(0);
+	_O.setstate(_St);
+	return (_O); }
+inline ostream& operator<<(ostream& _O,
+	const signed char *__X)
+	{return (_O << (const char *)__X); }
+inline ostream& operator<<(ostream& _O,
+	const signed char __C)
+	{return (_O << (char)__C); }
+inline ostream& operator<<(ostream& _O,
+	const unsigned char *__X)
+	{return (_O << (const char *)__X); }
+inline ostream& operator<<(ostream& _O,
+	const unsigned char __C)
+	{return (_O << (char)__C); }
+		// MANIPULATORS
+inline ostream& endl(ostream& _O)
+	{_O.put('\n');
+	_O.flush();
+	return (_O); }
+inline ostream& ends(ostream& _O)
+	{_O.put(char('\0'));
+	return (_O); }
+inline ostream& flush(ostream& _O)
+	{_O.flush();
+	return (_O); }
+_STD_END
+
+#pragma arguments_in_registers(pop)
+
+#endif /* _OSTREAM_ */
+
+/*
+ * Copyright (c) 1994 by P.J. Plauger.  ALL RIGHTS RESERVED. 
+ * Consult your license regarding permissions and restrictions.
+V2.2:0414 */

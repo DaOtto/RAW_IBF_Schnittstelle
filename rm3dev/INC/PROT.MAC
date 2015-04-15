@@ -1,0 +1,34 @@
+$SAVE NOLIST
+
+;---FILE HEADER-(set tabulator to 8)-------------------------------------------
+;
+;   filename    : PROT.MAC
+;   version     : 0004
+;   contents    : Support macro for conditional translation
+;   author      : W.S.
+;   date        : Dec 4, 1992
+;
+;---FUNCTION AND RMOS ENVIRONMENT----------------------------------------------
+;
+;   function    : Determine between code for ASM86 and ASM386.
+;                 If 'PROT' is 'FALSE'                          ==> ASM86
+;                 If 'PROT' is 'TRUE' and 'RM3' is 'TRUE'       ==> ASM386
+;
+;   RMOS3
+;
+;---END OF FILE HEADER---------------------------------------------------------
+;
+;---MODIFICATION HEADER--------------------------------------------------------
+;
+;   Dec  4, 1992  W.S.  0003  New Header added
+;   Dec  2, 1993  W.S.  0004  New equates added
+;
+;---END OF MODIFICATION HEADER-------------------------------------------------
+
+%SET (FALSE,0)
+%SET (TRUE,NOT %FALSE)
+
+%SET (PROT, %TRUE )	;Now, protected mode is selected
+%SET (RM3,  %TRUE )	;Now, ASM386 mode    is selected
+
+$RESTORE

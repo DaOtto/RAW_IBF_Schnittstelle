@@ -1,0 +1,13 @@
+﻿Der Buildvorgang wurde am 26.01.2015 01:15:35 gestartet.
+     1>Projekt "F:\Diplomarbeit\03_Quellcode\RWTH_V110\RWTH_RAW_CNC\RWTH_RAW_CNC.vcxproj" auf Knoten "2", rebuild Ziel(e).
+     1>PrepareForNMakeBuild:
+         Das Verzeichnis "F:\Diplomarbeit\03_Quellcode\RWTH_V110\Release\" wird erstellt.
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets(32,5): warning MSB8005: Die Eigenschaft "NMakeCleanCommandLine" ist nicht vorhanden.  Überspringen...
+       PrepareForBuild:
+         Das Verzeichnis "obj\Win32\Release\" wird erstellt.
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.MakeFile.Targets(42,5): warning MSB8005: Die Eigenschaft "NMakeReBuildCommandLine" ist nicht vorhanden.  Überspringen...
+     1>Die Erstellung des Projekts "F:\Diplomarbeit\03_Quellcode\RWTH_V110\RWTH_RAW_CNC\RWTH_RAW_CNC.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:00.19

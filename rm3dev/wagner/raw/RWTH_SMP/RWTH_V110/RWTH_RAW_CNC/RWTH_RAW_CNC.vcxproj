@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E10ADDBA-6A51-4B76-AE57-97162C2E336C}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeOutput>RWTH_SMP.386</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <ExecutablePath>C:\cadul\bin</ExecutablePath>
+    <IncludePath>C:\cadul\include</IncludePath>
+    <ReferencePath>C:\cadul\LIB\RMOS3</ReferencePath>
+    <LibraryPath>C:\cadul\LIB\RMOS3</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeOutput>RWTH_SMP.386</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\RWTH_SMP.bd\inc\apwcncs.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\ctmcnc.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\ctmcncs.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\ctpcncs.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_axproflex.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_dw_regelung.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_formenspek.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_radflex.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_Schuessel.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_struct.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\IBF_stuetz.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\ibf_tool.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\iniFile.h" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\onli_cnc_s.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\puff_cnc_s.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\raw_t_cnc.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\raw_t_cnc_s.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\raw_t_pool.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rmos320.h" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rmos_inc.h" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rpw.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rwth_exch.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rwth_logger.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\rwth_task.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\teso.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\test_ibf.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\ufmcncs.hpp" />
+    <ClInclude Include="..\RWTH_SMP.bd\inc\uftcncs.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_dw_regelung.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_flexibel_axial_AG_Pos.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_flex_axial.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_flex_radial.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_formspek.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\IBF_Schuessel.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\IBF_Schuessel_DR_pos.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\IBF_Schuessel_Form.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\IBF_Schuessel_ZR_pos.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_stuetz.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\ibf_tool.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\iniFile.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\rpw.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\rwth_exch.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\rwth_logger.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\rwth_task.cpp" />
+    <ClCompile Include="..\RWTH_SMP.bd\source\test_ibf.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
