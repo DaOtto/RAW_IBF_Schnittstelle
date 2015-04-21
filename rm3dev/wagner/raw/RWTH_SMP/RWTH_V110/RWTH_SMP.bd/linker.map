@@ -1,4 +1,4 @@
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0001
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0001
 
 INPUT FILES:
            C:\RM3DEV\LIB\CADUL\CSTART.OBJ
@@ -53,7 +53,7 @@ VALID OPTIONS:
            OUTPUT FORMAT  OMF386
 
 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0002
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0002
 
 INPUT MODULES INCLUDED
 
@@ -113,7 +113,7 @@ CRUN_IF_ATEXIT                 C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
 CRUN_IF_ATOF                   C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
 CRUN_IF_ATOI                   C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
 CRUN_IF_CTIME                  C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0003
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0003
 
 INPUT MODULES INCLUDED
 
@@ -152,7 +152,7 @@ CRUN_IF__XSTREAM               C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
 CRUN_IF___CHATTR               C:\RM3DEV\LIB\CADUL\RM3CRIF.LIB
 HLI_NEWIF                      C:\RM3DEV\LIB\CADUL\RM3HLI.LIB
 SIEMENS_AG_RMOS3_HLI_V2P5      C:\RM3DEV\LIB\CADUL\RM3HLI.LIB
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0004
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0004
 
 SEGMENT MAP
 
@@ -164,7 +164,7 @@ GDT
 LDT.1 (LDT?)
 
 1     000CH 1  0  RW   16 00000000H 0000003FH           LDT?
-2     0014H 1  0  ER   32 UNDEFINED 0003C69AH COMBINED  CODE32
+2     0014H 1  0  ER   32 UNDEFINED 0003C7F2H COMBINED  CODE32
                           00000000H 00000007H 00000000H CSTART.CODE32
                           00000008H 00000E67H 00000008H IBF_GEOMETRIE_TOOL.CPP.CODE32
                           00000E70H 00000CEFH 00000E70H IBF_SCHUESSEL_DR_POS.CPP.CODE32
@@ -212,7 +212,7 @@ LDT.1 (LDT?)
                           00003738H 0000011FH 00003738H __DT__12OUT_OF_RANGEFV.CODE32
                           00003858H 00000047H 00003858H _DORAISE__12OUT_OF_RANGECFV.CODE32
                           000038A0H 00000157H 000038A0H __CT__12OUT_OF_RANGEFRC12OUT_OF_RANGE.CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0005
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0005
 
 SEGMENT MAP
 
@@ -272,7 +272,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           00008AE0H 0000011FH 00008AE0H __DT__7OSTREAMFV.CODE32
                           00008C00H 0000001FH 00008C00H OSFX__7OSTREAMFV.CODE32
                           00008C20H 0000041FH 00008C20H PUT__7OSTREAMFC.CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0006
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0006
 
 SEGMENT MAP
 
@@ -332,7 +332,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           0001F870H 0000010FH 0001F870H __CT__24ALLOCATOR__TM__8_6STRINGFRC20ALLOCATOR__TM__4_Z1Z.CODE32
                           0001F980H 0000013FH 0001F980H __CT__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFV.CODE32
                           0001FAC0H 0000020FH 0001FAC0H __CT__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFRC20VECTOR__TM__7_Z1ZZ2Z.CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0007
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0007
 
 SEGMENT MAP
 
@@ -392,7 +392,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           000267A0H 00000747H 000267A0H IPFX__7ISTREAMFB.CODE32
                           00026EE8H 0000016FH 00026EE8H __CT__Q2_7ISTREAM6SENTRYFR7ISTREAMB.CODE32
                           00027058H 00000127H 00027058H __DT__Q2_7ISTREAM6SENTRYFV.CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0008
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0008
 
 SEGMENT MAP
 
@@ -430,55 +430,55 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           00029228H 00000127H 00029228H __CT__100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYFRC33_PTRIT__TM__19_Z1ZZ2ZZ5ZZ6ZZ5ZZ6Z.CODE32
                           00029350H 00000127H 00029350H __CT__57_PTRIT__TM__43_6STRINGIPC6STRINGRC6STRINGP6STRINGR6STRINGFZ3Z.CODE32
                           00029478H 00000127H 00029478H __CT__102_PTRIT__TM__88_Q2_8CINIFILE3KEYIPCQ2_8CINIFILE3KEYRCQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYFZ3Z.CODE32
-                          000295A0H 00002B37H 000295A0H RPW.CPP.CODE32
-                          0002C0D8H 00003917H 0002C0D8H RWTH_EXCH.CPP.CODE32
-                          0002F9F0H 000003DFH 0002F9F0H __LS__7OSTREAMFF.CODE32
-                          0002FDD0H 000003CFH 0002FDD0H __LS__7OSTREAMFD.CODE32
-                          000301A0H 000027DFH 000301A0H RWTH_LOGGER.CPP.CODE32
-                          00032980H 00000A7FH 00032980H RWTH_TASK.CPP.CODE32
-                          00033400H 00000027H 00033400H HEX__FR8IOS_BASE.CODE32
-                          00033428H 000003D7H 00033428H __LS__7OSTREAMFUI.CODE32
-                          00033800H 00003A33H 00033800H TEST_IBF.CPP.CODE32
-                          00037234H 00000B03H 00037234H ios.CODE32
-                          00037D38H 0000001BH 00037D38H __VTBL__8IOS_BASE.CODE32
-                          00037D54H 0000075BH 00037D54H iostream.CODE32
-                          000384B0H 000002DFH 000384B0H string.CODE32
-                          00038790H 00000223H 00038790H fiopen.CODE32
-                          000389B4H 00000053H 000389B4H nomemory.CODE32
-                          00038A08H 0000002FH 00038A08H locconv.CODE32
-                          00038A38H 0000008BH 00038A38H _main.CODE32
-                          00038AC4H 000001DBH 00038AC4H stdexcept.CODE32
-                          00038CA0H 0000002FH 00038CA0H __VTBL__9EXCEPTION.CODE32
-                          00038CD0H 00000067H 00038CD0H iossem.CODE32
-                          00038D38H 0000011BH 00038D38H static_init.CODE32
-                          00038E54H 0000036BH 00038E54H bad_alloc.CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0009
+                          000295A0H 00002C0FH 000295A0H RPW.CPP.CODE32
+                          0002C1B0H 00003997H 0002C1B0H RWTH_EXCH.CPP.CODE32
+                          0002FB48H 000003DFH 0002FB48H __LS__7OSTREAMFF.CODE32
+                          0002FF28H 000003CFH 0002FF28H __LS__7OSTREAMFD.CODE32
+                          000302F8H 000027DFH 000302F8H RWTH_LOGGER.CPP.CODE32
+                          00032AD8H 00000A7FH 00032AD8H RWTH_TASK.CPP.CODE32
+                          00033558H 00000027H 00033558H HEX__FR8IOS_BASE.CODE32
+                          00033580H 000003D7H 00033580H __LS__7OSTREAMFUI.CODE32
+                          00033958H 00003A33H 00033958H TEST_IBF.CPP.CODE32
+                          0003738CH 00000B03H 0003738CH ios.CODE32
+                          00037E90H 0000001BH 00037E90H __VTBL__8IOS_BASE.CODE32
+                          00037EACH 0000075BH 00037EACH iostream.CODE32
+                          00038608H 000002DFH 00038608H string.CODE32
+                          000388E8H 00000223H 000388E8H fiopen.CODE32
+                          00038B0CH 00000053H 00038B0CH nomemory.CODE32
+                          00038B60H 0000002FH 00038B60H locconv.CODE32
+                          00038B90H 0000008BH 00038B90H _main.CODE32
+                          00038C1CH 000001DBH 00038C1CH stdexcept.CODE32
+                          00038DF8H 0000002FH 00038DF8H __VTBL__9EXCEPTION.CODE32
+                          00038E28H 00000067H 00038E28H iossem.CODE32
+                          00038E90H 0000011BH 00038E90H static_init.CODE32
+                          00038FACH 0000036BH 00038FACH bad_alloc.CODE32
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0009
 
 SEGMENT MAP
 
 TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
 
-                          000391C0H 0000002FH 000391C0H __VTBL__9BAD_ALLOC.CODE32
-                          000391F0H 000001D3H 000391F0H __cxxtls_util.CODE32
-                          000393C4H 0000038FH 000393C4H __cxxtls.CODE32
-                          00039754H 000001AFH 00039754H eh_util.CODE32
-                          00039904H 00000027H 00039904H delete.CODE32
-                          0003992CH 0000000FH 0003992CH placedel.CODE32
-                          0003993CH 0000135FH 0003993CH throw.CODE32
-                          0003AC9CH 000007E3H 0003AC9CH vec_newdel.CODE32
-                          0003B480H 00000533H 0003B480H rtti.CODE32
-                          0003B9B4H 000008D3H 0003B9B4H typeinfo.CODE32
-                          0003C288H 0000001FH 0003C288H __VTBL__9TYPE_INFO.CODE32
-                          0003C2A8H 0000002FH 0003C2A8H __VTBL__8BAD_CAST.CODE32
-                          0003C2D8H 0000002FH 0003C2D8H __VTBL__10BAD_TYPEID.CODE32
-                          0003C308H 0000001FH 0003C308H array_del.CODE32
-                          0003C328H 000000CFH 0003C328H libfatal.CODE32
-                          0003C3F8H 0000001BH 0003C3F8H array_new.CODE32
-                          0003C414H 000000A3H 0003C414H new.CODE32
-                          0003C4B8H 00000017H 0003C4B8H placenew.CODE32
-                          0003C4D0H 00000133H 0003C4D0H dtor_list.CODE32
-                          0003C604H 0000001BH 0003C604H pure_virt.CODE32
-                          0003C620H 00000077H 0003C620H cxxtors.CODE32
+                          00039318H 0000002FH 00039318H __VTBL__9BAD_ALLOC.CODE32
+                          00039348H 000001D3H 00039348H __cxxtls_util.CODE32
+                          0003951CH 0000038FH 0003951CH __cxxtls.CODE32
+                          000398ACH 000001AFH 000398ACH eh_util.CODE32
+                          00039A5CH 00000027H 00039A5CH delete.CODE32
+                          00039A84H 0000000FH 00039A84H placedel.CODE32
+                          00039A94H 0000135FH 00039A94H throw.CODE32
+                          0003ADF4H 000007E3H 0003ADF4H vec_newdel.CODE32
+                          0003B5D8H 00000533H 0003B5D8H rtti.CODE32
+                          0003BB0CH 000008D3H 0003BB0CH typeinfo.CODE32
+                          0003C3E0H 0000001FH 0003C3E0H __VTBL__9TYPE_INFO.CODE32
+                          0003C400H 0000002FH 0003C400H __VTBL__8BAD_CAST.CODE32
+                          0003C430H 0000002FH 0003C430H __VTBL__10BAD_TYPEID.CODE32
+                          0003C460H 0000001FH 0003C460H array_del.CODE32
+                          0003C480H 000000CFH 0003C480H libfatal.CODE32
+                          0003C550H 0000001BH 0003C550H array_new.CODE32
+                          0003C56CH 000000A3H 0003C56CH new.CODE32
+                          0003C610H 00000017H 0003C610H placenew.CODE32
+                          0003C628H 00000133H 0003C628H dtor_list.CODE32
+                          0003C75CH 0000001BH 0003C75CH pure_virt.CODE32
+                          0003C778H 00000077H 0003C778H cxxtors.CODE32
 3     001CH 1  0  ER   32 UNDEFINED 00000040H           CSTART_CODE32
 4     0024H 1  0  RWD  32 UNDEFINED FFFBBFFFH COMBINED  STACK
                                     EMPTY     00000000H IBF_GEOMETRIE_TOOL.CPP.STACK
@@ -512,7 +512,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                                     EMPTY     00000000H bad_alloc.STACK
                                     EMPTY     00000000H __cxxtls_util.STACK
                                     EMPTY     00000000H __cxxtls.STACK
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0010
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0010
 
 SEGMENT MAP
 
@@ -572,7 +572,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           000003D8H 00000023H 000003D8H __CT__15UNDERFLOW_ERRORFRC15UNDERFLOW_ERROR.DATA
                           000003FCH 0000000BH 000003FCH __DT__11RANGE_ERRORFV.DATA
                           00000408H 00000023H 00000408H __CT__11RANGE_ERRORFRC11RANGE_ERROR.DATA
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0011
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0011
 
 SEGMENT MAP
 
@@ -632,7 +632,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           00002008H 0000003BH 00002008H __CT__Q2_8CINIFILE3KEYFV.DATA
                           00002044H 0000003BH 00002044H __CT__Q2_8CINIFILE3KEYFRCQ2_8CINIFILE3KEY.DATA
                           00002080H 00000017H 00002080H __CT__53_VECTOR_VAL__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFZ2Z.DATA
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0012
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0012
 
 SEGMENT MAP
 
@@ -692,7 +692,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                           00002578H 00000013H 00002578H __LS__7OSTREAMFF.DATA
                           0000258CH 00000013H 0000258CH __LS__7OSTREAMFD.DATA
                           000025A0H 00000053H 000025A0H RWTH_LOGGER.CPP.DATA
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0013
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0013
 
 SEGMENT MAP
 
@@ -752,7 +752,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
                                     EMPTY     UNDEFINED _main.DATA
                                     EMPTY     UNDEFINED iossem.DATA
                                     EMPTY     UNDEFINED static_init.DATA
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0014
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0014
 
 SEGMENT MAP
 
@@ -811,7 +811,7 @@ TABLE PHSEL P DPL ACC USE BASE      LIMIT     OFFSET    SEGMENT NAME
 7     003CH 1  0  ER   32 UNDEFINED 00000477H COMBINED  HLI_CODE32
                           00000000H 00000417H 00000000H HLI_NEWIF.HLI_CODE32
                           00000418H 0000005CH 00000418H SIEMENS_AG_RMOS3_HLI_V2P5.HLI_CODE32
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0015
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0015
 
 TASK MAP
 
@@ -833,7 +833,7 @@ TASK?:
 	DEBUG NOT ENABLED
 	INITIAL
 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0016
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0016
 
 DESCRIPTOR TABLE MAP
 
@@ -860,14 +860,14 @@ LDT.1 (LDT?)
 00000006H            SEGMENT  CRUN_CODE32
 00000007H            SEGMENT  HLI_CODE32
 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0017
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0017
 
 MEMORY MAP
 
 ADDRESS RANGE        STATE    DESCRIPTION
 
 00000000H..FFFFFFFFH FREE     memory 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0018
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0018
 
 CROSS REFERENCE MAP
 
@@ -917,7 +917,7 @@ P    AUS_ONLI                                 RWTH_TASK.CP L.1    5  002CH  0000
 P    AUS_PUFF                                 RWTH_TASK.CP L.1    5  002CH  00003C68H   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
 P    AXIALKRAFT__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_TOOL.CPP L.1    2  0014H  0000DD10H 
 P    AXIAL_WANDDICKE_BESTIMMEN__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_DW_REGEL L.1    2  0014H  000096FBH 
-P    BEFORE__9TYPE_INFOCFRC9TYPE_INFO         typeinfo     L.1    2  0014H  0003BB00H 
+P    BEFORE__9TYPE_INFOCFRC9TYPE_INFO         typeinfo     L.1    2  0014H  0003BC58H 
 P    BETA__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_DW_REGEL L.1    2  0014H  000099C4H 
 P    BREITUNGSEXP__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_TOOL.CPP L.1    2  0014H  0000E137H 
 P    CAPACITY__6STRINGCFV                     CAPACITY__6S L.1    2  0014H  00002568H   IBF_SCHUESSEL_DR_POS.CPP
@@ -927,7 +927,7 @@ P    CAPACITY__6STRINGCFV                     CAPACITY__6S L.1    2  0014H  0000
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0019
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0019
 
 CROSS REFERENCE MAP
 
@@ -941,13 +941,13 @@ P    CF87                                     CSTART       L.1    2  0014H  0000
                                                                                         IBF_STUETZ.CPP  RPW.CPP  TEST_IBF.CPP
 P    CHECKCASE__8CINIFILECF6STRING            INIFILE.CPP  L.1    2  0014H  00016124H 
 P    CIN                                      iostream     L.1    5  002CH  00007144H 
-P    CLEAR__8IOS_BASEFIB                      ios          L.1    2  0014H  0003731CH   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    CLEAR__8IOS_BASEFIB                      ios          L.1    2  0014H  00037474H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP  iostream
 P    CLOSE__7FILEBUFFV                        CLOSE__7FILE L.1    2  0014H  00027498H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
 P    COMPARE__6STRINGCFUIT1PCCT1              COMPARE__6ST L.1    2  0014H  0001EEF0H   INIFILE.CPP
-P    COPYFMT__8IOS_BASEFRC8IOS_BASE           ios          L.1    2  0014H  000376F8H 
+P    COPYFMT__8IOS_BASEFRC8IOS_BASE           ios          L.1    2  0014H  00037850H 
 P    COPY_BACKWARD__TM__115_55_PTRIT__TM__41_6STRINGIP6STRINGR6STRINGP6STRINGR6STRING55_PTRIT__TM__41_6STRINGIP6STRINGR6STRINGP6STRINGR6STRING__FZ1ZT1Z2Z_Z2Z COPY_BACKWAR L.1    2  0014H  0001E550H 
                                                                                                                                                                                                         INIFILE.CPP
 P    COPY_BACKWARD__TM__207_100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEY100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEY__FZ1ZT1Z2Z_Z2Z COPY_BACKWAR L.1    2  0014H  0001E688H 
@@ -987,7 +987,7 @@ P    DURCHME_T2__F13DEF_IST_INTER21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOL
 P    DW_REGELALGO__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_DW_REGEL L.1    2  0014H  00009AAFH 
 P    EGPTR__9STREAMBUFCFV                     EGPTR__9STRE L.1    2  0014H  00024540H   INIFILE.CPP
 P    EIN_ONLI                                 RWTH_TASK.CP L.1    5  002CH  00004A84H   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0020
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0020
 
 CROSS REFERENCE MAP
 
@@ -1047,7 +1047,7 @@ P    FPUTC                                    CRUN_IF_FPUT L.1    6  0034H  0000
                                                                                         fiopen
 P    FREE                                     CRUN_IF_FREE L.1    6  0034H  000000B4H   __cxxtls_util  delete  throw
 P    FSEEK                                    CRUN_IF_FSEE L.1    6  0034H  000000C0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0021
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0021
 
 CROSS REFERENCE MAP
 
@@ -1068,17 +1068,17 @@ P    GETVALUEI__8CINIFILECF6STRINGT1I         INIFILE.CPP  L.1    2  0014H  0001
 P    GETVALUEV__8CINIFILEF6STRINGT1PCPVN94N64 INIFILE.CPP  L.1    2  0014H  00019EDDH 
 P    GETVALUE__8CINIFILECF6STRINGN21          INIFILE.CPP  L.1    2  0014H  00019401H 
 P    GETVALUE__8CINIFILECFUIT16STRING         INIFILE.CPP  L.1    2  0014H  000190E3H 
-P    GET_PUFF__9RWTH_EXCHFV                   RWTH_EXCH.CP L.1    2  0014H  0002D02FH   RWTH_TASK.CPP
+P    GET_PUFF__9RWTH_EXCHFV                   RWTH_EXCH.CP L.1    2  0014H  0002D14BH   RWTH_TASK.CPP
 P    GPTR__9STREAMBUFCFV                      GPTR__9STREA L.1    2  0014H  00024528H   INIFILE.CPP
 P    HEADERCOMMENT__8CINIFILECFUI             INIFILE.CPP  L.1    2  0014H  0001B6FEH 
 P    HEADERCOMMENT__8CINIFILEF6STRING         INIFILE.CPP  L.1    2  0014H  0001B5C1H 
-P    HEX__FR8IOS_BASE                         HEX__FR8IOS_ L.1    2  0014H  00033400H   RWTH_TASK.CPP
+P    HEX__FR8IOS_BASE                         HEX__FR8IOS_ L.1    2  0014H  00033558H   RWTH_TASK.CPP
 P    HOEHENZUNAHME__F13DEF_IST_INTER21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_TOOL.CPP L.1    2  0014H  0000E33EH 
                                                                                                                                IBF_FLEX_RADIAL.CPP
 P    IBFPARA_AUSLESEN__3RPWSFR21DEF_IBF_ALLGEMEIN_ISTR22DEF_IBF_ALLGEMEIN_SOLLR13DEF_IST_INTER IBF_TOOL.CPP L.1    2  0014H  0000E725H 
                                                                                                                                          RWTH_EXCH.CPP
 P    IBF_ABSCHALTUNG__FP14DEF_SOLL_INTER21DEF_IBF_ALLGEMEIN_IST IBF_TOOL.CPP L.1    2  0014H  0000E0E3H   RPW.CPP
-P    IMBUE__8IOS_BASEFRC6LOCALE               ios          L.1    2  0014H  0003762CH 
+P    IMBUE__8IOS_BASEFRC6LOCALE               ios          L.1    2  0014H  00037784H 
 P    IMBUE__9STREAMBUFFRC6LOCALE              IMBUE__9STRE L.1    2  0014H  000089B8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
@@ -1088,15 +1088,15 @@ P    INSERT__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGF297_PTRIT__TM__2
                                                                                                                                                                                                                                                                                                                INIFILE.CPP
 P    INSERT__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYF297_PTRIT__TM__282_Q3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY10VALUE_TYPEQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY15DIFFERENCE_TYPEQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY7POINTERQ3_25_VECTOR_ INSERT__67VE L.1    2  0014H  00022670H 
                                                                                                                                                                                                                                                                                                                INIFILE.CPP
-P    IN_RWTH_LOG_SCHREIBEN__FPC               RWTH_EXCH.CP L.1    2  0014H  0002CF08H 
+P    IN_RWTH_LOG_SCHREIBEN__FPC               RWTH_EXCH.CP L.1    2  0014H  0002D024H 
 P    IPFX__7ISTREAMFB                         IPFX__7ISTRE L.1    2  0014H  000267A0H   INIFILE.CPP
-P    ISTIBF_ISTINTER__3RPWFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  00029F3AH 
-P    ISTIBF_SOLLIBF__3RPWFR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002A151H 
-P    ISTWERTE_RAW__3RPWFRC12DEF_EIN_ONLIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFR13DEF_IST_INTER RPW.CPP      L.1    2  0014H  000297A9H 
+P    ISTIBF_ISTINTER__3RPWFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  00029F4CH 
+P    ISTIBF_SOLLIBF__3RPWFR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002A163H 
+P    ISTWERTE_RAW__3RPWFRC12DEF_EIN_ONLIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFR13DEF_IST_INTER RPW.CPP      L.1    2  0014H  000297ADH 
 P    IST_IBF                                  RWTH_TASK.CP L.1    5  002CH  0000688EH   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
 P    IST_INTER                                RWTH_TASK.CP L.1    5  002CH  00005DB0H   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
 P    ITER_IBF                                 RWTH_TASK.CP L.1    5  002CH  00005DACH   RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-P    KANALLISTE__11LOGGER_RWTHFV              RWTH_LOGGER. L.1    2  0014H  00030278H   RWTH_TASK.CPP
+P    KANALLISTE__11LOGGER_RWTHFV              RWTH_LOGGER. L.1    2  0014H  000303D0H   RWTH_TASK.CPP
 P    KEYCOMMENT__8CINIFILECF6STRINGUI         INIFILE.CPP  L.1    2  0014H  0001C401H 
 P    KEYCOMMENT__8CINIFILECFUIT1              INIFILE.CPP  L.1    2  0014H  0001C0E0H 
 P    KEYCOMMENT__8CINIFILEF6STRINGT1          INIFILE.CPP  L.1    2  0014H  0001BEF5H 
@@ -1107,7 +1107,7 @@ P    KONST_CR_AXIAL__F13DEF_IST_INTER21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN
 P    KONST_CR_RADIAL__F13DEF_IST_INTER21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_STUETZ.C L.1    2  0014H  0000CB4EH 
                                                                                                                                  IBF_FORMSPEK.CPP
 P    KRAFTSTEUERUNG__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_TOOL.CPP L.1    2  0014H  0000DDA5H   IBF_FLEX_AXIAL.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0022
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0022
 
 CROSS REFERENCE MAP
 
@@ -1116,24 +1116,24 @@ FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFS
                                                                                                                  IBF_FLEX_RADIAL.CPP
                                                                                                                  IBF_FORMSPEK.CPP
                                                                                                                  RPW.CPP
-P    KR_GEO_BERECHNEN__3RPWFR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002BE39H   RWTH_EXCH.CPP
-P    KR_GEO_PRUEFEN__3RPWFR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002BEA5H   RWTH_EXCH.CPP
+P    KR_GEO_BERECHNEN__3RPWFR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002BF10H   RWTH_EXCH.CPP
+P    KR_GEO_PRUEFEN__3RPWFR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002BF7CH   RWTH_EXCH.CPP
 P    KW_DREHZAHL_AXIAL__F13DEF_IST_INTERP21DEF_IBF_ALLGEMEIN_IST IBF_TOOL.CPP L.1    2  0014H  0000DC00H   IBF_FLEX_AXIAL.CPP
                                                                                                            IBF_FORMSPEK.CPP  RPW.CPP
 P    KW_DREHZAHL_UNTEN__F13DEF_IST_INTERP21DEF_IBF_ALLGEMEIN_IST IBF_TOOL.CPP L.1    2  0014H  0000DC70H 
 P    LF2__FRA2_DRA3_CD                        IBF_GEOMETRI L.1    2  0014H  00000C38H   IBF_SCHUESSEL_FORM.CPP
 P    LF4__FRA4_DRA5_CD                        IBF_GEOMETRI L.1    2  0014H  000007C7H 
-P    LOCALECONV                               locconv      L.1    2  0014H  00038A10H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
+P    LOCALECONV                               locconv      L.1    2  0014H  00038B68H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    LOGGER                                   RWTH_TASK.CP L.1    5  002CH  000026FEH   RWTH_EXCH.CPP  TEST_IBF.CPP
 P    LOKAL_PUFF                               RWTH_TASK.CP L.1    5  002CH  00005770H   RWTH_EXCH.CPP
 P    LONGJMP                                  CRUN_IF_LONG L.1    6  0034H  000000D8H   throw
-P    MAIN                                     RWTH_TASK.CP L.1    2  0014H  00032C20H   CSTART
-P    MAIN_CONTROL__9RWTH_EXCHFV               RWTH_EXCH.CP L.1    2  0014H  0002D177H   RWTH_TASK.CPP
-P    MAIN_RAW__3RPWFIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFRC12DEF_EIN_ONLIRC12DEF_AUS_ONLIR13DEF_IST_INTERR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  00029670H 
+P    MAIN                                     RWTH_TASK.CP L.1    2  0014H  00032D78H   CSTART
+P    MAIN_CONTROL__9RWTH_EXCHFV               RWTH_EXCH.CP L.1    2  0014H  0002D293H   RWTH_TASK.CPP
+P    MAIN_RAW__3RPWFIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFRC12DEF_EIN_ONLIRC12DEF_AUS_ONLIR13DEF_IST_INTERR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  00029674H 
                                                                                                                                                                                                                                     RWTH_EXCH.CPP
 P    MAIN__13IBF_SCHUESSELFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  0000632FH 
                                                                                                                                                         RPW.CPP
-P    MAIN__3RPWFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL RPW.CPP      L.1    2  0014H  0002A348H 
+P    MAIN__3RPWFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL RPW.CPP      L.1    2  0014H  0002A35AH 
 P    MALLOC                                   CRUN_IF_MALL L.1    6  0034H  000000E4H   __cxxtls_util
 P    MEMMOVE                                  CRUN_IF_MEMM L.1    6  0034H  000000F0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
@@ -1145,15 +1145,16 @@ P    MEMMOVE                                  CRUN_IF_MEMM L.1    6  0034H  0000
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  string
-P    MODUS_AG__3RPWFR14DEF_SOLL_INTERR21DEF_IBF_ALLGEMEIN_ISTI RPW.CPP      L.1    2  0014H  0002BD55H   RWTH_EXCH.CPP
+P    MODUS_AG__3RPWFR14DEF_SOLL_INTERR21DEF_IBF_ALLGEMEIN_ISTI RPW.CPP      L.1    2  0014H  0002BD67H   RWTH_EXCH.CPP
+P    MODUS_DR__3RPWFR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002BE4BH   RWTH_EXCH.CPP
 P    MS_DAEMPFER__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_DW_REGEL L.1    2  0014H  0000960CH 
 P    MTS_VON_PHI__FF                          IBF_SCHUESSE L.1    2  0014H  00005A8CH 
 P    MYLOGFILE                                RWTH_TASK.CP L.1    5  002CH  000025F6H   RWTH_EXCH.CPP
-P    NAME__9TYPE_INFOCFV                      typeinfo     L.1    2  0014H  0003BB9CH 
+P    NAME__9TYPE_INFOCFV                      typeinfo     L.1    2  0014H  0003BCF4H 
 P    NORM__FRA3_D                             IBF_GEOMETRI L.1    2  0014H  00000DFFH 
 P    NORM__FRA5_D                             IBF_GEOMETRI L.1    2  0014H  00000D95H 
 P    NORM__FRC10VEKTOR2D_T                    IBF_GEOMETRI L.1    2  0014H  00000034H   IBF_SCHUESSEL_DR_POS.CPP
-P    NPOS__6STRING                            string       L.1    2  0014H  000384B0H   IBF_SCHUESSEL_DR_POS.CPP
+P    NPOS__6STRING                            string       L.1    2  0014H  00038608H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -1166,13 +1167,13 @@ P    NPOS__6STRING                            string       L.1    2  0014H  0003
 P    NUMKEYCOMMENTS__8CINIFILECF6STRING       INIFILE.CPP  L.1    2  0014H  0001B939H 
 P    NUMKEYCOMMENTS__8CINIFILECFUI            INIFILE.CPP  L.1    2  0014H  0001B812H 
 P    NUMVALUES__8CINIFILEF6STRING             INIFILE.CPP  L.1    2  0014H  000189F4H   IBF_TOOL.CPP
-P    NUMVALUES__8CINIFILEFUI                  INIFILE.CPP  L.1    2  0014H  00018919H 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0023
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0023
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    NUMVALUES__8CINIFILEFUI                  INIFILE.CPP  L.1    2  0014H  00018919H 
 P    OPEN__7FILEBUFFPCCI                      OPEN__7FILEB L.1    2  0014H  00027428H   INIFILE.CPP  RWTH_TASK.CPP
 P    OSFX__7OSTREAMFV                         OSFX__7OSTRE L.1    2  0014H  00008C00H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
@@ -1202,11 +1203,11 @@ P    POW                                      CRUN_IF_POW  L.1    6  0034H  0000
 P    PPTR__9STREAMBUFCFV                      PPTR__9STREA L.1    2  0014H  000085E8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    PRINTF                                   CRUN_IF_PRIN L.1    6  0034H  00000108H   INIFILE.CPP  RWTH_TASK.CPP
-P    PUT_PUFF__9RWTH_EXCHFV                   RWTH_EXCH.CP L.1    2  0014H  0002CF3CH   RWTH_TASK.CPP
+P    PUT_PUFF__9RWTH_EXCHFV                   RWTH_EXCH.CP L.1    2  0014H  0002D058H   RWTH_TASK.CPP
 P    PUT__7OSTREAMFC                          PUT__7OSTREA L.1    2  0014H  00008C20H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    READFILE__8CINIFILEFV                    INIFILE.CPP  L.1    2  0014H  000161BCH   IBF_TOOL.CPP
-P    REGISTER_CALLBACK__8IOS_BASEFPFQ2_8IOS_BASE5EVENTR8IOS_BASEI_VI ios          L.1    2  0014H  0003767CH 
+P    REGISTER_CALLBACK__8IOS_BASEFPFQ2_8IOS_BASE5EVENTR8IOS_BASEI_VI ios          L.1    2  0014H  000377D4H 
 P    RESIZE__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY9SIZE_TYPEZ1Z_V RESIZE__48VE L.1    2  0014H  00020310H 
                                                                                                                                                               INIFILE.CPP
 P    RESIZE__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY9SIZE_TYPEZ1Z_V RESIZE__67VE L.1    2  0014H  00022508H 
@@ -1226,13 +1227,13 @@ P    RMCREATEFLAGGRP                          HLI_NEWIF    L.1    7  003CH  0000
 P    RMCREATEMAILBOX                          HLI_NEWIF    L.1    7  003CH  00000102H 
 P    RMCREATEMEMPOOL                          HLI_NEWIF    L.1    7  003CH  000001BEH 
 P    RMCREATEMESSAGEQUEUE                     HLI_NEWIF    L.1    7  003CH  0000037EH 
-P    RMCREATEOS                               HLI_NEWIF    L.1    7  003CH  0000022CH 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0024
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0024
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    RMCREATEOS                               HLI_NEWIF    L.1    7  003CH  0000022CH 
 P    RMCREATETASK                             HLI_NEWIF    L.1    7  003CH  0000031AH   RWTH_TASK.CPP
 P    RMCREATETASKEX                           HLI_NEWIF    L.1    7  003CH  000000BCH 
 P    RMCREATEUNIT                             HLI_NEWIF    L.1    7  003CH  00000254H 
@@ -1286,13 +1287,13 @@ P    RMMEMPOOLALLOC                           HLI_NEWIF    L.1    7  003CH  0000
 P    RMPAUSETASK                              HLI_NEWIF    L.1    7  003CH  00000030H 
 P    RMQCOPY                                  HLI_NEWIF    L.1    7  003CH  000000B2H 
 P    RMQUEUESTARTTASK                         HLI_NEWIF    L.1    7  003CH  0000000AH 
-P    RMREADMESSAGE                            HLI_NEWIF    L.1    7  003CH  0000039CH 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0025
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0025
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    RMREADMESSAGE                            HLI_NEWIF    L.1    7  003CH  0000039CH 
 P    RMREALLOC                                HLI_NEWIF    L.1    7  003CH  00000360H 
 P    RMRECEIVEMAIL                            HLI_NEWIF    L.1    7  003CH  00000076H   RWTH_EXCH.CPP
 P    RMRELEASEBINSEMAPHORE                    HLI_NEWIF    L.1    7  003CH  0000009EH   RWTH_EXCH.CPP
@@ -1335,7 +1336,7 @@ P    RS_NACH_MESSWERT_FAHREN__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL 
 P    RS_REGLER__FRC13DEF_IST_INTERRC21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  00005DA0H 
 P    RUNDUNG__13IBF_SCHUESSELFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  000072F0H 
 P    RWTH_EXCH                                RWTH_TASK.CP L.1    5  002CH  000026F8H   RWTH_LOGGER.CPP  TEST_IBF.CPP
-P    RWTH_TASK__FV                            RWTH_TASK.CP L.1    2  0014H  0003321FH 
+P    RWTH_TASK__FV                            RWTH_TASK.CP L.1    2  0014H  00033377H 
 P    RWWTPOOL                                 RWTH_EXCH.CP L.1    5  002CH  0000255CH 
 P    SCHNITTPUNKT__FRA2_9PUNKT2D_TRC10GERADE2D_TRC9ELLIPSE_T IBF_GEOMETRI L.1    2  0014H  000005B5H   IBF_SCHUESSEL_DR_POS.CPP
 P    SCHNITTPUNKT__FRA4_9PUNKT2D_TRC7KREIS_TRC9ELLIPSE_T IBF_GEOMETRI L.1    2  0014H  0000007FH   IBF_SCHUESSEL_ZR_POS.CPP
@@ -1346,13 +1347,13 @@ P    SEEKOFF__7FILEBUFFLQ2_8IOS_BASE7SEEKDIRI SEEKOFF__7FI L.1    2  0014H  0002
                                                                                         fiopen
 P    SEEKOFF__9STREAMBUFFLQ2_8IOS_BASE7SEEKDIRI SEEKOFF__9ST L.1    2  0014H  00008920H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                           RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-                                                                                          RWTH_TASK.CPP  TEST_IBF.CPP  iostream
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0026
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0026
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                          RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                           string  fiopen
 P    SEEKOFF__9STRINGBUFFLQ2_8IOS_BASE7SEEKDIRI SEEKOFF__9ST L.1    2  0014H  00028948H   INIFILE.CPP
 P    SEEKPOS__7FILEBUFF4FPOSI                 SEEKPOS__7FI L.1    2  0014H  000278E0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -1388,8 +1389,8 @@ P    SETVALUE__8CINIFILEFUIT16STRING          INIFILE.CPP  L.1    2  0014H  0001
 P    SETVBUF                                  CRUN_IF_SETV L.1    6  0034H  00000120H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    SET_TERMINATE__FPFV_V                    eh_util      L.1    2  0014H  0003978CH 
-P    SET_UNEXPECTED__FPFV_V                   eh_util      L.1    2  0014H  00039800H 
+P    SET_TERMINATE__FPFV_V                    eh_util      L.1    2  0014H  000398E4H 
+P    SET_UNEXPECTED__FPFV_V                   eh_util      L.1    2  0014H  00039958H 
 P    SGN__FF                                  IBF_SCHUESSE L.1    2  0014H  000062F0H 
 P    SHOWMANYC__9STREAMBUFFV                  SHOWMANYC__9 L.1    2  0014H  00008640H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -1406,13 +1407,13 @@ P    SIZE__6STRINGCFV                         SIZE__6STRIN L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  string
 P    SOLL_IBF                                 RWTH_TASK.CP L.1    5  002CH  000061F8H   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
-P    SOLL_INTER                               RWTH_TASK.CP L.1    5  002CH  0000613EH   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0027
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0027
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    SOLL_INTER                               RWTH_TASK.CP L.1    5  002CH  0000613EH   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
 P    SPRINTF                                  CRUN_IF_SPRI L.1    6  0034H  0000012CH   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
                                                                                         TEST_IBF.CPP
 P    SSCANF                                   CRUN_IF_SSCA L.1    6  0034H  00000138H   INIFILE.CPP
@@ -1422,7 +1423,7 @@ P    STUETZSTELLEN__F13DEF_IST_INTER21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_
                                                                                                                                IBF_FLEX_AXIAL.CPP
                                                                                                                                IBF_FORMSPEK.CPP
 P    SVCOK                                    SIEMENS_AG_R L.1    7  003CH  00000461H 
-P    SVC_STS__FUIPCI                          RWTH_TASK.CP L.1    2  0014H  00032BB4H 
+P    SVC_STS__FUIPCI                          RWTH_TASK.CP L.1    2  0014H  00032D0CH 
 P    SYNC__7FILEBUFFV                         SYNC__7FILEB L.1    2  0014H  00027A38H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
@@ -1431,7 +1432,7 @@ P    SYNC__9STREAMBUFFV                       SYNC__9STREA L.1    2  0014H  0000
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    TAN                                      CRUN_IF_TAN  L.1    6  0034H  0000015CH   IBF_STUETZ.CPP
-P    TERMINATE__FV                            eh_util      L.1    2  0014H  00039754H   __cxxtls
+P    TERMINATE__FV                            eh_util      L.1    2  0014H  000398ACH   __cxxtls
 P    TESTCOUNTER                              RWTH_TASK.CP L.1    5  002CH  00005D56H   RWTH_EXCH.CPP  RWTH_LOGGER.CPP  TEST_IBF.CPP
 P    TIE_SEM__7ISTREAMFV                      TIE_SEM__7IS L.1    2  0014H  00009520H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -1452,7 +1453,7 @@ P    UFLOW__9STREAMBUFFV                      UFLOW__9STRE L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
-P    UNCAUGHT_EXCEPTION__FV                   eh_util      L.1    2  0014H  00039840H 
+P    UNCAUGHT_EXCEPTION__FV                   eh_util      L.1    2  0014H  00039998H 
 P    UNDERFLOW__7FILEBUFFV                    UNDERFLOW__7 L.1    2  0014H  000276C8H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
@@ -1461,24 +1462,24 @@ P    UNDERFLOW__9STREAMBUFFV                  UNDERFLOW__9 L.1    2  0014H  0000
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    UNDERFLOW__9STRINGBUFFV                  UNDERFLOW__9 L.1    2  0014H  000287E0H   INIFILE.CPP
-P    UNEXPECTED__FV                           eh_util      L.1    2  0014H  000397CCH 
+P    UNEXPECTED__FV                           eh_util      L.1    2  0014H  00039924H 
 P    UNGETC                                   CRUN_IF_UNGE L.1    6  0034H  00000174H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
 P    VALUENAME__8CINIFILECF6STRINGUI          INIFILE.CPP  L.1    2  0014H  00018F4EH 
-P    VALUENAME__8CINIFILECFUIT1               INIFILE.CPP  L.1    2  0014H  00018C37H 
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0028
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0028
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    VALUENAME__8CINIFILECFUIT1               INIFILE.CPP  L.1    2  0014H  00018C37H 
 P    VOLUMENBESTIMMUNG__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_TOOL.CPP L.1    2  0014H  0000E2C2H 
 P    VORFORM_GEO_BERECHNEN__FR21DEF_IBF_ALLGEMEIN_IST IBF_SCHUESSE L.1    2  0014H  00005331H   IBF_SCHUESSEL.CPP
 P    VSPRINTF                                 CRUN_IF_VSPR L.1    6  0034H  00000180H   INIFILE.CPP
 P    WALZEN__13IBF_SCHUESSELFR13DEF_IST_INTERR21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  0000712EH 
 P    WA_REGLER__FRC13DEF_IST_INTERRC21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  00006205H 
-P    WHAT__10BAD_TYPEIDCFV                    typeinfo     L.1    2  0014H  0003C26CH 
+P    WHAT__10BAD_TYPEIDCFV                    typeinfo     L.1    2  0014H  0003C3C4H 
 P    WHAT__11LOGIC_ERRORCFV                   WHAT__11LOGI L.1    2  0014H  00002CE8H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1501,11 +1502,11 @@ P    WHAT__13RUNTIME_ERRORCFV                 WHAT__13RUNT L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
-P    WHAT__8BAD_CASTCFV                       typeinfo     L.1    2  0014H  0003BF0CH 
-P    WHAT__9BAD_ALLOCCFV                      bad_alloc    L.1    2  0014H  000391A4H 
-P    WHAT__9EXCEPTIONCFV                      stdexcept    L.1    2  0014H  00038C3CH 
+P    WHAT__8BAD_CASTCFV                       typeinfo     L.1    2  0014H  0003C064H 
+P    WHAT__9BAD_ALLOCCFV                      bad_alloc    L.1    2  0014H  000392FCH 
+P    WHAT__9EXCEPTIONCFV                      stdexcept    L.1    2  0014H  00038D94H 
 P    WRITEFILE__8CINIFILEFV                   INIFILE.CPP  L.1    2  0014H  00016F97H 
-P    WRITE_VALUES__8TEST_IBFFPLPCI            TEST_IBF.CPP L.1    2  0014H  00033D90H   RWTH_TASK.CPP
+P    WRITE_VALUES__8TEST_IBFFPLPCI            TEST_IBF.CPP L.1    2  0014H  00033EE8H   RWTH_TASK.CPP
 P    XSGETN__9STREAMBUFFPCI                   XSGETN__9STR L.1    2  0014H  000086E8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
@@ -1526,13 +1527,13 @@ P    X_CRUN_IF_VERS                           SIEMENS_AG_R L.1    6  0034H  0000
                                                                                         CRUN_IF_MEMMOVE  CRUN_IF_POW  CRUN_IF_PRINTF
                                                                                         CRUN_IF_SETJMP  CRUN_IF_SETVBUF
                                                                                         CRUN_IF_SPRINTF  CRUN_IF_SSCANF
-                                                                                        CRUN_IF_STRCSPN  CRUN_IF_STRNCPY
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0029
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0029
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        CRUN_IF_STRCSPN  CRUN_IF_STRNCPY
                                                                                         CRUN_IF_TAN  CRUN_IF_TOLOWER  CRUN_IF_UNGETC
                                                                                         CRUN_IF_VSPRINTF  CRUN_IF_X_ABS
                                                                                         CRUN_IF_X_FABS  CRUN_IF__XSTREAM
@@ -1546,9 +1547,9 @@ P    ZER_TRANS_SOLL__FR14DEF_SOLL_INTERRC22DEF_IBF_ALLGEMEIN_SOLLRC21DEF_IBF_ALL
                                                                                                                                      IBF_SCHUESSEL.CPP
                                                                                                                                      RPW.CPP
 P    ZR_REGLER__FRC13DEF_IST_INTERRC21DEF_IBF_ALLGEMEIN_ISTR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLL IBF_SCHUESSE L.1    2  0014H  000060A3H 
-P    _ADDSTD__8IOS_BASEFV                     ios          L.1    2  0014H  00037864H   INIFILE.CPP  RWTH_TASK.CPP  iostream
-P    _ARRAY_POINTER_NOT_FROM_VEC_NEW          vec_newdel   L.1    2  0014H  0003B464H 
-P    _BADOFF                                  ios          L.1    2  0014H  00037234H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    _ADDSTD__8IOS_BASEFV                     ios          L.1    2  0014H  000379BCH   INIFILE.CPP  RWTH_TASK.CPP  iostream
+P    _ARRAY_POINTER_NOT_FROM_VEC_NEW          vec_newdel   L.1    2  0014H  0003B5BCH 
+P    _BADOFF                                  ios          L.1    2  0014H  0003738CH   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
@@ -1556,7 +1557,7 @@ P    _BUY__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFQ3_25_VECTOR_VAL__
                                                                                                                                                          INIFILE.CPP
 P    _BUY__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY9SIZE_TYPE_B _BUY__67VECT L.1    2  0014H  000234C8H 
                                                                                                                                                                             INIFILE.CPP
-P    _CALLFNS__8IOS_BASEFQ2_8IOS_BASE5EVENT   ios          L.1    2  0014H  0003799CH 
+P    _CALLFNS__8IOS_BASEFQ2_8IOS_BASE5EVENT   ios          L.1    2  0014H  00037AF4H 
 P    _COPY__6STRINGFUI                        _COPY__6STRI L.1    2  0014H  00002578H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1567,7 +1568,7 @@ P    _COPY__6STRINGFUI                        _COPY__6STRI L.1    2  0014H  0000
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
-P    _CTORS                                   cxxtors      L.1    2  0014H  0003C620H   static_init
+P    _CTORS                                   cxxtors      L.1    2  0014H  0003C778H   static_init
 P    _DORAISE__11LOGIC_ERRORCFV               _DORAISE__11 L.1    2  0014H  00002D18H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1586,13 +1587,13 @@ P    _DORAISE__11RANGE_ERRORCFV               _DORAISE__11 L.1    2  0014H  0000
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0030
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0030
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
@@ -1646,13 +1647,13 @@ P    _DORAISE__14OVERFLOW_ERRORCFV            _DORAISE__14 L.1    2  0014H  0000
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0031
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0031
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
@@ -1683,7 +1684,7 @@ P    _DORAISE__Q2_8IOS_BASE7FAILURECFV        _DORAISE__Q2 L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
-P    _DTORS                                   cxxtors      L.1    2  0014H  0003C692H   static_init
+P    _DTORS                                   cxxtors      L.1    2  0014H  0003C7EAH   static_init
 P    _ENDWRITE__7FILEBUFFV                    _ENDWRITE__7 L.1    2  0014H  00027C50H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
@@ -1698,21 +1699,21 @@ P    _EOS__6STRINGFUI                         _EOS__6STRIN L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  string
 P    _FFMT__7NUM_PUTSFPCCI                    _FFMT__7NUM_ L.1    2  0014H  00024F18H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    _FINDARR__8IOS_BASEFI                    ios          L.1    2  0014H  000379F0H 
-P    _FIOPEN__FPCCI                           fiopen       L.1    2  0014H  000388E4H   INIFILE.CPP  RWTH_TASK.CPP
+P    _FINDARR__8IOS_BASEFI                    ios          L.1    2  0014H  00037B48H 
+P    _FIOPEN__FPCCI                           fiopen       L.1    2  0014H  00038A3CH   INIFILE.CPP  RWTH_TASK.CPP
 P    _FPUT__7NUM_PUTSF7_OSTRITR8IOS_BASECPCCUIT5 _FPUT__7NUM_ L.1    2  0014H  00024FD0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    _FPZ                                     ios          L.1    5  002CH  00006FA8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    _FREEZE__6STRINGFV                       _FREEZE__6ST L.1    2  0014H  00002850H   IBF_SCHUESSEL_DR_POS.CPP
-                                                                                        IBF_SCHUESSEL_FORM.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0032
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0032
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
@@ -1739,13 +1740,13 @@ P    _INIT_CNT__Q2_8IOS_BASE4INIT             iostream     L.1    5  002CH  0000
 P    _INIT__7FILEBUFFP5_FILEQ2_7FILEBUF7_INITFL _INIT__7FILE L.1    2  0014H  00027AE0H   INIFILE.CPP  RWTH_EXCH.CPP
                                                                                           RWTH_LOGGER.CPP  RWTH_TASK.CPP
                                                                                           TEST_IBF.CPP  iostream  fiopen
-P    _INIT__8IOS_BASEFV                       ios          L.1    2  0014H  0003791CH   INIFILE.CPP  RWTH_TASK.CPP  iostream
+P    _INIT__8IOS_BASEFV                       ios          L.1    2  0014H  00037A74H   INIFILE.CPP  RWTH_TASK.CPP  iostream
 P    _INIT__9STREAMBUFFV                      _INIT__9STRE L.1    2  0014H  00024570H   INIFILE.CPP  RWTH_TASK.CPP  iostream
 P    _INSIDE__6STRINGFPCC                     _INSIDE__6ST L.1    2  0014H  00015FB0H   IBF_TOOL.CPP  INIFILE.CPP  RWTH_EXCH.CPP
                                                                                         RWTH_TASK.CPP  ios  string
 P    _IPUT__7NUM_PUTSF7_OSTRITR8IOS_BASECPCUI _IPUT__7NUM_ L.1    2  0014H  00025438H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    _MAIN                                    _main        L.1    2  0014H  00038A8CH   RWTH_TASK.CPP
-P    _NOMEMORY__FV                            nomemory     L.1    2  0014H  000389C4H   ios
+P    _MAIN                                    _main        L.1    2  0014H  00038BE4H   RWTH_TASK.CPP
+P    _NOMEMORY__FV                            nomemory     L.1    2  0014H  00038B1CH   ios
 P    _NULLSTR__6STRINGSFV                     _NULLSTR__6S L.1    2  0014H  00002AB0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1763,16 +1764,16 @@ P    _PNINC__9STREAMBUFFV                     _PNINC__9STR L.1    2  0014H  0000
 P    _PSUM__6STRINGSFPCUI                     _PSUM__6STRI L.1    2  0014H  0001EFA8H   INIFILE.CPP
 P    _PUTC__7NUM_PUTSF7_OSTRITPCCUI           _PUTC__7NUM_ L.1    2  0014H  00025AF0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    _PUT__7NUM_PUTSF7_OSTRITPCCUI            _PUT__7NUM_P L.1    2  0014H  000259A0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    _RAISE__9EXCEPTIONCFV                    stdexcept    L.1    2  0014H  00038C58H   ios  string
+P    _RAISE__9EXCEPTIONCFV                    stdexcept    L.1    2  0014H  00038DB0H   ios  string
 P    _REFCNT__6STRINGFPCC                     _REFCNT__6ST L.1    2  0014H  00002AC0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
-                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0033
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0033
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
@@ -1781,13 +1782,13 @@ FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFS
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  string
 P    _REP__7NUM_PUTSF7_OSTRITCUI              _REP__7NUM_P L.1    2  0014H  00025C40H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    _SET_RAISE_HANDLER__9EXCEPTIONSFPFRC9EXCEPTION_V stdexcept    L.1    2  0014H  00038B20H 
+P    _SET_RAISE_HANDLER__9EXCEPTIONSFPFRC9EXCEPTION_V stdexcept    L.1    2  0014H  00038C78H 
 P    _STZ__4FPOS                              ios          L.1    5  002CH  00006FECH   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    _SYNC__8IOS_BASE                         ios          L.1    5  002CH  00006FF4H 
-P    _THROW__FRC9EXCEPTION                    stdexcept    L.1    2  0014H  00038AD0H   ios  iostream  string  fiopen  nomemory
+P    _THROW__FRC9EXCEPTION                    stdexcept    L.1    2  0014H  00038C28H   ios  iostream  string  fiopen  nomemory
 P    _TIDY__6STRINGFB                         _TIDY__6STRI L.1    2  0014H  00002AD0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1799,7 +1800,7 @@ P    _TIDY__6STRINGFB                         _TIDY__6STRI L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
-P    _TIDY__8IOS_BASEFV                       ios          L.1    2  0014H  00037BB0H 
+P    _TIDY__8IOS_BASEFV                       ios          L.1    2  0014H  00037D08H 
 P    _TIDY__9STRINGBUFFV                      _TIDY__9STRI L.1    2  0014H  00028DF8H   INIFILE.CPP
 P    _UCOPY__TM__104_100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEY__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFZ1_2ZT1PQ2_8CINIFILE3KEY_PQ2_8CINIFILE3KEY _UCOPY__TM__ L.1    2  0014H  000239F0H 
                                                                                                                                                                                                                                                                                          INIFILE.CPP
@@ -1811,7 +1812,7 @@ P    _UFILL__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFQ3_25_VECTOR_VAL
                                                                                                                                                                                                                                                        INIFILE.CPP
 P    _UFILL__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY7POINTERQ3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY9SIZE_TYPERCZ1Z_Q3_25_VECTOR_VAL__TM__7_Z1ZZ2Z5_ALTY7POINTER _UFILL__67VE L.1    2  0014H  00023550H 
                                                                                                                                                                                                                                                                           INIFILE.CPP
-P    _XLEN__12_STRING_BASECFV                 string       L.1    2  0014H  000385A8H   IBF_SCHUESSEL_DR_POS.CPP
+P    _XLEN__12_STRING_BASECFV                 string       L.1    2  0014H  00038700H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -1824,15 +1825,15 @@ P    _XLEN__12_STRING_BASECFV                 string       L.1    2  0014H  0003
 P    _XLEN__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGCFV_V _XLEN__48VEC L.1    2  0014H  00021688H   INIFILE.CPP
 P    _XLEN__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYCFV_V _XLEN__67VEC L.1    2  0014H  000238C0H 
                                                                                                                                  INIFILE.CPP
-P    _XRAN__12_STRING_BASECFV                 string       L.1    2  0014H  0003869CH   IBF_SCHUESSEL_DR_POS.CPP
+P    _XRAN__12_STRING_BASECFV                 string       L.1    2  0014H  000387F4H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
-                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0034
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0034
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
@@ -1841,41 +1842,41 @@ FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFS
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios
 P    _XSTREAM                                 CRUN_IF__XST L.1    6  0034H  000001D8H   iostream
-P    __ALREADY_MARKED_FOR_DESTRUCTION         dtor_list    L.1    2  0014H  0003C578H 
-P    __ARRAY_DELETE                           vec_newdel   L.1    2  0014H  0003B428H 
-P    __ARRAY_NEW                              vec_newdel   L.1    2  0014H  0003B1A4H 
+P    __ALREADY_MARKED_FOR_DESTRUCTION         dtor_list    L.1    2  0014H  0003C6D0H 
+P    __ARRAY_DELETE                           vec_newdel   L.1    2  0014H  0003B580H 
+P    __ARRAY_NEW                              vec_newdel   L.1    2  0014H  0003B2FCH 
 P    __ARRAY_NEW_PREFIX_SIZE                  vec_newdel   L.1    5  002CH  00007518H 
-P    __AS__10BAD_TYPEIDFRC10BAD_TYPEID        typeinfo     L.1    2  0014H  0003C120H 
+P    __AS__10BAD_TYPEIDFRC10BAD_TYPEID        typeinfo     L.1    2  0014H  0003C278H 
 P    __AS__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFRC20VECTOR__TM__7_Z1ZZ2Z_R20VECTOR__TM__7_Z1ZZ2Z __AS__48VECT L.1    2  0014H  0001FCD0H 
                                                                                                                                                          INIFILE.CPP
-P    __AS__8BAD_CASTFRC8BAD_CAST              typeinfo     L.1    2  0014H  0003BDC0H 
-P    __AS__9BAD_ALLOCFRC9BAD_ALLOC            bad_alloc    L.1    2  0014H  00039058H 
-P    __AS__9EXCEPTIONFRC9EXCEPTION            stdexcept    L.1    2  0014H  00038BD0H   bad_alloc  typeinfo
-P    __CADUL_DISABLE_CRITICAL_SECTION_LOCK    iossem       L.1    2  0014H  00038CF4H   ios
-P    __CADUL_ENABLE_CRITICAL_SECTION_LOCK     iossem       L.1    2  0014H  00038CE8H   INIFILE.CPP  RWTH_TASK.CPP  iostream
-P    __CADUL_ENTER_CRITICAL_SECTION           iossem       L.1    2  0014H  00038CD0H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __AS__8BAD_CASTFRC8BAD_CAST              typeinfo     L.1    2  0014H  0003BF18H 
+P    __AS__9BAD_ALLOCFRC9BAD_ALLOC            bad_alloc    L.1    2  0014H  000391B0H 
+P    __AS__9EXCEPTIONFRC9EXCEPTION            stdexcept    L.1    2  0014H  00038D28H   bad_alloc  typeinfo
+P    __CADUL_DISABLE_CRITICAL_SECTION_LOCK    iossem       L.1    2  0014H  00038E4CH   ios
+P    __CADUL_ENABLE_CRITICAL_SECTION_LOCK     iossem       L.1    2  0014H  00038E40H   INIFILE.CPP  RWTH_TASK.CPP  iostream
+P    __CADUL_ENTER_CRITICAL_SECTION           iossem       L.1    2  0014H  00038E28H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP  ios  iostream
-P    __CADUL_EXIT_CRITICAL_SECTION            iossem       L.1    2  0014H  00038CDCH   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __CADUL_EXIT_CRITICAL_SECTION            iossem       L.1    2  0014H  00038E34H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP  ios  iostream
-P    __CADUL_SHARE_CRITICAL_SECTION_LOCK      iossem       L.1    2  0014H  00038D08H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __CADUL_SHARE_CRITICAL_SECTION_LOCK      iossem       L.1    2  0014H  00038E60H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
-P    __CALL_CTORS__FV                         static_init  L.1    2  0014H  00038DDCH   _main
-P    __CALL_DTORS__FV                         static_init  L.1    2  0014H  00038D4CH 
-P    __CALL_TERMINATE                         eh_util      L.1    2  0014H  000398D4H   throw
-P    __CALL_UNEXPECTED                        eh_util      L.1    2  0014H  000398B4H   throw
+P    __CALL_CTORS__FV                         static_init  L.1    2  0014H  00038F34H   _main
+P    __CALL_DTORS__FV                         static_init  L.1    2  0014H  00038EA4H 
+P    __CALL_TERMINATE                         eh_util      L.1    2  0014H  00039A2CH   throw
+P    __CALL_UNEXPECTED                        eh_util      L.1    2  0014H  00039A0CH   throw
 P    __CHATTR                                 CRUN_IF___CH L.1    6  0034H  000001E4H   INIFILE.CPP
-P    __CLEANUP_VEC_NEW_OR_DELETE              vec_newdel   L.1    2  0014H  0003B300H   throw
+P    __CLEANUP_VEC_NEW_OR_DELETE              vec_newdel   L.1    2  0014H  0003B458H   throw
 P    __CT__100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYFRC33_PTRIT__TM__19_Z1ZZ2ZZ5ZZ6ZZ5ZZ6Z __CT__100_PT L.1    2  0014H  00029228H 
                                                                                                                                                                                                    INIFILE.CPP
 P    __CT__100_PTRIT__TM__86_Q2_8CINIFILE3KEYIPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYFZ3Z __CT__100_PT L.1    2  0014H  00029100H 
                                                                                                                                                                  INIFILE.CPP
 P    __CT__102_PTRIT__TM__88_Q2_8CINIFILE3KEYIPCQ2_8CINIFILE3KEYRCQ2_8CINIFILE3KEYPQ2_8CINIFILE3KEYRQ2_8CINIFILE3KEYFZ3Z __CT__102_PT L.1    2  0014H  00029478H 
                                                                                                                                                                    INIFILE.CPP
-P    __CT__10BAD_TYPEIDFPCC                   typeinfo     L.1    2  0014H  0003BF28H   rtti
-P    __CT__10BAD_TYPEIDFRC10BAD_TYPEID        typeinfo     L.1    2  0014H  0003C024H 
-P    __CT__11LOGGER_RWTHFV                    RWTH_LOGGER. L.1    2  0014H  0003274CH   RWTH_TASK.CPP
+P    __CT__10BAD_TYPEIDFPCC                   typeinfo     L.1    2  0014H  0003C080H   rtti
+P    __CT__10BAD_TYPEIDFRC10BAD_TYPEID        typeinfo     L.1    2  0014H  0003C17CH 
+P    __CT__11LOGGER_RWTHFV                    RWTH_LOGGER. L.1    2  0014H  000328A4H   RWTH_TASK.CPP
 P    __CT__11LOGIC_ERRORFRC11LOGIC_ERROR      __CT__11LOGI L.1    2  0014H  00002D60H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1886,13 +1887,13 @@ P    __CT__11LOGIC_ERRORFRC11LOGIC_ERROR      __CT__11LOGI L.1    2  0014H  0000
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
-P    __CT__11LOGIC_ERRORFRC6STRING            __CT__11LOGI L.1    2  0014H  0001EFD0H   INIFILE.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0035
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0035
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    __CT__11LOGIC_ERRORFRC6STRING            __CT__11LOGI L.1    2  0014H  0001EFD0H   INIFILE.CPP
 P    __CT__11RANGE_ERRORFRC11RANGE_ERROR      __CT__11RANG L.1    2  0014H  00004448H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -1946,13 +1947,13 @@ P    __CT__12OUT_OF_RANGEFRC12OUT_OF_RANGE    __CT__12OUT_ L.1    2  0014H  0000
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
 P    __CT__13IBF_SCHUESSELFV                  __CT__13IBF_ L.1    2  0014H  00001D78H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
-                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0036
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0036
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
@@ -2006,13 +2007,13 @@ P    __CT__16INVALID_ARGUMENTFRC16INVALID_ARGUMENT __CT__16INVA L.1    2  0014H 
                                                                                              IBF_SCHUESSEL_ZR_POS.CPP
                                                                                              IBF_SCHUESSEL.CPP  IBF_DW_REGELUNG.CPP
                                                                                              IBF_FLEX_AXIAL.CPP  IBF_FLEX_RADIAL.CPP
-                                                                                             IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0037
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0037
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                             IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                              IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                              IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                              RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -2022,7 +2023,7 @@ P    __CT__24ALLOCATOR__TM__8_6STRINGFV       __CT__24ALLO L.1    2  0014H  0001
 P    __CT__34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFRC20ALLOCATOR__TM__4_Z1Z __CT__34ALLO L.1    2  0014H  000221B0H   INIFILE.CPP
 P    __CT__34ALLOCATOR__TM__17_Q2_8CINIFILE3KEYFV __CT__34ALLO L.1    2  0014H  000220A0H   INIFILE.CPP
 P    __CT__3IOSFV                             __CT__3IOSFV L.1    2  0014H  00025EA8H   INIFILE.CPP  RWTH_TASK.CPP
-P    __CT__3RPWFV                             RPW.CPP      L.1    2  0014H  0002BEE4H   RWTH_TASK.CPP
+P    __CT__3RPWFV                             RPW.CPP      L.1    2  0014H  0002BFBCH   RWTH_TASK.CPP
 P    __CT__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFRC20VECTOR__TM__7_Z1ZZ2Z __CT__48VECT L.1    2  0014H  0001FAC0H 
                                                                                                                                  INIFILE.CPP
 P    __CT__48VECTOR__TM__34_6STRING24ALLOCATOR__TM__8_6STRINGFV __CT__48VECT L.1    2  0014H  0001F980H   INIFILE.CPP
@@ -2063,24 +2064,24 @@ P    __CT__7OSTREAMFP9STREAMBUFB              __CT__7OSTRE L.1    2  0014H  0002
 P    __CT__7_LOCKITFIPUL                      __CT__7_LOCK L.1    2  0014H  00008018H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    __CT__7_OSTRITFP9STREAMBUF               __CT__7_OSTR L.1    2  0014H  000246A0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    __CT__8BAD_CASTFPCC                      typeinfo     L.1    2  0014H  0003BBC8H   rtti
-P    __CT__8BAD_CASTFRC8BAD_CAST              typeinfo     L.1    2  0014H  0003BCC4H 
+P    __CT__8BAD_CASTFPCC                      typeinfo     L.1    2  0014H  0003BD20H   rtti
+P    __CT__8BAD_CASTFRC8BAD_CAST              typeinfo     L.1    2  0014H  0003BE1CH 
 P    __CT__8CINIFILEF6STRING                  INIFILE.CPP  L.1    2  0014H  0001C598H   IBF_TOOL.CPP
-P    __CT__8IFSTREAMFV                        __CT__8IFSTR L.1    2  0014H  00027C58H   INIFILE.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0038
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0038
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    __CT__8IFSTREAMFV                        __CT__8IFSTR L.1    2  0014H  00027C58H   INIFILE.CPP
 P    __CT__8IOS_BASEFV                        __CT__8IOS_B L.1    2  0014H  00024288H   INIFILE.CPP  RWTH_TASK.CPP
 P    __CT__8OFSTREAMFV                        __CT__8OFSTR L.1    2  0014H  00027F48H   INIFILE.CPP  RWTH_TASK.CPP
-P    __CT__8TEST_IBFFV                        TEST_IBF.CPP L.1    2  0014H  00037058H   RWTH_TASK.CPP
-P    __CT__9BAD_ALLOCFPCC                     bad_alloc    L.1    2  0014H  00038E60H   nomemory  new
-P    __CT__9BAD_ALLOCFRC9BAD_ALLOC            bad_alloc    L.1    2  0014H  00038F5CH 
-P    __CT__9EXCEPTIONFPCC                     stdexcept    L.1    2  0014H  00038B60H   INIFILE.CPP  ios  string  bad_alloc
+P    __CT__8TEST_IBFFV                        TEST_IBF.CPP L.1    2  0014H  000371B0H   RWTH_TASK.CPP
+P    __CT__9BAD_ALLOCFPCC                     bad_alloc    L.1    2  0014H  00038FB8H   nomemory  new
+P    __CT__9BAD_ALLOCFRC9BAD_ALLOC            bad_alloc    L.1    2  0014H  000390B4H 
+P    __CT__9EXCEPTIONFPCC                     stdexcept    L.1    2  0014H  00038CB8H   INIFILE.CPP  ios  string  bad_alloc
                                                                                         typeinfo
-P    __CT__9EXCEPTIONFRC9EXCEPTION            stdexcept    L.1    2  0014H  00038B94H   IBF_SCHUESSEL_DR_POS.CPP
+P    __CT__9EXCEPTIONFRC9EXCEPTION            stdexcept    L.1    2  0014H  00038CECH   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2091,14 +2092,14 @@ P    __CT__9EXCEPTIONFRC9EXCEPTION            stdexcept    L.1    2  0014H  0003
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  bad_alloc
                                                                                         typeinfo
-P    __CT__9RWTH_EXCHFV                       RWTH_EXCH.CP L.1    2  0014H  0002D584H   RWTH_TASK.CPP
+P    __CT__9RWTH_EXCHFV                       RWTH_EXCH.CP L.1    2  0014H  0002D6B0H   RWTH_TASK.CPP
 P    __CT__9STREAMBUFFV                       __CT__9STREA L.1    2  0014H  000243E8H   INIFILE.CPP  RWTH_TASK.CPP
 P    __CT__Q2_7ISTREAM6SENTRYFR7ISTREAMB      __CT__Q2_7IS L.1    2  0014H  00026EE8H   INIFILE.CPP
 P    __CT__Q2_7OSTREAM6SENTRYFR7OSTREAM       __CT__Q2_7OS L.1    2  0014H  00009120H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
 P    __CT__Q2_8CINIFILE3KEYFRCQ2_8CINIFILE3KEY __CT__Q2_8CI L.1    2  0014H  0001F468H   INIFILE.CPP
 P    __CT__Q2_8CINIFILE3KEYFV                 __CT__Q2_8CI L.1    2  0014H  0001F2B8H   INIFILE.CPP
-P    __CT__Q2_8IOS_BASE4INITFV                iostream     L.1    2  0014H  00037E7CH   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __CT__Q2_8IOS_BASE4INITFV                iostream     L.1    2  0014H  00037FD4H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
 P    __CT__Q2_8IOS_BASE7FAILUREFRCQ2_8IOS_BASE7FAILURE __CT__Q2_8IO L.1    2  0014H  00008450H   IBF_SCHUESSEL.CPP  INIFILE.CPP
@@ -2116,34 +2117,34 @@ P    __CXXTLS                                 __cxxtls_uti L.1    5  002CH  0000
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  stdexcept
                                                                                         static_init  bad_alloc  eh_util  throw
                                                                                         vec_newdel  typeinfo  new  dtor_list
-P    __CXXTLS_INIT                            __cxxtls     L.1    2  0014H  000393E4H 
-P    __CXX_TLS_ALLOC_HOOK                     __cxxtls_uti L.1    2  0014H  000392D4H 
-P    __CXX_TLS_CREATE_CALLOUT                 __cxxtls_uti L.1    2  0014H  0003923CH 
-P    __CXX_TLS_DELETE                         __cxxtls     L.1    2  0014H  000395A8H   __cxxtls_util
-P    __CXX_TLS_DELETE_HOOK                    __cxxtls_uti L.1    2  0014H  00039318H   __cxxtls
-P    __CXX_TLS_DELETE_ROOT_HOOK               __cxxtls_uti L.1    2  0014H  00039338H   __cxxtls
-P    __CXX_TLS_EXIT_HOOK                      __cxxtls_uti L.1    2  0014H  000393B4H 
-P    __CXX_TLS_FREE_HOOK                      __cxxtls_uti L.1    2  0014H  000392B0H 
-P    __CXX_TLS_GET_HOOK                       __cxxtls_uti L.1    2  0014H  00039384H   _main  __cxxtls
-P    __CXX_TLS_GET_ROOT                       __cxxtls     L.1    2  0014H  000393D0H   __cxxtls_util
-P    __CXX_TLS_INIT                           __cxxtls     L.1    2  0014H  00039544H   __cxxtls_util
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0039
+P    __CXXTLS_INIT                            __cxxtls     L.1    2  0014H  0003953CH 
+P    __CXX_TLS_ALLOC_HOOK                     __cxxtls_uti L.1    2  0014H  0003942CH 
+P    __CXX_TLS_CREATE_CALLOUT                 __cxxtls_uti L.1    2  0014H  00039394H 
+P    __CXX_TLS_DELETE                         __cxxtls     L.1    2  0014H  00039700H   __cxxtls_util
+P    __CXX_TLS_DELETE_HOOK                    __cxxtls_uti L.1    2  0014H  00039470H   __cxxtls
+P    __CXX_TLS_DELETE_ROOT_HOOK               __cxxtls_uti L.1    2  0014H  00039490H   __cxxtls
+P    __CXX_TLS_EXIT_HOOK                      __cxxtls_uti L.1    2  0014H  0003950CH 
+P    __CXX_TLS_FREE_HOOK                      __cxxtls_uti L.1    2  0014H  00039408H 
+P    __CXX_TLS_GET_HOOK                       __cxxtls_uti L.1    2  0014H  000394DCH   _main  __cxxtls
+P    __CXX_TLS_GET_ROOT                       __cxxtls     L.1    2  0014H  00039528H   __cxxtls_util
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0039
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
-P    __CXX_TLS_INIT_HOOK                      __cxxtls_uti L.1    2  0014H  000393A0H   _main
-P    __CXX_TLS_KILL_CALLOUT                   __cxxtls_uti L.1    2  0014H  00039298H 
-P    __CXX_TLS_RESTART_CALLOUT                __cxxtls_uti L.1    2  0014H  000391F0H 
-P    __CXX_TLS_SET                            __cxxtls     L.1    2  0014H  00039618H 
-P    __CXX_TLS_SETUP                          __cxxtls     L.1    2  0014H  000396CCH   _main
-P    __CXX_TLS_SET_HOOK                       __cxxtls_uti L.1    2  0014H  00039358H   __cxxtls
-P    __CXX_TLS_SIZE                           __cxxtls     L.1    2  0014H  00039530H   __cxxtls_util
-P    __CXX_TLS_SWITCH_CALLOUT                 __cxxtls_uti L.1    2  0014H  00039288H 
-P    __DERIVED_TO_BASE_CONVERSION             rtti         L.1    2  0014H  0003B498H   throw
-P    __DLA__FPV                               array_del    L.1    2  0014H  0003C308H   vec_newdel
-P    __DL__FPV                                delete       L.1    2  0014H  00039904H   IBF_SCHUESSEL_DR_POS.CPP
+P    __CXX_TLS_INIT                           __cxxtls     L.1    2  0014H  0003969CH   __cxxtls_util
+P    __CXX_TLS_INIT_HOOK                      __cxxtls_uti L.1    2  0014H  000394F8H   _main
+P    __CXX_TLS_KILL_CALLOUT                   __cxxtls_uti L.1    2  0014H  000393F0H 
+P    __CXX_TLS_RESTART_CALLOUT                __cxxtls_uti L.1    2  0014H  00039348H 
+P    __CXX_TLS_SET                            __cxxtls     L.1    2  0014H  00039770H 
+P    __CXX_TLS_SETUP                          __cxxtls     L.1    2  0014H  00039824H   _main
+P    __CXX_TLS_SET_HOOK                       __cxxtls_uti L.1    2  0014H  000394B0H   __cxxtls
+P    __CXX_TLS_SIZE                           __cxxtls     L.1    2  0014H  00039688H   __cxxtls_util
+P    __CXX_TLS_SWITCH_CALLOUT                 __cxxtls_uti L.1    2  0014H  000393E0H 
+P    __DERIVED_TO_BASE_CONVERSION             rtti         L.1    2  0014H  0003B5F0H   throw
+P    __DLA__FPV                               array_del    L.1    2  0014H  0003C460H   vec_newdel
+P    __DL__FPV                                delete       L.1    2  0014H  00039A5CH   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2155,8 +2156,8 @@ P    __DL__FPV                                delete       L.1    2  0014H  0003
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen  stdexcept  bad_alloc
                                                                                         typeinfo  array_del
-P    __DL__FPVT1                              placedel     L.1    2  0014H  0003992CH   INIFILE.CPP
-P    __DT__10BAD_TYPEIDFV                     typeinfo     L.1    2  0014H  0003C150H 
+P    __DL__FPVT1                              placedel     L.1    2  0014H  00039A84H   INIFILE.CPP
+P    __DT__10BAD_TYPEIDFV                     typeinfo     L.1    2  0014H  0003C2A8H 
 P    __DT__11LOGIC_ERRORFV                    __DT__11LOGI L.1    2  0014H  00002B90H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -2186,13 +2187,13 @@ P    __DT__12DOMAIN_ERRORFV                   __DT__12DOMA L.1    2  0014H  0000
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0040
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0040
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
@@ -2246,13 +2247,13 @@ P    __DT__14OVERFLOW_ERRORFV                 __DT__14OVER L.1    2  0014H  0000
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0041
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0041
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
@@ -2306,13 +2307,13 @@ P    __DT__67VECTOR__TM__53_Q2_8CINIFILE3KEY34ALLOCATOR__TM__17_Q2_8CINIFILE3KEY
                                                                                                                              IBF_DW_REGELUNG.CPP
                                                                                                                              IBF_FLEX_AXIAL.CPP
                                                                                                                              IBF_FLEX_RADIAL.CPP
-                                                                                                                             IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0042
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0042
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                                                             IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                                                              IBF_FORMSPEK.CPP
                                                                                                                              IBF_STUETZ.CPP
                                                                                                                              IBF_TOOL.CPP
@@ -2345,7 +2346,7 @@ P    __DT__7OSTREAMFV                         __DT__7OSTRE L.1    2  0014H  0000
                                                                                         string  fiopen
 P    __DT__7_LOCKITFV                         __DT__7_LOCK L.1    2  0014H  00008160H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
-P    __DT__8BAD_CASTFV                        typeinfo     L.1    2  0014H  0003BDF0H 
+P    __DT__8BAD_CASTFV                        typeinfo     L.1    2  0014H  0003BF48H 
 P    __DT__8CINIFILEFV                        __DT__8CINIF L.1    2  0014H  000045A0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -2359,21 +2360,21 @@ P    __DT__8CINIFILEFV                        __DT__8CINIF L.1    2  0014H  0000
 P    __DT__8IFSTREAMFV                        __DT__8IFSTR L.1    2  0014H  00027DF0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __DT__8IOS_BASEFV                        ios          L.1    2  0014H  00037C78H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __DT__8IOS_BASEFV                        ios          L.1    2  0014H  00037DD0H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    __DT__8OFSTREAMFV                        __DT__8OFSTR L.1    2  0014H  000280E0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __DT__9BAD_ALLOCFV                       bad_alloc    L.1    2  0014H  00039088H   nomemory
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0043
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0043
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
-P    __DT__9EXCEPTIONFV                       stdexcept    L.1    2  0014H  00038BFCH   IBF_SCHUESSEL_DR_POS.CPP
+P    __DT__9BAD_ALLOCFV                       bad_alloc    L.1    2  0014H  000391E0H   nomemory
+P    __DT__9EXCEPTIONFV                       stdexcept    L.1    2  0014H  00038D54H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2384,13 +2385,13 @@ P    __DT__9EXCEPTIONFV                       stdexcept    L.1    2  0014H  0003
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen  bad_alloc  typeinfo
-P    __DT__9RWTH_EXCHFV                       RWTH_EXCH.CP L.1    2  0014H  0002F8D8H   RWTH_TASK.CPP
+P    __DT__9RWTH_EXCHFV                       RWTH_EXCH.CP L.1    2  0014H  0002FA33H   RWTH_TASK.CPP
 P    __DT__9STREAMBUFFV                       __DT__9STREA L.1    2  0014H  000085A8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    __DT__9STRINGBUFFV                       __DT__9STRIN L.1    2  0014H  00028238H   INIFILE.CPP
-P    __DT__9TYPE_INFOFV                       typeinfo     L.1    2  0014H  0003B9D8H 
+P    __DT__9TYPE_INFOFV                       typeinfo     L.1    2  0014H  0003BB30H 
 P    __DT__Q2_7ISTREAM6SENTRYFV               __DT__Q2_7IS L.1    2  0014H  00027058H   INIFILE.CPP
 P    __DT__Q2_7OSTREAM6SENTRYFV               __DT__Q2_7OS L.1    2  0014H  000092C8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_TASK.CPP
@@ -2404,18 +2405,18 @@ P    __DT__Q2_8CINIFILE3KEYFV                 __DT__Q2_8CI L.1    2  0014H  0000
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
-P    __DT__Q2_8IOS_BASE4INITFV                iostream     L.1    2  0014H  00038254H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __DT__Q2_8IOS_BASE4INITFV                iostream     L.1    2  0014H  000383ACH   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
 P    __DT__Q2_8IOS_BASE7FAILUREFV             __DT__Q2_8IO L.1    2  0014H  000082E8H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
-P    __DYNAMIC_CAST                           rtti         L.1    2  0014H  0003B7A0H 
-P    __DYNAMIC_CAST_REF                       rtti         L.1    2  0014H  0003B928H 
-P    __EH_EXIT_PROCESSING                     throw        L.1    2  0014H  0003AC68H 
-P    __EQ__9TYPE_INFOCFRC9TYPE_INFO           typeinfo     L.1    2  0014H  0003BA18H 
-P    __EXCEPTION_CAUGHT                       throw        L.1    2  0014H  0003A4B8H   IBF_SCHUESSEL_DR_POS.CPP
+P    __DYNAMIC_CAST                           rtti         L.1    2  0014H  0003B8F8H 
+P    __DYNAMIC_CAST_REF                       rtti         L.1    2  0014H  0003BA80H 
+P    __EH_EXIT_PROCESSING                     throw        L.1    2  0014H  0003ADC0H 
+P    __EQ__9TYPE_INFOCFRC9TYPE_INFO           typeinfo     L.1    2  0014H  0003BB70H 
+P    __EXCEPTION_CAUGHT                       throw        L.1    2  0014H  0003A610H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2425,23 +2426,13 @@ P    __EXCEPTION_CAUGHT                       throw        L.1    2  0014H  0003
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
-P    __EXCEPTION_STARTED                      throw        L.1    2  0014H  0003A458H   IBF_SCHUESSEL_DR_POS.CPP
-                                                                                        IBF_SCHUESSEL_FORM.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0044
+P    __EXCEPTION_STARTED                      throw        L.1    2  0014H  0003A5B0H   IBF_SCHUESSEL_DR_POS.CPP
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0044
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
-                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
-                                                                                        IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
-                                                                                        IBF_FLEX_RADIAL.CPP
-                                                                                        IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
-                                                                                        RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-                                                                                        RWTH_TASK.CPP  TEST_IBF.CPP
-P    __FREE_THROWN_OBJECT                     throw        L.1    2  0014H  0003ABA8H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2451,24 +2442,34 @@ P    __FREE_THROWN_OBJECT                     throw        L.1    2  0014H  0003
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
-P    __GET_TYPEID                             rtti         L.1    2  0014H  0003B978H 
-P    __INTERNAL_RETHROW                       throw        L.1    2  0014H  0003AAE8H   INIFILE.CPP
-P    __LIB_ASSERT__                           libfatal     L.1    2  0014H  0003C3E0H 
-P    __LIB_FATAL_DEFAULT_TERMINATE_ROUTINE    libfatal     L.1    2  0014H  0003C3C4H   __cxxtls
-P    __LIB_FATAL__                            libfatal     L.1    2  0014H  0003C328H   _main  stdexcept  eh_util  vec_newdel
+P    __FREE_THROWN_OBJECT                     throw        L.1    2  0014H  0003AD00H   IBF_SCHUESSEL_DR_POS.CPP
+                                                                                        IBF_SCHUESSEL_FORM.CPP
+                                                                                        IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
+                                                                                        IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
+                                                                                        IBF_FLEX_RADIAL.CPP
+                                                                                        IBF_FLEXIBEL_AXIAL_AG_POS.CPP
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
+                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
+                                                                                        RWTH_EXCH.CPP  RWTH_LOGGER.CPP
+                                                                                        RWTH_TASK.CPP  TEST_IBF.CPP
+P    __GET_TYPEID                             rtti         L.1    2  0014H  0003BAD0H 
+P    __INTERNAL_RETHROW                       throw        L.1    2  0014H  0003AC40H   INIFILE.CPP
+P    __LIB_ASSERT__                           libfatal     L.1    2  0014H  0003C538H 
+P    __LIB_FATAL_DEFAULT_TERMINATE_ROUTINE    libfatal     L.1    2  0014H  0003C51CH   __cxxtls
+P    __LIB_FATAL__                            libfatal     L.1    2  0014H  0003C480H   _main  stdexcept  eh_util  vec_newdel
                                                                                         dtor_list  pure_virt
-P    __LS__7OSTREAMFD                         __LS__7OSTRE L.1    2  0014H  0002FDD0H   RWTH_EXCH.CPP
-P    __LS__7OSTREAMFF                         __LS__7OSTRE L.1    2  0014H  0002F9F0H   RWTH_EXCH.CPP
+P    __LS__7OSTREAMFD                         __LS__7OSTRE L.1    2  0014H  0002FF28H   RWTH_EXCH.CPP
+P    __LS__7OSTREAMFF                         __LS__7OSTRE L.1    2  0014H  0002FB48H   RWTH_EXCH.CPP
 P    __LS__7OSTREAMFI                         __LS__7OSTRE L.1    2  0014H  000261C8H   INIFILE.CPP  RWTH_EXCH.CPP
-P    __LS__7OSTREAMFUI                        __LS__7OSTRE L.1    2  0014H  00033428H   RWTH_TASK.CPP
+P    __LS__7OSTREAMFUI                        __LS__7OSTRE L.1    2  0014H  00033580H   RWTH_TASK.CPP
 P    __LS__FR7OSTREAMC                        __LS__FR7OST L.1    2  0014H  0001CC20H   INIFILE.CPP
 P    __LS__FR7OSTREAMPCC                      __LS__FR7OST L.1    2  0014H  00007858H   IBF_SCHUESSEL.CPP  RWTH_EXCH.CPP
                                                                                         RWTH_TASK.CPP
 P    __LS__FR7OSTREAMRC6STRING                __LS__FR7OST L.1    2  0014H  0001DD18H   INIFILE.CPP
-P    __MAIN_CALLED_MORE_THAN_ONCE             _main        L.1    2  0014H  00038A70H 
-P    __NE__9TYPE_INFOCFRC9TYPE_INFO           typeinfo     L.1    2  0014H  0003BA8CH 
-P    __NWA__FUI                               array_new    L.1    2  0014H  0003C3F8H   vec_newdel
-P    __NW__FUI                                new          L.1    2  0014H  0003C424H   IBF_SCHUESSEL_DR_POS.CPP
+P    __MAIN_CALLED_MORE_THAN_ONCE             _main        L.1    2  0014H  00038BC8H 
+P    __NE__9TYPE_INFOCFRC9TYPE_INFO           typeinfo     L.1    2  0014H  0003BBE4H 
+P    __NWA__FUI                               array_new    L.1    2  0014H  0003C550H   vec_newdel
+P    __NW__FUI                                new          L.1    2  0014H  0003C57CH   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2479,20 +2480,20 @@ P    __NW__FUI                                new          L.1    2  0014H  0003
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  string
                                                                                         array_new
-P    __NW__FUIPV                              placenew     L.1    2  0014H  0003C4B8H   INIFILE.CPP  ios  iostream
-P    __PLACEMENT_ARRAY_NEW                    vec_newdel   L.1    2  0014H  0003B1F0H 
-P    __PROCESS_NEEDED_DESTRUCTIONS__FV        dtor_list    L.1    2  0014H  0003C4D0H   static_init
-P    __PURE_VIRTUAL_CALLED                    pure_virt    L.1    2  0014H  0003C604H   IBF_SCHUESSEL.CPP  INIFILE.CPP
+P    __NW__FUIPV                              placenew     L.1    2  0014H  0003C610H   INIFILE.CPP  ios  iostream
+P    __PLACEMENT_ARRAY_NEW                    vec_newdel   L.1    2  0014H  0003B348H 
+P    __PROCESS_NEEDED_DESTRUCTIONS__FV        dtor_list    L.1    2  0014H  0003C628H   static_init
+P    __PURE_VIRTUAL_CALLED                    pure_virt    L.1    2  0014H  0003C75CH   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
-P    __RECORD_NEEDED_DESTRUCTION              dtor_list    L.1    2  0014H  0003C594H   IBF_SCHUESSEL_DR_POS.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0045
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0045
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    __RECORD_NEEDED_DESTRUCTION              dtor_list    L.1    2  0014H  0003C6ECH   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2503,7 +2504,7 @@ FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFS
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         nomemory
-P    __RETHROW                                throw        L.1    2  0014H  0003AA3CH   INIFILE.CPP
+P    __RETHROW                                throw        L.1    2  0014H  0003AB94H   INIFILE.CPP
 P    __ROOT_CXX_TLS                           __cxxtls     L.1    5  002CH  00007458H 
 P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_IBF_DW_REGELUNG_CPP_MS_DAEMPFER__F21DEF_IBF_ALLGEMEIN_ISTP22DEF_IBF_ALLGEMEIN_SOLL IBF_DW_REGEL L.1    2  0014H  00009D0CH 
                                                                                                                                                                                                     cxxtors
@@ -2529,30 +2530,30 @@ P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_IBF_TOOL_
                                                                                                                                                                                           cxxtors
 P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_INIFILE_CPP_CHECKCASE__8CINIFILECF6STRING INIFILE.CPP  L.1    2  0014H  0001C815H 
                                                                                                                                                            cxxtors
-P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RPW_CPP_MAIN_RAW__3RPWFIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFRC12DEF_EIN_ONLIRC12DEF_AUS_ONLIR13DEF_IST_INTERR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002C030H 
+P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RPW_CPP_MAIN_RAW__3RPWFIRC12DEF_EIN_PUFFRC14DEF_LOKAL_PUFFRC12DEF_AUS_PUFFRC12DEF_EIN_ONLIRC12DEF_AUS_ONLIR13DEF_IST_INTERR14DEF_SOLL_INTERR22DEF_IBF_ALLGEMEIN_SOLLR21DEF_IBF_ALLGEMEIN_IST RPW.CPP      L.1    2  0014H  0002C108H 
                                                                                                                                                                                                                                                                                                               cxxtors
-P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_EXCH_CPP_IN_RWTH_LOG_SCHREIBEN__FPC RWTH_EXCH.CP L.1    2  0014H  0002F92CH 
+P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_EXCH_CPP_IN_RWTH_LOG_SCHREIBEN__FPC RWTH_EXCH.CP L.1    2  0014H  0002FA87H 
                                                                                                                                                           cxxtors
-P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_LOGGER_CPP___CT__11LOGGER_RWTHFV RWTH_LOGGER. L.1    2  0014H  000328BFH 
+P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_LOGGER_CPP___CT__11LOGGER_RWTHFV RWTH_LOGGER. L.1    2  0014H  00032A17H 
                                                                                                                                                        cxxtors
-P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_TASK_CPP_MYLOGFILE RWTH_TASK.CP L.1    2  0014H  00033325H 
+P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_RWTH_TASK_CPP_MYLOGFILE RWTH_TASK.CP L.1    2  0014H  0003347DH 
                                                                                                                                          cxxtors
-P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_TEST_IBF_CPP___CT__8TEST_IBFFV TEST_IBF.CPP L.1    2  0014H  00037171H 
+P    __STI__C__RM3DEV_WAGNER_RAW_RWTH_SMP_RWTH_V110_RWTH_SMP_BD_SOURCE_TEST_IBF_CPP___CT__8TEST_IBFFV TEST_IBF.CPP L.1    2  0014H  000372C9H 
                                                                                                                                                 cxxtors
-P    __STI__E__CRUN_LIBSRC_SRC_SXL_IOSTREAM_CPP_CIN iostream     L.1    2  0014H  00038378H   cxxtors
-P    __SUPPRESS_OPTIM_ON_VARS_IN_TRY          throw        L.1    2  0014H  0003AC8CH   IBF_SCHUESSEL_DR_POS.CPP
+P    __STI__E__CRUN_LIBSRC_SRC_SXL_IOSTREAM_CPP_CIN iostream     L.1    2  0014H  000384D0H   cxxtors
+P    __SUPPRESS_OPTIM_ON_VARS_IN_TRY          throw        L.1    2  0014H  0003ADE4H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0046
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0046
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP
@@ -2606,13 +2607,13 @@ P    __TBC_9EXCEPTION13RUNTIME_ERROR          __TBC_9EXCEP L.1    5  002CH  0000
 P    __TBC_9STREAMBUF                         __TBC_9STREA L.1    5  002CH  00001F00H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __THROW                                  throw        L.1    2  0014H  0003A4E8H   IBF_SCHUESSEL_DR_POS.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0047
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0047
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    __THROW                                  throw        L.1    2  0014H  0003A640H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2622,10 +2623,10 @@ FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFS
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  rtti  new
-P    __THROW_ALLOC                            throw        L.1    2  0014H  0003AB04H 
-P    __THROW_BAD_CAST__FV                     rtti         L.1    2  0014H  0003B8A0H 
-P    __THROW_BAD_TYPEID__FV                   rtti         L.1    2  0014H  0003B8E4H 
-P    __THROW_SETUP                            throw        L.1    2  0014H  0003AB58H   IBF_SCHUESSEL_DR_POS.CPP
+P    __THROW_ALLOC                            throw        L.1    2  0014H  0003AC5CH 
+P    __THROW_BAD_CAST__FV                     rtti         L.1    2  0014H  0003B9F8H 
+P    __THROW_BAD_TYPEID__FV                   rtti         L.1    2  0014H  0003BA3CH 
+P    __THROW_SETUP                            throw        L.1    2  0014H  0003ACB0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
@@ -2666,13 +2667,13 @@ P    __TID_12DOMAIN_ERROR                     ?DUMMY_MODUL L.1    5  002CH  0000
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
-                                                                                        RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0048
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0048
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
 P    __TID_12LENGTH_ERROR                     ?DUMMY_MODUL L.1    5  002CH  000075F4H   IBF_SCHUESSEL_DR_POS.CPP
@@ -2726,13 +2727,13 @@ P    __TID_15UNDERFLOW_ERROR                  ?DUMMY_MODUL L.1    5  002CH  0000
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
-                                                                                        IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0049
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0049
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -2786,13 +2787,13 @@ P    __TID_8IOS_BASE                          ?DUMMY_MODUL L.1    5  002CH  0000
 P    __TID_8OFSTREAM                          ?DUMMY_MODUL L.1    5  002CH  0000762CH   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __TID_9BAD_ALLOC                         ?DUMMY_MODUL L.1    5  002CH  00007640H   bad_alloc
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0050
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0050
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+P    __TID_9BAD_ALLOC                         ?DUMMY_MODUL L.1    5  002CH  00007640H   bad_alloc
 P    __TID_9EXCEPTION                         ?DUMMY_MODUL L.1    5  002CH  0000763CH   stdexcept
 P    __TID_9STREAMBUF                         ?DUMMY_MODUL L.1    5  002CH  00007608H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
@@ -2846,13 +2847,13 @@ P    __T_12LENGTH_ERROR                       __T_12LENGTH L.1    5  002CH  0000
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0051
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0051
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
@@ -2906,13 +2907,13 @@ P    __T_16INVALID_ARGUMENT                   __T_16INVALI L.1    5  002CH  0000
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
-                                                                                        IBF_FLEX_RADIAL.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0052
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0052
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
@@ -2966,13 +2967,13 @@ P    __T_9EXCEPTION                           __T_9EXCEPTI L.1    5  002CH  0000
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0053
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0053
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
@@ -2990,11 +2991,11 @@ P    __T_Q2_8IOS_BASE7FAILURE                 __T_Q2_8IOS_ L.1    5  002CH  0000
                                                                                         string  fiopen
 P    __VC__6STRINGCFUI                        __VC__6STRIN L.1    2  0014H  0001ED80H   INIFILE.CPP
 P    __VC__6STRINGFUI                         __VC__6STRIN L.1    2  0014H  0001ED38H   INIFILE.CPP
-P    __VEC_CCTOR_EH                           vec_newdel   L.1    2  0014H  0003B2B8H 
-P    __VEC_DELETE                             vec_newdel   L.1    2  0014H  0003B3F0H   throw
-P    __VEC_NEW                                vec_newdel   L.1    2  0014H  0003B278H 
-P    __VEC_NEW_EH                             vec_newdel   L.1    2  0014H  0003B234H 
-P    __VTBL__10BAD_TYPEID                     __VTBL__10BA L.1    2  0014H  0003C2D8H   typeinfo
+P    __VEC_CCTOR_EH                           vec_newdel   L.1    2  0014H  0003B410H 
+P    __VEC_DELETE                             vec_newdel   L.1    2  0014H  0003B548H   throw
+P    __VEC_NEW                                vec_newdel   L.1    2  0014H  0003B3D0H 
+P    __VEC_NEW_EH                             vec_newdel   L.1    2  0014H  0003B38CH 
+P    __VTBL__10BAD_TYPEID                     __VTBL__10BA L.1    2  0014H  0003C430H   typeinfo
 P    __VTBL__11LOGIC_ERROR                    __VTBL__11LO L.1    2  0014H  00001B60H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -3026,13 +3027,13 @@ P    __VTBL__12DOMAIN_ERROR                   __VTBL__12DO L.1    2  0014H  0000
                                                                                         IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
-                                                                                        RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0054
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0054
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
                                                                                         string  fiopen
 P    __VTBL__12LENGTH_ERROR                   __VTBL__12LE L.1    2  0014H  00001C08H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
@@ -3086,13 +3087,13 @@ P    __VTBL__15UNDERFLOW_ERROR                __VTBL__15UN L.1    2  0014H  0000
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP
                                                                                         IBF_FLEX_RADIAL.CPP
                                                                                         IBF_FLEXIBEL_AXIAL_AG_POS.CPP
-                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0055
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0055
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
+                                                                                        IBF_FORMSPEK.CPP  IBF_STUETZ.CPP
                                                                                         IBF_TOOL.CPP  INIFILE.CPP  RPW.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  ios  iostream
@@ -3128,7 +3129,7 @@ P    __VTBL__7OSTREAM                         __VTBL__7OST L.1    2  0014H  0000
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
-P    __VTBL__8BAD_CAST                        __VTBL__8BAD L.1    2  0014H  0003C2A8H   typeinfo
+P    __VTBL__8BAD_CAST                        __VTBL__8BAD L.1    2  0014H  0003C400H   typeinfo
 P    __VTBL__8CINIFILE                        __VTBL__8CIN L.1    2  0014H  00001D58H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
@@ -3142,24 +3143,24 @@ P    __VTBL__8CINIFILE                        __VTBL__8CIN L.1    2  0014H  0000
 P    __VTBL__8IFSTREAM                        __VTBL__8IFS L.1    2  0014H  0001C9F0H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __VTBL__8IOS_BASE                        __VTBL__8IOS L.1    2  0014H  00037D38H   INIFILE.CPP  RWTH_TASK.CPP  ios  iostream
+P    __VTBL__8IOS_BASE                        __VTBL__8IOS L.1    2  0014H  00037E90H   INIFILE.CPP  RWTH_TASK.CPP  ios  iostream
 P    __VTBL__8OFSTREAM                        __VTBL__8OFS L.1    2  0014H  0001CA20H   INIFILE.CPP  RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         fiopen
-P    __VTBL__9BAD_ALLOC                       __VTBL__9BAD L.1    2  0014H  000391C0H   bad_alloc
-LINK386 V223                  04/15/2015  13:47:58               PAGE 0056
+LINK386 V223                  04/21/2015  07:22:17               PAGE 0056
 
 CROSS REFERENCE MAP
 
 FLAG SYMBOL                                   LOCATED AT  TABLE SLOT PHSEL  OFFSET      REFERENCED IN
 
-P    __VTBL__9EXCEPTION                       __VTBL__9EXC L.1    2  0014H  00038CA0H   stdexcept
+P    __VTBL__9BAD_ALLOC                       __VTBL__9BAD L.1    2  0014H  00039318H   bad_alloc
+P    __VTBL__9EXCEPTION                       __VTBL__9EXC L.1    2  0014H  00038DF8H   stdexcept
 P    __VTBL__9STREAMBUF                       __VTBL__9STR L.1    2  0014H  00007700H   IBF_SCHUESSEL.CPP  INIFILE.CPP
                                                                                         RWTH_EXCH.CPP  RWTH_LOGGER.CPP
                                                                                         RWTH_TASK.CPP  TEST_IBF.CPP  iostream
                                                                                         string  fiopen
 P    __VTBL__9STRINGBUF                       __VTBL__9STR L.1    2  0014H  0001CA50H   INIFILE.CPP
-P    __VTBL__9TYPE_INFO                       __VTBL__9TYP L.1    2  0014H  0003C288H   IBF_SCHUESSEL_DR_POS.CPP
+P    __VTBL__9TYPE_INFO                       __VTBL__9TYP L.1    2  0014H  0003C3E0H   IBF_SCHUESSEL_DR_POS.CPP
                                                                                         IBF_SCHUESSEL_FORM.CPP
                                                                                         IBF_SCHUESSEL_ZR_POS.CPP  IBF_SCHUESSEL.CPP
                                                                                         IBF_DW_REGELUNG.CPP  IBF_FLEX_AXIAL.CPP

@@ -1,5 +1,0 @@
-define button load "load/task= c:/sms/&1.386 of &1.bd\n"
-define button start "set task/atta/id=1/set;\
-			  run until main\n"
-define button exit "exit\n"
-

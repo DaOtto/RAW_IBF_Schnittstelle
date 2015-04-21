@@ -383,9 +383,9 @@ int Win_RWTH_EXCH::Main_Control(void) {
 		}
 
 		// Achsenmodi initialisieren (9.1.2015 d.Otto)
-		//Soll_Inter->RS_act	=	1;
-		//Soll_Inter->AS_act	=	1;
-		//Soll_Inter->zen_act	=	0;
+		Soll_Inter->RS_act	=	1;
+		Soll_Inter->AS_act	=	1;
+		Soll_Inter->zen_act	=	0;
 		
 		// Bissverhältnis
 		Soll_IBF->Axial.Biss.Anzahl = 0;
@@ -483,8 +483,8 @@ int Win_RWTH_EXCH::Main_Control(void) {
 	Aus_Onli->Ibf_nominal.DRR_E_mode	= Soll_Inter->DRR_Param.DrR_E.mode;
 	Aus_Onli->Ibf_nominal.Soll_DRR_A_V		= Soll_Inter->DRR_Param.DrR_A.V;
 	Aus_Onli->Ibf_nominal.Soll_DRR_E_V		= Soll_Inter->DRR_Param.DrR_E.V;
-	Aus_Onli->Ibf_nominal.Soll_DRR_A_Pos	= Soll_Inter->DRR_Param.DrR_A.Pos;
-	Aus_Onli->Ibf_nominal.Soll_DRR_E_Pos	= Soll_Inter->DRR_Param.DrR_E.Pos;
+	Aus_Onli->Ibf_nominal.Soll_DRR_A_Pos	= 940.9F - Soll_Inter->DRR_Param.DrR_A.Pos;
+	Aus_Onli->Ibf_nominal.Soll_DRR_E_Pos	= 940.9F - Soll_Inter->DRR_Param.DrR_E.Pos;
 	Aus_Onli->Ibf_nominal.Soll_FDRR_A		= Soll_Inter->DRR_Param.DrR_A.Kraft;
 	Aus_Onli->Ibf_nominal.Soll_FDRR_E		= Soll_Inter->DRR_Param.DrR_E.Kraft;
 #endif // DRR
@@ -647,8 +647,8 @@ int Win_RWTH_EXCH::genThread(LPVOID lpParameter)
 			Param.Ein_Onli_back.Ibf_actual.Ist_DRR_A = IstPos_SollPos(	Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_A_Pos,
 																		Param.Ein_Onli_back.Ibf_actual.Ist_DRR_A,
 																		Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_A_V,
-																		342.5F,
-																		916.0F,
+																		0,//342.5F,
+																		940.9F - 342.5F,//916.0F,
 																		Param.Ein_Puff_RWTH.dt_zyklus);
 			break;
 		}
@@ -658,8 +658,8 @@ int Win_RWTH_EXCH::genThread(LPVOID lpParameter)
 			Param.Ein_Onli_back.Ibf_actual.Ist_DRR_A = IstPos_SollPos(	Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_A_Pos,
 																		Param.Ein_Onli_back.Ibf_actual.Ist_DRR_A,
 																		Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_A_V,
-																		345.9F,
-																		916.0F,
+																		0,//345.9F,
+																		940.9F- 345.9F ,//916.0F,
 																		Param.Ein_Puff_RWTH.dt_zyklus);
 			//cout << "Achtung: Kraftsteuerung DRA\r";
 			break;
@@ -673,8 +673,8 @@ int Win_RWTH_EXCH::genThread(LPVOID lpParameter)
 			Param.Ein_Onli_back.Ibf_actual.Ist_DRR_E = IstPos_SollPos(	Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_E_Pos,
 																		Param.Ein_Onli_back.Ibf_actual.Ist_DRR_E,
 																		Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_E_V,
-																		342.5F,
-																		916.0F,
+																		0,//342.5F,
+																		940.9F - 342.5F,//916.0F,
 																		Param.Ein_Puff_RWTH.dt_zyklus);
 			break;
 		}
@@ -683,8 +683,8 @@ int Win_RWTH_EXCH::genThread(LPVOID lpParameter)
 			Param.Ein_Onli_back.Ibf_actual.Ist_DRR_E = IstPos_SollPos(	Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_E_Pos,
 																		Param.Ein_Onli_back.Ibf_actual.Ist_DRR_E,
 																		Param.Aus_Onli_RWTH.Ibf_nominal.Soll_DRR_E_V,
-																		345.9F,
-																		916.0F,
+																		0,//345.9F,
+																		940.9F- 345.9F ,//916.0F,
 																		Param.Ein_Puff_RWTH.dt_zyklus);
 			//cout << "Achtung: Kraftsteuerung DRE\r";
 			break;
@@ -769,7 +769,7 @@ Win_RWTH_EXCH::Win_RWTH_EXCH(RPW* aRPW, globData* initBuffer) {
 	Soll_IBF_Ini.Zeit.t_Halte = 20;    // Sollwartezeit beim Anfahren
 	Soll_IBF_Ini.stuetz_var.skip_faktor = 1;	// IBF-Stuetzstelle
 	Soll_IBF_Ini.stuetz_var.merker = 0;			// IBF-Stuetzstelle
-	Soll_IBF_Ini.stuetz_var.crtimer = 0;		//IBF-Stuetzstelle
+	Soll_IBF_Ini.stuetz_var.crtimer = 0;		// IBF-Stuetzstelle
 
 	Ist_IBF_Ini.Axial.Kr_geo.sin_kw_winkel_halbe = 0.3826834323650897717284599840304F;  // sin(22.5°)  
 	
@@ -800,6 +800,8 @@ Win_RWTH_EXCH::Win_RWTH_EXCH(RPW* aRPW, globData* initBuffer) {
 	// Funktionsaufrufe: Modus des Axialgerüstes
 	lRPW->Modus_AG(Soll_Inter_Ini, Ist_IBF_Ini, Ist_IBF_Ini.Flag.Axial_Radialwalzen);
 
+	// Modus der Druckrollen /D.O. 20.4.2015/
+	lRPW->Modus_DR( Soll_IBF_Ini , Ist_IBF_Ini );
 
 	if ((Ist_IBF_Ini.Flag.Axial_Radialwalzen == 1)||(Ist_IBF_Ini.Flag.Axial_Radialwalzen == 2))// Radialprof. od Formenspek.
 	{

@@ -13,6 +13,7 @@ var class_r_p_w =
     [ "Main", "de/d98/class_r_p_w.html#a64986f18835871884dd45ce1e88eada1", null ],
     [ "Main_RAW", "de/d98/class_r_p_w.html#aab3a251c686b16f0ae7994c2b48eade8", null ],
     [ "Modus_AG", "de/d98/class_r_p_w.html#a4603f585a717845f9e21f8f18b5543ef", null ],
+    [ "Modus_DR", "de/d98/class_r_p_w.html#a3159a6e4e2458cab634807cf65469aa9", null ],
     [ "offset_agr", "de/d98/class_r_p_w.html#a4aec23f4b7b105631407692d310cf696", null ],
     [ "offset_aso", "de/d98/class_r_p_w.html#ac3f4613d048368e650d5bfdb48b5441f", null ],
     [ "offset_asu", "de/d98/class_r_p_w.html#a02ac2842ae951badacf5bb7fb65e6d7b", null ],

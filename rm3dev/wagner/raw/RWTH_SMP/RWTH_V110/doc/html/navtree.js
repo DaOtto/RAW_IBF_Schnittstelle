@@ -46,8 +46,8 @@ var NAVTREEINDEX =
 "da/d33/struct_def___aus___onli___v7.html#a4a41dd534f6dbd51df839224a3365351",
 "da/deb/struct_def___ein___onli.html#af22c5bee492186a5b2a0ec021f0634fd",
 "dc/d56/struct_def___e_i_n___r_m_s.html#aec95f98c2748b97fd2ce8eb1cde9d690",
-"de/df8/struct_antriebe.html#a79ef87785e1db7a39d65ebed1525f106",
-"df/dd8/struct_def___ein___puff.html#ae60bd59f5da9f0b118c93150f3781fa8"
+"de/df8/struct_antriebe.html",
+"df/dd8/struct_def___ein___puff.html#ae59abd0bf536448abc51d32f287957f5"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';

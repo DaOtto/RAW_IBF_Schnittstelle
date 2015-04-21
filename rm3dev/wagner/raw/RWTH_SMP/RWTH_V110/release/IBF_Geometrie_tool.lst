@@ -1,5 +1,5 @@
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 1
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 1
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -14,7 +14,7 @@ Line  Level
     6             ;	Plattform		: RMOS3, WIN32
      +            	  
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 2
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 2
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -57,7 +57,7 @@ Line  Level
    27             					const ellipse_t&
      +            e_In )
    28             {
-   29             	// Ellipsengleichung e1
+   29             	// Kreisgleichung k
    30             	double	k_a00	= pow( k_In.r , -2 ) ,
      +            // 1/r^2
    31             			k_a11	= pow( k_In.r , -2 ) ,
@@ -70,12 +70,12 @@ Line  Level
      +            n.r , 2 ) + pow( k_In.M.y / k_In.r , 2 ) - 1.0F ;	// xo
      +            ^2/r^2 + yo^2/r^2 - 1		
    35             	
-   36             	// Ellipsengleichung e2
+   36             	// Ellipsengleichung e
    37             	double	e_a00	= pow( e_In.a , -2 ) ,
      +            // 1/a^2
    38             			e_a11	= pow( e_In.b , -2 ) ,
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 3
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 3
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -136,7 +136,7 @@ Line  Level
    81             
    82             		if ( ( fabs( nsta[0] - nstb[0] ) < 0.01F ) ||
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 4
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 4
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -197,7 +197,7 @@ Line  Level
   116             					v0 * v4 - 2.0F * v1 *
      +             v2 ,	
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 5
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 5
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -258,7 +258,7 @@ Line  Level
   159             				b2;
   160             	
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 6
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 6
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -319,7 +319,7 @@ Line  Level
      +            ren der
   207             		// gefundenen Nullstellen ( poly(x)/a(x) = b(
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 7
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 7
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -380,7 +380,7 @@ Line  Level
   254             			D;
   255             	
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 8
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 8
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -441,7 +441,7 @@ Line  Level
   304             		nst[1] = 0.0F;
   305             
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 9
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 9
 
      Source Listing - File: C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
@@ -488,7 +488,7 @@ Line  Level
   342             
 No errors have been detected
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 10
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 10
 
      Used Files
 
@@ -498,7 +498,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 10
        2 C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\inc\IBF_Geometrie_tool.hpp
        3 C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 11
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 11
 
      Used Options
 
@@ -513,7 +513,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 11
         C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp
         -VDP
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 12
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 12
 
      Interleaved Listing
 
@@ -574,7 +574,7 @@ C****************************************************************************
    LINK  :000006   00                       DB    0
    LINK  :000007   00                       DB    0
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 13
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 13
 
      Interleaved Listing
 
@@ -618,7 +618,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 13
    CODE32:00004E   81 EC 30 01 00           SUB   ESP,304
                    00                                                         
 C****************************************************************************
-C    29:  	// Ellipsengleichung e1 
+C    29:  	// Kreisgleichung k 
 C    30:  	double	k_a00	= pow( k_In.r , -2 ) ,
 C +       // 1/r^2 
 C    31:  			k_a11	= pow( k_In.r , -2 ) ,
@@ -631,10 +631,10 @@ C    34:  			k_c		= pow( k_In.M.x / k_I
 C +       n.r , 2 ) + pow( k_In.M.y / k_In.r , 2 ) - 1.0F ;	// xo
 C +       ^2/r^2 + yo^2/r^2 - 1		 
 C    35:  	 
-C    36:  	// Ellipsengleichung e2 
+C    36:  	// Ellipsengleichung e 
 C    37:  	double	e_a00	= pow( e_In.a , -2 ) ,
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 14
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 14
 
      Interleaved Listing
 
@@ -694,7 +694,7 @@ C****************************************************************************
    CODE32:000084   6A 00                    PUSH  0
    CODE32:000086   9A 00 00 00 00R          CALL FAR PTR         pow
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 15
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 15
 
      Interleaved Listing
 
@@ -754,7 +754,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 15
    CODE32:000130   6A 00                    PUSH  0
    CODE32:000132   9A 00 00 00 00R          CALL FAR PTR         pow
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 16
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 16
 
      Interleaved Listing
 
@@ -814,7 +814,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 16
    CODE32:0001DB   2E DC 25 00 00           FSUB  CS:QWORD PTR L20002
                    00 00R                                                     
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 17
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 17
 
      Interleaved Listing
 
@@ -874,7 +874,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 17
                    FF                                                         
    CODE32:00027E   DD 85 64 FF FF           FLD   QWORD PTR [EBP-156]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 18
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 18
 
      Interleaved Listing
 
@@ -934,7 +934,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 18
    CODE32:000321   DE E1                    FSUB                              
    CODE32:000323   2E DD 05 00 00           FLD   CS:QWORD PTR L20003
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 19
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 19
 
      Interleaved Listing
 
@@ -994,7 +994,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 19
    CODE32:0003B0   B9 06 00 00 00           MOV   ECX,6
    CODE32:0003B5   FC                       CLD                               
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 20
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 20
 
      Interleaved Listing
 
@@ -1054,7 +1054,7 @@ C****************************************************************************
    CODE32:00041D   89 85 D4 FE FF           MOV   DWORD PTR [EBP-300],EAX
                    FF                                                         
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 21
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 21
 
      Interleaved Listing
 
@@ -1114,7 +1114,7 @@ C****************************************************************************
    CODE32:00049A   64 D8 4B 04              FMUL  FS:DWORD PTR [EBX+4]
    CODE32:00049E   DC 8D 78 FF FF           FMUL  QWORD PTR [EBP-136]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 22
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 22
 
      Interleaved Listing
 
@@ -1174,7 +1174,7 @@ C +       )nsta[0];
 C****************************************************************************
    CODE32:0004F2   DD 85 DC FE FF           FLD   QWORD PTR [EBP-292]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 23
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 23
 
      Interleaved Listing
 
@@ -1234,7 +1234,7 @@ C****************************************************************************
 C****************************************************************************
 C    84:  	} 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 24
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 24
 
      Interleaved Listing
 
@@ -1295,7 +1295,7 @@ C   111:  			v4	=  g_b0  * e_b1 - e_b0 * g_b1
 C +        , 
 C   112:  			v5	=  g_b0  * e_c  - e_b0 * g_c
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 25
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 25
 
      Interleaved Listing
 
@@ -1355,7 +1355,7 @@ C****************************************************************************
                    00 00R                                                     
    CODE32:000613   26 D8 4E 04              FMUL  ES:DWORD PTR [ESI+4]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 26
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 26
 
      Interleaved Listing
 
@@ -1415,7 +1415,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 26
    CODE32:0006B5   DC 4D A0                 FMUL  QWORD PTR [EBP-96]
    CODE32:0006B8   DE E9                    FSUBR                             
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 27
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 27
 
      Interleaved Listing
 
@@ -1475,7 +1475,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 27
    CODE32:00074E   8D 45 C0                 LEA   EAX,DWORD PTR [EBP-64]
    CODE32:000751   50                       PUSH  EAX
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 28
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 28
 
      Interleaved Listing
 
@@ -1536,7 +1536,7 @@ C****************************************************************************
 
 C****************************************************************************
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 29
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 29
 
      Interleaved Listing
 
@@ -1596,7 +1596,7 @@ C****************************************************************************
                    00 00                                                      
    CODE32:0007CF   16                       PUSH  SS
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 30
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 30
 
      Interleaved Listing
 
@@ -1656,7 +1656,7 @@ C   188:  				q0 = b2      - a1 * q1 - a0 *
 C +        q2; 
 C   189:  			} 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 31
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 31
 
      Interleaved Listing
 
@@ -1716,7 +1716,7 @@ C****************************************************************************
                    FF 00 00 00 00                                             
    CODE32:000842   C7 85 44 FF FF           MOV   DWORD PTR [EBP-188],0
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 32
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 32
 
      Interleaved Listing
 
@@ -1776,7 +1776,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 32
    CODE32:0008ED   C1 E0 03                 SAL   EAX,3
    CODE32:0008F0   01 E8                    ADD   EAX,EBP
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 33
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 33
 
      Interleaved Listing
 
@@ -1836,7 +1836,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 33
                    FF                                                         
    CODE32:000987   DD 9D 34 FF FF           FSTP  QWORD PTR [EBP-204]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 34
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 34
 
      Interleaved Listing
 
@@ -1896,7 +1896,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 34
                    FF                                                         
    CODE32:000A3A   DD 45 A4                 FLD   QWORD PTR [EBP-92]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 35
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 35
 
      Interleaved Listing
 
@@ -1956,7 +1956,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 35
                                   L27:
    CODE32:000AC3   83 7D FC 00              CMP   DWORD PTR [EBP-4],0
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 36
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 36
 
      Interleaved Listing
 
@@ -2016,7 +2016,7 @@ C****************************************************************************
                    FF                                                         
    CODE32:000B31   50                       PUSH  EAX
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 37
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 37
 
      Interleaved Listing
 
@@ -2076,7 +2076,7 @@ C****************************************************************************
                    FF                                                         
    CODE32:000B85   8B 4D C4                 MOV   ECX,DWORD PTR [EBP-60]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 38
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 38
 
      Interleaved Listing
 
@@ -2136,7 +2136,7 @@ C****************************************************************************
    CODE32:000BD7   C7 45 C4 00 00           MOV   DWORD PTR [EBP-60],0
                    00 00                                                      
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 39
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 39
 
      Interleaved Listing
 
@@ -2197,7 +2197,7 @@ C****************************************************************************
    CODE32:000C1A   26 DD 46 10              FLD   ES:QWORD PTR [ESI+16]
    CODE32:000C1E   DD 5D F8                 FSTP  QWORD PTR [EBP-8]
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 40
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 40
 
      Interleaved Listing
 
@@ -2257,7 +2257,7 @@ C****************************************************************************
    CODE32:000C75   DC 5D D8                 FCOMP QWORD PTR [EBP-40]
    CODE32:000C78   DF E0                    FNSTSW AX                         
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 41
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 41
 
      Interleaved Listing
 
@@ -2317,7 +2317,7 @@ C   284:  		else			// keine reelle Loesu
 C +       ng 
 C   285:  		{ 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 42
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 42
 
      Interleaved Listing
 
@@ -2377,7 +2377,7 @@ C   298:  		znst = 1;
 C   299:  		break; 
 C****************************************************************************
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 43
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 43
 
      Interleaved Listing
 
@@ -2438,7 +2438,7 @@ C****************************************************************************
                                   LF2__FRA2_dRA3_Cd  ENDP
 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 44
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 44
 
      Interleaved Listing
 
@@ -2498,7 +2498,7 @@ C****************************************************************************
    CODE32:000DAE   C4 55 08                 LES   EDX,PWORD PTR [EBP+8]
    CODE32:000DB1   01 DA                    ADD   EDX,EBX
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 45
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 45
 
      Interleaved Listing
 
@@ -2559,7 +2559,7 @@ C   336:  	if ( n > 0 ) // ...und normieren
 C   337:  		for ( int j = 0; j <= n; j++ ) 
 C****************************************************************************
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 46
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 46
 
      Interleaved Listing
 
@@ -2608,7 +2608,7 @@ C****************************************************************************
 
                                             END
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 47
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 47
 
      Offsets of Pseudo Segments
 
@@ -2624,7 +2624,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 47
      DATA                         0        0H          0        0H 
      BSS                          0        0H          0        0H 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 48
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 48
 
      Segment Sizes
 
@@ -2633,7 +2633,7 @@ CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 48
      Data Size: 		00000000H  0 (decimal) 
      Const Size:		00000000H  0 (decimal) 
 
-CAD-UL CXX386 Version: V401Z 04/15/2015 13:47:50 Page 49
+CAD-UL CXX386 Version: V401Z 04/21/2015 07:22:09 Page 49
 
      Symbols
 

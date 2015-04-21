@@ -1,26 +1,9 @@
-﻿Der Buildvorgang wurde am 15.04.2015 13:53:49 gestartet.
-     1>Projekt "C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_RAW_VS2010\RWTH_RAW_VS2010.vcxproj" auf Knoten "2", rebuild Ziel(e).
+﻿Der Buildvorgang wurde am 21.04.2015 07:10:50 gestartet.
+     1>Projekt "C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_RAW_VS2010\RWTH_RAW_VS2010.vcxproj" auf Knoten "2", build Ziel(e).
      1>InitializeBuildStatus:
          "Debug\RWTH_RAW_VS2010.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D SMP16 /D _DEBUG /D __WIN32 /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D DRR /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /Zp1 /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj/Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\RWTH_SMP.bd\source\IBF_Geometrie_tool.cpp ..\RWTH_SMP.bd\source\IBF_Schuessel_DR_pos.cpp ..\RWTH_SMP.bd\source\ibf_dw_regelung.cpp ..\RWTH_SMP.bd\source\ibf_flexibel_axial_AG_Pos.cpp ..\RWTH_SMP.bd\source\ibf_flex_axial.cpp ..\RWTH_SMP.bd\source\ibf_flex_radial.cpp ..\RWTH_SMP.bd\source\ibf_formspek.cpp ..\RWTH_SMP.bd\source\IBF_Schuessel.cpp ..\RWTH_SMP.bd\source\ibf_stuetz.cpp ..\RWTH_SMP.bd\source\IBF_Schuessel_Form.cpp ..\RWTH_SMP.bd\source\ibf_tool.cpp ..\RWTH_SMP.bd\source\IBF_Schuessel_ZR_pos.cpp ..\RWTH_SMP.bd\source\iniFile.cpp ..\RWTH_SMP.bd\source\rpw.cpp source\Win_RWTH_EXCH.cpp source\Win_Main.cpp
-         Win_Main.cpp
-         Win_RWTH_EXCH.cpp
-         rpw.cpp
-         iniFile.cpp
-         IBF_Schuessel_ZR_pos.cpp
-         ibf_tool.cpp
-         IBF_Schuessel_Form.cpp
-         ibf_stuetz.cpp
-         IBF_Schuessel.cpp
-         ibf_formspek.cpp
-         ibf_flex_radial.cpp
-         ibf_flex_axial.cpp
-         ibf_flexibel_axial_AG_Pos.cpp
-         ibf_dw_regelung.cpp
-         IBF_Schuessel_DR_pos.cpp
-         IBF_Geometrie_tool.cpp
-         Code wird generiert...
+         Alle Ausgaben sind aktuell.
        Link:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.exe" /NOLOGO /LIBPATH:C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\\RWTH_RAW_VS2010\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:LIBC.lib /MANIFEST /ManifestFile:"Debug\RWTH_RAW_VS2010.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.lib" /MACHINE:X86 obj/Debug\IBF_Geometrie_tool.obj
          obj/Debug\IBF_Schuessel_DR_pos.obj
@@ -38,14 +21,15 @@
          obj/Debug\rpw.obj
          obj/Debug\Win_RWTH_EXCH.obj
          obj/Debug\Win_Main.obj
+         LINK : C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.exe wurde nicht gefunden oder beim letzten inkrementellen Linkvorgang nicht erstellt; vollständiger Link wird durchgeführt.
          RWTH_RAW_VS2010.vcxproj -> C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.exe
        Manifest:
          C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\Debug\RWTH_RAW_VS2010.exe;#1" /manifest Debug\RWTH_RAW_VS2010.exe.intermediate.manifest
        FinalizeBuildStatus:
          Die Datei "Debug\RWTH_RAW_VS2010.unsuccessfulbuild" wird gelöscht.
          Aktualisieren des Timestamps von "Debug\RWTH_RAW_VS2010.lastbuildstate".
-     1>Die Erstellung des Projekts "C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_RAW_VS2010\RWTH_RAW_VS2010.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+     1>Die Erstellung des Projekts "C:\rm3dev\wagner\raw\RWTH_SMP\RWTH_V110\RWTH_RAW_VS2010\RWTH_RAW_VS2010.vcxproj" ist abgeschlossen, build Ziel(e).
 
 Das Erstellen war erfolgreich.
 
-Verstrichene Zeit 00:00:11.44
+Verstrichene Zeit 00:00:01.16

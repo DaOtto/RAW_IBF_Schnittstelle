@@ -68,6 +68,7 @@ var searchData=
   ['mode',['mode',['../d1/d39/struct_def___ibf___dr_r.html#ae3502bacee1eb4c1da6cd3a4bfe90e43',1,'Def_Ibf_DrR::mode()'],['../d7/db2/struct_def___r_a_w___dr_r.html#ac5364c85bb2297dfaa9641938f7f3d61',1,'Def_RAW_DrR::mode()'],['../de/df2/struct_def___i_b_f___soll___z_e_r.html#a11ecf446ce3e47de03c760af7e424e28',1,'Def_IBF_Soll_ZER::mode()']]],
   ['modus',['modus',['../d6/d64/struct_def___steuerbyte.html#ace9f0a34868e952e3b5dd4a4b4bb5b18',1,'Def_Steuerbyte']]],
   ['modus_5fag',['Modus_AG',['../de/d98/class_r_p_w.html#a4603f585a717845f9e21f8f18b5543ef',1,'RPW']]],
+  ['modus_5fdr',['Modus_DR',['../de/d98/class_r_p_w.html#a3159a6e4e2458cab634807cf65469aa9',1,'RPW']]],
   ['modus_5ffakq_5ftwst_5fflag',['modus_fakq_twst_flag',['../df/d17/struct_def___aus___onli.html#a1af0295f2c7278c1cc0c372edc43d227',1,'Def_Aus_Onli::modus_fakq_twst_flag()'],['../da/d33/struct_def___aus___onli___v7.html#ac6f7f781bfb756af26be814c53d3df4f',1,'Def_Aus_Onli_V7::modus_fakq_twst_flag()']]],
   ['momente_5fpro_5fmotor',['Momente_pro_Motor',['../d3/d2b/class_r_a_w___t___c_n_c.html#a5f6818a5189d3600f7da0c1225318ae4',1,'RAW_T_CNC']]],
   ['mr',['mr',['../d9/dd6/struct_breitung.html#ab19f05e425755df6b7f6e6b54550ec27',1,'Breitung']]],

@@ -538,6 +538,14 @@ public:
 	int Modus_AG(		struct Def_Soll_Inter			&Soll_Inter	/** [in,out] Referenz auf Parameter Struktur Def_Soll_Inter 		*/ , 
 						struct Def_IBF_Allgemein_IST	&Ist_IBF 	/** [in,out] Referenz auf Parameter Struktur Def_IBF_Allgemein_IST 	*/ , 
 						int								Auswahl     /** [in] Auswahl Axialgerüstmodus                                   */ );
+
+/** 
+ * @fn Modus_DR
+ * Legt den Betriebsmodus der Druckrollen fuer das gewählte Walzstrategieprogramm fest.
+ */
+	int Modus_DR(	Def_IBF_Allgemein_SOLL&,
+					Def_IBF_Allgemein_IST& );
+
 /**
  * @fn Kr_Geo_berechnen
  * Berechnet notwendige Kragenwalzengeometrien. Diese sind der Abstand Vorderkante
@@ -545,6 +553,7 @@ public:
  * @return TRUE, sobald alle Berechnungen durchgeführt sind. \link TRUE \endlink ist hier ein Macro.
  */
 	int Kr_Geo_berechnen(struct Def_IBF_Allgemein_IST &Ist_IBF	/** [in,out] Referenz auf Struktur vom Typ Def_IBF_Allgemein_IST */ );
+
 /**
  * @fn Kr_Geo_pruefen
  * Berechnet die Länge der unteren Kegelwalze von der reellen Spitze bis Kragenwalze.

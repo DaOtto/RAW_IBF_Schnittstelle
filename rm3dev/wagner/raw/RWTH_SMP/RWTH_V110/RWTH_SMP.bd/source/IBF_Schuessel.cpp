@@ -320,7 +320,7 @@ int IBF_Schuessel::Anfahren(struct Def_Ist_Inter			&Ist_Inter,
 			Soll_IBF.DRR_Param.DrR_E.delta_Ring			= Ist_IBF.Schuessel.StartPos.DRE_startPos;
 
 			if (max(fabs(Soll_IBF.DRR_Param.DrR_A.delta_Ring-Ist_IBF.DRR_Param.DrR_A.delta_Ring),
-					fabs(Soll_IBF.DRR_Param.DrR_E.delta_Ring-Ist_IBF.DRR_Param.DrR_E.delta_Ring)) < (Ist_IBF.Schuessel.eps * 1.0F) ) // Position erreicht ?
+					fabs(Soll_IBF.DRR_Param.DrR_E.delta_Ring-Ist_IBF.DRR_Param.DrR_E.delta_Ring)) < (Ist_IBF.Schuessel.eps * 10.0F) ) // Position erreicht ?
 			{
 				//Soll_IBF.DRR_Param.DrR_A.V_DrR				= 0.0F;
 				Soll_IBF.DRR_Param.DrR_A.act				= ACT_IBF;

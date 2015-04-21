@@ -134,14 +134,14 @@ $(document).ready(function(){initNavTree('d7/d10/_i_b_f___geometrie__tool_8cpp_s
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    <span class="keyword">const</span> <a class="code" href="../../de/da8/structkreis__t.html">kreis_t</a>&amp;      k_In ,</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                    <span class="keyword">const</span> <a class="code" href="../../d9/dee/structellipse__t.html">ellipse_t</a>&amp;    e_In )</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Ellipsengleichung e1</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Kreisgleichung k</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">double</span>  k_a00   = pow( k_In.<a class="code" href="../../de/da8/structkreis__t.html#af72a2b40c6e4ab4d7d4509f4d6b5dde6">r</a> , -2 ) ,          <span class="comment">// 1/r^2</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            k_a11   = pow( k_In.<a class="code" href="../../de/da8/structkreis__t.html#af72a2b40c6e4ab4d7d4509f4d6b5dde6">r</a> , -2 ) ,          <span class="comment">// 1/r^2        </span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            k_b0    = -2.0F * k_In.<a class="code" href="../../de/da8/structkreis__t.html#aa847c7115e4714c4f4b77b535b66deec">M</a>.<a class="code" href="../../d3/d6e/structpunkt2_d__t.html#a44ea1eba781f629f695332d4528710b3">x</a> * k_a00 ,    <span class="comment">// -2xo/r^2</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            k_b1    = -2.0F * k_In.<a class="code" href="../../de/da8/structkreis__t.html#aa847c7115e4714c4f4b77b535b66deec">M</a>.<a class="code" href="../../d3/d6e/structpunkt2_d__t.html#a2de677593ef79654726a1426211b64c5">y</a> * k_a11 ,    <span class="comment">// -2yo/r^2</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            k_c     = pow( k_In.<a class="code" href="../../de/da8/structkreis__t.html#aa847c7115e4714c4f4b77b535b66deec">M</a>.<a class="code" href="../../d3/d6e/structpunkt2_d__t.html#a44ea1eba781f629f695332d4528710b3">x</a> / k_In.<a class="code" href="../../de/da8/structkreis__t.html#af72a2b40c6e4ab4d7d4509f4d6b5dde6">r</a> , 2 ) + pow( k_In.<a class="code" href="../../de/da8/structkreis__t.html#aa847c7115e4714c4f4b77b535b66deec">M</a>.<a class="code" href="../../d3/d6e/structpunkt2_d__t.html#a2de677593ef79654726a1426211b64c5">y</a> / k_In.<a class="code" href="../../de/da8/structkreis__t.html#af72a2b40c6e4ab4d7d4509f4d6b5dde6">r</a> , 2 ) - 1.0F ;  <span class="comment">// xo^2/r^2 + yo^2/r^2 - 1      </span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Ellipsengleichung e2</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Ellipsengleichung e</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">double</span>  e_a00   = pow( e_In.<a class="code" href="../../d9/dee/structellipse__t.html#a88703a62650cc7cfe2abbd39f39b07b1">a</a> , -2 ) ,          <span class="comment">// 1/a^2</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            e_a11   = pow( e_In.<a class="code" href="../../d9/dee/structellipse__t.html#a523fd126b1aed42922c9563607f91751">b</a> , -2 ) ,          <span class="comment">// 1/b^2    </span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            e_b0    = -2.0F * e_In.<a class="code" href="../../d9/dee/structellipse__t.html#a12c1379b27ff6e00c23ca70286e8606f">M</a>.<a class="code" href="../../d3/d6e/structpunkt2_d__t.html#a44ea1eba781f629f695332d4528710b3">x</a> * e_a00 ,    <span class="comment">// -2xo/a^2</span></div>
@@ -476,7 +476,7 @@ $(document).ready(function(){initNavTree('d7/d10/_i_b_f___geometrie__tool_8cpp_s
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_8d1e6f357cf0ff985a368648cd2331d5.html">RWTH_SMP.bd</a></li><li class="navelem"><a class="el" href="../../dir_f9277b23b0ca65ee783fd3eabe970823.html">source</a></li><li class="navelem"><a class="el" href="../../d7/d10/_i_b_f___geometrie__tool_8cpp.html">IBF_Geometrie_tool.cpp</a></li>
-    <li class="footer">Erzeugt am Mit Apr 15 2015 13:56:11 für RWTH_SMP von
+    <li class="footer">Erzeugt am Die Apr 21 2015 07:26:52 für RWTH_SMP von
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

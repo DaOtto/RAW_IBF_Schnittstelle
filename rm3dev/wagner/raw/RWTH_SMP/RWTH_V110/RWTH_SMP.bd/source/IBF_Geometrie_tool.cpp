@@ -26,14 +26,14 @@ int Schnittpunkt(		  P4&			SPOut,
 					const kreis_t&		k_In ,
 					const ellipse_t&	e_In )
 {
-	// Ellipsengleichung e1
+	// Kreisgleichung k
 	double	k_a00	= pow( k_In.r , -2 ) ,			// 1/r^2
 			k_a11	= pow( k_In.r , -2 ) ,			// 1/r^2		
 			k_b0	= -2.0F * k_In.M.x * k_a00 ,	// -2xo/r^2
 			k_b1	= -2.0F * k_In.M.y * k_a11 ,	// -2yo/r^2
 			k_c		= pow( k_In.M.x / k_In.r , 2 ) + pow( k_In.M.y / k_In.r , 2 ) - 1.0F ;	// xo^2/r^2 + yo^2/r^2 - 1		
 	
-	// Ellipsengleichung e2
+	// Ellipsengleichung e
 	double	e_a00	= pow( e_In.a , -2 ) ,			// 1/a^2
 			e_a11	= pow( e_In.b , -2 ) ,			// 1/b^2	
 			e_b0	= -2.0F * e_In.M.x * e_a00 ,	// -2xo/a^2

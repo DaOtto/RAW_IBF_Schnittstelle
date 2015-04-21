@@ -1,4 +1,0 @@
-open 193.1.40.23
-root
-cd rm3run
-binary

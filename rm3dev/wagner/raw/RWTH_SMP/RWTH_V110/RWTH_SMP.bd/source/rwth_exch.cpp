@@ -73,14 +73,14 @@ RWTH_EXCH::RWTH_EXCH(void)
 	//----- Ini-Datei darf nicht veraendert werden, ohne dass diese Aenderungen -----
 	//----- hier im Quelltext uebernommen werden!                               -----
 	//-------------------------------------------------------------------------------
-	MyLogFile << "Gleich soll IBF_Data geöffnet werden...." << endl;
+	MyLogFile << "Gleich soll IBF_Data geoeffnet werden...." << endl;
 	if (!rpw->IBFPARA_auslesen(Ist_IBF_Ini, Soll_IBF_Ini, Ist_Inter_Ini))
 	{
-		MyLogFile << "konnte IBF_Data nicht öffnen" << endl;
+		MyLogFile << "konnte IBF_Data nicht oeffnen" << endl;
 	}
 	else
 	{
-		MyLogFile << "konnte IBF_Data öffnen" << endl;
+		MyLogFile << "konnte IBF_Data oeffnen" << endl;
 	}
 
 	ctime(&end);   // Stoppen des Timers, mit dem die Zeit eines Funktionsaufrufes gemessen wurde
@@ -95,10 +95,13 @@ RWTH_EXCH::RWTH_EXCH(void)
 	// Funktionsaufrufe: Modus des Axialgeruestes
 	rpw->Modus_AG(Soll_Inter_Ini, Ist_IBF_Ini, Ist_IBF_Ini.Flag.Axial_Radialwalzen);
 
+	// Modus der Druckrollen /D.O. 20.4.2015/
+	rpw->Modus_DR( Soll_IBF_Ini , Ist_IBF_Ini );
+
 	if ((Ist_IBF_Ini.Flag.Axial_Radialwalzen == 1)||(Ist_IBF_Ini.Flag.Axial_Radialwalzen == 2))// Radialprof. od Formenspek.
 	{
 		Soll_IBF_Ini.min_RS_Pos  = 10.0F; // minimale Wanddickeposition, die erreicht werden darf. Wert ist von Carwin-Vorgabe unabhaengig
-		Soll_IBF_Ini.min_ASO_Pos = 85.0F; // min. Ringhoehe, wenn mit Tastrollenerhoehung gearbeitet wird  ||107.0F -> Radialprofieren Aufsatz 1
+		Soll_IBF_Ini.min_ASO_Pos = 85.0F; // min. Ringhoehe, wenn mit Tastrollenerhoehung gearbeitet wird  ||107.0F -> Radialprofilieren Aufsatz 1
 	}
 	else
 		Soll_IBF_Ini.min_ASO_Pos = 25.0F;
@@ -106,15 +109,15 @@ RWTH_EXCH::RWTH_EXCH(void)
 	Ist_IBF_Ini.Axial.Biss.Anzahl_zweite_Ebene = Ist_IBF_Ini.Axial.Biss.Anzahl + Ist_IBF_Ini.Axial.Biss.Anzahl;
 
 	MyLogFile << "Allgemeine Information" << endl;
-	MyLogFile << "System hat " << Ist_Inter_Ini.Systemzeit * 1000.0 << " Sekunden benötigt, um Datei einzulesen" << endl;
+	MyLogFile << "System hat " << Ist_Inter_Ini.Systemzeit * 1000.0 << " Sekunden benoetigt, um Datei einzulesen" << endl;
 	MyLogFile << "Minimale IBF-Wandposition (kann von der CARWIN-Wanddicke abweichen) " << Soll_IBF_Ini.min_RS_Pos << endl;
-	MyLogFile << "Minimale Ringhöhe                                                   " << Soll_IBF_Ini.min_ASO_Pos << endl;
+	MyLogFile << "Minimale Ringhoehe                                                   " << Soll_IBF_Ini.min_ASO_Pos << endl;
 	MyLogFile << endl;
 	MyLogFile << endl;
 	
 	// Walzstrategie
 
-	MyLogFile << "Gew�hlte Walzstrategie :  " << Ist_IBF_Ini.Flag.Axial_Radialwalzen << endl << endl;
+	MyLogFile << "Gewaehlte Walzstrategie :  " << Ist_IBF_Ini.Flag.Axial_Radialwalzen << endl << endl;
 	//Kontrolle der eingelesenen IBF-Werte in LoggerFile
 
 	MyLogFile << "Folgende Werte wurden aus IBF_Data gelesen und wie folgt zugeordnet" << endl;
@@ -142,17 +145,17 @@ RWTH_EXCH::RWTH_EXCH(void)
 	// Schalter: Walzen mit Kraftsteuerung [1], Positionssteuereung [0]
 	MyLogFile << "Dornwalze in Kraft beim Anwalzen [1=AN, 0=AUS]" << ":" << " " << Ist_IBF_Ini.Flag.rs_kraftanfahren_aktiv << endl;
 	if (Ist_IBF_Ini.Flag.rs_kraftanfahren_aktiv == 0)
-		MyLogFile << "Radiales Anwalzen in Kraft wurde nicht vorgewählt " << endl;
+		MyLogFile << "Radiales Anwalzen in Kraft wurde nicht vorgewaehlt " << endl;
 	else
-		MyLogFile << "Radiales Anwalzen mit der Kraft FR" << "= " << " " << Soll_IBF_Ini.RS_Kraft_Anfahren << " vorgewählt" << endl;
+		MyLogFile << "Radiales Anwalzen mit der Kraft FR" << "= " << " " << Soll_IBF_Ini.RS_Kraft_Anfahren << " vorgewaehlt" << endl;
 
 	MyLogFile << endl;
 
 	MyLogFile << "Kegelwalze in Kraft beim Anwalzen [1=AN, 0=AUS]" << ":" << " " << Ist_IBF_Ini.Flag.as_kraftanfahren_aktiv << endl;
 	if (Ist_IBF_Ini.Flag.as_kraftanfahren_aktiv == 0)
-		MyLogFile << "Axiales Anwalzen in Kraft wurde nicht vorgewählt" << endl;
+		MyLogFile << "Axiales Anwalzen in Kraft wurde nicht vorgewaehlt" << endl;
 	else
-		MyLogFile << "Axiales Anwalzen mit der Kraft FA" << "= " << " " << Soll_IBF_Ini.AS_Kraft_Anfahren << " vorgewählt" << endl;
+		MyLogFile << "Axiales Anwalzen mit der Kraft FA" << "= " << " " << Soll_IBF_Ini.AS_Kraft_Anfahren << " vorgewaehlt" << endl;
 
 	MyLogFile << endl << endl << endl;
 	
@@ -173,8 +176,8 @@ RWTH_EXCH::RWTH_EXCH(void)
 			MyLogFile << "Vorgabe des Epsilon " << "= " << Soll_IBF_Ini.Radial.eps_Vorschub << endl;
 			break;
 		case 2:
-			MyLogFile << "Walzspaltverhälnis (Schalterstellung = 2)" << endl;
-			MyLogFile << "Für Cr wurde " << Soll_IBF_Ini.Radial.Walzspalt_Cr << " vorgegeben " << endl;
+			MyLogFile << "Walzspaltverhaelnis (Schalterstellung = 2)" << endl;
+			MyLogFile << "Fuer Cr wurde " << Soll_IBF_Ini.Radial.Walzspalt_Cr << " vorgegeben " << endl;
 			break;
 		}
 
@@ -185,10 +188,10 @@ RWTH_EXCH::RWTH_EXCH(void)
 		if (Soll_IBF_Ini.Radial.delta_s != 0.0F && Soll_IBF_Ini.Radial.Stegstaerke != 0.0F)
 		{
 			MyLogFile << endl;
-			MyLogFile << "ACHTUNG !!!  Vorgabe von Soll-Stegstärke und Delta_s unzulässig! " <<	"=> Delta_s wurde Null gesetzt " << endl;
+			MyLogFile << "ACHTUNG !!!  Vorgabe von Soll-Stegstaerke und Delta_s unzulaessig! " <<	"=> Delta_s wurde Null gesetzt " << endl;
 			Soll_IBF_Ini.Radial.delta_s = 0.0;
 
-			MyLogFile << "Soll-Stegstärke               " << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
+			MyLogFile << "Soll-Stegstaerke              " << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
 			MyLogFile << "Delta_s                       " << "= " << Soll_IBF_Ini.Radial.delta_s << endl;
 			MyLogFile << endl;
 		}
@@ -196,25 +199,25 @@ RWTH_EXCH::RWTH_EXCH(void)
 		else if (Soll_IBF_Ini.Radial.delta_s == 0.0F && Soll_IBF_Ini.Radial.Stegstaerke == 0.0F)
 		{
 			MyLogFile << endl;
-			MyLogFile << "ACHTUNG !!!  Soll-Stegstärke und Delta_s beide NULL ist unzulässig! " << endl;
+			MyLogFile << "ACHTUNG !!!  Soll-Stegstaerke und Delta_s beide NULL ist unzulaessig! " << endl;
 			Soll_IBF_Ini.Radial.delta_s = 0.0;
 			Soll_IBF_Ini.Radial.Stegstaerke = 40.0F;
 
-			MyLogFile << "Soll-Stegstärke (DEFAULT-Wert)" << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
-			MyLogFile << "Delta_s                       " << "= " << Soll_IBF_Ini.Radial.delta_s << endl;
+			MyLogFile << "Soll-Stegstaerke (DEFAULT-Wert)" << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
+			MyLogFile << "Delta_s                        " << "= " << Soll_IBF_Ini.Radial.delta_s << endl;
 			MyLogFile << endl;
 		}
 		else
 		{
-			MyLogFile << "Soll-Stegstärke               " << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
-			MyLogFile << "Delta_s                       " << "= " << Soll_IBF_Ini.Radial.delta_s << endl;
+			MyLogFile << "Soll-Stegstaerke               " << "= " << Soll_IBF_Ini.Radial.Stegstaerke << endl;
+			MyLogFile << "Delta_s                        " << "= " << Soll_IBF_Ini.Radial.delta_s << endl;
 		}
 
 		MyLogFile << endl;
 		MyLogFile << endl;
 		MyLogFile << "Anzahl der Umdrehungen in der Rundungsphase" << "= " << Soll_IBF_Ini.Radial.Umdrehungen << endl;
 		MyLogFile << endl;
-		MyLogFile << "Rohlingshöhe" << "= " << Soll_IBF_Ini.Radial.Rohlinghoehe << endl;
+		MyLogFile << "Rohlingshoehe" << "= " << Soll_IBF_Ini.Radial.Rohlinghoehe << endl;
 		MyLogFile << endl;
 		MyLogFile << "Vorschubgeschwindigkeit Axialschlitten (nur im case 17)" << "= " << Soll_IBF_Ini.Radial.Vorschubgeschw_ASO << endl;
 		MyLogFile << endl;
@@ -240,13 +243,13 @@ RWTH_EXCH::RWTH_EXCH(void)
 			MyLogFile << i + 1 << ". Profiliertiefe                      " << "= " << Ist_IBF_Ini.Axial.Pr_Tiefe[i] << endl;
 		}
 		MyLogFile << endl;
-		MyLogFile << " Minimale Walzhöhe ist vorgegeben mit" << "= " << Soll_IBF_Ini.min_ASO_Pos << endl;
+		MyLogFile << " Minimale Walzhoehe ist vorgegeben mit" << "= " << Soll_IBF_Ini.min_ASO_Pos << endl;
 		MyLogFile << " Soll_Inter.ag_mode" << "= " << Soll_Inter_Ini.ag_mode << endl;
 	}
 
 	if (Ist_IBF_Ini.Axial.Turbine.Turbinenscheibe == 1)
 	{
-		MyLogFile << "Strategie Turbinenscheibe vorgewählt" << endl;
+		MyLogFile << "Strategie Turbinenscheibe vorgewaehlt" << endl;
 		MyLogFile << endl;
 		if (Ist_IBF_Ini.Flag.Bissverhaeltnis == 1)
 		{
@@ -267,21 +270,21 @@ RWTH_EXCH::RWTH_EXCH(void)
 		}
 		else
 		{
-			MyLogFile << "ACHTUNG !!! Biss nicht vorgewählt !!!" << endl;
+			MyLogFile << "ACHTUNG !!! Biss nicht vorgewaehlt !!!" << endl;
 		}
 	}
 
 	MyLogFile << endl;
 	if (Ist_IBF_Ini.Flag.DA_Jenkouk_DW_Regelung == 1)
 	{
-		MyLogFile << "***!!! DA-Dornwalzenregelung vorgewählt !!!***" << endl;
+		MyLogFile << "***!!! DA-Dornwalzenregelung vorgewaehlt !!!***" << endl;
 		if (Ist_IBF_Ini.Flag.DA_Jenkouk_Messen_ohne_Fahren != 0)
 		{
 			MyLogFile << "Es wird gemessen und die Dornwalze (idealerweise) verfahren" << endl;
 		}
 		else
 			MyLogFile << "Es wird NUR gemessen" << endl;
-			MyLogFile << "Nachfolgende Werte wurden eingelsen" << endl;
+			MyLogFile << "Nachfolgende Werte wurden eingelesen" << endl;
 			MyLogFile << "Abstand C :" << Ist_IBF_Ini.DW_Regelung.Abstand_C << endl;
 			MyLogFile << "Nullpunkt :" << Ist_IBF_Ini.DW_Regelung.Messwert_Nullpunkt << endl;
 			MyLogFile << "TR-Radius :" << Ist_IBF_Ini.DW_Regelung.Tastrollen_Radius << endl;
@@ -292,11 +295,11 @@ RWTH_EXCH::RWTH_EXCH(void)
 	
 	if (Ist_IBF_Ini.Test.Flag == 1)
 	{
-		MyLogFile << "***IBF - Testwalzungen vorgewählt !!!***" << endl;
+		MyLogFile << "***IBF - Testwalzungen vorgewaehlt !!!***" << endl;
 		MyLogFile << " Simulierter Ringdurchmesser                   " << "= " << Ist_IBF_Ini.Test.Ring_AD << endl;
 	}
 	
-	/* Bissverhältnis*/
+	/* Bissverhaeltnis*/
 	if (Ist_IBF_Ini.Flag.Bissverhaeltnis == 1)
 	{
 		Soll_IBF_Ini.Axial.AGR_Pr[0] = Ist_IBF_Ini.Axial.AGR_Pr[0]; // Notwendig wenn mehrere Bisse gewalzt werden, damit die AG nach Positionierung per Biss nicht auf ersten Wert 'zurückfährt'
@@ -337,7 +340,7 @@ RWTH_EXCH::RWTH_EXCH(void)
 		}
 		else
 		{
-			Sema_PowerSendID = Entry.id;    //Send gilt für die CNC Seite, TRT empfängt!
+			Sema_PowerSendID = Entry.id;    //Send gilt fuer die CNC Seite, TRT empfaengt!
 
 			if (RmGetEntry(RM_SECOND(1), Powercon_RecSema, &Entry) == RM_GOT_TIMEOUT)
 			{
@@ -347,7 +350,7 @@ RWTH_EXCH::RWTH_EXCH(void)
 			}
 			else
 			{
-				Sema_PowerRecID = Entry.id; //Receive gilt für die CNC Seite, TRT sendet!
+				Sema_PowerRecID = Entry.id; //Receive gilt fuer die CNC Seite, TRT sendet!
 
 				if (RmReceiveMail(RM_SECOND(1), TRT_Mail_id, &TRT_Mail) == RM_GOT_TIMEOUT)
 				{
@@ -453,8 +456,8 @@ int RWTH_EXCH::get_puff(void)
  * durchlaufen wird. Der zweite Teil wird nur dann durchlaufen, wenn der erste
  * Teil bereits durchlaufen wurde.
  *
- * Im ersten Teil werden Vorbereitungen für das Walzen getroffen. Hier wird
- * festgelegt, welcher Pfad in der RPW::Main() für die
+ * Im ersten Teil werden Vorbereitungen fuer das Walzen getroffen. Hier wird
+ * festgelegt, welcher Pfad in der RPW::Main() fuer die
  * Walzvorbereitung verwendet wird. Dies wird mit Hilfe der Variable 
  * Def_IBF_Allgemein_SOLL.InitAchse festgelegt.
  */
@@ -597,8 +600,8 @@ int RWTH_EXCH::Main_Control(void)
 		aus_onli.Ibf_nominal.DRR_E_mode		= Soll_Inter.DRR_Param.DrR_E.mode;
 		aus_onli.Ibf_nominal.Soll_DRR_A_V	= Soll_Inter.DRR_Param.DrR_A.V;
 		aus_onli.Ibf_nominal.Soll_DRR_E_V	= Soll_Inter.DRR_Param.DrR_E.V;
-		aus_onli.Ibf_nominal.Soll_DRR_A_Pos	= Soll_Inter.DRR_Param.DrR_A.Pos;
-		aus_onli.Ibf_nominal.Soll_DRR_E_Pos	= Soll_Inter.DRR_Param.DrR_E.Pos;
+		aus_onli.Ibf_nominal.Soll_DRR_A_Pos	= 940.9F - Soll_Inter.DRR_Param.DrR_A.Pos;
+		aus_onli.Ibf_nominal.Soll_DRR_E_Pos	= 940.9F - Soll_Inter.DRR_Param.DrR_E.Pos;
 		aus_onli.Ibf_nominal.Soll_FDRR_A	= Soll_Inter.DRR_Param.DrR_A.Kraft;
 		aus_onli.Ibf_nominal.Soll_FDRR_E	= Soll_Inter.DRR_Param.DrR_E.Kraft;
 	}

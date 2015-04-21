@@ -221,8 +221,8 @@ int RPW::Istwerte_RAW(	const	Def_Ein_Onli	&Ein_Onli,
 	//				Ein- bzw. Auslaufseite bezieht sich IMMER auf den Radial-WS
 	//				Der Ring rotiert gegen den Uhrzeigersinn (von oben betrachtet)
 	//Uebergabe der aktuellen Druckrollenparameter an Ist_Inter
-	Ist_Inter.DRR_Param.DrR_A.Pos = Ein_Onli.Ibf_actual.Ist_DRR_A;	/*Aktuelle Druckrollenposition 'Auslauf' [mm]*/
-	Ist_Inter.DRR_Param.DrR_E.Pos = Ein_Onli.Ibf_actual.Ist_DRR_E;	/*Aktuelle Druckrollenposition 'Einlauf' [mm]*/
+	Ist_Inter.DRR_Param.DrR_A.Pos = 940.9F - Ein_Onli.Ibf_actual.Ist_DRR_A;	/*Aktuelle Druckrollenposition 'Auslauf' [mm]*/
+	Ist_Inter.DRR_Param.DrR_E.Pos = 940.9F - Ein_Onli.Ibf_actual.Ist_DRR_E;	/*Aktuelle Druckrollenposition 'Einlauf' [mm]*/
 	Ist_Inter.DRR_Param.DrR_A.Kraft	= Ein_Onli.Ibf_actual.F_DRR_A;	/*[N]*/
 	Ist_Inter.DRR_Param.DrR_E.Kraft	= Ein_Onli.Ibf_actual.F_DRR_E;	/*[N]*/
 	
@@ -1473,6 +1473,27 @@ int RPW::Modus_AG(struct Def_Soll_Inter& Soll_Inter, struct Def_IBF_Allgemein_IS
 
 }
 
+int RPW::Modus_DR( Def_IBF_Allgemein_SOLL& Soll_IBF , Def_IBF_Allgemein_IST& Ist_IBF )
+{
+	if(Ist_IBF.Flag.Axial_Radialwalzen == 3)
+	{
+		// Druckrolle Auslaufseite (Weg)
+		Soll_IBF.DRR_Param.DrR_A.Kraft		= Ist_IBF.Schuessel.F_Grenz_DrR; // Vorgabe durch 'IBF_Data.ini' [N]
+		Soll_IBF.DRR_Param.DrR_A.delta_Ring = 200.0F; // Sollabstand vom Ring [mm]
+		Soll_IBF.DRR_Param.DrR_A.V_DrR		= 150.0F; // [mm/s]
+		Soll_IBF.DRR_Param.DrR_A.act		= 0x0001; // Steuerung durch IBF
+		Soll_IBF.DRR_Param.DrR_A.mode		= 0x0004; // (WEG)
+
+		// Druckrolle Einlaufseite (Kraft)
+		Soll_IBF.DRR_Param.DrR_E.Kraft		= Ist_IBF.Schuessel.F_Soll_DrR; // Vorgabe durch 'IBF_Data.ini' [N]
+		Soll_IBF.DRR_Param.DrR_E.delta_Ring = 200.0F; // Sollabstand vom Ring [mm]
+		Soll_IBF.DRR_Param.DrR_E.V_DrR		= 150.0F; // [mm/s]
+		Soll_IBF.DRR_Param.DrR_E.act		= 0x0001; // Steuerung durch IBF
+		Soll_IBF.DRR_Param.DrR_E.mode		= 0x0000; // (Kraft)
+	}
+
+	return 0;
+}
 /*--------------------------------------------------------------------------------------*/
 /*                                                                                      */
 /*                  Funktionen für Programmmodul Axialprofilieren                       */
